@@ -8,6 +8,9 @@ build
 eggs
 parts
 bin
+lib
+local
+include
 var
 sdist
 develop-eggs
@@ -25,3 +28,12 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+
+#WingIDE
+*.wpr
+*.wpu
+
+#Sphinx
+.buildinfo
+_doctrees
+doctrees
