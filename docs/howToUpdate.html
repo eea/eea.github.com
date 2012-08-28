@@ -27,7 +27,7 @@
             <script type="text/javascript" src="../_static/doctools.js"></script>
             <script type="text/javascript" src="../_static/bootstrap-dropdown.js"></script>
         <link rel="top" title="EEA 6.0 documentation" href="../index.html"/>
-            <link rel="prev" title="EEA documentation" href="../index.html"/> 
+            <link rel="prev" title="EEA jQuery" href="eea.jquery/index.html"/> 
     <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
     
 </head>
@@ -46,8 +46,8 @@
                        title="General Index" accesskey="I">index</a>
                 </li>
                 <li>
-                    <a href="../index.html"
-                       title="EEA documentation" accesskey="P">previous</a>
+                    <a href="eea.jquery/index.html"
+                       title="EEA jQuery" accesskey="P">previous</a>
                 </li> 
         </ul>
     </div>
@@ -113,51 +113,78 @@
 <p>This page is created using Sphinx. In order to update it I would advise you
 to head to <a class="reference external" href="http://sphinx.pocoo.org">http://sphinx.pocoo.org</a> and get familiar with Sphinx and
 reStructeredText.</p>
-<ol class="arabic simple">
-<li>Clone <a class="reference external" href="http://github.com/eea/eea.github.com">eea.github.com</a> repository</li>
-</ol>
-<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> git clone git@github.com:eea/eea.github.com.git
+<div class="section" id="update-your-zc-buildout-cfg-file">
+<h2>1. Update your zc.buildout .cfg file<a class="headerlink" href="#update-your-zc-buildout-cfg-file" title="Permalink to this headline">¶</a></h2>
+<p>Add the following config to your zc.buildout .cfg file (see
+<a class="reference external" href="https://svn.eionet.europa.eu/repositories/Zope/trunk/www.eea.europa.eu/trunk/hudson.cfg">hudson.cfg</a> for a more updated version of this snippet)</p>
+<div class="highlight-console"><div class="highlight"><pre><span class="go">parts +=</span>
+<span class="go">  sphinx</span>
+<span class="go">  sphinx-makefile</span>
+
+<span class="go">[sphinx]</span>
+<span class="go">recipe = collective.recipe.sphinxbuilder</span>
+<span class="go">source = ${buildout:directory}/src/eea.github.com/src</span>
+<span class="go">build = ${buildout:directory}/src/eea.github.com</span>
+<span class="go">interpreter = ${buildout:directory}/bin/zopepy</span>
+<span class="go">eggs =</span>
+<span class="go">  ${buildout:eggs}</span>
+<span class="go">  eea.github.com</span>
+
+<span class="go">[sphinx-makefile]</span>
+<span class="go">recipe = plone.recipe.command</span>
+<span class="go">command = sed -i -e &#39;s/\/html$//g&#39; ${buildout:directory}/src/eea.github.com/Makefile</span>
+<span class="go">update-command = sed -i -e &#39;s/\/html$//g&#39; ${buildout:directory}/src/eea.github.com/Makefile</span>
+
+<span class="go">[sources]</span>
+<span class="go">eea.github.com = git https://github.com/eea/eea.github.com.git pushurl=git@github.com:eea/eea.github.com.git</span>
+
+<span class="go">[versions]</span>
+<span class="go">Sphinx = 1.1.3</span>
+<span class="go">docutils = 0.9.1</span>
 </pre></div>
 </div>
-<ol class="arabic simple" start="2">
-<li>Run buildout</li>
-</ol>
-<p>Source is located in <tt class="docutils literal"><span class="pre">src</span></tt> directory.</p>
-<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> <span class="nb">cd </span>src
-<span class="go">src/ $ virtualenv --no-site-packages .</span>
-<span class="go">src/ $ source bin/activate</span>
-<span class="go">src/ $ pip install Sphinx</span>
-<span class="go">src/ $ source bin/activate</span>
+</div>
+<div class="section" id="run-buildout">
+<h2>2. Run buildout<a class="headerlink" href="#run-buildout" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> <span class="nb">cd</span> /path/to/www.eea.europa.eu
+<span class="gp">$</span> bin/develop rb
+<span class="gp">$</span> bin/sphinx
 </pre></div>
 </div>
 <p>This will install all needed. Now its time for you to edit <tt class="docutils literal"><span class="pre">.rst</span></tt> files.</p>
-<ol class="arabic simple" start="3">
-<li>Generate html</li>
-</ol>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> <span class="nb">cd</span> /path/to/www.eea.europa.eu/src/eea.github.com/src
+<span class="gp">$</span> vim index.rst
+<span class="gp">$</span> vim docs/.../index.rst
+</pre></div>
+</div>
+</div>
+<div class="section" id="generate-html">
+<h2>3. Generate html<a class="headerlink" href="#generate-html" title="Permalink to this headline">¶</a></h2>
 <p>After editing <tt class="docutils literal"><span class="pre">.rst</span></tt> files you need to &#8220;compile&#8221; html.</p>
 <p><strong>IMPORTANT</strong>
 Make sure site looks nice when rendered. It will be compiled in root of
 package.</p>
-<div class="highlight-console"><div class="highlight"><pre><span class="go">src/ $ make html</span>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> <span class="nb">cd</span> /path/to/www.eea.europa.eu
+<span class="gp">$</span> bin/sphinx
 </pre></div>
 </div>
-<ol class="arabic simple" start="4">
-<li>Commit changes</li>
-</ol>
+</div>
+<div class="section" id="commit-changes">
+<h2>4. Commit changes<a class="headerlink" href="#commit-changes" title="Permalink to this headline">¶</a></h2>
 <p>For nice history please commit changes to <tt class="docutils literal"><span class="pre">.rst</span></tt> files separately then
 changes to compiled site.</p>
-<div class="highlight-console"><div class="highlight"><pre><span class="go">src/ $ git commit -a -m &quot;Some very important changes&quot;</span>
-<span class="go">src/ $ cd ..</span>
-<span class="gp">$</span> git commit -a -m <span class="s2">&quot;Upload up html&quot;</span>
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> <span class="nb">cd</span> /path/to/www.eea.europa.eu/src/eea.github.com
+<span class="gp">$</span> git commit -a -m <span class="s2">&quot;Some very important changes&quot;</span>
 </pre></div>
 </div>
-<ol class="arabic simple" start="5">
-<li>Don&#8217;t forget to push</li>
-</ol>
+</div>
+<div class="section" id="don-t-forget-to-push">
+<h2>5. Don&#8217;t forget to push<a class="headerlink" href="#don-t-forget-to-push" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> git push origin master
 </pre></div>
 </div>
 <p>And that&#8217;s all folks...</p>
+</div>
 </div>
 
 
@@ -170,9 +197,21 @@ changes to compiled site.</p>
                     
         <div class="sphinxsidebar">
             <div class="sphinxsidebarwrapper">
+  <h3><a href="../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">How to update this page</a><ul>
+<li><a class="reference internal" href="#update-your-zc-buildout-cfg-file">1. Update your zc.buildout .cfg file</a></li>
+<li><a class="reference internal" href="#run-buildout">2. Run buildout</a></li>
+<li><a class="reference internal" href="#generate-html">3. Generate html</a></li>
+<li><a class="reference internal" href="#commit-changes">4. Commit changes</a></li>
+<li><a class="reference internal" href="#don-t-forget-to-push">5. Don&#8217;t forget to push</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
-  <p class="topless"><a href="../index.html"
-                        title="previous chapter">EEA documentation</a></p>
+  <p class="topless"><a href="eea.jquery/index.html"
+                        title="previous chapter">EEA jQuery</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="../_sources/docs/howToUpdate.txt"
