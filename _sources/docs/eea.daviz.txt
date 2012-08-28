@@ -1,0 +1,7 @@
+EEA DaViz documentation
+=======================
+
+Contents:
+
+.. toctree::
+   :maxdepth: 2
