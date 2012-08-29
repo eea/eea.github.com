@@ -3,36 +3,41 @@ Getting started with EEA packages
 
 .. container:: span9
 
-  .. container:: span4
+  .. container:: step-nav span4
 
-    .. container:: lead
+    .. toctree::
+      :maxdepth: 1
 
-      `EEA Daviz`_
+      docs/eea.daviz/index
 
-    The first Semantic web data visualization tool for Plone.
+    The first Semantic web data visualization tool for Plone
 
-  .. container:: span4
+  .. container:: step-nav span4
 
-    .. container:: lead
+    .. toctree::
+      :maxdepth: 1
 
-      `EEA Tags`_
+      docs/eea.tags/index
 
-    EEA Tags is a Google+/Facebook like replacement for the Plone keywords widget.
+    EEA Tags is a Google+/Facebook like replacement for the Plone keywords
+    widget.
 
-  .. container:: span4
+  .. container:: step-nav span4
 
-    .. container:: lead
+    .. toctree::
+      :maxdepth: 1
 
-      `EEA jQuery`_
+      docs/eea.jquery/index
 
-    EEA jQuery registers jQuery JS library and a collection of jQuery plugins as
-    Zope 3 browser resources.
+    EEA jQuery registers a collection of jQuery plugins as Zope 3
+    browser resources.
 
-  .. container:: span4
+  .. container:: step-nav span4
 
-    .. container:: lead
+    .. toctree::
+      :maxdepth: 1
 
-      `EEA Faceted Navigation`_
+      docs/eea.facetednavigation/index
 
     EEA Faceted Navigation is a very powerful interface to improve search
     within large collections of items.
@@ -52,8 +57,3 @@ Indices and tables
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
-
-.. _`EEA Daviz`: docs/eea.daviz/index.html
-.. _`EEA Tags`: docs/eea.tags/index.html
-.. _`EEA Faceted Navigation`: docs/eea.facetednavigation/index.html
-.. _`EEA jQuery`: docs/eea.jquery/index.html
