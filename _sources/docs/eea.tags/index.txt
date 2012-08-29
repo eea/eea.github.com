@@ -1,8 +1,1 @@
-EEA Tags
-========
-EEA Tags is something
-
-Contents:
-
-.. toctree::
-   :maxdepth: 2
+.. include:: ../../../../eea.tags/README.txt

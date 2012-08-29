@@ -1,7 +1,1 @@
-EEA DaViz
-=========
-
-Contents:
-
-.. toctree::
-   :maxdepth: 2
+.. include:: ../../../../eea.daviz/README.txt

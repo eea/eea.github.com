@@ -1,7 +1,1 @@
-EEA jQuery
-==========
-
-Contents:
-
-.. toctree::
-   :maxdepth: 2
+.. include:: ../../../../eea.jquery/README.txt

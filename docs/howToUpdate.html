@@ -27,7 +27,7 @@
             <script type="text/javascript" src="../_static/doctools.js"></script>
             <script type="text/javascript" src="../_static/bootstrap-dropdown.js"></script>
         <link rel="top" title="EEA 6.0 documentation" href="../index.html"/>
-            <link rel="prev" title="EEA jQuery" href="eea.jquery/index.html"/> 
+            <link rel="prev" title="Getting started with EEA packages" href="../index.html"/> 
     <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
     
 </head>
@@ -46,8 +46,8 @@
                        title="General Index" accesskey="I">index</a>
                 </li>
                 <li>
-                    <a href="eea.jquery/index.html"
-                       title="EEA jQuery" accesskey="P">previous</a>
+                    <a href="../index.html"
+                       title="Getting started with EEA packages" accesskey="P">previous</a>
                 </li> 
         </ul>
     </div>
@@ -130,10 +130,21 @@ reStructeredText.</p>
 <span class="go">  ${buildout:eggs}</span>
 <span class="go">  eea.github.com</span>
 
-<span class="go">[sphinx-makefile]</span>
+<span class="go">[sphinx-hooks]</span>
+<span class="go">recipe = collective.recipe.template</span>
+<span class="go">input = inline:</span>
+<span class="go">    #!/bin/sh</span>
+<span class="go">    sed -i -e &#39;s/\/html$//g&#39; ${buildout:directory}/src/eea.github.com/Makefile</span>
+<span class="go">    cp ${buildout:directory}/bin/sphinx-quickstart ${buildout:directory}/bin/sphinx-apidoc</span>
+<span class="go">    sed -i -e &#39;s/import sphinx\.quickstart/import sphinx\.apidoc/g&#39; ${buildout:directory}/bin/sphinx-apidoc</span>
+<span class="go">    sed -i -e &#39;s/sphinx\.quickstart\.main/sphinx\.apidoc\.main/g&#39; ${buildout:directory}/bin/sphinx-apidoc</span>
+<span class="go">output = ${buildout:directory}/bin/sphinx-hooks</span>
+<span class="go">mode = 755</span>
+
+<span class="go">[sphinx-hooks-run]</span>
 <span class="go">recipe = plone.recipe.command</span>
-<span class="go">command = sed -i -e &#39;s/\/html$//g&#39; ${buildout:directory}/src/eea.github.com/Makefile</span>
-<span class="go">update-command = sed -i -e &#39;s/\/html$//g&#39; ${buildout:directory}/src/eea.github.com/Makefile</span>
+<span class="go">command = ${buildout:directory}/bin/sphinx-hooks</span>
+<span class="go">update-command = ${buildout:directory}/bin/sphinx-hooks</span>
 
 <span class="go">[sources]</span>
 <span class="go">eea.github.com = git https://github.com/eea/eea.github.com.git pushurl=git@github.com:eea/eea.github.com.git</span>
@@ -210,8 +221,8 @@ changes to compiled site.</p>
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="eea.jquery/index.html"
-                        title="previous chapter">EEA jQuery</a></p>
+  <p class="topless"><a href="../index.html"
+                        title="previous chapter">Getting started with EEA packages</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="../_sources/docs/howToUpdate.txt"

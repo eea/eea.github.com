@@ -1,7 +1,1 @@
-EEA Faceted Navigation
-======================
-
-Contents:
-
-.. toctree::
-   :maxdepth: 2
+.. include:: ../../../../eea.facetednavigation/README.txt

@@ -1,3 +1,4 @@
+=======================
 How to update this page
 =======================
 
@@ -6,7 +7,7 @@ to head to http://sphinx.pocoo.org and get familiar with Sphinx and
 reStructeredText.
 
 1. Update your zc.buildout .cfg file
-------------------------------------
+====================================
 Add the following config to your zc.buildout .cfg file (see
 `hudson.cfg`_ for a more updated version of this snippet)
 
@@ -25,10 +26,21 @@ Add the following config to your zc.buildout .cfg file (see
       ${buildout:eggs}
       eea.github.com
 
-    [sphinx-makefile]
+    [sphinx-hooks]
+    recipe = collective.recipe.template
+    input = inline:
+        #!/bin/sh
+        sed -i -e 's/\/html$//g' ${buildout:directory}/src/eea.github.com/Makefile
+        cp ${buildout:directory}/bin/sphinx-quickstart ${buildout:directory}/bin/sphinx-apidoc
+        sed -i -e 's/import sphinx\.quickstart/import sphinx\.apidoc/g' ${buildout:directory}/bin/sphinx-apidoc
+        sed -i -e 's/sphinx\.quickstart\.main/sphinx\.apidoc\.main/g' ${buildout:directory}/bin/sphinx-apidoc
+    output = ${buildout:directory}/bin/sphinx-hooks
+    mode = 755
+
+    [sphinx-hooks-run]
     recipe = plone.recipe.command
-    command = sed -i -e 's/\/html$//g' ${buildout:directory}/src/eea.github.com/Makefile
-    update-command = sed -i -e 's/\/html$//g' ${buildout:directory}/src/eea.github.com/Makefile
+    command = ${buildout:directory}/bin/sphinx-hooks
+    update-command = ${buildout:directory}/bin/sphinx-hooks
 
     [sources]
     eea.github.com = git https://github.com/eea/eea.github.com.git pushurl=git@github.com:eea/eea.github.com.git
@@ -38,8 +50,9 @@ Add the following config to your zc.buildout .cfg file (see
     docutils = 0.9.1
 
 
+
 2. Run buildout
----------------
+===============
 
 .. code-block:: console
 
@@ -57,7 +70,7 @@ This will install all needed. Now its time for you to edit ``.rst`` files.
 
 
 3. Generate html
-----------------
+================
 
 After editing ``.rst`` files you need to "compile" html.
 
@@ -71,7 +84,7 @@ package.
     $ bin/sphinx
 
 4. Commit changes
-------------------
+=================
 
 For nice history please commit changes to ``.rst`` files separately then
 changes to compiled site.
@@ -82,7 +95,7 @@ changes to compiled site.
     $ git commit -a -m "Some very important changes"
 
 5. Don't forget to push
------------------------
+=======================
 
 .. code-block:: console
 

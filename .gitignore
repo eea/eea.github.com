@@ -4,6 +4,7 @@
 #Sphinx
 .buildinfo
 _doctrees
+_modules
 doctrees
 Makefile
 make.bat
