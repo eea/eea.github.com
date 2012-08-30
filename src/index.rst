@@ -10,7 +10,7 @@ Getting started with EEA packages
 
       docs/eea.daviz/index
 
-    The first Semantic web data visualization tool for Plone
+    The first semantic web data visualization tool for Plone
 
   .. container:: step-nav span4
 
@@ -19,8 +19,7 @@ Getting started with EEA packages
 
       docs/eea.tags/index
 
-    EEA Tags is a Google+/Facebook like replacement for the Plone keywords
-    widget.
+    A Google+ / Facebook like replacement for the Plone keywords widget.
 
   .. container:: step-nav span4
 
@@ -29,8 +28,7 @@ Getting started with EEA packages
 
       docs/eea.jquery/index
 
-    EEA jQuery registers a collection of jQuery plugins as Zope 3
-    browser resources.
+    A collection of jQuery plugins as Zope 3 browser resources.
 
   .. container:: step-nav span4
 
@@ -39,8 +37,8 @@ Getting started with EEA packages
 
       docs/eea.facetednavigation/index
 
-    EEA Faceted Navigation is a very powerful interface to improve search
-    within large collections of items.
+    A very powerful interface to improve search within large
+    collections of items.
 
 
 More information
