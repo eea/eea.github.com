@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type"
           content="text/html; charset=utf-8"/>
     
-        <title>EEA App Visualisation product &mdash; EEA 6.0 documentation</title>
+        <title>EEA App Visualisation &mdash; EEA 6.0 documentation</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='http://fonts.googleapis.com/css?family=Crete+Round' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="../../_static/sphinx-bootstrap.css" type="text/css"/>
@@ -103,103 +103,82 @@
         <div class="content row">
                 <div class="span9">
                     
-  <div class="section" id="eea-app-visualisation-product">
-<h1><a class="toc-backref" href="#id2">EEA App Visualisation product</a><a class="headerlink" href="#eea-app-visualisation-product" title="Permalink to this headline">¶</a></h1>
-<p>EEA App Visualisation is the Core API for EEA Daviz. This package was added
-in order to be able to use EEA Google Charts without EEA Exhibit and viceversa or
-any other visualization library as a standalone visualization or as part of a
-bundle package (eea.daviz)</p>
-<p>The following graph show the arhitecture of EEA Visualisation:</p>
-<div class="highlight-python"><pre> -------------------------------------------------------------------------
-|                           eea.daviz                                     | - Bundle
- -------------------------------------------------------------------------
-      /                          |                           \
- -------------+------------------+----------------------------------------
-| eea.exhibit | eea.googlecharts | ...more custom visualization libraries | - Pluggable visualization libraries
- -------------+------------------+----------------------------------------
-      \                          |                           /
- -------------------------------------------------------------------------
-|                       eea.app.visualization                             | - API
- -------------------------------------------------------------------------</pre>
-</div>
-<p>This package as standalone is just an API, you have to either install
-eea.daviz bundle, either install one of the available visualization
-libraries (eea.exhibit, eea.googlecharts, etc) in order to have a working
+  <div class="section" id="eea-app-visualisation">
+<h1><a class="toc-backref" href="#id4">EEA App Visualisation</a><a class="headerlink" href="#eea-app-visualisation" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="http://eea.github.com/docs/eea.app.visualization">EEA App Visualisation</a> is the Core API for <a class="reference external" href="http://eea.github.com/docs/eea.daviz">EEA Daviz</a>. This package was added
+in order to be able to use <a class="reference external" href="http://eea.github.com/docs/eea.googlecharts">EEA Google Charts</a> without <a class="reference external" href="http://eea.github.com/docs/eea.exhibit">EEA Exhibit</a> and
+viceversa or any other visualization library as a standalone visualization
+or as part of a bundle package (<a class="reference external" href="http://eea.github.com/docs/eea.daviz">eea.daviz</a>)</p>
+<img src="http://eea.github.com/_static/visualization-layers.svg" /><p>This package as standalone is just an API, you have to either install
+<a class="reference external" href="http://eea.github.com/docs/eea.daviz">eea.daviz</a> bundle, either install one of the available visualization
+libraries (<a class="reference external" href="http://eea.github.com/docs/eea.exhibit">eea.exhibit</a>, <a class="reference external" href="http://eea.github.com/docs/eea.googlecharts">eea.googlecharts</a>, etc) in order to have a working
 Visualization Tool for your files.</p>
-<div class="section" id="contents">
-<h2><a class="toc-backref" href="#id3">Contents</a><a class="headerlink" href="#contents" title="Permalink to this headline">¶</a></h2>
-<div class="contents topic" id="id1">
+<div class="contents topic" id="contents">
 <p class="topic-title first">Contents</p>
 <ul class="simple">
-<li><a class="reference internal" href="#eea-app-visualisation-product" id="id2">EEA App Visualisation product</a><ul>
-<li><a class="reference internal" href="#contents" id="id3">Contents</a></li>
-<li><a class="reference internal" href="#installation" id="id4">Installation</a></li>
-<li><a class="reference internal" href="#dependecies" id="id5">Dependecies</a></li>
-<li><a class="reference internal" href="#live-demo" id="id6">Live demo</a></li>
-<li><a class="reference internal" href="#source-code" id="id7">Source code</a></li>
-<li><a class="reference internal" href="#copyright-and-license" id="id8">Copyright and license</a></li>
-<li><a class="reference internal" href="#links" id="id9">Links</a></li>
-<li><a class="reference internal" href="#funding" id="id10">Funding</a></li>
+<li><a class="reference internal" href="#eea-app-visualisation" id="id4">EEA App Visualisation</a><ul>
+<li><a class="reference internal" href="#installation" id="id5">Installation</a></li>
+<li><a class="reference internal" href="#dependecies" id="id6">Dependecies</a></li>
+<li><a class="reference internal" href="#live-demo" id="id7">Live demo</a></li>
+<li><a class="reference internal" href="#source-code" id="id8">Source code</a></li>
+<li><a class="reference internal" href="#copyright-and-license" id="id9">Copyright and license</a></li>
+<li><a class="reference internal" href="#links" id="id10">Links</a></li>
+<li><a class="reference internal" href="#funding" id="id11">Funding</a></li>
 </ul>
 </li>
 </ul>
-</div>
 </div>
 <div class="section" id="installation">
-<h2><a class="toc-backref" href="#id4">Installation</a><a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
-<p>If you are using zc.buildout and the plone.recipe.zope2instance
+<h2><a class="toc-backref" href="#id5">Installation</a><a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>If you are using zc.buildout and the <a class="reference external" href="http://pypi.python.org/pypi/plone.recipe.zope2instance">plone.recipe.zope2instance</a>
 recipe to manage your project, you can do this:</p>
-<blockquote>
-<div><ul>
-<li><p class="first">Add <tt class="docutils literal"><span class="pre">eea.app.visualization</span></tt> to the list of eggs to install, e.g.:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="p">[</span><span class="n">buildout</span><span class="p">]</span>
-<span class="n">eggs</span> <span class="o">=</span> <span class="n">eea</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">visualization</span>
-</pre></div>
-</div>
-</li>
-<li><p class="first">Tell the plone.recipe.zope2instance recipe to install a ZCML slug:</p>
+<ul>
+<li><p class="first">Update your buildout.cfg file:</p>
+<ul class="simple">
+<li>Add <a class="reference external" href="http://eea.github.com/docs/eea.app.visualization">eea.app.visualization</a> to the list of eggs to install</li>
+<li>Tell the plone.recipe.zope2instance recipe to install a ZCML slug</li>
+</ul>
 <div class="highlight-python"><div class="highlight"><pre><span class="p">[</span><span class="n">instance</span><span class="p">]</span>
 <span class="n">recipe</span> <span class="o">=</span> <span class="n">plone</span><span class="o">.</span><span class="n">recipe</span><span class="o">.</span><span class="n">zope2instance</span>
+<span class="n">eggs</span> <span class="o">=</span> <span class="n">eea</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">visualization</span>
 <span class="n">zcml</span> <span class="o">=</span> <span class="n">eea</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">visualization</span>
 </pre></div>
 </div>
 </li>
-<li><p class="first">Re-run buildout, e.g. with:</p>
+<li><p class="first">Re-run buildout, e.g. with</p>
 <div class="highlight-python"><pre>$ ./bin/buildout</pre>
 </div>
 </li>
 </ul>
-</div></blockquote>
 <p>You can skip the ZCML slug if you are going to explicitly include the package
 from another package&#8217;s configure.zcml file.</p>
 </div>
 <div class="section" id="dependecies">
-<h2><a class="toc-backref" href="#id5">Dependecies</a><a class="headerlink" href="#dependecies" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><ol class="arabic simple">
-<li>Plone 4.x</li>
-</ol>
-</div></blockquote>
+<h2><a class="toc-backref" href="#id6">Dependecies</a><a class="headerlink" href="#dependecies" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>python-dateutil</li>
+<li>Zope 2.12</li>
+<li>eea.jquery</li>
+<li>collective.js.jqueryui</li>
+</ul>
 </div>
 <div class="section" id="live-demo">
-<h2><a class="toc-backref" href="#id6">Live demo</a><a class="headerlink" href="#live-demo" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><ol class="arabic simple">
+<h2><a class="toc-backref" href="#id7">Live demo</a><a class="headerlink" href="#live-demo" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
 <li><a class="reference external" href="http://www.simile-widgets.org/exhibit">http://www.simile-widgets.org/exhibit</a></li>
 <li>Exhibit only: <a class="reference external" href="http://www.eea.europa.eu/data-and-maps/data/national-emissions-reported-to-the-unfccc-and-to-the-eu-greenhouse-gas-monitoring-mechanism-3/national-total-excluding-lulucf/ghg_v10_extract.csv">http://www.eea.europa.eu/data-and-maps/data/national-emissions-reported-to-the-unfccc-and-to-the-eu-greenhouse-gas-monitoring-mechanism-3/national-total-excluding-lulucf/ghg_v10_extract.csv</a></li>
 <li><a class="reference external" href="http://code.google.com/apis/chart/">http://code.google.com/apis/chart/</a></li>
 </ol>
-</div></blockquote>
 </div>
 <div class="section" id="source-code">
-<h2><a class="toc-backref" href="#id7">Source code</a><a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
-<dl class="docutils">
-<dt>Latest source code (Plone 4 compatible):</dt>
-<dd><a class="reference external" href="https://svn.eionet.europa.eu/repositories/Zope/trunk/eea.app.visualization/trunk">https://svn.eionet.europa.eu/repositories/Zope/trunk/eea.app.visualization/trunk</a></dd>
-</dl>
+<h2><a class="toc-backref" href="#id8">Source code</a><a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
+<p>Latest source code (Zope2 compatible):</p>
+<ul class="simple">
+<li><a class="reference external" href="https://svn.eionet.europa.eu/repositories/Zope/trunk/eea.app.visualization/trunk">https://svn.eionet.europa.eu/repositories/Zope/trunk/eea.app.visualization/trunk</a></li>
+</ul>
 </div>
 <div class="section" id="copyright-and-license">
-<h2><a class="toc-backref" href="#id8">Copyright and license</a><a class="headerlink" href="#copyright-and-license" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id9">Copyright and license</a><a class="headerlink" href="#copyright-and-license" title="Permalink to this headline">¶</a></h2>
 <p>The Initial Owner of the Original Code is European Environment Agency (EEA).
 All Rights Reserved.</p>
 <p>The EEA App Visualisation (the Original Code) is free software;
@@ -210,21 +189,18 @@ version.</p>
 <p>More details under docs/License.txt</p>
 </div>
 <div class="section" id="links">
-<h2><a class="toc-backref" href="#id9">Links</a><a class="headerlink" href="#links" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><ol class="arabic simple">
+<h2><a class="toc-backref" href="#id10">Links</a><a class="headerlink" href="#links" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
 <li>Simile Wiki - Exhibit 2.0: <a class="reference external" href="http://simile.mit.edu/wiki/Exhibit">http://simile.mit.edu/wiki/Exhibit</a></li>
 <li>Simile widgets: <a class="reference external" href="http://www.simile-widgets.org/exhibit">http://www.simile-widgets.org/exhibit</a></li>
 <li>EEA Daviz howto: <a class="reference external" href="https://svn.eionet.europa.eu/projects/Zope/wiki/HowToDaviz">https://svn.eionet.europa.eu/projects/Zope/wiki/HowToDaviz</a></li>
 <li>EEA Daviz backlog wiki: <a class="reference external" href="https://svn.eionet.europa.eu/projects/Zope/wiki/DaViz">https://svn.eionet.europa.eu/projects/Zope/wiki/DaViz</a></li>
 <li>Google charts: <a class="reference external" href="http://code.google.com/apis/chart/">http://code.google.com/apis/chart/</a></li>
 </ol>
-</div></blockquote>
 </div>
 <div class="section" id="funding">
-<h2><a class="toc-backref" href="#id10">Funding</a><a class="headerlink" href="#funding" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><a class="reference external" href="http://www.eea.europa.eu/">EEA</a> - European Enviroment Agency (EU)</div></blockquote>
+<h2><a class="toc-backref" href="#id11">Funding</a><a class="headerlink" href="#funding" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://www.eea.europa.eu/">EEA</a> - European Enviroment Agency (EU)</p>
 </div>
 </div>
 
@@ -240,8 +216,7 @@ version.</p>
             <div class="sphinxsidebarwrapper">
   <h3><a href="../../index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">EEA App Visualisation product</a><ul>
-<li><a class="reference internal" href="#contents">Contents</a></li>
+<li><a class="reference internal" href="#">EEA App Visualisation</a><ul>
 <li><a class="reference internal" href="#installation">Installation</a></li>
 <li><a class="reference internal" href="#dependecies">Dependecies</a></li>
 <li><a class="reference internal" href="#live-demo">Live demo</a></li>
@@ -283,7 +258,7 @@ version.</p>
 
     <!-- disqus -->
     <script type="text/javascript">
-        var disqus_title = 'EEA App Visualisation product &mdash; EEA 6.0 documentation';
+        var disqus_title = 'EEA App Visualisation &mdash; EEA 6.0 documentation';
         var disqus_identifier ='code' + '.' + "euenvironment" + window.location.pathname.replace('/', '.');
     </script>
 
