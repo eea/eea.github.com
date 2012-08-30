@@ -121,7 +121,7 @@
                 <div class="span9">
                     
   <div class="section" id="eea-daviz-api">
-<h1>EEA Daviz API<a class="headerlink" href="#eea-daviz-api" title="Permalink to this headline">¶</a></h1>
+<h1><a class="toc-backref" href="#id1">EEA Daviz API</a><a class="headerlink" href="#eea-daviz-api" title="Permalink to this headline">¶</a></h1>
 <p>EEA Daviz python package <a class="reference external" href="../../../docs/eea.daviz/index.html">eea.daviz</a> is more a bundle package (a collection of
 visualization packages) than the real visualization package. Thus, the scope of
 this package is to put together the visualization core application
@@ -129,6 +129,34 @@ this package is to put together the visualization core application
 <a class="reference external" href="../../../docs/eea.exhibit/index.html">eea.exhibit</a>, etc). It also brings in <a class="reference external" href="../../../docs/eea.sparql/index.html">eea.sparql</a> package whitch allows
 fetching data from Linked open data servers (sparql endpoints) and use it as
 input for our visualizations.</p>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#eea-daviz-api" id="id1">EEA Daviz API</a><ul>
+<li><a class="reference internal" href="#a-layered-architecture" id="id2">A Layered Architecture</a></li>
+<li><a class="reference internal" href="#dependencies-graph" id="id3">Dependencies graph</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="a-layered-architecture">
+<h2><a class="toc-backref" href="#id2">A Layered Architecture</a><a class="headerlink" href="#a-layered-architecture" title="Permalink to this headline">¶</a></h2>
+<p>EEA Daviz consists of three independent layers. Bottom layers do not require the
+other top layers, so an application builder can choose the one or more
+layers required for a particular solution:</p>
+<ul class="simple">
+<li><strong>Visualization API</strong> - eea.app.visualization</li>
+<li>** Visualization Libraries** - eea.googlecharts, eea.exhibit, etc</li>
+<li>** Visualization Bundle** - eea.daviz</li>
+</ul>
+<img src="../../../_images/eea.daviz.layers.svg" /></div>
+<div class="section" id="dependencies-graph">
+<h2><a class="toc-backref" href="#id3">Dependencies graph</a><a class="headerlink" href="#dependencies-graph" title="Permalink to this headline">¶</a></h2>
+<p>This diagram shows how the visualization packages depends each other
+and also which packages are Plone dependent and which requires only
+Zope or Python (see the background colors).</p>
+<img src="../../../_images/eea.daviz.dependencies.svg" /><p><tt class="docutils literal"><span class="pre">XXX:</span> <span class="pre">To</span> <span class="pre">be</span> <span class="pre">continued...</span></tt></p>
+</div>
 </div>
 
 
@@ -141,6 +169,15 @@ input for our visualizations.</p>
                     
         <div class="sphinxsidebar">
             <div class="sphinxsidebarwrapper">
+  <h3><a href="../../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">EEA Daviz API</a><ul>
+<li><a class="reference internal" href="#a-layered-architecture">A Layered Architecture</a></li>
+<li><a class="reference internal" href="#dependencies-graph">Dependencies graph</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
   <p class="topless"><a href="index.html"
                         title="previous chapter">EEA Daviz Developer Documentation</a></p>
