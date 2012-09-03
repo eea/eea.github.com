@@ -152,6 +152,7 @@ eggs =
 
 zcml =
   ...
+  eea.depiction-overrides
   eea.depiction</pre>
 </div>
 </li>
@@ -170,13 +171,19 @@ from another package&#8217;s configure.zcml file.</p>
 <dt><a class="reference external" href="http://eea.github.com/docs/eea.depiction">EEA Depiction</a> has the following dependencies:</dt>
 <dd><ul class="first last simple">
 <li>Plone 4+</li>
+<li>Pillow</li>
 </ul>
 </dd>
 <dt>This package also supports p4a.video. Thus the following dependencies are optional:</dt>
-<dd><ul class="first last simple">
-<li>Pillow</li>
+<dd><ul class="first simple">
 <li>p4a.video</li>
 </ul>
+<div class="last highlight-python"><pre>[instance]
+...
+eggs =
+  ...
+  eea.depiction [full]</pre>
+</div>
 </dd>
 </dl>
 </div>
