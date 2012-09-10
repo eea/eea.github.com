@@ -121,7 +121,8 @@ reStructeredText.</p>
 <a class="reference external" href="https://svn.eionet.europa.eu/repositories/Zope/trunk/www.eea.europa.eu/trunk/hudson.cfg">hudson.cfg</a> for a more updated version of this snippet)</p>
 <div class="highlight-console"><div class="highlight"><pre><span class="go">parts +=</span>
 <span class="go">  sphinx</span>
-<span class="go">  sphinx-makefile</span>
+<span class="go">  sphinx-hooks</span>
+<span class="go">  sphinx-hooks-run</span>
 
 <span class="go">[sphinx]</span>
 <span class="go">recipe = collective.recipe.sphinxbuilder</span>
@@ -137,6 +138,7 @@ reStructeredText.</p>
 <span class="go">input = inline:</span>
 <span class="go">    #!/bin/sh</span>
 <span class="go">    sed -i -e &#39;s/\/html$//g&#39; ${buildout:directory}/src/eea.github.com/Makefile</span>
+<span class="go">    sed -i -e &#39;s/\-b html/\-ab html/g&#39; ${buildout:directory}/src/eea.github.com/Makefile</span>
 <span class="go">    cp ${buildout:directory}/bin/sphinx-quickstart ${buildout:directory}/bin/sphinx-apidoc</span>
 <span class="go">    sed -i -e &#39;s/import sphinx\.quickstart/import sphinx\.apidoc/g&#39; ${buildout:directory}/bin/sphinx-apidoc</span>
 <span class="go">    sed -i -e &#39;s/sphinx\.quickstart\.main/sphinx\.apidoc\.main/g&#39; ${buildout:directory}/bin/sphinx-apidoc</span>

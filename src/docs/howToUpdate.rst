@@ -15,7 +15,8 @@ Add the following config to your zc.buildout .cfg file (see
 
     parts +=
       sphinx
-      sphinx-makefile
+      sphinx-hooks
+      sphinx-hooks-run
 
     [sphinx]
     recipe = collective.recipe.sphinxbuilder
@@ -31,6 +32,7 @@ Add the following config to your zc.buildout .cfg file (see
     input = inline:
         #!/bin/sh
         sed -i -e 's/\/html$//g' ${buildout:directory}/src/eea.github.com/Makefile
+        sed -i -e 's/\-b html/\-ab html/g' ${buildout:directory}/src/eea.github.com/Makefile
         cp ${buildout:directory}/bin/sphinx-quickstart ${buildout:directory}/bin/sphinx-apidoc
         sed -i -e 's/import sphinx\.quickstart/import sphinx\.apidoc/g' ${buildout:directory}/bin/sphinx-apidoc
         sed -i -e 's/sphinx\.quickstart\.main/sphinx\.apidoc\.main/g' ${buildout:directory}/bin/sphinx-apidoc
@@ -48,7 +50,6 @@ Add the following config to your zc.buildout .cfg file (see
     [versions]
     Sphinx = 1.1.3
     docutils = 0.9.1
-
 
 
 2. Run buildout
