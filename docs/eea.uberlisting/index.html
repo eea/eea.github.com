@@ -109,96 +109,134 @@
 <h1><a class="toc-backref" href="#id3">EEA Uberlisting</a><a class="headerlink" href="#eea-uberlisting" title="Permalink to this headline">¶</a></h1>
 <p><a class="reference external" href="http://eea.github.com/docs/eea.uberlisting">EEA Uberlisting</a>  enhances and extends the listing layouts capabilities of Plone.</p>
 <div class="line-block">
-<div class="line">It provides a set of attractive listing templates which can be applied to any folderish content type in  Plone.</div>
+<div class="line">It provides a set of attractive listing templates which can be applied to any
+folderish content type in Plone.</div>
 <div class="line"><br /></div>
-<div class="line">By default it adds a single <strong>uberlisting_view</strong> view method to the <strong>Folder</strong> Content Type, which when set as the default View gives the web visitor the ability to switch between the views that are available for that Content Type, instead of having a fixed one, all from the same template.</div>
+<div class="line">By default it adds a single <strong>uberlisting_view</strong> view method to the <strong>Folder</strong>
+Content Type, which when set as the default View gives the web visitor the
+ability to switch between the views that are available for that Content Type,
+instead of having a fixed one, all from the same template.</div>
 <div class="line"><br /></div>
-<div class="line">This package also comes with the following listing templates which can be used as listing templates:</div>
 </div>
-<blockquote>
-<div><ul class="simple">
-<li>subfolder view: summary view of sub-folders and its top content (2-level view)</li>
-<li>tabs view: folder overview with tabs</li>
-<li>accordion view: folder_overview with accordion style (aka vertical tabs)</li>
-</ul>
-</div></blockquote>
 <div class="contents topic" id="contents">
 <p class="topic-title first">Contents</p>
 <ul class="simple">
 <li><a class="reference internal" href="#eea-uberlisting" id="id3">EEA Uberlisting</a><ul>
 <li><a class="reference internal" href="#tips-and-tricks" id="id4">Tips and tricks</a><ul>
-<li><a class="reference internal" href="#disable-templates-from-showing-up-in-the-uberlisting-view" id="id5">Disable templates from showing up in the Uberlisting View</a></li>
-<li><a class="reference internal" href="#set-default-template-when-visiting-template-for-first-time" id="id6">Set default template when visiting template for first time</a></li>
-<li><a class="reference internal" href="#choose-the-right-templates-to-use-for-this-package" id="id7">Choose the right templates to use for this package</a></li>
-<li><a class="reference internal" href="#get-enhanced-thumbnails-when-used-with-eea-depiction" id="id8">Get enhanced thumbnails when used with eea.depiction</a></li>
+<li><a class="reference internal" href="#choose-the-right-templates-to-use-for-this-package" id="id5">Choose the right templates to use for this package</a></li>
+<li><a class="reference internal" href="#disable-templates-from-showing-up-in-the-uberlisting-view" id="id6">Disable templates from showing up in the Uberlisting View</a></li>
+<li><a class="reference internal" href="#set-default-template-when-visiting-template-for-first-time" id="id7">Set default template when visiting template for first time</a></li>
+<li><a class="reference internal" href="#get-listing-of-templates-as-images-instead-of-template-title-name" id="id8">Get listing of templates as images instead of template title name</a></li>
+<li><a class="reference internal" href="#get-enhanced-thumbnails-when-used-with-eea-depiction" id="id9">Get enhanced thumbnails when used with eea.depiction</a></li>
+<li><a class="reference internal" href="#get-enhanced-search-capabilities-when-used-with-eea-facetednavigation" id="id10">Get enhanced search capabilities when used with eea.facetednavigation</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#installation" id="id9">Installation</a><ul>
-<li><a class="reference internal" href="#zc-buildout" id="id10">zc.buildout</a></li>
+<li><a class="reference internal" href="#installation" id="id11">Installation</a><ul>
+<li><a class="reference internal" href="#zc-buildout" id="id12">zc.buildout</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#dependencies" id="id11">Dependencies</a></li>
-<li><a class="reference internal" href="#source-code" id="id12">Source code</a></li>
-<li><a class="reference internal" href="#copyright-and-license" id="id13">Copyright and license</a></li>
-<li><a class="reference internal" href="#funding-and-project-management" id="id14">Funding and project management</a></li>
+<li><a class="reference internal" href="#dependencies" id="id13">Dependencies</a></li>
+<li><a class="reference internal" href="#source-code" id="id14">Source code</a></li>
+<li><a class="reference internal" href="#copyright-and-license" id="id15">Copyright and license</a></li>
+<li><a class="reference internal" href="#funding-and-project-management" id="id16">Funding and project management</a></li>
 </ul>
 </li>
 </ul>
 </div>
 <div class="section" id="tips-and-tricks">
 <h2><a class="toc-backref" href="#id4">Tips and tricks</a><a class="headerlink" href="#tips-and-tricks" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="disable-templates-from-showing-up-in-the-uberlisting-view">
-<h3><a class="toc-backref" href="#id5">Disable templates from showing up in the Uberlisting View</a><a class="headerlink" href="#disable-templates-from-showing-up-in-the-uberlisting-view" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="choose-the-right-templates-to-use-for-this-package">
+<h3><a class="toc-backref" href="#id5">Choose the right templates to use for this package</a><a class="headerlink" href="#choose-the-right-templates-to-use-for-this-package" title="Permalink to this headline">¶</a></h3>
 <blockquote>
 <div><ul>
-<li><p class="first">In ZMI &gt; context &gt; manage_properties: Add a &#8216;<em>lines</em>&#8216; property named <strong>bannedUberlistingTemplates</strong>.</p>
-<p>Here add one by one the template id&#8217;s that you would like to be skipped from the listing.</p>
-<p>ex: folder_summary_view</p>
+<li><p class="first">The python logic that retrieves the contents of the template listings
+expects the template to implement the <strong>listing</strong> macro.</p>
+<p>By default all of the Plone templates implement this macro so all
+templates that come from Plone and those that implement a listing macro
+to list results should work with the Uberlisting View.</p>
+</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="disable-templates-from-showing-up-in-the-uberlisting-view">
+<h3><a class="toc-backref" href="#id6">Disable templates from showing up in the Uberlisting View</a><a class="headerlink" href="#disable-templates-from-showing-up-in-the-uberlisting-view" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><ul>
+<li><p class="first">In ZMI &gt; context &gt; manage_properties: Add a &#8216;<em>lines</em>&#8216; property named
+<strong>bannedUberlistingTemplates</strong>.</p>
+<p>Here add one by one the template id&#8217;s that you would like to be skipped
+from the listing.</p>
+<div class="line-block">
+<div class="line">ex: folder_summary_view</div>
+<div class="line-block">
+<div class="line">folder_contents</div>
+</div>
+</div>
 </li>
 </ul>
 </div></blockquote>
 </div>
 <div class="section" id="set-default-template-when-visiting-template-for-first-time">
-<h3><a class="toc-backref" href="#id6">Set default template when visiting template for first time</a><a class="headerlink" href="#set-default-template-when-visiting-template-for-first-time" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id7">Set default template when visiting template for first time</a><a class="headerlink" href="#set-default-template-when-visiting-template-for-first-time" title="Permalink to this headline">¶</a></h3>
 <blockquote>
 <div><ul>
-<li><p class="first">In ZMI &gt; context &gt; manage_properties: Add a &#8216;<em>string</em>&#8216; property named <strong>defaultUberlistingTemplate</strong>
-and add the template id that should be used as the default template.</p>
+<li><p class="first">In ZMI &gt; context &gt; manage_properties: Add a &#8216;<em>string</em>&#8216; property named
+<strong>defaultUberlistingTemplate</strong> and add the template id that should be used
+as the default template.</p>
 <p>ex: folder_summary_view</p>
-<p>By default if this property isn&#8217;t set and no cookie is present with the name of the default template
-then folder_listing will be used as default.</p>
+<p>By default if this property isn&#8217;t set and no cookie is present with the name
+of the default template then <strong>folder_listing</strong> will be used as default.</p>
 </li>
 </ul>
 </div></blockquote>
 </div>
-<div class="section" id="choose-the-right-templates-to-use-for-this-package">
-<h3><a class="toc-backref" href="#id7">Choose the right templates to use for this package</a><a class="headerlink" href="#choose-the-right-templates-to-use-for-this-package" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="get-listing-of-templates-as-images-instead-of-template-title-name">
+<h3><a class="toc-backref" href="#id8">Get listing of templates as images instead of template title name</a><a class="headerlink" href="#get-listing-of-templates-as-images-instead-of-template-title-name" title="Permalink to this headline">¶</a></h3>
 <blockquote>
 <div><ul>
-<li><p class="first">The python logic that retrieves the contents of the template listings expects the template to
-implement the <strong>listing</strong> macro.</p>
-<p>By default all of the Plone templates implement this macro so all
-templates that come from Plone and those that implement a listing macro to list results should
-work with the Uberlisting View.</p>
+<li><p class="first">This packages looks for a png image to use for the views listing in the
+format of template id + &#8216;.png&#8217;.</p>
+<p>ex: folder_summary_view.png</p>
+<p>We have provides some images for the common Plone templates as well as
+some for our own templates, if you need a different style for the icons you can
+customize them TTW or you can have a skin layer before <strong>uberlisting_imgs</strong> with
+images that have the same name.</p>
+</li>
+<li><p class="first">If no images are found then the template name will be displayed in the listing.</p>
+</li>
+<li><p class="first">If you don&#8217;t want to have the listing of templates with images and you would
+prefer to have only template name then In ZMI &gt; context &gt; manage_properties:
+Add a property named &#8216;<strong>noUberlistingTemplateImages</strong>&#8216;</p>
 </li>
 </ul>
 </div></blockquote>
 </div>
 <div class="section" id="get-enhanced-thumbnails-when-used-with-eea-depiction">
-<h3><a class="toc-backref" href="#id8">Get enhanced thumbnails when used with eea.depiction</a><a class="headerlink" href="#get-enhanced-thumbnails-when-used-with-eea-depiction" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id9">Get enhanced thumbnails when used with eea.depiction</a><a class="headerlink" href="#get-enhanced-thumbnails-when-used-with-eea-depiction" title="Permalink to this headline">¶</a></h3>
 <blockquote>
 <div><ul class="simple">
-<li>If you have eea.depiction installed you can configure a fallback image for the contenttypes that
-do not have an image field by default, allowing the content to be displayed in  a view where the
-listing would look better with images like album view.</li>
+<li>If you have eea.depiction installed you can configure a fallback image for
+the contenttypes that do not have an image field by default, allowing the
+content to be displayed in  a view where the listing would look better
+with images like album view.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="get-enhanced-search-capabilities-when-used-with-eea-facetednavigation">
+<h3><a class="toc-backref" href="#id10">Get enhanced search capabilities when used with eea.facetednavigation</a><a class="headerlink" href="#get-enhanced-search-capabilities-when-used-with-eea-facetednavigation" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li>If you have eea.facetednavigation installed you can use uberlisting_view as
+a view for the Faceted Navigation, allowing you to combine the search capabilities
+of it with the ability to change between views from the same template.</li>
 </ul>
 </div></blockquote>
 </div>
 </div>
 <div class="section" id="installation">
-<h2><a class="toc-backref" href="#id9">Installation</a><a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id11">Installation</a><a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="zc-buildout">
-<h3><a class="toc-backref" href="#id10">zc.buildout</a><a class="headerlink" href="#zc-buildout" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id12">zc.buildout</a><a class="headerlink" href="#zc-buildout" title="Permalink to this headline">¶</a></h3>
 <p>If you are using <a class="reference external" href="http://pypi.python.org/pypi/zc.buildout">zc.buildout</a> and the <a class="reference external" href="http://pypi.python.org/pypi/plone.recipe.zope2instance">plone.recipe.zope2instance</a>
 recipe to manage your project, you can do this:</p>
 <ul>
@@ -228,23 +266,24 @@ from another package&#8217;s configure.zcml file.</p>
 </div>
 </div>
 <div class="section" id="dependencies">
-<h2><a class="toc-backref" href="#id11">Dependencies</a><a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id13">Dependencies</a><a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt><a class="reference external" href="http://eea.github.com/docs/eea.uberlisting">EEA Uberlisting</a> has the following dependencies:</dt>
 <dd><ul class="first last simple">
 <li>Plone 4+</li>
-<li><a class="reference external" href="http://eea.github.com/docs/eea.jquery">EEA jQuery</a></li>
+<li><a class="reference external" href="http://eea.github.com/docs/eea.jquery">EEA jQuery</a> - we are depending and loading only the <a class="reference external" href="https://github.com/cowboy/jquery-bbq">jquery.bbq</a> plugin</li>
 </ul>
 </dd>
-<dt>This package also supports eea.depiction. Thus the following dependencies are optional:</dt>
+<dt>This package also supports other EEA Packages. Thus the following dependencies are optional:</dt>
 <dd><ul class="first last simple">
 <li><a class="reference external" href="http://eea.github.com/docs/eea.depiction">EEA Depiction</a></li>
+<li><a class="reference external" href="http://eea.github.com/docs/eea.facetednavigation">EEA Faceted Navigation</a></li>
 </ul>
 </dd>
 </dl>
 </div>
 <div class="section" id="source-code">
-<h2><a class="toc-backref" href="#id12">Source code</a><a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id14">Source code</a><a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt>Latest source code (Plone 4 compatible):</dt>
 <dd><ul class="first last simple">
@@ -255,7 +294,7 @@ from another package&#8217;s configure.zcml file.</p>
 </dl>
 </div>
 <div class="section" id="copyright-and-license">
-<h2><a class="toc-backref" href="#id13">Copyright and license</a><a class="headerlink" href="#copyright-and-license" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id15">Copyright and license</a><a class="headerlink" href="#copyright-and-license" title="Permalink to this headline">¶</a></h2>
 <p>The Initial Owner of the Original Code is European Environment Agency (EEA).
 All Rights Reserved.</p>
 <p>The eea.uberlisting (the Original Code) is free software;
@@ -266,7 +305,7 @@ version.</p>
 <p>More details under docs/License.txt</p>
 </div>
 <div class="section" id="funding-and-project-management">
-<h2><a class="toc-backref" href="#id14">Funding and project management</a><a class="headerlink" href="#funding-and-project-management" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id16">Funding and project management</a><a class="headerlink" href="#funding-and-project-management" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="http://www.eea.europa.eu/">EEA</a> - European Environment Agency (EU)</p>
 </div>
 </div>
@@ -285,10 +324,12 @@ version.</p>
   <ul>
 <li><a class="reference internal" href="#">EEA Uberlisting</a><ul>
 <li><a class="reference internal" href="#tips-and-tricks">Tips and tricks</a><ul>
+<li><a class="reference internal" href="#choose-the-right-templates-to-use-for-this-package">Choose the right templates to use for this package</a></li>
 <li><a class="reference internal" href="#disable-templates-from-showing-up-in-the-uberlisting-view">Disable templates from showing up in the Uberlisting View</a></li>
 <li><a class="reference internal" href="#set-default-template-when-visiting-template-for-first-time">Set default template when visiting template for first time</a></li>
-<li><a class="reference internal" href="#choose-the-right-templates-to-use-for-this-package">Choose the right templates to use for this package</a></li>
+<li><a class="reference internal" href="#get-listing-of-templates-as-images-instead-of-template-title-name">Get listing of templates as images instead of template title name</a></li>
 <li><a class="reference internal" href="#get-enhanced-thumbnails-when-used-with-eea-depiction">Get enhanced thumbnails when used with eea.depiction</a></li>
+<li><a class="reference internal" href="#get-enhanced-search-capabilities-when-used-with-eea-facetednavigation">Get enhanced search capabilities when used with eea.facetednavigation</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#installation">Installation</a><ul>
