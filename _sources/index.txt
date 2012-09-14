@@ -40,6 +40,14 @@ Getting started with EEA packages
     A very powerful interface to improve search within large
     collections of items.
 
+  .. container:: step-nav span4
+
+    .. toctree::
+      :maxdepth: 1
+
+      docs/eea.uberlisting/index
+
+    Enhances and extends the listing layouts capabilities of Plone
 
 More information
 ================
