@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type"
           content="text/html; charset=utf-8"/>
     
-        <title>&lt;no title&gt; &mdash; EEA 6.0 documentation</title>
+        <title>eea.eggmonkey &mdash; EEA 6.0 documentation</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='http://fonts.googleapis.com/css?family=Crete+Round' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="../../_static/sphinx-bootstrap.css" type="text/css"/>
@@ -105,7 +105,122 @@
         <div class="content row">
                 <div class="span9">
                     
-  
+  <div class="section" id="eea-eggmonkey">
+<h1>eea.eggmonkey<a class="headerlink" href="#eea-eggmonkey" title="Permalink to this headline">¶</a></h1>
+<p>This tools should be used together with zc.buildout, mr.developer and
+jarn.mkrelease. Its purpose is to automate a series of 10 steps that are
+required in order to produce and upload an egg on the eggrepo.</p>
+<p>The ten steps are:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Bump version.txt to correct version; from -dev to final</li>
+<li>Update history file with release date; Record final release date</li>
+<li>Run &#8220;mkrelease -d eea&#8221; in package dir</li>
+<li>(Optional) Run &#8220;python setup.py sdist upload -r eea&#8221;</li>
+<li>Update versions.cfg file in buildout: svn up eea-buildout/versions.cfg</li>
+<li>Change version for package in eea-buildout/versions.cfg</li>
+<li>Commit versions.cfg file: svn commit versions.cfg</li>
+<li>Bump package version file; From final to +1-dev</li>
+<li>Update history file. Add Unreleased section</li>
+<li>SVN commit the dev version of the package.</li>
+</ol>
+</div></blockquote>
+<div class="section" id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<p>eea.eggmonkey requires python2.6</p>
+</div>
+<div class="section" id="instalation">
+<h2>Instalation<a class="headerlink" href="#instalation" title="Permalink to this headline">¶</a></h2>
+<p>To use it, you need to add eea.eggmonkey as an extension to zc.buildout, for
+example:</p>
+<p>[buildout]</p>
+<dl class="docutils">
+<dt>extensions =</dt>
+<dd>mr.developer
+eea.eggmonkey</dd>
+<dt>parts =</dt>
+<dd>monkey
+...</dd>
+</dl>
+<p>Also, you need to add a new part (+ the python26 part, if you don&#8217;t already
+have it):</p>
+<p>[monkey]
+recipe = zc.recipe.egg
+eggs = eea.eggmonkey
+python = python26</p>
+<p>[python26]
+executable = /usr/bin/python2.6</p>
+</div>
+<div class="section" id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h2>
+<p>Before you use it, you need to run bin/buildout (or bin/develop) at least once.
+This allows eggmonkey to learn about the sources and the packages in
+auto-checkout.</p>
+<p>After that, you can use the monkey script from bin. Learn about its parameters
+by running</p>
+<blockquote>
+<div><tt class="docutils literal"><span class="pre">bin/monkey</span> <span class="pre">-h</span></tt></div></blockquote>
+<p>Typical usage would be:</p>
+<blockquote>
+<div><tt class="docutils literal"><span class="pre">bin/monkey</span> <span class="pre">eea.indicators</span></tt></div></blockquote>
+<p>You can specify multiple packages on the command line, they will all be
+processed:</p>
+<blockquote>
+<div><a href="#id1"><span class="problematic" id="id2">``</span></a>bin/monkey eea.indicators eea.workflow eea.version</div></blockquote>
+<p>Or, if you want to release all eggs specified in the auto-checkout section of
+buildout:</p>
+<blockquote>
+<div><tt class="docutils literal"><span class="pre">bin/monkey</span> <span class="pre">-a</span></tt></div></blockquote>
+<p>There is a special option that works around bugs in registering the egg with
+eggrepos and will run a &#8220;python sdist upload&#8221; operation, using the -u switch:</p>
+<blockquote>
+<div><tt class="docutils literal"><span class="pre">bin/monkey</span> <span class="pre">-u</span> <span class="pre">eea.indicators</span></tt></div></blockquote>
+<p>If you&#8217;re doing manual upload, you may need to specify a different python path,
+with the -p switch:</p>
+<blockquote>
+<div><tt class="docutils literal"><span class="pre">bin/monkey</span> <span class="pre">-u</span> <span class="pre">eea.indicators</span> <span class="pre">-p</span> <span class="pre">~/tools/bin/python</span></tt></div></blockquote>
+<p>If you need to specify the path to the mkrelease script, you can give it as an
+argument to the script, using the -m switch:</p>
+<blockquote>
+<div><tt class="docutils literal"><span class="pre">bin/monkey</span> <span class="pre">eea.indicators</span> <span class="pre">-m</span> <span class="pre">/path/to/bin/mkrelease</span></tt></div></blockquote>
+<p>If you don&#8217;t want to specify this path, place the mkrelease script in the PATH
+environment variable (typically this can be achieved by activating its
+virtualenv).</p>
+<p>Finally, if you&#8217;re releasing eggs to a different repository, or if you have
+eggrepo.eea.europa.eu aliased as something different then &#8220;eea&#8221;, you can
+manually specify this using the -d switch:</p>
+<blockquote>
+<div><tt class="docutils literal"><span class="pre">bin/monkey</span> <span class="pre">-d</span> <span class="pre">eeaeggs</span> <span class="pre">eea.indicators</span></tt></div></blockquote>
+<p>If you want to forbid all network operations (for example,
+during testing), you can run</p>
+<blockquote>
+<div><tt class="docutils literal"><span class="pre">bin/monkey</span> <span class="pre">-n</span> <span class="pre">eea.indicators</span></tt></div></blockquote>
+</div>
+<div class="section" id="providing-defaults-with-a-configuration-file">
+<h2>Providing defaults with a configuration file<a class="headerlink" href="#providing-defaults-with-a-configuration-file" title="Permalink to this headline">¶</a></h2>
+<p>You can write a file ~/.eggmonkey in the following format:</p>
+<blockquote>
+<div><p>[*]
+python = /path/to/python
+mkrelease = /path/to/mkrelease
+manual_upload = true
+domain = eea</p>
+<p>[eea.indicators]
+domain = eea pypi</p>
+</div></blockquote>
+<p>This is a ConfigParser file format where each section is a package name, with
+the exception of the star (*), which provides defaults for all packages. The
+following options can be configured: python, mkrelease, manual_upload and
+domain. The domain option can be a space separated list of package repository
+aliases where the package will be uploaded.</p>
+</div>
+</div>
+<div class="section" id="system-requirements">
+<h1>System requirements<a class="headerlink" href="#system-requirements" title="Permalink to this headline">¶</a></h1>
+<p>Needs libsvn-dev and libaprutil1-dev (on Debian systems) and apr-util-devel,
+subversion-devel on Redhat systems</p>
+</div>
+
 
                     
                         <div id="disqus_thread"></div>
@@ -116,6 +231,18 @@
                     
         <div class="sphinxsidebar">
             <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">eea.eggmonkey</a><ul>
+<li><a class="reference internal" href="#requirements">Requirements</a></li>
+<li><a class="reference internal" href="#instalation">Instalation</a></li>
+<li><a class="reference internal" href="#usage">Usage</a></li>
+<li><a class="reference internal" href="#providing-defaults-with-a-configuration-file">Providing defaults with a configuration file</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#system-requirements">System requirements</a></li>
+</ul>
+
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="../../_sources/docs/eea.eggmonkey/index.txt"
@@ -146,7 +273,7 @@
 
     <!-- disqus -->
     <script type="text/javascript">
-        var disqus_title = '&lt;no title&gt; &mdash; EEA 6.0 documentation';
+        var disqus_title = 'eea.eggmonkey &mdash; EEA 6.0 documentation';
         var disqus_identifier ='code' + '.' + "euenvironment" + window.location.pathname.replace('/', '.');
     </script>
 

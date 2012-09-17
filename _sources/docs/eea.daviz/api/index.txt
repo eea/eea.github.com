@@ -36,3 +36,6 @@ Discover what you can do with the EEA Daviz APIs
       :maxdepth: 1
 
       ../../eea.app.visualization/api/API
+
+
+.. include:: ../../../../../eea.daviz/docs/tech-docs/integration-with-zope.rst
