@@ -28,7 +28,9 @@
             <script type="text/javascript" src="../../_static/bootstrap-dropdown.js"></script>
             <script type="text/javascript" src="../../_static/jquery.tools.min.js"></script>
             <script type="text/javascript" src="../../_static/bootstrap-custom.js"></script>
-        <link rel="top" title="EEA 6.0 documentation" href="../../index.html"/> 
+        <link rel="top" title="EEA 6.0 documentation" href="../../index.html"/>
+            <link rel="next" title="How to update this page" href="../howToUpdate.html"/>
+            <link rel="prev" title="EEA Uberlisting" href="../eea.uberlisting/index.html"/> 
     <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
     
 </head>
@@ -45,6 +47,14 @@
                 <li>
                     <a href="../../genindex.html"
                        title="General Index" accesskey="I">index</a>
+                </li>
+                <li>
+                    <a href="../howToUpdate.html"
+                       title="How to update this page" accesskey="N">next</a>
+                </li>
+                <li>
+                    <a href="../eea.uberlisting/index.html"
+                       title="EEA Uberlisting" accesskey="P">previous</a>
                 </li> 
         </ul>
     </div>
@@ -124,10 +134,11 @@ type, three adapters need to be provided:</p>
 <li><a class="reference internal" href="#zc-buildout" id="id5">zc.buildout</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#dependencies" id="id6">Dependencies</a></li>
-<li><a class="reference internal" href="#source-code" id="id7">Source code</a></li>
-<li><a class="reference internal" href="#copyright-and-license" id="id8">Copyright and license</a></li>
-<li><a class="reference internal" href="#funding" id="id9">Funding</a></li>
+<li><a class="reference internal" href="#how-to-specify-fallback-preview-images" id="id6">How to specify fallback preview images</a></li>
+<li><a class="reference internal" href="#dependencies" id="id7">Dependencies</a></li>
+<li><a class="reference internal" href="#source-code" id="id8">Source code</a></li>
+<li><a class="reference internal" href="#copyright-and-license" id="id9">Copyright and license</a></li>
+<li><a class="reference internal" href="#funding-and-project-management" id="id10">Funding and project management</a></li>
 </ul>
 </li>
 </ul>
@@ -165,8 +176,30 @@ zcml =
 from another package&#8217;s configure.zcml file.</p>
 </div>
 </div>
+<div class="section" id="how-to-specify-fallback-preview-images">
+<h2><a class="toc-backref" href="#id6">How to specify fallback preview images</a><a class="headerlink" href="#how-to-specify-fallback-preview-images" title="Permalink to this headline">¶</a></h2>
+<p>eea.depiction 0.3 introduces the concept of fallback images when the regular
+image traversal fails. The logic works like this:</p>
+<ol class="arabic simple">
+<li>Look for an image returned by the contexts &#8216;imgview&#8217; adapter</li>
+<li>If the imgview crashes, isn&#8217;t found or can not locate/generate an image,
+we continue by checking if there&#8217;s an image specified for any of the
+contexts interfaces.</li>
+<li>If there&#8217;s no fallback image, we look for an image for the context
+portal type, e.g. article, news-item, document. This should be placed
+in the &#8216;portal_depiction&#8217; utility (Site Setup &gt; Depiction Library)</li>
+<li>Uses the generic content type image, i.e. portal_depiction/generic</li>
+</ol>
+<p>Thus:</p>
+<ol class="arabic simple">
+<li>To map a fallback image to a portal type, place it in this folder and name
+it after the portal type.</li>
+<li>To map a fallback image to an interface just add a named-utility for
+IDepictionVocabulary (see eea.depiction.vocabularies)</li>
+</ol>
+</div>
 <div class="section" id="dependencies">
-<h2><a class="toc-backref" href="#id6">Dependencies</a><a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id7">Dependencies</a><a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt><a class="reference external" href="http://eea.github.com/docs/eea.depiction">EEA Depiction</a> has the following dependencies:</dt>
 <dd><ul class="first last simple">
@@ -188,7 +221,7 @@ eggs =
 </dl>
 </div>
 <div class="section" id="source-code">
-<h2><a class="toc-backref" href="#id7">Source code</a><a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id8">Source code</a><a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt>Latest source code (Plone 4 compatible):</dt>
 <dd><ul class="first last simple">
@@ -199,18 +232,18 @@ eggs =
 </dl>
 </div>
 <div class="section" id="copyright-and-license">
-<h2><a class="toc-backref" href="#id8">Copyright and license</a><a class="headerlink" href="#copyright-and-license" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id9">Copyright and license</a><a class="headerlink" href="#copyright-and-license" title="Permalink to this headline">¶</a></h2>
 <p>The Initial Owner of the Original Code is European Environment Agency (EEA).
 All Rights Reserved.</p>
-<p>The EEA Exhibit (the Original Code) is free software;
+<p>The eea.depiction (the Original Code) is free software;
 you can redistribute it and/or modify it under the terms of the GNU
 General Public License as published by the Free Software Foundation;
 either version 2 of the License, or (at your option) any later
 version.</p>
 <p>More details under docs/License.txt</p>
 </div>
-<div class="section" id="funding">
-<h2><a class="toc-backref" href="#id9">Funding</a><a class="headerlink" href="#funding" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="funding-and-project-management">
+<h2><a class="toc-backref" href="#id10">Funding and project management</a><a class="headerlink" href="#funding-and-project-management" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="http://www.eea.europa.eu/">EEA</a> - European Environment Agency (EU)</p>
 </div>
 </div>
@@ -232,14 +265,21 @@ version.</p>
 <li><a class="reference internal" href="#zc-buildout">zc.buildout</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#how-to-specify-fallback-preview-images">How to specify fallback preview images</a></li>
 <li><a class="reference internal" href="#dependencies">Dependencies</a></li>
 <li><a class="reference internal" href="#source-code">Source code</a></li>
 <li><a class="reference internal" href="#copyright-and-license">Copyright and license</a></li>
-<li><a class="reference internal" href="#funding">Funding</a></li>
+<li><a class="reference internal" href="#funding-and-project-management">Funding and project management</a></li>
 </ul>
 </li>
 </ul>
 
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../eea.uberlisting/index.html"
+                        title="previous chapter">EEA Uberlisting</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../howToUpdate.html"
+                        title="next chapter">How to update this page</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="../../_sources/docs/eea.depiction/index.txt"

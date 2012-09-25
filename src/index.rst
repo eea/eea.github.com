@@ -49,6 +49,15 @@ Getting started with EEA packages
 
     Enhances and extends the listing layouts capabilities of Plone
 
+  .. container:: step-nav span4
+
+    .. toctree::
+      :maxdepth: 1
+
+      docs/eea.depiction/index
+
+    A generic system for creating thumbnails representations for content-types
+
 More information
 ================
 
