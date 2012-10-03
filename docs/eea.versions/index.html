@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type"
           content="text/html; charset=utf-8"/>
     
-        <title>Introduction &mdash; EEA 6.0 documentation</title>
+        <title>EEA Versions &mdash; EEA 6.0 documentation</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='http://fonts.googleapis.com/css?family=Crete+Round' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="../../_static/sphinx-bootstrap.css" type="text/css"/>
@@ -105,36 +105,74 @@
         <div class="content row">
                 <div class="span9">
                     
-  <div class="section" id="introduction">
-<h1><a class="toc-backref" href="#id2">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="eea-versions">
+<h1><a class="toc-backref" href="#id2">EEA Versions</a><a class="headerlink" href="#eea-versions" title="Permalink to this headline">¶</a></h1>
 <p>EEA Versions is a versioning system based on a version ID to group certains
 objects and EffectiveDate to determine version number.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This add-on doesn&#8217;t do anything by itself. It needs to be integrated by a
+developer within your own products. For reference you can check
+the <a class="reference external" href="http://eea.github.com/docs/eea.sparql">eea.sparql</a> package.</p>
 </div>
-<div class="section" id="contents">
-<h1><a class="toc-backref" href="#id3">Contents</a><a class="headerlink" href="#contents" title="Permalink to this headline">¶</a></h1>
-<div class="contents topic" id="id1">
+<div class="contents topic" id="contents">
 <p class="topic-title first">Contents</p>
 <ul class="simple">
-<li><a class="reference internal" href="#introduction" id="id2">Introduction</a></li>
-<li><a class="reference internal" href="#contents" id="id3">Contents</a></li>
-<li><a class="reference internal" href="#install" id="id4">Install</a></li>
-<li><a class="reference internal" href="#copyright-and-license" id="id5">Copyright and license</a></li>
-<li><a class="reference internal" href="#funding" id="id6">Funding</a></li>
+<li><a class="reference internal" href="#eea-versions" id="id2">EEA Versions</a><ul>
+<li><a class="reference internal" href="#installation" id="id3">Installation</a><ul>
+<li><a class="reference internal" href="#zc-buildout" id="id4">zc.buildout</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#source-code" id="id5">Source code</a></li>
+<li><a class="reference internal" href="#copyright-and-license" id="id6">Copyright and license</a><ul>
+<li><a class="reference internal" href="#contributor-s" id="id7">Contributor(s)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#funding" id="id8">Funding</a></li>
+</ul>
+</li>
 </ul>
 </div>
-</div>
-<div class="section" id="install">
-<h1><a class="toc-backref" href="#id4">Install</a><a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h1>
-<blockquote>
-<div><ul class="simple">
-<li>Add eea.versions to your eggs and zcml section in your buildout and
-re-run buildout.</li>
-<li>Install eea.versions within Site Setup &gt; Add-ons</li>
+<div class="section" id="installation">
+<h2><a class="toc-backref" href="#id3">Installation</a><a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="zc-buildout">
+<h3><a class="toc-backref" href="#id4">zc.buildout</a><a class="headerlink" href="#zc-buildout" title="Permalink to this headline">¶</a></h3>
+<p>If you are using <a class="reference external" href="http://pypi.python.org/pypi/zc.buildout">zc.buildout</a> and the <a class="reference external" href="http://pypi.python.org/pypi/plone.recipe.zope2instance">plone.recipe.zope2instance</a>
+recipe to manage your project, you can do this:</p>
+<ul>
+<li><p class="first">Update your buildout.cfg file:</p>
+<ul class="simple">
+<li>Add <tt class="docutils literal"><span class="pre">eea.versions</span></tt> to the list of eggs to install</li>
+<li>Tell the <a class="reference external" href="http://pypi.python.org/pypi/plone.recipe.zope2instance">plone.recipe.zope2instance</a> recipe to install a ZCML slug</li>
 </ul>
-</div></blockquote>
+<div class="highlight-python"><pre>[instance]
+...
+eggs =
+  ...
+  eea.versions
+
+zcml =
+  ...
+  eea.versions</pre>
+</div>
+</li>
+<li><p class="first">Re-run buildout, e.g. with:</p>
+<div class="highlight-python"><pre>$ ./bin/buildout</pre>
+</div>
+</li>
+</ul>
+<p>You can skip the ZCML slug if you are going to explicitly include the package
+from another package&#8217;s configure.zcml file.</p>
+</div>
+</div>
+<div class="section" id="source-code">
+<h2><a class="toc-backref" href="#id5">Source code</a><a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
+<p>Latest source code (Plone 4 compatible):
+- <a class="reference external" href="https://github.com/collective/eea.versions">Plone Collective on Github</a>
+- <a class="reference external" href="https://github.com/eea/eea.versions">EEA on Github</a></p>
 </div>
 <div class="section" id="copyright-and-license">
-<h1><a class="toc-backref" href="#id5">Copyright and license</a><a class="headerlink" href="#copyright-and-license" title="Permalink to this headline">¶</a></h1>
+<h2><a class="toc-backref" href="#id6">Copyright and license</a><a class="headerlink" href="#copyright-and-license" title="Permalink to this headline">¶</a></h2>
 <p>The Initial Owner of the Original Code is European Environment Agency (EEA).
 All Rights Reserved.</p>
 <p>The EEA Versions (the Original Code) is free software;
@@ -142,17 +180,21 @@ you can redistribute it and/or modify it under the terms of the GNU
 General Public License as published by the Free Software Foundation;
 either version 2 of the License, or (at your option) any later
 version.</p>
-<dl class="docutils">
-<dt>Contributor(s): Tiberiu Ichim (Eau de Web),</dt>
-<dd>Alec Ghica (Eau de Web),
-Antonio De Marinis (European Environment Agency)</dd>
-</dl>
+<div class="section" id="contributor-s">
+<h3><a class="toc-backref" href="#id7">Contributor(s)</a><a class="headerlink" href="#contributor-s" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Tiberiu Ichim (Eau de Web),</li>
+<li>Alec Ghica (Eau de Web),</li>
+<li>Antonio De Marinis (European Environment Agency)</li>
+</ul>
 <p>More details under docs/License.txt</p>
 </div>
+</div>
 <div class="section" id="funding">
-<h1><a class="toc-backref" href="#id6">Funding</a><a class="headerlink" href="#funding" title="Permalink to this headline">¶</a></h1>
+<h2><a class="toc-backref" href="#id8">Funding</a><a class="headerlink" href="#funding" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><a class="reference external" href="http://www.eea.europa.eu/">EEA</a> - European Enviroment Agency (EU)</div></blockquote>
+</div>
 </div>
 
 
@@ -167,11 +209,19 @@ Antonio De Marinis (European Environment Agency)</dd>
             <div class="sphinxsidebarwrapper">
   <h3><a href="../../index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Introduction</a></li>
-<li><a class="reference internal" href="#contents">Contents</a></li>
-<li><a class="reference internal" href="#install">Install</a></li>
-<li><a class="reference internal" href="#copyright-and-license">Copyright and license</a></li>
+<li><a class="reference internal" href="#">EEA Versions</a><ul>
+<li><a class="reference internal" href="#installation">Installation</a><ul>
+<li><a class="reference internal" href="#zc-buildout">zc.buildout</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#source-code">Source code</a></li>
+<li><a class="reference internal" href="#copyright-and-license">Copyright and license</a><ul>
+<li><a class="reference internal" href="#contributor-s">Contributor(s)</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#funding">Funding</a></li>
+</ul>
+</li>
 </ul>
 
   <h3>This Page</h3>
@@ -204,7 +254,7 @@ Antonio De Marinis (European Environment Agency)</dd>
 
     <!-- disqus -->
     <script type="text/javascript">
-        var disqus_title = 'Introduction &mdash; EEA 6.0 documentation';
+        var disqus_title = 'EEA Versions &mdash; EEA 6.0 documentation';
         var disqus_identifier ='code' + '.' + "euenvironment" + window.location.pathname.replace('/', '.');
     </script>
 
