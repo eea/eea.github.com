@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type"
           content="text/html; charset=utf-8"/>
     
-        <title>Introduction &mdash; EEA 6.0 documentation</title>
+        <title>EEA Forms &mdash; EEA 6.0 documentation</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='http://fonts.googleapis.com/css?family=Crete+Round' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="../../_static/sphinx-bootstrap.css" type="text/css"/>
@@ -105,8 +105,10 @@
         <div class="content row">
                 <div class="span9">
                     
-  <div class="section" id="introduction">
-<h1><a class="toc-backref" href="#id2">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="eea-forms">
+<h1><a class="toc-backref" href="#id3">EEA Forms</a><a class="headerlink" href="#eea-forms" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2><a class="toc-backref" href="#id4">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt>This package is a collection of custom AT Widgets and Fields:</dt>
 <dd><ul class="first last simple">
@@ -130,52 +132,107 @@ QuickUpload Widget.</p>
 </ul>
 </dd>
 </dl>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This add-on doesn&#8217;t do anything by itself. It needs to be integrated by a
+developer within your own products. For reference you can check
+the <a class="reference external" href="http://eea.github.com/docs/eea.daviz">eea.daviz</a> package.</p>
+</div>
 </div>
 <div class="section" id="contents">
-<h1><a class="toc-backref" href="#id3">Contents</a><a class="headerlink" href="#contents" title="Permalink to this headline">¶</a></h1>
+<h2><a class="toc-backref" href="#id5">Contents</a><a class="headerlink" href="#contents" title="Permalink to this headline">¶</a></h2>
 <div class="contents topic" id="id1">
 <p class="topic-title first">Contents</p>
 <ul class="simple">
-<li><a class="reference internal" href="#introduction" id="id2">Introduction</a></li>
-<li><a class="reference internal" href="#contents" id="id3">Contents</a></li>
-<li><a class="reference internal" href="#install" id="id4">Install</a></li>
-<li><a class="reference internal" href="#copyright-and-license" id="id5">Copyright and license</a></li>
-<li><a class="reference internal" href="#funding" id="id6">Funding</a></li>
+<li><a class="reference internal" href="#eea-forms" id="id3">EEA Forms</a><ul>
+<li><a class="reference internal" href="#introduction" id="id4">Introduction</a></li>
+<li><a class="reference internal" href="#contents" id="id5">Contents</a></li>
+<li><a class="reference internal" href="#installation" id="id6">Installation</a><ul>
+<li><a class="reference internal" href="#zc-buildout" id="id7">zc.buildout</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#dependencies" id="id8">Dependencies</a></li>
+<li><a class="reference internal" href="#source-code" id="id9">Source code</a></li>
+<li><a class="reference internal" href="#copyright-and-license" id="id10">Copyright and license</a></li>
+<li><a class="reference internal" href="#funding" id="id11">Funding</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
-<div class="section" id="install">
-<h1><a class="toc-backref" href="#id4">Install</a><a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h1>
-<blockquote>
-<div><ul class="simple">
-<li>Add eea.forms to your eggs and zcml section in your buildout and
-re-run buildout.</li>
+<div class="section" id="installation">
+<h2><a class="toc-backref" href="#id6">Installation</a><a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="zc-buildout">
+<h3><a class="toc-backref" href="#id7">zc.buildout</a><a class="headerlink" href="#zc-buildout" title="Permalink to this headline">¶</a></h3>
+<p>If you are using <a class="reference external" href="http://pypi.python.org/pypi/zc.buildout">zc.buildout</a> and the <a class="reference external" href="http://pypi.python.org/pypi/plone.recipe.zope2instance">plone.recipe.zope2instance</a>
+recipe to manage your project, you can do this:</p>
+<ul>
+<li><p class="first">Update your buildout.cfg file:</p>
+<ul class="simple">
+<li>Add <tt class="docutils literal"><span class="pre">eea.forms</span></tt> to the list of eggs to install</li>
+<li>Tell the <a class="reference external" href="http://pypi.python.org/pypi/plone.recipe.zope2instance">plone.recipe.zope2instance</a> recipe to install a ZCML slug</li>
+</ul>
+<div class="highlight-python"><pre>[instance]
+...
+eggs =
+  ...
+  eea.forms
+
+zcml =
+  ...
+  eea.forms</pre>
+</div>
+</li>
+<li><p class="first">Re-run buildout, e.g. with:</p>
+<div class="highlight-python"><pre>$ ./bin/buildout</pre>
+</div>
+</li>
+</ul>
+<p>You can skip the ZCML slug if you are going to explicitly include the package
+from another package&#8217;s configure.zcml file.</p>
+<ul class="simple">
 <li>Install eea.forms within Site Setup &gt; Add-ons</li>
 </ul>
-</div></blockquote>
+</div>
+</div>
+<div class="section" id="dependencies">
+<h2><a class="toc-backref" href="#id8">Dependencies</a><a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt><a class="reference internal" href="#eea-forms">EEA Forms</a> has the following dependencies:</dt>
+<dd><ul class="first last simple">
+<li>Plone 4+</li>
+<li>collective.quickupload</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="source-code">
+<h2><a class="toc-backref" href="#id9">Source code</a><a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Latest source code (Plone 4 compatible):</dt>
+<dd><ul class="first last simple">
+<li><a class="reference external" href="http://github.com/eea/eea.forms">http://github.com/eea/eea.forms</a></li>
+<li><a class="reference external" href="http://github.com/collective/eea.forms">http://github.com/collective/eea.forms</a></li>
+</ul>
+</dd>
+</dl>
 </div>
 <div class="section" id="copyright-and-license">
-<h1><a class="toc-backref" href="#id5">Copyright and license</a><a class="headerlink" href="#copyright-and-license" title="Permalink to this headline">¶</a></h1>
+<h2><a class="toc-backref" href="#id10">Copyright and license</a><a class="headerlink" href="#copyright-and-license" title="Permalink to this headline">¶</a></h2>
 <p>The Initial Owner of the Original Code is European Environment Agency (EEA).
 All Rights Reserved.</p>
-<p>The EEA Forms (the Original Code) is free software;
+<p>The eea.forms (the Original Code) is free software;
 you can redistribute it and/or modify it under the terms of the GNU
 General Public License as published by the Free Software Foundation;
 either version 2 of the License, or (at your option) any later
 version.</p>
-<dl class="docutils">
-<dt>Contributor(s): Alin Voinea (Eau de Web),</dt>
-<dd>Zoltan Szabo (Eau de Web),
-Tiberiu Ichim (Eau de Web),
-Alec Ghica (Eau de Web),
-Antonio De Marinis (European Environment Agency)</dd>
-</dl>
 <p>More details under docs/License.txt</p>
 </div>
 <div class="section" id="funding">
-<h1><a class="toc-backref" href="#id6">Funding</a><a class="headerlink" href="#funding" title="Permalink to this headline">¶</a></h1>
+<h2><a class="toc-backref" href="#id11">Funding</a><a class="headerlink" href="#funding" title="Permalink to this headline">¶</a></h2>
 <blockquote>
-<div><a class="reference external" href="http://www.eea.europa.eu/">EEA</a> - European Enviroment Agency (EU)</div></blockquote>
+<div><a class="reference external" href="http://www.eea.europa.eu/">EEA</a> - European Environment Agency (EU)</div></blockquote>
+</div>
 </div>
 
 
@@ -190,11 +247,19 @@ Antonio De Marinis (European Environment Agency)</dd>
             <div class="sphinxsidebarwrapper">
   <h3><a href="../../index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">Introduction</a></li>
+<li><a class="reference internal" href="#">EEA Forms</a><ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
 <li><a class="reference internal" href="#contents">Contents</a></li>
-<li><a class="reference internal" href="#install">Install</a></li>
+<li><a class="reference internal" href="#installation">Installation</a><ul>
+<li><a class="reference internal" href="#zc-buildout">zc.buildout</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#dependencies">Dependencies</a></li>
+<li><a class="reference internal" href="#source-code">Source code</a></li>
 <li><a class="reference internal" href="#copyright-and-license">Copyright and license</a></li>
 <li><a class="reference internal" href="#funding">Funding</a></li>
+</ul>
+</li>
 </ul>
 
   <h3>This Page</h3>
@@ -227,7 +292,7 @@ Antonio De Marinis (European Environment Agency)</dd>
 
     <!-- disqus -->
     <script type="text/javascript">
-        var disqus_title = 'Introduction &mdash; EEA 6.0 documentation';
+        var disqus_title = 'EEA Forms &mdash; EEA 6.0 documentation';
         var disqus_identifier ='code' + '.' + "euenvironment" + window.location.pathname.replace('/', '.');
     </script>
 

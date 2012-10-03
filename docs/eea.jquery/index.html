@@ -116,34 +116,92 @@
                 <div class="span9">
                     
   <div class="section" id="eea-jquery">
-<h1><a class="toc-backref" href="#id1">EEA jQuery</a><a class="headerlink" href="#eea-jquery" title="Permalink to this headline">¶</a></h1>
+<h1><a class="toc-backref" href="#id2">EEA jQuery</a><a class="headerlink" href="#eea-jquery" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2><a class="toc-backref" href="#id3">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <p>EEA jQuery provides jQuery 1.3.2 and 1.4.2 JS libraries as zope3 resources
 and some jQuery plugins like: bbq, cookie, fancybox, galleryview, jqzoom,
 qtip, splitter, tagcloud, flashembed and more. Each plugin comes with its own
 GenericSetup profile in order to easily use it within your Plone sites.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This add-on doesn&#8217;t do anything by itself. It needs to be integrated by a
+developer within your own products. For reference you can check
+the <a class="reference external" href="http://eea.github.com/docs/eea.tags">eea.tags</a> package.</p>
+</div>
 <div class="contents topic" id="contents">
 <p class="topic-title first">Contents</p>
 <ul class="simple">
-<li><a class="reference internal" href="#eea-jquery" id="id1">EEA jQuery</a><ul>
-<li><a class="reference internal" href="#source-code" id="id2">Source code</a></li>
-<li><a class="reference internal" href="#copyright-and-license" id="id3">Copyright and license</a><ul>
-<li><a class="reference internal" href="#contributor-s" id="id4">Contributor(s):</a></li>
-<li><a class="reference internal" href="#credits" id="id5">Credits:</a></li>
+<li><a class="reference internal" href="#eea-jquery" id="id2">EEA jQuery</a><ul>
+<li><a class="reference internal" href="#introduction" id="id3">Introduction</a></li>
+<li><a class="reference internal" href="#installation" id="id4">Installation</a><ul>
+<li><a class="reference internal" href="#zc-buildout" id="id5">zc.buildout</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#funding" id="id6">Funding</a></li>
+<li><a class="reference internal" href="#dependencies" id="id6">Dependencies</a></li>
+<li><a class="reference internal" href="#source-code" id="id7">Source code</a></li>
+<li><a class="reference internal" href="#copyright-and-license" id="id8">Copyright and license</a><ul>
+<li><a class="reference internal" href="#contributor-s" id="id9">Contributor(s):</a></li>
+<li><a class="reference internal" href="#credits" id="id10">Credits:</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#funding" id="id11">Funding</a></li>
 </ul>
 </li>
 </ul>
 </div>
+</div>
+<div class="section" id="installation">
+<h2><a class="toc-backref" href="#id4">Installation</a><a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="zc-buildout">
+<h3><a class="toc-backref" href="#id5">zc.buildout</a><a class="headerlink" href="#zc-buildout" title="Permalink to this headline">¶</a></h3>
+<p>If you are using <a class="reference external" href="http://pypi.python.org/pypi/zc.buildout">zc.buildout</a> and the <a class="reference external" href="http://pypi.python.org/pypi/plone.recipe.zope2instance">plone.recipe.zope2instance</a>
+recipe to manage your project, you can do this:</p>
+<ul>
+<li><p class="first">Update your buildout.cfg file:</p>
+<ul class="simple">
+<li>Add <tt class="docutils literal"><span class="pre">eea.jquery</span></tt> to the list of eggs to install</li>
+<li>Tell the <a class="reference external" href="http://pypi.python.org/pypi/plone.recipe.zope2instance">plone.recipe.zope2instance</a> recipe to install a ZCML slug</li>
+</ul>
+<div class="highlight-python"><pre>[instance]
+...
+eggs =
+  ...
+  eea.jquery
+
+zcml =
+  ...
+  eea.jquery</pre>
+</div>
+</li>
+<li><p class="first">Re-run buildout, e.g. with:</p>
+<div class="highlight-python"><pre>$ ./bin/buildout</pre>
+</div>
+</li>
+</ul>
+<p>You can skip the ZCML slug if you are going to explicitly include the package
+from another package&#8217;s configure.zcml file.</p>
+</div>
+</div>
+<div class="section" id="dependencies">
+<h2><a class="toc-backref" href="#id6">Dependencies</a><a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt><a class="reference internal" href="#eea-jquery">EEA jQuery</a> has the following dependencies:</dt>
+<dd><ul class="first last simple">
+<li>collective.js.jqueryui</li>
+</ul>
+</dd>
+</dl>
+</div>
 <div class="section" id="source-code">
-<h2><a class="toc-backref" href="#id2">Source code</a><a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id7">Source code</a><a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/collective/eea.jquery">Plone Collective on Github</a></li>
+<li><a class="reference external" href="https://github.com/eea/eea.jquery">EEA on Github</a></li>
 </ul>
 </div>
 <div class="section" id="copyright-and-license">
-<h2><a class="toc-backref" href="#id3">Copyright and license</a><a class="headerlink" href="#copyright-and-license" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id8">Copyright and license</a><a class="headerlink" href="#copyright-and-license" title="Permalink to this headline">¶</a></h2>
 <p>The Initial Owner of the Original Code is European Environment Agency (EEA).
 All Rights Reserved.</p>
 <p>The EEA jQuery (the Original Code) is free software;
@@ -152,7 +210,7 @@ General Public License as published by the Free Software Foundation;
 either version 2 of the License, or (at your option) any later
 version.</p>
 <div class="section" id="contributor-s">
-<h3><a class="toc-backref" href="#id4">Contributor(s):</a><a class="headerlink" href="#contributor-s" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id9">Contributor(s):</a><a class="headerlink" href="#contributor-s" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Alin Voinea (Eau de Web)</li>
 <li>Antonio De Marinis (European Environment Agency)</li>
@@ -161,7 +219,7 @@ version.</p>
 </ul>
 </div>
 <div class="section" id="credits">
-<h3><a class="toc-backref" href="#id5">Credits:</a><a class="headerlink" href="#credits" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id10">Credits:</a><a class="headerlink" href="#credits" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Peter Holzer (Agitator)</li>
 </ul>
@@ -169,8 +227,8 @@ version.</p>
 </div>
 </div>
 <div class="section" id="funding">
-<h2><a class="toc-backref" href="#id6">Funding</a><a class="headerlink" href="#funding" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="http://www.eea.europa.eu/">EEA</a> - European Enviroment Agency (EU)</p>
+<h2><a class="toc-backref" href="#id11">Funding</a><a class="headerlink" href="#funding" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://www.eea.europa.eu/">EEA</a> - European Environment Agency (EU)</p>
 </div>
 </div>
 
@@ -187,6 +245,12 @@ version.</p>
   <h3><a href="../../index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">EEA jQuery</a><ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#installation">Installation</a><ul>
+<li><a class="reference internal" href="#zc-buildout">zc.buildout</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#dependencies">Dependencies</a></li>
 <li><a class="reference internal" href="#source-code">Source code</a></li>
 <li><a class="reference internal" href="#copyright-and-license">Copyright and license</a><ul>
 <li><a class="reference internal" href="#contributor-s">Contributor(s):</a></li>
