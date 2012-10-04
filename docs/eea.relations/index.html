@@ -111,17 +111,16 @@
 object can be in relation with any other object. EEA Relations lets you to
 define possible relations between objects. EEA Relations also comes with a nice,
 customizable faceted navigable popup for relations widget.</p>
-</div>
-<div class="section" id="contents">
-<h1><a class="toc-backref" href="#id3">Contents</a><a class="headerlink" href="#contents" title="Permalink to this headline">¶</a></h1>
-<div class="contents topic" id="id1">
+<div class="contents topic" id="contents">
 <p class="topic-title first">Contents</p>
 <ul class="simple">
-<li><a class="reference internal" href="#eea-relations" id="id2">EEA Relations</a></li>
-<li><a class="reference internal" href="#contents" id="id3">Contents</a></li>
-<li><a class="reference internal" href="#introduction" id="id4">Introduction</a></li>
-<li><a class="reference internal" href="#main-features" id="id5">Main features</a></li>
-<li><a class="reference internal" href="#installation" id="id6">Installation</a></li>
+<li><a class="reference internal" href="#eea-relations" id="id2">EEA Relations</a><ul>
+<li><a class="reference internal" href="#introduction" id="id3">Introduction</a></li>
+<li><a class="reference internal" href="#main-features" id="id4">Main features</a></li>
+<li><a class="reference internal" href="#installation" id="id5">Installation</a><ul>
+<li><a class="reference internal" href="#zc-buildout" id="id6">zc.buildout</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#getting-started" id="id7">Getting started</a></li>
 <li><a class="reference internal" href="#dependencies" id="id8">Dependencies</a></li>
 <li><a class="reference internal" href="#api-doc" id="id9">API Doc</a></li>
@@ -129,15 +128,16 @@ customizable faceted navigable popup for relations widget.</p>
 <li><a class="reference internal" href="#copyright-and-license" id="id11">Copyright and license</a></li>
 <li><a class="reference internal" href="#funding" id="id12">Funding</a></li>
 </ul>
-</div>
+</li>
+</ul>
 </div>
 <div class="section" id="introduction">
-<h1><a class="toc-backref" href="#id4">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<h2><a class="toc-backref" href="#id3">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <p>Once installed from &#8220;Add-ons&#8221;, the package will add an utility
 called &#8220;Possible relations&#8221; under control panel.</p>
 </div>
 <div class="section" id="main-features">
-<h1><a class="toc-backref" href="#id5">Main features</a><a class="headerlink" href="#main-features" title="Permalink to this headline">¶</a></h1>
+<h2><a class="toc-backref" href="#id4">Main features</a><a class="headerlink" href="#main-features" title="Permalink to this headline">¶</a></h2>
 <p>Main goal of EEA Relations is to be an alternative to the default Plone
 related item widget.</p>
 <p>EEA Relations features:</p>
@@ -154,55 +154,73 @@ on the relate items popup</li>
 </div></blockquote>
 </div>
 <div class="section" id="installation">
-<h1><a class="toc-backref" href="#id6">Installation</a><a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
-<p>The easiest way to get eea.relations support in Plone 4 using this package is to
-work with installations based on <a class="reference external" href="http://pypi.python.org/pypi/zc.buildout/">zc.buildout</a>.  Other types of installations
-should also be possible, but might turn out to be somewhat tricky.</p>
-<p>To get started you will simply need to add the package to your &#8220;eggs&#8221; and
-&#8220;zcml&#8221; sections, run buildout, restart your Plone instance and install the
-&#8220;eea.relations&#8221; package using the quick-installer or via the &#8220;Add-on
-Products&#8221; section in &#8220;Site Setup&#8221;.</p>
-<blockquote>
-<div></div></blockquote>
-<p>You can download a sample buildout at:</p>
-<blockquote>
-<div><a class="reference external" href="https://svn.eionet.europa.eu/repositories/Zope/trunk/eea.relations/buildouts/plone4/">https://svn.eionet.europa.eu/repositories/Zope/trunk/eea.relations/buildouts/plone4/</a></div></blockquote>
+<h2><a class="toc-backref" href="#id5">Installation</a><a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="zc-buildout">
+<h3><a class="toc-backref" href="#id6">zc.buildout</a><a class="headerlink" href="#zc-buildout" title="Permalink to this headline">¶</a></h3>
+<p>If you are using <a class="reference external" href="http://pypi.python.org/pypi/zc.buildout">zc.buildout</a> and the <a class="reference external" href="http://pypi.python.org/pypi/plone.recipe.zope2instance">plone.recipe.zope2instance</a>
+recipe to manage your project, you can do this:</p>
+<ul>
+<li><p class="first">Update your buildout.cfg file:</p>
+<ul class="simple">
+<li>Add <tt class="docutils literal"><span class="pre">eea.relations</span></tt> to the list of eggs to install</li>
+<li>Tell the <a class="reference external" href="http://pypi.python.org/pypi/plone.recipe.zope2instance">plone.recipe.zope2instance</a> recipe to install a ZCML slug</li>
+</ul>
+<div class="highlight-python"><pre>[instance]
+...
+eggs =
+  ...
+  eea.relations
+
+zcml =
+  ...
+  eea.relations</pre>
+</div>
+</li>
+<li><p class="first">Re-run buildout, e.g. with:</p>
+<div class="highlight-python"><pre>$ ./bin/buildout</pre>
+</div>
+</li>
+</ul>
+<p>You can skip the ZCML slug if you are going to explicitly include the package
+from another package&#8217;s configure.zcml file.</p>
+</div>
 </div>
 <div class="section" id="getting-started">
-<h1><a class="toc-backref" href="#id7">Getting started</a><a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<h2><a class="toc-backref" href="#id7">Getting started</a><a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
 <p>Once you install the package from control panel &#8220;Add-ons&#8221;, the package will add
 an utility called &#8220;Possible relations&#8221; under control panel from where you can start
 define the relations, the constraints between contents etc.</p>
 </div>
 <div class="section" id="dependencies">
-<h1><a class="toc-backref" href="#id8">Dependencies</a><a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h1>
+<h2><a class="toc-backref" href="#id8">Dependencies</a><a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference internal" href="#eea-relations">EEA Relations</a> has the following dependencies:</p>
 <blockquote>
 <div><ul>
 <li><p class="first">graphviz</p>
-<blockquote>
-<div><p>yum install graphviz</p>
-<p>apt-get install graphviz</p>
-</div></blockquote>
+<div class="highlight-python"><pre>$ yum install graphviz
+$ apt-get install graphviz</pre>
+</div>
+</li>
+<li><p class="first">pydot</p>
+</li>
+<li><p class="first">eea.facetednavigation</p>
 </li>
 </ul>
 </div></blockquote>
 </div>
 <div class="section" id="api-doc">
-<h1><a class="toc-backref" href="#id9">API Doc</a><a class="headerlink" href="#api-doc" title="Permalink to this headline">¶</a></h1>
+<h2><a class="toc-backref" href="#id9">API Doc</a><a class="headerlink" href="#api-doc" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><a class="reference external" href="http://apidoc.eea.europa.eu/eea.relations-module.html">http://apidoc.eea.europa.eu/eea.relations-module.html</a></div></blockquote>
 </div>
 <div class="section" id="source-code">
-<h1><a class="toc-backref" href="#id10">Source code</a><a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h1>
-<dl class="docutils">
-<dt>Latest source code (Plone 4 compatible):</dt>
-<dd><a class="reference external" href="https://svn.eionet.europa.eu/repositories/Zope/trunk/eea.relations/trunk">https://svn.eionet.europa.eu/repositories/Zope/trunk/eea.relations/trunk</a></dd>
-<dt>Plone 2 and 3 compatible:</dt>
-<dd><a class="reference external" href="https://svn.eionet.europa.eu/repositories/Zope/trunk/eea.relations/branches/plone25">https://svn.eionet.europa.eu/repositories/Zope/trunk/eea.relations/branches/plone25</a></dd>
-</dl>
+<h2><a class="toc-backref" href="#id10">Source code</a><a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
+<p>Latest source code (Plone 4 compatible):
+- <a class="reference external" href="https://github.com/collective/eea.relations">Plone Collective on Github</a>
+- <a class="reference external" href="https://github.com/eea/eea.relations">EEA on Github</a></p>
 </div>
 <div class="section" id="copyright-and-license">
-<h1><a class="toc-backref" href="#id11">Copyright and license</a><a class="headerlink" href="#copyright-and-license" title="Permalink to this headline">¶</a></h1>
+<h2><a class="toc-backref" href="#id11">Copyright and license</a><a class="headerlink" href="#copyright-and-license" title="Permalink to this headline">¶</a></h2>
 <p>The Initial Owner of the Original Code is European Environment Agency (EEA).
 All Rights Reserved.</p>
 <p>The EEA Relations (the Original Code) is free software;
@@ -213,9 +231,10 @@ version.</p>
 <p>More details under docs/License.txt</p>
 </div>
 <div class="section" id="funding">
-<h1><a class="toc-backref" href="#id12">Funding</a><a class="headerlink" href="#funding" title="Permalink to this headline">¶</a></h1>
+<h2><a class="toc-backref" href="#id12">Funding</a><a class="headerlink" href="#funding" title="Permalink to this headline">¶</a></h2>
 <blockquote>
-<div><a class="reference external" href="http://www.eea.europa.eu/">EEA</a> - European Enviroment Agency (EU)</div></blockquote>
+<div><a class="reference external" href="http://www.eea.europa.eu/">EEA</a> - European Environment Agency (EU)</div></blockquote>
+</div>
 </div>
 
 
@@ -230,17 +249,21 @@ version.</p>
             <div class="sphinxsidebarwrapper">
   <h3><a href="../../index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">EEA Relations</a></li>
-<li><a class="reference internal" href="#contents">Contents</a></li>
+<li><a class="reference internal" href="#">EEA Relations</a><ul>
 <li><a class="reference internal" href="#introduction">Introduction</a></li>
 <li><a class="reference internal" href="#main-features">Main features</a></li>
-<li><a class="reference internal" href="#installation">Installation</a></li>
+<li><a class="reference internal" href="#installation">Installation</a><ul>
+<li><a class="reference internal" href="#zc-buildout">zc.buildout</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#getting-started">Getting started</a></li>
 <li><a class="reference internal" href="#dependencies">Dependencies</a></li>
 <li><a class="reference internal" href="#api-doc">API Doc</a></li>
 <li><a class="reference internal" href="#source-code">Source code</a></li>
 <li><a class="reference internal" href="#copyright-and-license">Copyright and license</a></li>
 <li><a class="reference internal" href="#funding">Funding</a></li>
+</ul>
+</li>
 </ul>
 
   <h3>This Page</h3>
