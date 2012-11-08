@@ -117,6 +117,10 @@
                     
   <div class="section" id="eea-depiction">
 <h1><a class="toc-backref" href="#id3">EEA Depiction</a><a class="headerlink" href="#eea-depiction" title="Permalink to this headline">¶</a></h1>
+<a class="reference external image-reference" href="http://ci.eionet.europa.eu/job/eea.depiction-www/lastBuild"><img alt="http://ci.eionet.europa.eu/job/eea.depiction-www/badge/icon" src="http://ci.eionet.europa.eu/job/eea.depiction-www/badge/icon" /></a>
+<a class="reference external image-reference" href="http://ci.eionet.europa.eu/job/eea.depiction-plone4/lastBuild"><img alt="http://ci.eionet.europa.eu/job/eea.depiction-plone4/badge/icon" src="http://ci.eionet.europa.eu/job/eea.depiction-plone4/badge/icon" /></a>
+<div class="section" id="introduction">
+<h2><a class="toc-backref" href="#id4">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="http://eea.github.com/docs/eea.depiction">EEA Depiction</a> (formerly valentine.imagescales) is a generic system for
 creating thumbnails/image representations for content types,
 both those provided by Plone, and custom ones.</p>
@@ -129,8 +133,9 @@ to work also for dexterity content types.</p>
 <li>ImageTag that returns the HTML tag for the image</li>
 <li>ImageLink that returns the HTML link to the image.</li>
 </ol>
+</div>
 <div class="section" id="upgrade-notes">
-<h2><a class="toc-backref" href="#id4">Upgrade notes</a><a class="headerlink" href="#upgrade-notes" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id5">Upgrade notes</a><a class="headerlink" href="#upgrade-notes" title="Permalink to this headline">¶</a></h2>
 <p>As of <strong>eea.depiction 5.2</strong> we customize the following resources in order to
 display any items in thumbnail listings:</p>
 <ol class="arabic simple">
@@ -143,25 +148,26 @@ thumbnail listing for the <em>plone.app.collection</em> package</li>
 <p class="topic-title first">Contents</p>
 <ul class="simple">
 <li><a class="reference internal" href="#eea-depiction" id="id3">EEA Depiction</a><ul>
-<li><a class="reference internal" href="#upgrade-notes" id="id4">Upgrade notes</a></li>
-<li><a class="reference internal" href="#installation" id="id5">Installation</a><ul>
-<li><a class="reference internal" href="#zc-buildout" id="id6">zc.buildout</a></li>
+<li><a class="reference internal" href="#introduction" id="id4">Introduction</a></li>
+<li><a class="reference internal" href="#upgrade-notes" id="id5">Upgrade notes</a></li>
+<li><a class="reference internal" href="#installation" id="id6">Installation</a><ul>
+<li><a class="reference internal" href="#zc-buildout" id="id7">zc.buildout</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#how-to-specify-fallback-preview-images" id="id7">How to specify fallback preview images</a></li>
-<li><a class="reference internal" href="#dependencies" id="id8">Dependencies</a></li>
-<li><a class="reference internal" href="#source-code" id="id9">Source code</a></li>
-<li><a class="reference internal" href="#copyright-and-license" id="id10">Copyright and license</a></li>
-<li><a class="reference internal" href="#funding-and-project-management" id="id11">Funding and project management</a></li>
+<li><a class="reference internal" href="#how-to-specify-fallback-preview-images" id="id8">How to specify fallback preview images</a></li>
+<li><a class="reference internal" href="#dependencies" id="id9">Dependencies</a></li>
+<li><a class="reference internal" href="#source-code" id="id10">Source code</a></li>
+<li><a class="reference internal" href="#copyright-and-license" id="id11">Copyright and license</a></li>
+<li><a class="reference internal" href="#funding-and-project-management" id="id12">Funding and project management</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 <div class="section" id="installation">
-<h2><a class="toc-backref" href="#id5">Installation</a><a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id6">Installation</a><a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="zc-buildout">
-<h3><a class="toc-backref" href="#id6">zc.buildout</a><a class="headerlink" href="#zc-buildout" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id7">zc.buildout</a><a class="headerlink" href="#zc-buildout" title="Permalink to this headline">¶</a></h3>
 <p>If you are using <a class="reference external" href="http://pypi.python.org/pypi/zc.buildout">zc.buildout</a> and the <a class="reference external" href="http://pypi.python.org/pypi/plone.recipe.zope2instance">plone.recipe.zope2instance</a>
 recipe to manage your project, you can do this:</p>
 <ul>
@@ -192,7 +198,7 @@ from another package&#8217;s configure.zcml file.</p>
 </div>
 </div>
 <div class="section" id="how-to-specify-fallback-preview-images">
-<h2><a class="toc-backref" href="#id7">How to specify fallback preview images</a><a class="headerlink" href="#how-to-specify-fallback-preview-images" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id8">How to specify fallback preview images</a><a class="headerlink" href="#how-to-specify-fallback-preview-images" title="Permalink to this headline">¶</a></h2>
 <p>eea.depiction 0.3 introduces the concept of fallback images when the regular
 image traversal fails. The logic works like this:</p>
 <ol class="arabic simple">
@@ -214,7 +220,7 @@ IDepictionVocabulary (see eea.depiction.vocabularies)</li>
 </ol>
 </div>
 <div class="section" id="dependencies">
-<h2><a class="toc-backref" href="#id8">Dependencies</a><a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id9">Dependencies</a><a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt><a class="reference external" href="http://eea.github.com/docs/eea.depiction">EEA Depiction</a> has the following dependencies:</dt>
 <dd><ul class="first last simple">
@@ -236,7 +242,7 @@ eggs =
 </dl>
 </div>
 <div class="section" id="source-code">
-<h2><a class="toc-backref" href="#id9">Source code</a><a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id10">Source code</a><a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt>Latest source code (Plone 4 compatible):</dt>
 <dd><ul class="first last simple">
@@ -247,7 +253,7 @@ eggs =
 </dl>
 </div>
 <div class="section" id="copyright-and-license">
-<h2><a class="toc-backref" href="#id10">Copyright and license</a><a class="headerlink" href="#copyright-and-license" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id11">Copyright and license</a><a class="headerlink" href="#copyright-and-license" title="Permalink to this headline">¶</a></h2>
 <p>The Initial Owner of the Original Code is European Environment Agency (EEA).
 All Rights Reserved.</p>
 <p>The eea.depiction (the Original Code) is free software;
@@ -258,7 +264,7 @@ version.</p>
 <p>More details under docs/License.txt</p>
 </div>
 <div class="section" id="funding-and-project-management">
-<h2><a class="toc-backref" href="#id11">Funding and project management</a><a class="headerlink" href="#funding-and-project-management" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id12">Funding and project management</a><a class="headerlink" href="#funding-and-project-management" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="http://www.eea.europa.eu/">EEA</a> - European Environment Agency (EU)</p>
 </div>
 </div>
@@ -276,6 +282,7 @@ version.</p>
   <h3><a href="../../index.html">Table Of Contents</a></h3>
   <ul>
 <li><a class="reference internal" href="#">EEA Depiction</a><ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
 <li><a class="reference internal" href="#upgrade-notes">Upgrade notes</a></li>
 <li><a class="reference internal" href="#installation">Installation</a><ul>
 <li><a class="reference internal" href="#zc-buildout">zc.buildout</a></li>
