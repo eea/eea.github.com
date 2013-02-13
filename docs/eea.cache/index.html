@@ -136,8 +136,12 @@ the <a class="reference external" href="http://eea.github.com/docs/eea.app.visua
 <li><a class="reference internal" href="#dependencies" id="id8">Dependencies</a></li>
 <li><a class="reference internal" href="#source-code" id="id9">Source code</a></li>
 <li><a class="reference internal" href="#cache-decorator" id="id10">Cache decorator</a></li>
-<li><a class="reference internal" href="#copyright-and-license" id="id11">Copyright and license</a></li>
-<li><a class="reference internal" href="#funding-and-project-management" id="id12">Funding and project management</a></li>
+<li><a class="reference internal" href="#cache-lifetime" id="id11">Cache lifetime</a><ul>
+<li><a class="reference internal" href="#cache-lifetime-override-per-key" id="id12">Cache lifetime override per key</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#copyright-and-license" id="id13">Copyright and license</a></li>
+<li><a class="reference internal" href="#funding-and-project-management" id="id14">Funding and project management</a></li>
 </ul>
 </li>
 </ul>
@@ -277,8 +281,28 @@ with dependency &#8216;frontpage&#8217;.</p>
 </pre></div>
 </div>
 </div>
+<div class="section" id="cache-lifetime">
+<h2><a class="toc-backref" href="#id11">Cache lifetime</a><a class="headerlink" href="#cache-lifetime" title="Permalink to this headline">¶</a></h2>
+<p>By default your content is cached in memcache for one hour (3600 seconds). You
+can change this by adding an <strong>int</strong> property within: ZMI &gt; portal_properties &gt;
+site_properties called <strong>memcached_defaultLifetime</strong> and set it&#8217;s value to
+<strong>86400</strong> (one day) for example.</p>
+<div class="section" id="cache-lifetime-override-per-key">
+<h3><a class="toc-backref" href="#id12">Cache lifetime override per key</a><a class="headerlink" href="#cache-lifetime-override-per-key" title="Permalink to this headline">¶</a></h3>
+<p>Starting with eea.cache 5.1 you can also pass a lifetime key with the duration
+in seconds which will override the defaultLifetime either given from the
+portal property or the default one from lovely.memcached of 3600 seconds</p>
+<blockquote>
+<div><div class="highlight-python"><pre>ex: in order to cache the result only for 4 minutes
+&gt;&gt;&gt; @cache(key, dependencies=["frontpage"], lifetime=240)
+... def myMethod(num):
+...     return num*num</pre>
+</div>
+</div></blockquote>
+</div>
+</div>
 <div class="section" id="copyright-and-license">
-<h2><a class="toc-backref" href="#id11">Copyright and license</a><a class="headerlink" href="#copyright-and-license" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id13">Copyright and license</a><a class="headerlink" href="#copyright-and-license" title="Permalink to this headline">¶</a></h2>
 <p>The Initial Owner of the Original Code is European Environment Agency (EEA).
 All Rights Reserved.</p>
 <p>The eea.cache (the Original Code) is free software;
@@ -289,7 +313,7 @@ version.</p>
 <p>More details under docs/License.txt</p>
 </div>
 <div class="section" id="funding-and-project-management">
-<h2><a class="toc-backref" href="#id12">Funding and project management</a><a class="headerlink" href="#funding-and-project-management" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id14">Funding and project management</a><a class="headerlink" href="#funding-and-project-management" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="http://www.eea.europa.eu/">EEA</a> - European Environment Agency (EU)</p>
 </div>
 </div>
@@ -316,6 +340,10 @@ version.</p>
 <li><a class="reference internal" href="#dependencies">Dependencies</a></li>
 <li><a class="reference internal" href="#source-code">Source code</a></li>
 <li><a class="reference internal" href="#cache-decorator">Cache decorator</a></li>
+<li><a class="reference internal" href="#cache-lifetime">Cache lifetime</a><ul>
+<li><a class="reference internal" href="#cache-lifetime-override-per-key">Cache lifetime override per key</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#copyright-and-license">Copyright and license</a></li>
 <li><a class="reference internal" href="#funding-and-project-management">Funding and project management</a></li>
 </ul>
