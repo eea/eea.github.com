@@ -148,27 +148,26 @@ in the uberlisting view.</p>
 </ul>
 </li>
 <li><a class="reference internal" href="#plone-tips" id="id10">Plone tips</a><ul>
-<li><a class="reference internal" href="#choose-the-right-templates-to-use-for-this-package" id="id11">Choose the right templates to use for this package</a></li>
-<li><a class="reference internal" href="#disable-templates-from-showing-up-in-the-uberlisting-view" id="id12">Disable templates from showing up in the Uberlisting View</a></li>
-<li><a class="reference internal" href="#set-default-template-when-visiting-template-for-first-time" id="id13">Set default template when visiting template for first time</a></li>
-<li><a class="reference internal" href="#get-listing-of-templates-as-images-instead-of-template-title-name" id="id14">Get listing of templates as images instead of template title name</a></li>
+<li><a class="reference internal" href="#disable-templates-from-showing-up-in-the-uberlisting-view" id="id11">Disable templates from showing up in the Uberlisting View</a></li>
+<li><a class="reference internal" href="#set-default-template-when-visiting-template-for-first-time" id="id12">Set default template when visiting template for first time</a></li>
+<li><a class="reference internal" href="#get-listing-of-templates-as-images-instead-of-template-title-name" id="id13">Get listing of templates as images instead of template title name</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#eea-products-integration-tips" id="id15">EEA products integration tips</a><ul>
-<li><a class="reference internal" href="#get-enhanced-thumbnails-when-used-with-eea-depiction" id="id16">Get enhanced thumbnails when used with eea.depiction</a></li>
-<li><a class="reference internal" href="#get-enhanced-search-capabilities-when-used-with-eea-facetednavigation" id="id17">Get enhanced search capabilities when used with eea.facetednavigation</a></li>
+<li><a class="reference internal" href="#eea-products-integration-tips" id="id14">EEA products integration tips</a><ul>
+<li><a class="reference internal" href="#get-enhanced-thumbnails-when-used-with-eea-depiction" id="id15">Get enhanced thumbnails when used with eea.depiction</a></li>
+<li><a class="reference internal" href="#get-enhanced-search-capabilities-when-used-with-eea-facetednavigation" id="id16">Get enhanced search capabilities when used with eea.facetednavigation</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a class="reference internal" href="#installation" id="id18">Installation</a><ul>
-<li><a class="reference internal" href="#zc-buildout" id="id19">zc.buildout</a></li>
+<li><a class="reference internal" href="#installation" id="id17">Installation</a><ul>
+<li><a class="reference internal" href="#zc-buildout" id="id18">zc.buildout</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#dependencies" id="id20">Dependencies</a></li>
-<li><a class="reference internal" href="#source-code" id="id21">Source code</a></li>
-<li><a class="reference internal" href="#copyright-and-license" id="id22">Copyright and license</a></li>
-<li><a class="reference internal" href="#funding-and-project-management" id="id23">Funding and project management</a></li>
+<li><a class="reference internal" href="#dependencies" id="id19">Dependencies</a></li>
+<li><a class="reference internal" href="#source-code" id="id20">Source code</a></li>
+<li><a class="reference internal" href="#copyright-and-license" id="id21">Copyright and license</a></li>
+<li><a class="reference internal" href="#funding-and-project-management" id="id22">Funding and project management</a></li>
 </ul>
 </li>
 </ul>
@@ -222,21 +221,8 @@ have the content-core id than just wrap the desired content inside of div tag.</
 </div>
 <div class="section" id="plone-tips">
 <h3><a class="toc-backref" href="#id10">Plone tips</a><a class="headerlink" href="#plone-tips" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="choose-the-right-templates-to-use-for-this-package">
-<h4><a class="toc-backref" href="#id11">Choose the right templates to use for this package</a><a class="headerlink" href="#choose-the-right-templates-to-use-for-this-package" title="Permalink to this headline">¶</a></h4>
-<blockquote>
-<div><ul>
-<li><p class="first">The python logic that retrieves the contents of the template listings
-expects the template to implement the <strong>listing</strong> macro.</p>
-<p>By default all of the Plone templates implement this macro so all
-templates that come from Plone and those that implement a listing macro
-to list results should work with the Uberlisting View.</p>
-</li>
-</ul>
-</div></blockquote>
-</div>
 <div class="section" id="disable-templates-from-showing-up-in-the-uberlisting-view">
-<h4><a class="toc-backref" href="#id12">Disable templates from showing up in the Uberlisting View</a><a class="headerlink" href="#disable-templates-from-showing-up-in-the-uberlisting-view" title="Permalink to this headline">¶</a></h4>
+<h4><a class="toc-backref" href="#id11">Disable templates from showing up in the Uberlisting View</a><a class="headerlink" href="#disable-templates-from-showing-up-in-the-uberlisting-view" title="Permalink to this headline">¶</a></h4>
 <blockquote>
 <div><ul>
 <li><p class="first">In ZMI &gt; context &gt; manage_properties: Add a &#8216;<em>lines</em>&#8216; property named
@@ -251,7 +237,7 @@ from the listing.</p>
 </div></blockquote>
 </div>
 <div class="section" id="set-default-template-when-visiting-template-for-first-time">
-<h4><a class="toc-backref" href="#id13">Set default template when visiting template for first time</a><a class="headerlink" href="#set-default-template-when-visiting-template-for-first-time" title="Permalink to this headline">¶</a></h4>
+<h4><a class="toc-backref" href="#id12">Set default template when visiting template for first time</a><a class="headerlink" href="#set-default-template-when-visiting-template-for-first-time" title="Permalink to this headline">¶</a></h4>
 <blockquote>
 <div><ul>
 <li><p class="first">In ZMI &gt; context &gt; manage_properties: Add a &#8216;<em>string</em>&#8216; property named
@@ -266,7 +252,7 @@ of the default template then <strong>folder_listing</strong> will be used as def
 </div></blockquote>
 </div>
 <div class="section" id="get-listing-of-templates-as-images-instead-of-template-title-name">
-<h4><a class="toc-backref" href="#id14">Get listing of templates as images instead of template title name</a><a class="headerlink" href="#get-listing-of-templates-as-images-instead-of-template-title-name" title="Permalink to this headline">¶</a></h4>
+<h4><a class="toc-backref" href="#id13">Get listing of templates as images instead of template title name</a><a class="headerlink" href="#get-listing-of-templates-as-images-instead-of-template-title-name" title="Permalink to this headline">¶</a></h4>
 <blockquote>
 <div><ul>
 <li><p class="first">This packages looks for a png image to use for the views listing in the
@@ -289,9 +275,9 @@ Add a checked <strong>boolean</strong> property named &#8216;<strong>noUberlisti
 </div>
 </div>
 <div class="section" id="eea-products-integration-tips">
-<h3><a class="toc-backref" href="#id15">EEA products integration tips</a><a class="headerlink" href="#eea-products-integration-tips" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id14">EEA products integration tips</a><a class="headerlink" href="#eea-products-integration-tips" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="get-enhanced-thumbnails-when-used-with-eea-depiction">
-<h4><a class="toc-backref" href="#id16">Get enhanced thumbnails when used with eea.depiction</a><a class="headerlink" href="#get-enhanced-thumbnails-when-used-with-eea-depiction" title="Permalink to this headline">¶</a></h4>
+<h4><a class="toc-backref" href="#id15">Get enhanced thumbnails when used with eea.depiction</a><a class="headerlink" href="#get-enhanced-thumbnails-when-used-with-eea-depiction" title="Permalink to this headline">¶</a></h4>
 <blockquote>
 <div><ul class="simple">
 <li>If you have eea.depiction installed you can configure a fallback image for
@@ -302,7 +288,7 @@ with images like album view.</li>
 </div></blockquote>
 </div>
 <div class="section" id="get-enhanced-search-capabilities-when-used-with-eea-facetednavigation">
-<h4><a class="toc-backref" href="#id17">Get enhanced search capabilities when used with eea.facetednavigation</a><a class="headerlink" href="#get-enhanced-search-capabilities-when-used-with-eea-facetednavigation" title="Permalink to this headline">¶</a></h4>
+<h4><a class="toc-backref" href="#id16">Get enhanced search capabilities when used with eea.facetednavigation</a><a class="headerlink" href="#get-enhanced-search-capabilities-when-used-with-eea-facetednavigation" title="Permalink to this headline">¶</a></h4>
 <blockquote>
 <div><ul class="simple">
 <li>If you have eea.facetednavigation installed you can use uberlisting_view as
@@ -314,9 +300,9 @@ of it with the ability to change between views from the same template.</li>
 </div>
 </div>
 <div class="section" id="installation">
-<h2><a class="toc-backref" href="#id18">Installation</a><a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id17">Installation</a><a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="zc-buildout">
-<h3><a class="toc-backref" href="#id19">zc.buildout</a><a class="headerlink" href="#zc-buildout" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id18">zc.buildout</a><a class="headerlink" href="#zc-buildout" title="Permalink to this headline">¶</a></h3>
 <p>If you are using <a class="reference external" href="http://pypi.python.org/pypi/zc.buildout">zc.buildout</a> and the <a class="reference external" href="http://pypi.python.org/pypi/plone.recipe.zope2instance">plone.recipe.zope2instance</a>
 recipe to manage your project, you can do this:</p>
 <ul>
@@ -341,7 +327,7 @@ eggs =
 </div>
 </div>
 <div class="section" id="dependencies">
-<h2><a class="toc-backref" href="#id20">Dependencies</a><a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id19">Dependencies</a><a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt><a class="reference external" href="http://eea.github.com/docs/eea.uberlisting">EEA Uberlisting</a> has the following dependencies:</dt>
 <dd><ul class="first last simple">
@@ -358,7 +344,7 @@ eggs =
 </dl>
 </div>
 <div class="section" id="source-code">
-<h2><a class="toc-backref" href="#id21">Source code</a><a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id20">Source code</a><a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt>Latest source code (Plone 4 compatible):</dt>
 <dd><ul class="first last simple">
@@ -369,7 +355,7 @@ eggs =
 </dl>
 </div>
 <div class="section" id="copyright-and-license">
-<h2><a class="toc-backref" href="#id22">Copyright and license</a><a class="headerlink" href="#copyright-and-license" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id21">Copyright and license</a><a class="headerlink" href="#copyright-and-license" title="Permalink to this headline">¶</a></h2>
 <p>The Initial Owner of the Original Code is European Environment Agency (EEA).
 All Rights Reserved.</p>
 <p>The eea.uberlisting (the Original Code) is free software;
@@ -380,7 +366,7 @@ version.</p>
 <p>More details under docs/License.txt</p>
 </div>
 <div class="section" id="funding-and-project-management">
-<h2><a class="toc-backref" href="#id23">Funding and project management</a><a class="headerlink" href="#funding-and-project-management" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id22">Funding and project management</a><a class="headerlink" href="#funding-and-project-management" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="http://www.eea.europa.eu/">EEA</a> - European Environment Agency (EU)</p>
 </div>
 </div>
@@ -407,7 +393,6 @@ version.</p>
 </ul>
 </li>
 <li><a class="reference internal" href="#plone-tips">Plone tips</a><ul>
-<li><a class="reference internal" href="#choose-the-right-templates-to-use-for-this-package">Choose the right templates to use for this package</a></li>
 <li><a class="reference internal" href="#disable-templates-from-showing-up-in-the-uberlisting-view">Disable templates from showing up in the Uberlisting View</a></li>
 <li><a class="reference internal" href="#set-default-template-when-visiting-template-for-first-time">Set default template when visiting template for first time</a></li>
 <li><a class="reference internal" href="#get-listing-of-templates-as-images-instead-of-template-title-name">Get listing of templates as images instead of template title name</a></li>
