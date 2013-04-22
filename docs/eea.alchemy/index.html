@@ -28,7 +28,9 @@
             <script type="text/javascript" src="../../_static/bootstrap-dropdown.js"></script>
             <script type="text/javascript" src="../../_static/jquery.tools.min.js"></script>
             <script type="text/javascript" src="../../_static/bootstrap-custom.js"></script>
-        <link rel="top" title="EEA 6.0 documentation" href="../../index.html"/> 
+        <link rel="top" title="EEA 6.0 documentation" href="../../index.html"/>
+            <link rel="next" title="How to update this page" href="../howToUpdate.html"/>
+            <link rel="prev" title="EEA Depiction" href="../eea.depiction/index.html"/> 
     <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
     
 </head>
@@ -45,6 +47,14 @@
                 <li>
                     <a href="../../genindex.html"
                        title="General Index" accesskey="I">index</a>
+                </li>
+                <li>
+                    <a href="../howToUpdate.html"
+                       title="How to update this page" accesskey="N">next</a>
+                </li>
+                <li>
+                    <a href="../eea.depiction/index.html"
+                       title="EEA Depiction" accesskey="P">previous</a>
                 </li> 
         </ul>
     </div>
@@ -108,33 +118,39 @@
   <div class="section" id="eea-alchemy">
 <h1><a class="toc-backref" href="#id2">EEA Alchemy</a><a class="headerlink" href="#eea-alchemy" title="Permalink to this headline">¶</a></h1>
 <p>Auto-discover geographical coverage, temporal coverage and keywords from
-documents common metadata (title, description, body, etc).</p>
-</div>
+documents common metadata (title, description, body, etc) and auto highlight
+keywords within a page content based on selected tags.</p>
 <div class="section" id="contents">
-<h1><a class="toc-backref" href="#id3">Contents</a><a class="headerlink" href="#contents" title="Permalink to this headline">¶</a></h1>
+<h2><a class="toc-backref" href="#id3">Contents</a><a class="headerlink" href="#contents" title="Permalink to this headline">¶</a></h2>
 <div class="contents topic" id="id1">
 <p class="topic-title first">Contents</p>
 <ul class="simple">
-<li><a class="reference internal" href="#eea-alchemy" id="id2">EEA Alchemy</a></li>
+<li><a class="reference internal" href="#eea-alchemy" id="id2">EEA Alchemy</a><ul>
 <li><a class="reference internal" href="#contents" id="id3">Contents</a></li>
 <li><a class="reference internal" href="#introduction" id="id4">Introduction</a></li>
 <li><a class="reference internal" href="#main-features" id="id5">Main features</a></li>
 <li><a class="reference internal" href="#planed-features" id="id6">Planed features</a></li>
 <li><a class="reference internal" href="#install" id="id7">Install</a></li>
-<li><a class="reference internal" href="#getting-started" id="id8">Getting started</a></li>
-<li><a class="reference internal" href="#source-code" id="id9">Source code</a></li>
-<li><a class="reference internal" href="#copyright-and-license" id="id10">Copyright and license</a></li>
-<li><a class="reference internal" href="#funding" id="id11">Funding</a></li>
+<li><a class="reference internal" href="#getting-started" id="id8">Getting started</a><ul>
+<li><a class="reference internal" href="#auto-discover-keywords-location-or-temporal-coverage" id="id9">Auto discover keywords, location or temporal coverage</a></li>
+<li><a class="reference internal" href="#auto-tagging" id="id10">Auto tagging</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#source-code" id="id11">Source code</a></li>
+<li><a class="reference internal" href="#copyright-and-license" id="id12">Copyright and license</a></li>
+<li><a class="reference internal" href="#funding" id="id13">Funding</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
 <div class="section" id="introduction">
-<h1><a class="toc-backref" href="#id4">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<h2><a class="toc-backref" href="#id4">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <p>This tool allows Plone managers to auto-discover and fix subject keywords,
 location and temporal coverage using <a class="reference external" href="http://www.alchemyapi.com/">http://www.alchemyapi.com/</a> web service.</p>
 </div>
 <div class="section" id="main-features">
-<h1><a class="toc-backref" href="#id5">Main features</a><a class="headerlink" href="#main-features" title="Permalink to this headline">¶</a></h1>
+<h2><a class="toc-backref" href="#id5">Main features</a><a class="headerlink" href="#main-features" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>Auto-discover keywords, locations and temporal coverage;</li>
 <li>Auto highlight keywords within a page content based on selected
@@ -142,7 +158,7 @@ tags and link them to a custom search page.</li>
 </ul>
 </div>
 <div class="section" id="planed-features">
-<h1><a class="toc-backref" href="#id6">Planed features</a><a class="headerlink" href="#planed-features" title="Permalink to this headline">¶</a></h1>
+<h2><a class="toc-backref" href="#id6">Planed features</a><a class="headerlink" href="#planed-features" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>Add a wizard icon near Subject, Location, etc fields in edit form
 to auto-discover and suggest tags based on text in
@@ -150,7 +166,7 @@ other fields (Title, Description)</li>
 </ul>
 </div>
 <div class="section" id="install">
-<h1><a class="toc-backref" href="#id7">Install</a><a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h1>
+<h2><a class="toc-backref" href="#id7">Install</a><a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>Add eea.alchemy to your eggs section in your buildout and re-run buildout. You
 can download a sample buildout from
@@ -159,15 +175,32 @@ can download a sample buildout from
 </ul>
 </div>
 <div class="section" id="getting-started">
-<h1><a class="toc-backref" href="#id8">Getting started</a><a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<h2><a class="toc-backref" href="#id8">Getting started</a><a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="auto-discover-keywords-location-or-temporal-coverage">
+<h3><a class="toc-backref" href="#id9">Auto discover keywords, location or temporal coverage</a><a class="headerlink" href="#auto-discover-keywords-location-or-temporal-coverage" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
 <li>Get your alchemy key here: <a class="reference external" href="http://www.alchemyapi.com/api/register.html">http://www.alchemyapi.com/api/register.html</a></li>
 <li>Update your alchemy API key within Site Setup &gt; Alchemy Settings</li>
 <li>Within Plone Control panel go to Alchemy Discoverer.</li>
 </ol>
 </div>
+<div class="section" id="auto-tagging">
+<h3><a class="toc-backref" href="#id10">Auto tagging</a><a class="headerlink" href="#auto-tagging" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><em>Enable auto-tagging</em> within <strong>Site Setup &gt; Alchemy Settings</strong></li>
+<li>Edit your document and add some tags for it within <strong>/edit &gt; Categorization.</strong>
+For example, if you&#8217;re writing a news article about <em>water pollution</em> go to
+<strong>/edit &gt; Categorization</strong> and add <em>water pollution</em> within tags field
+(also known as <em>keywords</em>, <em>subjects</em>, <em>topics</em>).
+Now when you navigate to the 8*View** page of this article,
+you&#8217;ll notice that all occurrences of <em>water pollution</em> within your news
+article body are links to a custom search page which is also configurable
+within <strong>Alchemy Settings ControlPanel</strong></li>
+</ol>
+</div>
+</div>
 <div class="section" id="source-code">
-<h1><a class="toc-backref" href="#id9">Source code</a><a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h1>
+<h2><a class="toc-backref" href="#id11">Source code</a><a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt>Latest source code (Plone 4 compatible):</dt>
 <dd><a class="reference external" href="https://github.com/collective/eea.alchemy">https://github.com/collective/eea.alchemy</a></dd>
@@ -176,7 +209,7 @@ can download a sample buildout from
 </dl>
 </div>
 <div class="section" id="copyright-and-license">
-<h1><a class="toc-backref" href="#id10">Copyright and license</a><a class="headerlink" href="#copyright-and-license" title="Permalink to this headline">¶</a></h1>
+<h2><a class="toc-backref" href="#id12">Copyright and license</a><a class="headerlink" href="#copyright-and-license" title="Permalink to this headline">¶</a></h2>
 <p>The Initial Owner of the Original Code is European Environment Agency (EEA).
 All Rights Reserved.</p>
 <p>The EEA Alchemy (the Original Code) is free software;
@@ -187,9 +220,9 @@ version.</p>
 <p>More details under docs/License.txt</p>
 </div>
 <div class="section" id="funding">
-<h1><a class="toc-backref" href="#id11">Funding</a><a class="headerlink" href="#funding" title="Permalink to this headline">¶</a></h1>
-<blockquote>
-<div><a class="reference external" href="http://www.eea.europa.eu/">EEA</a> - European Enviroment Agency (EU)</div></blockquote>
+<h2><a class="toc-backref" href="#id13">Funding</a><a class="headerlink" href="#funding" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://www.eea.europa.eu/">EEA</a> - European Environment Agency (EU)</p>
+</div>
 </div>
 
 
@@ -204,18 +237,30 @@ version.</p>
             <div class="sphinxsidebarwrapper">
   <h3><a href="../../index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">EEA Alchemy</a></li>
+<li><a class="reference internal" href="#">EEA Alchemy</a><ul>
 <li><a class="reference internal" href="#contents">Contents</a></li>
 <li><a class="reference internal" href="#introduction">Introduction</a></li>
 <li><a class="reference internal" href="#main-features">Main features</a></li>
 <li><a class="reference internal" href="#planed-features">Planed features</a></li>
 <li><a class="reference internal" href="#install">Install</a></li>
-<li><a class="reference internal" href="#getting-started">Getting started</a></li>
+<li><a class="reference internal" href="#getting-started">Getting started</a><ul>
+<li><a class="reference internal" href="#auto-discover-keywords-location-or-temporal-coverage">Auto discover keywords, location or temporal coverage</a></li>
+<li><a class="reference internal" href="#auto-tagging">Auto tagging</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#source-code">Source code</a></li>
 <li><a class="reference internal" href="#copyright-and-license">Copyright and license</a></li>
 <li><a class="reference internal" href="#funding">Funding</a></li>
 </ul>
+</li>
+</ul>
 
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../eea.depiction/index.html"
+                        title="previous chapter">EEA Depiction</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../howToUpdate.html"
+                        title="next chapter">How to update this page</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="../../_sources/docs/eea.alchemy/index.txt"

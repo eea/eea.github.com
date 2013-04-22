@@ -58,6 +58,16 @@ Getting started with EEA packages
 
     A generic system for creating thumbnails representations for content-types
 
+  .. container:: step-nav span4
+
+    .. toctree::
+      :maxdepth: 1
+
+      docs/eea.alchemy/index
+
+    Auto-discover and auto-highlight keywords, geographical locations and
+    temporal coverage.
+
 More information
 ================
 
