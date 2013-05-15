@@ -106,11 +106,11 @@
                 <div class="span9">
                     
   <div class="section" id="eea-relations">
-<h1><a class="toc-backref" href="#id2">EEA Relations</a><a class="headerlink" href="#eea-relations" title="Permalink to this headline">¶</a></h1>
+<h1><a class="toc-backref" href="#id1">EEA Relations</a><a class="headerlink" href="#eea-relations" title="Permalink to this headline">¶</a></h1>
 <a class="reference external image-reference" href="http://ci.eionet.europa.eu/job/eea.relations-www/lastBuild"><img alt="http://ci.eionet.europa.eu/job/eea.relations-www/badge/icon" src="http://ci.eionet.europa.eu/job/eea.relations-www/badge/icon" /></a>
 <a class="reference external image-reference" href="http://ci.eionet.europa.eu/job/eea.relations-plone4/lastBuild"><img alt="http://ci.eionet.europa.eu/job/eea.relations-plone4/badge/icon" src="http://ci.eionet.europa.eu/job/eea.relations-plone4/badge/icon" /></a>
 <div class="section" id="introduction">
-<h2><a class="toc-backref" href="#id3">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id2">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <p>EEA Relations package redefines relations in Plone. Right now in Plone any
 object can be in relation with any other object. EEA Relations lets you to
 define possible relations between objects. EEA Relations also comes with a nice,
@@ -120,26 +120,24 @@ called &#8220;Possible relations&#8221; under &#8220;Control Panel&#8221;.</p>
 <div class="contents topic" id="contents">
 <p class="topic-title first">Contents</p>
 <ul class="simple">
-<li><a class="reference internal" href="#eea-relations" id="id2">EEA Relations</a><ul>
-<li><a class="reference internal" href="#introduction" id="id3">Introduction</a></li>
-<li><a class="reference internal" href="#main-features" id="id4">Main features</a></li>
-<li><a class="reference internal" href="#installation" id="id5">Installation</a><ul>
-<li><a class="reference internal" href="#zc-buildout" id="id6">zc.buildout</a></li>
-</ul>
-</li>
-<li><a class="reference internal" href="#getting-started" id="id7">Getting started</a></li>
-<li><a class="reference internal" href="#dependencies" id="id8">Dependencies</a></li>
-<li><a class="reference internal" href="#api-doc" id="id9">API Doc</a></li>
-<li><a class="reference internal" href="#source-code" id="id10">Source code</a></li>
-<li><a class="reference internal" href="#copyright-and-license" id="id11">Copyright and license</a></li>
-<li><a class="reference internal" href="#funding" id="id12">Funding</a></li>
+<li><a class="reference internal" href="#eea-relations" id="id1">EEA Relations</a><ul>
+<li><a class="reference internal" href="#introduction" id="id2">Introduction</a></li>
+<li><a class="reference internal" href="#main-features" id="id3">Main features</a></li>
+<li><a class="reference internal" href="#install" id="id4">Install</a></li>
+<li><a class="reference internal" href="#uninstall" id="id5">Uninstall</a></li>
+<li><a class="reference internal" href="#getting-started" id="id6">Getting started</a></li>
+<li><a class="reference internal" href="#dependencies" id="id7">Dependencies</a></li>
+<li><a class="reference internal" href="#api-doc" id="id8">API Doc</a></li>
+<li><a class="reference internal" href="#source-code" id="id9">Source code</a></li>
+<li><a class="reference internal" href="#copyright-and-license" id="id10">Copyright and license</a></li>
+<li><a class="reference internal" href="#funding" id="id11">Funding</a></li>
 </ul>
 </li>
 </ul>
 </div>
 </div>
 <div class="section" id="main-features">
-<h2><a class="toc-backref" href="#id4">Main features</a><a class="headerlink" href="#main-features" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id3">Main features</a><a class="headerlink" href="#main-features" title="Permalink to this headline">¶</a></h2>
 <p>Main goal of EEA Relations is to be an alternative to the default Plone
 related item widget.</p>
 <p>EEA Relations features:</p>
@@ -155,46 +153,56 @@ on the relate items popup</li>
 </ol>
 </div></blockquote>
 </div>
-<div class="section" id="installation">
-<h2><a class="toc-backref" href="#id5">Installation</a><a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="zc-buildout">
-<h3><a class="toc-backref" href="#id6">zc.buildout</a><a class="headerlink" href="#zc-buildout" title="Permalink to this headline">¶</a></h3>
-<p>If you are using <a class="reference external" href="http://pypi.python.org/pypi/zc.buildout">zc.buildout</a> and the <a class="reference external" href="http://pypi.python.org/pypi/plone.recipe.zope2instance">plone.recipe.zope2instance</a>
-recipe to manage your project, you can do this:</p>
+<div class="section" id="install">
+<h2><a class="toc-backref" href="#id4">Install</a><a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h2>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Never do this directly on production servers and always backup your data
+before installing Plone add-ons.</p>
+</div>
 <ul>
-<li><p class="first">Update your buildout.cfg file:</p>
-<ul class="simple">
-<li>Add <tt class="docutils literal"><span class="pre">eea.relations</span></tt> to the list of eggs to install</li>
-<li>Tell the <a class="reference external" href="http://pypi.python.org/pypi/plone.recipe.zope2instance">plone.recipe.zope2instance</a> recipe to install a ZCML slug</li>
-</ul>
-<div class="highlight-python"><pre>[instance]
-...
-eggs =
-  ...
+<li><p class="first">Add eea.relations to your eggs and zcml section in your buildout
+and re-run buildout.</p>
+</li>
+<li><p class="first">To use eea.relations widget for all default Plone Content-Types you&#8217;ll also
+need to add &#8216;eea.relations.default&#8217; within zcml section like:</p>
+<div class="highlight-python"><pre>eggs +=
   eea.relations
 
-zcml =
-  ...
-  eea.relations</pre>
+zcml +=
+  eea.relations
+  eea.relations.default</pre>
 </div>
 </li>
-<li><p class="first">Re-run buildout, e.g. with:</p>
-<div class="highlight-python"><pre>$ ./bin/buildout</pre>
-</div>
+<li><p class="first">Install EEA Possible Relations within Site Setup &gt; Add-ons</p>
 </li>
 </ul>
-<p>You can skip the ZCML slug if you are going to explicitly include the package
-from another package&#8217;s configure.zcml file.</p>
 </div>
+<div class="section" id="uninstall">
+<h2><a class="toc-backref" href="#id5">Uninstall</a><a class="headerlink" href="#uninstall" title="Permalink to this headline">¶</a></h2>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">This will not uninstall EEA Relations dependencies. See <strong>Dependencies</strong>
+section within this document and mannually uninstall them as described
+by their own documentation before uninstalling EEA Relations.</p>
+</div>
+<ul class="simple">
+<li>Backup your data.</li>
+<li>Go to ZMI &gt; PloneSite and remove portal_relations object.</li>
+<li>Uninstall EEA Possible Relations within Site Setup &gt; Add-ons</li>
+<li>Remove eea.relations from your eggs and zcml section within your buildout and
+re-run buildout</li>
+<li>Restart Zope</li>
+</ul>
 </div>
 <div class="section" id="getting-started">
-<h2><a class="toc-backref" href="#id7">Getting started</a><a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id6">Getting started</a><a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
 <p>Once you install the package from &#8220;Control Panel Add-ons&#8221;, the package will add
 an utility called &#8220;Possible relations&#8221; under &#8220;Control Panel&#8221; from where you can start
 define the relations, the constraints between contents etc.</p>
 </div>
 <div class="section" id="dependencies">
-<h2><a class="toc-backref" href="#id8">Dependencies</a><a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id7">Dependencies</a><a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference internal" href="#eea-relations">EEA Relations</a> has the following dependencies:</p>
 <blockquote>
 <div><ul>
@@ -211,18 +219,18 @@ $ apt-get install graphviz</pre>
 </div></blockquote>
 </div>
 <div class="section" id="api-doc">
-<h2><a class="toc-backref" href="#id9">API Doc</a><a class="headerlink" href="#api-doc" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id8">API Doc</a><a class="headerlink" href="#api-doc" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><a class="reference external" href="http://apidoc.eea.europa.eu/eea.relations-module.html">http://apidoc.eea.europa.eu/eea.relations-module.html</a></div></blockquote>
 </div>
 <div class="section" id="source-code">
-<h2><a class="toc-backref" href="#id10">Source code</a><a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id9">Source code</a><a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
 <p>Latest source code (Plone 4 compatible):
 - <a class="reference external" href="https://github.com/collective/eea.relations">Plone Collective on Github</a>
 - <a class="reference external" href="https://github.com/eea/eea.relations">EEA on Github</a></p>
 </div>
 <div class="section" id="copyright-and-license">
-<h2><a class="toc-backref" href="#id11">Copyright and license</a><a class="headerlink" href="#copyright-and-license" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id10">Copyright and license</a><a class="headerlink" href="#copyright-and-license" title="Permalink to this headline">¶</a></h2>
 <p>The Initial Owner of the Original Code is European Environment Agency (EEA).
 All Rights Reserved.</p>
 <p>The EEA Relations (the Original Code) is free software;
@@ -233,7 +241,7 @@ version.</p>
 <p>More details under docs/License.txt</p>
 </div>
 <div class="section" id="funding">
-<h2><a class="toc-backref" href="#id12">Funding</a><a class="headerlink" href="#funding" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id11">Funding</a><a class="headerlink" href="#funding" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><a class="reference external" href="http://www.eea.europa.eu/">EEA</a> - European Environment Agency (EU)</div></blockquote>
 </div>
@@ -254,10 +262,8 @@ version.</p>
 <li><a class="reference internal" href="#">EEA Relations</a><ul>
 <li><a class="reference internal" href="#introduction">Introduction</a></li>
 <li><a class="reference internal" href="#main-features">Main features</a></li>
-<li><a class="reference internal" href="#installation">Installation</a><ul>
-<li><a class="reference internal" href="#zc-buildout">zc.buildout</a></li>
-</ul>
-</li>
+<li><a class="reference internal" href="#install">Install</a></li>
+<li><a class="reference internal" href="#uninstall">Uninstall</a></li>
 <li><a class="reference internal" href="#getting-started">Getting started</a></li>
 <li><a class="reference internal" href="#dependencies">Dependencies</a></li>
 <li><a class="reference internal" href="#api-doc">API Doc</a></li>
