@@ -68,6 +68,15 @@ Getting started with EEA packages
     Auto-discover and auto-highlight keywords, geographical locations and
     temporal coverage.
 
+  .. container:: step-nav span4
+
+    .. toctree::
+      :maxdepth: 1
+
+      docs/eea.relations/index
+
+    A tool to define possible relations between objects.
+
 More information
 ================
 
