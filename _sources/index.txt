@@ -77,6 +77,17 @@ Getting started with EEA packages
 
     A tool to define possible relations between objects.
 
+  .. container:: step-nav span4
+
+    .. toctree::
+      :maxdepth: 1
+
+      docs/eea.progressbar/index
+
+    Progress bar based on document workflow states
+
+
+
 More information
 ================
 

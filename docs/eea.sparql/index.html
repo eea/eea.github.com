@@ -191,14 +191,50 @@ recipe to manage your project, you can do this:</p>
 </pre></div>
 </div>
 </li>
+</ul>
+</div></blockquote>
+<p>You can skip the ZCML slug if you are going to explicitly include the package
+from another package&#8217;s configure.zcml file.</p>
+<p>You will also need a worker instance to be set up. This is required for the async
+update of the last working results.</p>
+<blockquote>
+<div><ul>
+<li><p class="first">For both, normal and worker instances, the plone.app.async should be added in
+the EGG slug:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>eggs = ...</dt>
+<dd><p class="first last">plone.app.async</p>
+</dd>
+</dl>
+</div></blockquote>
+</li>
+<li><p class="first">For the normal instances, the plone.app.async-single_db_instance should be
+added in the ZCML slug:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>zcml = ...</dt>
+<dd><p class="first last">plone.app.async-single_db_instance</p>
+</dd>
+</dl>
+</div></blockquote>
+</li>
+<li><p class="first">For the worker instances, the plone.app.async-single_db_worker should be
+added in the ZCML slug:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>zcml = ...</dt>
+<dd><p class="first last">plone.app.async-single_db_worker</p>
+</dd>
+</dl>
+</div></blockquote>
+</li>
 <li><p class="first">Re-run buildout, e.g. with:</p>
 <div class="highlight-python"><pre>$ ./bin/buildout</pre>
 </div>
 </li>
 </ul>
 </div></blockquote>
-<p>You can skip the ZCML slug if you are going to explicitly include the package
-from another package&#8217;s configure.zcml file.</p>
 </div>
 <div class="section" id="dependecies">
 <h2><a class="toc-backref" href="#id5">Dependecies</a><a class="headerlink" href="#dependecies" title="Permalink to this headline">¶</a></h2>
@@ -208,6 +244,7 @@ from another package&#8217;s configure.zcml file.</p>
 <li>Products.ZSPARQLMethod</li>
 <li>eea.cache</li>
 <li>eea.versions</li>
+<li>plone.app.async</li>
 </ol>
 </div></blockquote>
 </div>
