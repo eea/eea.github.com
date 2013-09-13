@@ -201,33 +201,24 @@ update of the last working results.</p>
 <div><ul>
 <li><p class="first">For both, normal and worker instances, the plone.app.async should be added in
 the EGG slug:</p>
-<blockquote>
-<div><dl class="docutils">
-<dt>eggs = ...</dt>
-<dd><p class="first last">plone.app.async</p>
-</dd>
-</dl>
-</div></blockquote>
+<div class="highlight-python"><pre>eggs =
+  ...
+  plone.app.async</pre>
+</div>
 </li>
 <li><p class="first">For the normal instances, the plone.app.async-single_db_instance should be
 added in the ZCML slug:</p>
-<blockquote>
-<div><dl class="docutils">
-<dt>zcml = ...</dt>
-<dd><p class="first last">plone.app.async-single_db_instance</p>
-</dd>
-</dl>
-</div></blockquote>
+<div class="highlight-python"><pre>zcml =
+  ...
+  plone.app.async-single_db_instance</pre>
+</div>
 </li>
 <li><p class="first">For the worker instances, the plone.app.async-single_db_worker should be
 added in the ZCML slug:</p>
-<blockquote>
-<div><dl class="docutils">
-<dt>zcml = ...</dt>
-<dd><p class="first last">plone.app.async-single_db_worker</p>
-</dd>
-</dl>
-</div></blockquote>
+<div class="highlight-python"><pre>zcml =
+  ...
+  plone.app.async-single_db_worker</pre>
+</div>
 </li>
 <li><p class="first">Re-run buildout, e.g. with:</p>
 <div class="highlight-python"><pre>$ ./bin/buildout</pre>
