@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type"
           content="text/html; charset=utf-8"/>
     
-        <title>How to update this page &mdash; EEA 6.0 documentation</title>
+        <title>EEA products &mdash; EEA 6.0 documentation</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='http://fonts.googleapis.com/css?family=Crete+Round' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="../_static/sphinx-bootstrap.css" type="text/css"/>
@@ -28,8 +28,7 @@
             <script type="text/javascript" src="../_static/bootstrap-dropdown.js"></script>
             <script type="text/javascript" src="../_static/jquery.tools.min.js"></script>
             <script type="text/javascript" src="../_static/bootstrap-custom.js"></script>
-        <link rel="top" title="EEA 6.0 documentation" href="../index.html"/>
-            <link rel="prev" title="EEA Workflow" href="eea.workflow/index.html"/> 
+        <link rel="top" title="EEA 6.0 documentation" href="../index.html"/> 
     <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
     
 </head>
@@ -46,10 +45,6 @@
                 <li>
                     <a href="../genindex.html"
                        title="General Index" accesskey="I">index</a>
-                </li>
-                <li>
-                    <a href="eea.workflow/index.html"
-                       title="EEA Workflow" accesskey="P">previous</a>
                 </li> 
         </ul>
     </div>
@@ -110,95 +105,37 @@
         <div class="content row">
                 <div class="span9">
                     
-  <div class="section" id="how-to-update-this-page">
-<h1>How to update this page<a class="headerlink" href="#how-to-update-this-page" title="Permalink to this headline">¶</a></h1>
-<p>This page is created using Sphinx. In order to update it I would advise you
-to head to <a class="reference external" href="http://sphinx.pocoo.org">http://sphinx.pocoo.org</a> and get familiar with Sphinx and
-reStructeredText.</p>
-<div class="section" id="update-your-zc-buildout-cfg-file">
-<h2>1. Update your zc.buildout .cfg file<a class="headerlink" href="#update-your-zc-buildout-cfg-file" title="Permalink to this headline">¶</a></h2>
-<p>Add the following config to your zc.buildout .cfg file (see
-<a class="reference external" href="https://svn.eionet.europa.eu/repositories/Zope/trunk/www.eea.europa.eu/trunk/hudson.cfg">hudson.cfg</a> for a more updated version of this snippet)</p>
-<div class="highlight-console"><div class="highlight"><pre><span class="go">parts +=</span>
-<span class="go">  sphinx</span>
-<span class="go">  sphinx-hooks</span>
-<span class="go">  sphinx-hooks-run</span>
-
-<span class="go">[sphinx]</span>
-<span class="go">recipe = collective.recipe.sphinxbuilder</span>
-<span class="go">source = ${buildout:directory}/src/eea.github.com/src</span>
-<span class="go">build = ${buildout:directory}/src/eea.github.com</span>
-<span class="go">interpreter = ${buildout:directory}/bin/zopepy</span>
-<span class="go">eggs =</span>
-<span class="go">  ${buildout:eggs}</span>
-<span class="go">  eea.github.com</span>
-
-<span class="go">[sphinx-hooks]</span>
-<span class="go">recipe = collective.recipe.template</span>
-<span class="go">input = inline:</span>
-<span class="go">    #!/bin/sh</span>
-<span class="go">    sed -i -e &#39;s/\/html$//g&#39; ${buildout:directory}/src/eea.github.com/Makefile</span>
-<span class="go">    sed -i -e &#39;s/\-b html/\-ab html/g&#39; ${buildout:directory}/src/eea.github.com/Makefile</span>
-<span class="go">    cp ${buildout:directory}/bin/sphinx-quickstart ${buildout:directory}/bin/sphinx-apidoc</span>
-<span class="go">    sed -i -e &#39;s/import sphinx\.quickstart/import sphinx\.apidoc/g&#39; ${buildout:directory}/bin/sphinx-apidoc</span>
-<span class="go">    sed -i -e &#39;s/sphinx\.quickstart\.main/sphinx\.apidoc\.main/g&#39; ${buildout:directory}/bin/sphinx-apidoc</span>
-<span class="go">output = ${buildout:directory}/bin/sphinx-hooks</span>
-<span class="go">mode = 755</span>
-
-<span class="go">[sphinx-hooks-run]</span>
-<span class="go">recipe = plone.recipe.command</span>
-<span class="go">command = ${buildout:directory}/bin/sphinx-hooks</span>
-<span class="go">update-command = ${buildout:directory}/bin/sphinx-hooks</span>
-
-<span class="go">[sources]</span>
-<span class="go">eea.github.com = git https://github.com/eea/eea.github.com.git pushurl=git@github.com:eea/eea.github.com.git</span>
-
-<span class="go">[versions]</span>
-<span class="go">Sphinx = 1.1.3</span>
-<span class="go">docutils = 0.9.1</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="run-buildout">
-<h2>2. Run buildout<a class="headerlink" href="#run-buildout" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> <span class="nb">cd</span> /path/to/www.eea.europa.eu
-<span class="gp">$</span> bin/develop rb
-<span class="gp">$</span> bin/sphinx
-</pre></div>
-</div>
-<p>This will install all needed. Now its time for you to edit <tt class="docutils literal"><span class="pre">.rst</span></tt> files.</p>
-<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> <span class="nb">cd</span> /path/to/www.eea.europa.eu/src/eea.github.com/src
-<span class="gp">$</span> vim index.rst
-<span class="gp">$</span> vim docs/.../index.rst
-</pre></div>
-</div>
-</div>
-<div class="section" id="generate-html">
-<h2>3. Generate html<a class="headerlink" href="#generate-html" title="Permalink to this headline">¶</a></h2>
-<p>After editing <tt class="docutils literal"><span class="pre">.rst</span></tt> files you need to &#8220;compile&#8221; html.</p>
-<p><strong>IMPORTANT</strong>
-Make sure site looks nice when rendered. It will be compiled in root of
-package.</p>
-<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> <span class="nb">cd</span> /path/to/www.eea.europa.eu
-<span class="gp">$</span> bin/sphinx
-</pre></div>
-</div>
-</div>
-<div class="section" id="commit-changes">
-<h2>4. Commit changes<a class="headerlink" href="#commit-changes" title="Permalink to this headline">¶</a></h2>
-<p>For nice history please commit changes to <tt class="docutils literal"><span class="pre">.rst</span></tt> files separately then
-changes to compiled site.</p>
-<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> <span class="nb">cd</span> /path/to/www.eea.europa.eu/src/eea.github.com
-<span class="gp">$</span> git commit -a -m <span class="s2">&quot;Some very important changes&quot;</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="don-t-forget-to-push">
-<h2>5. Don&#8217;t forget to push<a class="headerlink" href="#don-t-forget-to-push" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> git push origin master
-</pre></div>
-</div>
-<p>And that&#8217;s all folks...</p>
+  <div class="section" id="eea-products">
+<h1>EEA products<a class="headerlink" href="#eea-products" title="Permalink to this headline">¶</a></h1>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="eea.alchemy/index.html">EEA Alchemy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eea.app.visualization/index.html">EEA App Visualization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eea.cache/index.html">EEA Cache</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eea.converter/index.html">EEA Converter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eea.daviz/index.html">EEA Daviz</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eea.depiction/index.html">EEA Depiction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eea.eggmonkey/index.html">EEA Egg Monkey</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eea.epub/index.html">EEA Epub</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eea.exhibit/index.html">EEA Exhibit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eea.faceted.inheritance/index.html">EEA Faceted Inheritance</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eea.faceted.tool/index.html">EEA Facted Tool</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eea.faceted.vocabularies/index.html">EEA Faceted Vocabularies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eea.facetednavigation/index.html">EEA Faceted Navigation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eea.forms/index.html">EEA Forms</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eea.geotags/index.html">EEA Geotags</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eea.google/index.html">EEA Google</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eea.googlecharts/index.html">EEA Google Charts</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eea.jquery/index.html">EEA jQuery</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eea.progressbar/index.html">EEA Progress Bar</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eea.relations/index.html">EEA Relations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eea.reports/index.html">EEA Reports</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eea.sparql/index.html">EEA Sparql</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eea.tags/index.html">EEA Tags</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eea.uberlisting/index.html">EEA Uberlisting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eea.versions/index.html">EEA Versions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="eea.workflow/index.html">EEA Workflow</a></li>
+</ul>
 </div>
 </div>
 
@@ -212,24 +149,9 @@ changes to compiled site.</p>
                     
         <div class="sphinxsidebar">
             <div class="sphinxsidebarwrapper">
-  <h3><a href="../index.html">Table Of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">How to update this page</a><ul>
-<li><a class="reference internal" href="#update-your-zc-buildout-cfg-file">1. Update your zc.buildout .cfg file</a></li>
-<li><a class="reference internal" href="#run-buildout">2. Run buildout</a></li>
-<li><a class="reference internal" href="#generate-html">3. Generate html</a></li>
-<li><a class="reference internal" href="#commit-changes">4. Commit changes</a></li>
-<li><a class="reference internal" href="#don-t-forget-to-push">5. Don&#8217;t forget to push</a></li>
-</ul>
-</li>
-</ul>
-
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="eea.workflow/index.html"
-                        title="previous chapter">EEA Workflow</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
-    <li><a href="../_sources/docs/howToUpdate.txt"
+    <li><a href="../_sources/docs/index.txt"
            rel="nofollow">Show Source</a></li>
   </ul>
             </div>
@@ -257,7 +179,7 @@ changes to compiled site.</p>
 
     <!-- disqus -->
     <script type="text/javascript">
-        var disqus_title = 'How to update this page &mdash; EEA 6.0 documentation';
+        var disqus_title = 'EEA products &mdash; EEA 6.0 documentation';
         var disqus_identifier ='code' + '.' + "euenvironment" + window.location.pathname.replace('/', '.');
     </script>
 

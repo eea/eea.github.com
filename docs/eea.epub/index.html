@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type"
           content="text/html; charset=utf-8"/>
     
-        <title>EEA Epub product &mdash; EEA 6.0 documentation</title>
+        <title>EEA Epub &mdash; EEA 6.0 documentation</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='http://fonts.googleapis.com/css?family=Crete+Round' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="../../_static/sphinx-bootstrap.css" type="text/css"/>
@@ -28,7 +28,9 @@
             <script type="text/javascript" src="../../_static/bootstrap-dropdown.js"></script>
             <script type="text/javascript" src="../../_static/jquery.tools.min.js"></script>
             <script type="text/javascript" src="../../_static/bootstrap-custom.js"></script>
-        <link rel="top" title="EEA 6.0 documentation" href="../../index.html"/> 
+        <link rel="top" title="EEA 6.0 documentation" href="../../index.html"/>
+            <link rel="next" title="EEA Exhibit" href="../eea.exhibit/index.html"/>
+            <link rel="prev" title="EEA Egg Monkey" href="../eea.eggmonkey/index.html"/> 
     <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
     
 </head>
@@ -45,6 +47,14 @@
                 <li>
                     <a href="../../genindex.html"
                        title="General Index" accesskey="I">index</a>
+                </li>
+                <li>
+                    <a href="../eea.exhibit/index.html"
+                       title="EEA Exhibit" accesskey="N">next</a>
+                </li>
+                <li>
+                    <a href="../eea.eggmonkey/index.html"
+                       title="EEA Egg Monkey" accesskey="P">previous</a>
                 </li> 
         </ul>
     </div>
@@ -105,16 +115,15 @@
         <div class="content row">
                 <div class="span9">
                     
-  <div class="section" id="eea-epub-product">
-<h1><a class="toc-backref" href="#id2">EEA Epub product</a><a class="headerlink" href="#eea-epub-product" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="eea-epub">
+<h1><a class="toc-backref" href="#id2">EEA Epub</a><a class="headerlink" href="#eea-epub" title="Permalink to this headline">¶</a></h1>
 <p>A product which allows you to import in Plone epub files.</p>
-</div>
 <div class="section" id="contents">
-<h1><a class="toc-backref" href="#id3">Contents</a><a class="headerlink" href="#contents" title="Permalink to this headline">¶</a></h1>
+<h2><a class="toc-backref" href="#id3">Contents</a><a class="headerlink" href="#contents" title="Permalink to this headline">¶</a></h2>
 <div class="contents topic" id="id1">
 <p class="topic-title first">Contents</p>
 <ul class="simple">
-<li><a class="reference internal" href="#eea-epub-product" id="id2">EEA Epub product</a></li>
+<li><a class="reference internal" href="#eea-epub" id="id2">EEA Epub</a><ul>
 <li><a class="reference internal" href="#contents" id="id3">Contents</a></li>
 <li><a class="reference internal" href="#introduction" id="id4">Introduction</a></li>
 <li><a class="reference internal" href="#main-features" id="id5">Main features</a></li>
@@ -129,10 +138,12 @@
 <li><a class="reference internal" href="#links" id="id14">Links</a></li>
 <li><a class="reference internal" href="#funding" id="id15">Funding</a></li>
 </ul>
+</li>
+</ul>
 </div>
 </div>
 <div class="section" id="introduction">
-<h1><a class="toc-backref" href="#id4">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<h2><a class="toc-backref" href="#id4">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <p>EEA Epub product allows you to import in Plone epub files. On upload,
 Epub content will imported as Plone folders, files, images and documents.</p>
 <p>Export to Epub is also available.</p>
@@ -140,7 +151,7 @@ Epub content will imported as Plone folders, files, images and documents.</p>
 to work with this package, previous versions of this package only supported epubs created with InDesign.</p>
 </div>
 <div class="section" id="main-features">
-<h1><a class="toc-backref" href="#id5">Main features</a><a class="headerlink" href="#main-features" title="Permalink to this headline">¶</a></h1>
+<h2><a class="toc-backref" href="#id5">Main features</a><a class="headerlink" href="#main-features" title="Permalink to this headline">¶</a></h2>
 <p>EEA Epub features:</p>
 <blockquote>
 <div><ol class="arabic simple">
@@ -156,7 +167,7 @@ If you find that the Document Pages added by the Epub process has broken links t
 </div></blockquote>
 </div>
 <div class="section" id="epub-compatibility">
-<h1><a class="toc-backref" href="#id6">Epub compatibility</a><a class="headerlink" href="#epub-compatibility" title="Permalink to this headline">¶</a></h1>
+<h2><a class="toc-backref" href="#id6">Epub compatibility</a><a class="headerlink" href="#epub-compatibility" title="Permalink to this headline">¶</a></h2>
 <p>EEA Epub makes the following assumptions about the loaded epub:</p>
 <blockquote>
 <div><ol class="arabic simple">
@@ -180,12 +191,12 @@ If you find that the Document Pages added by the Epub process has broken links t
 </div></blockquote>
 </div>
 <div class="section" id="debugging">
-<h1><a class="toc-backref" href="#id7">Debugging</a><a class="headerlink" href="#debugging" title="Permalink to this headline">¶</a></h1>
+<h2><a class="toc-backref" href="#id7">Debugging</a><a class="headerlink" href="#debugging" title="Permalink to this headline">¶</a></h2>
 <p>At this moment any errors that would appear on the site are surpressed with a info message.</p>
 <p>If you want to see the detailed error check the Plone instance log usually found in buildout-folder/var/log.</p>
 </div>
 <div class="section" id="installation">
-<h1><a class="toc-backref" href="#id8">Installation</a><a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h1>
+<h2><a class="toc-backref" href="#id8">Installation</a><a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
 <p>The easiest way to get eea.epub support in Plone 4 using this
 package is to work with installations based on <a class="reference external" href="http://pypi.python.org/pypi/zc.buildout/">zc.buildout</a>.
 Other types of installations should also be possible, but might turn out
@@ -201,11 +212,11 @@ Products&#8221; section in &#8220;Site Setup&#8221;.</p>
 <div><a class="reference external" href="https://svn.eionet.europa.eu/repositories/Zope/trunk/eea.epub/buildouts">https://svn.eionet.europa.eu/repositories/Zope/trunk/eea.epub/buildouts</a></div></blockquote>
 </div>
 <div class="section" id="getting-started">
-<h1><a class="toc-backref" href="#id9">Getting started</a><a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h1>
+<h2><a class="toc-backref" href="#id9">Getting started</a><a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
 <p>From &#8220;Add new&#8221; menu select &#8220;EpubFile&#8221; and upload an epub file.</p>
 </div>
 <div class="section" id="dependecies">
-<h1><a class="toc-backref" href="#id10">Dependecies</a><a class="headerlink" href="#dependecies" title="Permalink to this headline">¶</a></h1>
+<h2><a class="toc-backref" href="#id10">Dependecies</a><a class="headerlink" href="#dependecies" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><ol class="arabic simple">
 <li>BeautifulSoup</li>
@@ -215,7 +226,7 @@ Products&#8221; section in &#8220;Site Setup&#8221;.</p>
 </div></blockquote>
 </div>
 <div class="section" id="live-demo">
-<h1><a class="toc-backref" href="#id11">Live demo</a><a class="headerlink" href="#live-demo" title="Permalink to this headline">¶</a></h1>
+<h2><a class="toc-backref" href="#id11">Live demo</a><a class="headerlink" href="#live-demo" title="Permalink to this headline">¶</a></h2>
 <p>Here some live production demos at EEA (European Environment Agency)</p>
 <blockquote>
 <div><ol class="arabic simple">
@@ -224,7 +235,7 @@ Products&#8221; section in &#8220;Site Setup&#8221;.</p>
 </div></blockquote>
 </div>
 <div class="section" id="source-code">
-<h1><a class="toc-backref" href="#id12">Source code</a><a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h1>
+<h2><a class="toc-backref" href="#id12">Source code</a><a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt>Latest source code (Plone 4 compatible):</dt>
 <dd><a class="reference external" href="https://svn.eionet.europa.eu/repositories/Zope/trunk/eea.epub/trunk">https://svn.eionet.europa.eu/repositories/Zope/trunk/eea.epub/trunk</a></dd>
@@ -233,7 +244,7 @@ Products&#8221; section in &#8220;Site Setup&#8221;.</p>
 </dl>
 </div>
 <div class="section" id="copyright-and-license">
-<h1><a class="toc-backref" href="#id13">Copyright and license</a><a class="headerlink" href="#copyright-and-license" title="Permalink to this headline">¶</a></h1>
+<h2><a class="toc-backref" href="#id13">Copyright and license</a><a class="headerlink" href="#copyright-and-license" title="Permalink to this headline">¶</a></h2>
 <p>The Initial Owner of the Original Code is European Environment Agency (EEA).
 All Rights Reserved.</p>
 <p>The EEA Epub (the Original Code) is free software;
@@ -244,7 +255,7 @@ version.</p>
 <p>More details under docs/License.txt</p>
 </div>
 <div class="section" id="links">
-<h1><a class="toc-backref" href="#id14">Links</a><a class="headerlink" href="#links" title="Permalink to this headline">¶</a></h1>
+<h2><a class="toc-backref" href="#id14">Links</a><a class="headerlink" href="#links" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><ol class="arabic simple">
 <li>EEA Epub wiki page: <a class="reference external" href="https://svn.eionet.europa.eu/projects/Zope/wiki/HowToEpub">https://svn.eionet.europa.eu/projects/Zope/wiki/HowToEpub</a></li>
@@ -252,9 +263,10 @@ version.</p>
 </div></blockquote>
 </div>
 <div class="section" id="funding">
-<h1><a class="toc-backref" href="#id15">Funding</a><a class="headerlink" href="#funding" title="Permalink to this headline">¶</a></h1>
+<h2><a class="toc-backref" href="#id15">Funding</a><a class="headerlink" href="#funding" title="Permalink to this headline">¶</a></h2>
 <blockquote>
 <div><a class="reference external" href="http://www.eea.europa.eu/">EEA</a> - European Enviroment Agency (EU)</div></blockquote>
+</div>
 </div>
 
 
@@ -269,7 +281,7 @@ version.</p>
             <div class="sphinxsidebarwrapper">
   <h3><a href="../../index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">EEA Epub product</a></li>
+<li><a class="reference internal" href="#">EEA Epub</a><ul>
 <li><a class="reference internal" href="#contents">Contents</a></li>
 <li><a class="reference internal" href="#introduction">Introduction</a></li>
 <li><a class="reference internal" href="#main-features">Main features</a></li>
@@ -284,7 +296,15 @@ version.</p>
 <li><a class="reference internal" href="#links">Links</a></li>
 <li><a class="reference internal" href="#funding">Funding</a></li>
 </ul>
+</li>
+</ul>
 
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="../eea.eggmonkey/index.html"
+                        title="previous chapter">EEA Egg Monkey</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="../eea.exhibit/index.html"
+                        title="next chapter">EEA Exhibit</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
     <li><a href="../../_sources/docs/eea.epub/index.txt"
@@ -315,7 +335,7 @@ version.</p>
 
     <!-- disqus -->
     <script type="text/javascript">
-        var disqus_title = 'EEA Epub product &mdash; EEA 6.0 documentation';
+        var disqus_title = 'EEA Epub &mdash; EEA 6.0 documentation';
         var disqus_identifier ='code' + '.' + "euenvironment" + window.location.pathname.replace('/', '.');
     </script>
 

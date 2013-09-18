@@ -1,7 +1,17 @@
-Getting started with EEA packages
-=================================
+Featured EEA products (Zope/Plone add-ons)
+==========================================
 
 .. container:: span9
+
+  .. container:: step-nav span4
+
+    .. toctree::
+      :maxdepth: 1
+
+      docs/eea.facetednavigation/index
+
+    A very powerful interface to improve search within large
+    collections of items.
 
   .. container:: step-nav span4
 
@@ -26,19 +36,9 @@ Getting started with EEA packages
     .. toctree::
       :maxdepth: 1
 
-      docs/eea.jquery/index
+      docs/eea.progressbar/index
 
-    A collection of jQuery plugins as Zope 3 browser resources.
-
-  .. container:: step-nav span4
-
-    .. toctree::
-      :maxdepth: 1
-
-      docs/eea.facetednavigation/index
-
-    A very powerful interface to improve search within large
-    collections of items.
+    Progress bar based on document's workflow states
 
   .. container:: step-nav span4
 
@@ -77,16 +77,15 @@ Getting started with EEA packages
 
     A tool to define possible relations between objects.
 
-  .. container:: step-nav span4
 
-    .. toctree::
-      :maxdepth: 1
+More EEA products (Zope/Plone add-ons)
+======================================
 
-      docs/eea.progressbar/index
+.. toctree::
+  :maxdepth: 1
+  :glob:
 
-    Progress bar based on document workflow states
-
-
+  docs/eea.*/index
 
 More information
 ================
