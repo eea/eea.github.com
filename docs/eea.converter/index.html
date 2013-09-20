@@ -123,50 +123,75 @@
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <p>This package provides utilities to convert images and PDF files
-using ImageMagick.</p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">This add-on doesn&#8217;t do anything by itself. It needs to be integrated by a
-developer within your own products. For reference you can check
-the <a class="reference external" href="http://eea.github.com/docs/eea.googlecharts">eea.googlecharts</a> package.</p>
-</div>
+using ImageMagick. Also, toghether with <a class="reference external" href="https://pypi.python.org/pypi/collective.sendaspdf">collective.sendaspdf</a> and pdftk
+users can download HTML pages as PDFs <em>with custom cover support</em></p>
 </div>
 <div class="section" id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="zc-buildout">
-<h3>zc.buildout<a class="headerlink" href="#zc-buildout" title="Permalink to this headline">¶</a></h3>
-<p>If you are using <a class="reference external" href="http://pypi.python.org/pypi/zc.buildout">zc.buildout</a> and the <a class="reference external" href="http://pypi.python.org/pypi/plone.recipe.zope2instance">plone.recipe.zope2instance</a>
-recipe to manage your project, you can do this:</p>
-<ul>
-<li><p class="first">Update your buildout.cfg file:</p>
 <ul class="simple">
-<li>Add <tt class="docutils literal"><span class="pre">eea.converter</span></tt> to the list of eggs to install</li>
-<li>Tell the <a class="reference external" href="http://pypi.python.org/pypi/plone.recipe.zope2instance">plone.recipe.zope2instance</a> recipe to install a ZCML slug</li>
+<li>Add eea.converter to your eggs section in your buildout and re-run buildout.
+You can download a sample buildout from
+<a class="reference external" href="https://github.com/collective/eea.converter/tree/master/buildouts/plone4">https://github.com/collective/eea.converter/tree/master/buildouts/plone4</a></li>
 </ul>
-<div class="highlight-python"><pre>[instance]
-...
-eggs =
-  ...
-  eea.converter
-
-zcml =
-  ...
-  eea.converter</pre>
 </div>
-</li>
-<li><p class="first">Re-run buildout, e.g. with:</p>
-<div class="highlight-python"><pre>$ ./bin/buildout</pre>
+<div class="section" id="getting-started">
+<h2>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Try <a class="reference external" href="http://localhost:8080/Plone/front-page/download.pdf">http://localhost:8080/Plone/front-page/download.pdf</a></li>
+</ol>
 </div>
-</li>
-</ul>
-<p>You can skip the ZCML slug if you are going to explicitly include the package
-from another package&#8217;s configure.zcml file.</p>
+<div class="section" id="customize-output-pdf">
+<h2>Customize output PDF<a class="headerlink" href="#customize-output-pdf" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="cover">
+<h3>Cover<a class="headerlink" href="#cover" title="Permalink to this headline">¶</a></h3>
+<p>Provide custom browser:page called <em>&#64;&#64;pdf.cover</em>:</p>
+<div class="highlight-python"><pre>&lt;browser:page
+  for="my.package.interfaces.ICustomContent"
+  name="pdf.cover"
+  class=".app.pdfview.Cover"
+  template="zpt/pdf.cover.pt"
+  permission="zope2.View"
+  /&gt;</pre>
+</div>
+</div>
+<div class="section" id="body">
+<h3>Body<a class="headerlink" href="#body" title="Permalink to this headline">¶</a></h3>
+<p>Provide custom browser:page called <em>&#64;&#64;pdf.body</em>:</p>
+<div class="highlight-python"><pre>&lt;browser:page
+  for="my.package.interfaces.ICustomContent"
+  name="pdf.body"
+  class=".app.pdfview.Body"
+  template="zpt/pdf.body.pt"
+  permission="zope2.View"
+  /&gt;</pre>
+</div>
+</div>
+<div class="section" id="options">
+<h3>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h3>
+<p>For PDF cover you&#8217;ll have to provide a named adapter like:</p>
+<div class="highlight-python"><pre>&lt;adapter
+  name="pdf.cover"
+  for=" my.package.interfaces.ICustomContent"
+  provides="collective.sendaspdf.interfaces.ISendAsPDFOptionsMaker"
+  factory=".adapters.CoverOptionsMaker" /&gt;</pre>
+</div>
+<p>For PDF body you&#8217;ll have to provide an unamed adapter like:</p>
+<div class="highlight-python"><pre>&lt;adapter
+  for=" my.package.interfaces.ICustomContent"
+  provides="collective.sendaspdf.interfaces.ISendAsPDFOptionsMaker"
+  factory=".adapters.OptionsMaker" /&gt;</pre>
+</div>
+<p>Also add custom print.css for your needs. See more at <a class="reference external" href="https://pypi.python.org/pypi/collective.sendaspdf">collective.sendaspdf</a></p>
 </div>
 </div>
 <div class="section" id="dependencies">
 <h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">These are not hard dependencies. You can use all features of eea.converter or
+just the ones that you need.</p>
+</div>
+<ul>
 <li><p class="first">pdfinfo to parse pdf metadata (part of the xpdf package):</p>
 <div class="highlight-python"><pre>yum install xpdf (fedora)
 apt-get install xpdf (debian)</pre>
@@ -182,8 +207,9 @@ apt-get install pdftk (debian)</pre>
 apt-get install imagemagick</pre>
 </div>
 </li>
+<li><p class="first"><a class="reference external" href="https://pypi.python.org/pypi/collective.sendaspdf">collective.sendaspdf</a></p>
+</li>
 </ul>
-</div></blockquote>
 </div>
 <div class="section" id="source-code">
 <h2>Source code<a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
@@ -238,8 +264,12 @@ version.</p>
   <ul>
 <li><a class="reference internal" href="#">EEA Converter</a><ul>
 <li><a class="reference internal" href="#introduction">Introduction</a></li>
-<li><a class="reference internal" href="#installation">Installation</a><ul>
-<li><a class="reference internal" href="#zc-buildout">zc.buildout</a></li>
+<li><a class="reference internal" href="#installation">Installation</a></li>
+<li><a class="reference internal" href="#getting-started">Getting started</a></li>
+<li><a class="reference internal" href="#customize-output-pdf">Customize output PDF</a><ul>
+<li><a class="reference internal" href="#cover">Cover</a></li>
+<li><a class="reference internal" href="#body">Body</a></li>
+<li><a class="reference internal" href="#options">Options</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#dependencies">Dependencies</a></li>

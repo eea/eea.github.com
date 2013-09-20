@@ -94,7 +94,7 @@ Featured EEA products (Zope/Plone add-ons)
 
       docs/eea.converter/index
 
-    Utilities to convert/download images and web pages as PDF files.
+    Utilities for PDF format: image extraction and web page as PDF
 
 More EEA products (Zope/Plone add-ons)
 ======================================
