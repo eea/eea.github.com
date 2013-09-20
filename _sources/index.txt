@@ -77,6 +77,24 @@ Featured EEA products (Zope/Plone add-ons)
 
     A tool to define possible relations between objects.
 
+  .. container:: step-nav span4
+
+    .. toctree::
+      :maxdepth: 1
+
+      docs/eea.elasticsearch/index
+
+    An elasticsearch setup suite for indexing resources in the EEA
+    Semantic Data Service.
+
+  .. container:: step-nav span4
+
+    .. toctree::
+      :maxdepth: 1
+
+      docs/eea.converter/index
+
+    Utilities to convert/download images and web pages as PDF files.
 
 More EEA products (Zope/Plone add-ons)
 ======================================
