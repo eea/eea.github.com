@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type"
           content="text/html; charset=utf-8"/>
     
-        <title>&lt;no title&gt; &mdash; EEA 6.0 documentation</title>
+        <title>EEA elasticsearch &mdash; EEA 6.0 documentation</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='http://fonts.googleapis.com/css?family=Crete+Round' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="../../_static/sphinx-bootstrap.css" type="text/css"/>
@@ -115,7 +115,164 @@
         <div class="content row">
                 <div class="span9">
                     
-  
+  <div class="section" id="eea-elasticsearch">
+<h1><a class="toc-backref" href="#id3">EEA elasticsearch</a><a class="headerlink" href="#eea-elasticsearch" title="Permalink to this headline">¶</a></h1>
+<p><img alt="elasticsearch logo" src="http://www.elasticsearch.org/content/themes/elasticsearch-org/images/logo.png" /></p>
+<div class="section" id="introduction">
+<h2><a class="toc-backref" href="#id4">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://eea.github.com/docs/eea.elasticsearch">EEA elasticsearch</a> is an elasticsearch specific setup by the
+<a class="reference external" href="http://www.eea.europa.eu/">European Environment Agency</a> for querying data in the EEA&#8217;s
+<a class="reference external" href="http://semantic.eea.europa.eu/">Semantic Data Service</a> and designing specific search
+interfaces and widgets to be used in a CMS.</p>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#eea-elasticsearch" id="id3">EEA elasticsearch</a><ul>
+<li><a class="reference internal" href="#introduction" id="id4">Introduction</a></li>
+<li><a class="reference internal" href="#components" id="id5">Components</a></li>
+<li><a class="reference internal" href="#live-demos" id="id6">Live demos</a></li>
+<li><a class="reference internal" href="#installation" id="id7">Installation</a></li>
+<li><a class="reference internal" href="#dependencies" id="id8">Dependencies</a></li>
+<li><a class="reference internal" href="#source-code" id="id9">Source code</a></li>
+<li><a class="reference internal" href="#copyright-and-license" id="id10">Copyright and license</a></li>
+<li><a class="reference internal" href="#funding-and-project-management" id="id11">Funding and project management</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="components">
+<h2><a class="toc-backref" href="#id5">Components</a><a class="headerlink" href="#components" title="Permalink to this headline">¶</a></h2>
+<p>The setup is composed of the following:</p>
+<ol class="arabic simple">
+<li>An <a class="reference external" href="http://elasticsearch.org">elasticsearch</a> instance flavoured with following plugins</li>
+<li>EEA ElasticSearch <a class="reference external" href="https://github.com/eea/eea.elasticsearch.river.rdf">RDF River Plugin</a></li>
+<li><a class="reference external" href="https://github.com/sonian/elasticsearch-jetty">Jetty Plugin</a></li>
+<li><a class="reference external" href="https://github.com/eea/facetview">FacetView</a>, a pure JavaScript library
+for browsing data using an elasticsearch endpoint</li>
+<li><a class="reference external" href="https://github.com/eea/elasticsearch-servicewrapper">elasticsearch service-wrapper</a>,
+a script for running elasticsearch using Java Service Wrapper.</li>
+</ol>
+<p>This packages specifically includes:</p>
+<ol class="arabic simple">
+<li>Development and production configuration files for elasticsearch and Apache.</li>
+<li>Custom static pages using facetview js library.</li>
+<li>PAM, an application using the elasticsearch endpoint.</li>
+</ol>
+</div>
+<div class="section" id="live-demos">
+<h2><a class="toc-backref" href="#id6">Live demos</a><a class="headerlink" href="#live-demos" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first"><a class="reference external" href="http://centaurus-dev.eea.europa.eu">Facetview visualisation</a> installed
+on development instance, on EEA Centaurus server.</p>
+</li>
+<li><dl class="first docutils">
+<dt><a class="reference external" href="http://centaurus-dev.eea.europa.eu/pam">Climate change policies and measures in Europe Demo</a></dt>
+<dd><p class="first last">installed on development instance, on EEA Centaurus server.</p>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="installation">
+<h2><a class="toc-backref" href="#id7">Installation</a><a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Clone project</p>
+<blockquote>
+<div><p>git clone <a class="reference external" href="mailto:git&#37;&#52;&#48;github&#46;com">git<span>&#64;</span>github<span>&#46;</span>com</a>:eea/eea.elasticsearch.git</p>
+</div></blockquote>
+</li>
+<li><p class="first">Install <a class="reference external" href="http://elasticsearch.org">elasticsearch</a>, e.g. in /var/local/elasticsearch</p>
+</li>
+<li><p class="first">Replace its <cite>config</cite> folder with a symlink to
+eea.elasticsearch/etc/production/config</p>
+</li>
+<li><p class="first">Install <a class="reference external" href="https://github.com/eea/eea.elasticsearch.river.rdf">RDF River Plugin</a>, using elasticsearch plugin script inside its
+bin folder:</p>
+<blockquote>
+<div><p>bin/plugin &#8211;url <a class="reference external" href="https://github.com/eea/eea.elasticsearch.river.rdf/raw/master/target/releases/eea-rdf-river-plugin-1.0.zip">https://github.com/eea/eea.elasticsearch.river.rdf/raw/master/target/releases/eea-rdf-river-plugin-1.0.zip</a>
+&#8211;install eea-rdf-river-1.0</p>
+</div></blockquote>
+</li>
+<li><p class="first">Install <a class="reference external" href="https://github.com/sonian/elasticsearch-jetty">Jetty Plugin</a> in the same manner:</p>
+<blockquote>
+<div><p>bin/plugin &#8211;url <a class="reference external" href="https://oss-es-plugins.s3.amazonaws.com/elasticsearch-jetty/elasticsearch-jetty-0.90.0.zip">https://oss-es-plugins.s3.amazonaws.com/elasticsearch-jetty/elasticsearch-jetty-0.90.0.zip</a>
+&#8211;install elasticsearch-jetty-0.90.0</p>
+</div></blockquote>
+</li>
+<li><p class="first">Install and configure elasticsearch-service wrapper:</p>
+<blockquote>
+<div><p>git clone <a class="reference external" href="mailto:git&#37;&#52;&#48;github&#46;com">git<span>&#64;</span>github<span>&#46;</span>com</a>:eea/elasticsearch-servicewrapper.git
+cd elasticsearch-servicewrapper/service
+vim elasticsearch.conf # configure path to elasticsearch
+./elasticsearch install</p>
+</div></blockquote>
+</li>
+<li><p class="first">Configure users and roles for elasticsearch requests in
+eea.elasticsearch/etc/production/config/realm.properties, see
+<a class="reference external" href="https://github.com/sonian/elasticsearch-jetty#adding-basic-authentication">Adding Basic Authentication</a>.</p>
+</li>
+<li><p class="first">Start elasticsearch service</p>
+<blockquote>
+<div><p>service elasticsearch start</p>
+</div></blockquote>
+</li>
+<li><p class="first">Install facetview</p>
+<blockquote>
+<div><p>git clone <a class="reference external" href="mailto:git&#37;&#52;&#48;github&#46;com">git<span>&#64;</span>github<span>&#46;</span>com</a>:eea/facetview.git</p>
+</div></blockquote>
+</li>
+<li><p class="first">Link eea.elasticsearch/etc/production/httpd.elasticsearch.conf in
+/etc/httpd/conf.d and check settings</p>
+</li>
+<li><p class="first">Reload Apache</p>
+<blockquote>
+<div><p>service httpd reload</p>
+</div></blockquote>
+</li>
+</ol>
+</div>
+<div class="section" id="dependencies">
+<h2><a class="toc-backref" href="#id8">Dependencies</a><a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt><a class="reference external" href="https://github.com/eea/eea.elasticsearch">eea.elasticsearch</a> has the following dependencies:</dt>
+<dd><ul class="first last simple">
+<li><a class="reference external" href="http://elasticsearch.org">elasticsearch</a>, tested with 0.90.x</li>
+<li><a class="reference external" href="https://github.com/eea/eea.elasticsearch.river.rdf">RDF River Plugin</a></li>
+<li><a class="reference external" href="https://github.com/sonian/elasticsearch-jetty">Jetty Plugin</a> 0.9.0</li>
+<li><a class="reference external" href="https://github.com/eea/facetview">FacetView</a> is optional pure JavaScript library for visualisation</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="source-code">
+<h2><a class="toc-backref" href="#id9">Source code</a><a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Latest source code:</dt>
+<dd><ul class="first last simple">
+<li><a class="reference external" href="https://github.com/eea/eea.elasticsearch">eea.elasticsearch on Github</a></li>
+<li>EEA ElasticSearch <a class="reference external" href="https://github.com/eea/eea.elasticsearch.river.rdf">RDF River Plugin</a> on Github</li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="copyright-and-license">
+<h2><a class="toc-backref" href="#id10">Copyright and license</a><a class="headerlink" href="#copyright-and-license" title="Permalink to this headline">¶</a></h2>
+<p>The Initial Owner of the Original Code is European Environment Agency (EEA).
+All Rights Reserved.</p>
+<p>The EEA ElasticSearch (the Original Code) is free software;
+you can redistribute it and/or modify it under the terms of the GNU
+General Public License as published by the Free Software Foundation;
+either version 2 of the License, or (at your option) any later
+version.</p>
+<p>More details under eea.elasticsearch/docs/LICENSE.txt</p>
+</div>
+<div class="section" id="funding-and-project-management">
+<h2><a class="toc-backref" href="#id11">Funding and project management</a><a class="headerlink" href="#funding-and-project-management" title="Permalink to this headline">¶</a></h2>
+<p><a class="reference external" href="http://www.eea.europa.eu/">EEA</a> - European Environment Agency (EU)</p>
+</div>
+</div>
+
 
                     
                         <div id="disqus_thread"></div>
@@ -126,6 +283,21 @@
                     
         <div class="sphinxsidebar">
             <div class="sphinxsidebarwrapper">
+  <h3><a href="../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">EEA elasticsearch</a><ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#components">Components</a></li>
+<li><a class="reference internal" href="#live-demos">Live demos</a></li>
+<li><a class="reference internal" href="#installation">Installation</a></li>
+<li><a class="reference internal" href="#dependencies">Dependencies</a></li>
+<li><a class="reference internal" href="#source-code">Source code</a></li>
+<li><a class="reference internal" href="#copyright-and-license">Copyright and license</a></li>
+<li><a class="reference internal" href="#funding-and-project-management">Funding and project management</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
   <p class="topless"><a href="../eea.eggmonkey/index.html"
                         title="previous chapter">EEA Egg Monkey</a></p>
@@ -162,7 +334,7 @@
 
     <!-- disqus -->
     <script type="text/javascript">
-        var disqus_title = '&lt;no title&gt; &mdash; EEA 6.0 documentation';
+        var disqus_title = 'EEA elasticsearch &mdash; EEA 6.0 documentation';
         var disqus_identifier ='code' + '.' + "euenvironment" + window.location.pathname.replace('/', '.');
     </script>
 
