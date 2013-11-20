@@ -1,1 +1,1 @@
-.. include:: ../../../../eea.converter/README.txt
+.. include:: ../../../../eea.converter/README.rst

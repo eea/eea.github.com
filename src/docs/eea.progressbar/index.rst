@@ -1,1 +1,1 @@
-.. include:: ../../../../eea.progressbar/README.txt
+.. include:: ../../../../eea.progressbar/README.rst
