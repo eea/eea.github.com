@@ -18,6 +18,10 @@ EEA.ImagePreview.prototype = {
   initialize: function(context){
     var self = this;
 
+    if(self.context.parents('a').length){
+        return;
+    }
+
     if(self.context.attr('src').indexOf('badge/icon')!==-1){
       return;
     }
