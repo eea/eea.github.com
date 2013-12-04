@@ -102,7 +102,7 @@
                 HAS_SOURCE:  {{ has_source|lower }}
             };
         </script>
-        {%- for scriptfile in script_files + ["_static/bootstrap-dropdown.js", '_static/jquery.tools.min.js', '_static/bootstrap-custom.js'] %}
+        {%- for scriptfile in script_files + ["_static/bootstrap-dropdown.js", '_static/jquery.tools.min.js', '_static/jquery.jfeed.js', '_static/bootstrap-custom.js'] %}
             <script type="text/javascript" src="{{ pathto(scriptfile, 1) }}"></script>
         {%- endfor %}
 
@@ -251,7 +251,7 @@
             {%- block sidebar2 %}
                 <div class="span3">
                     <h3><a href="http://www.youtube.com/playlist?list=PLVPSQz7ahsBwOAgP4DOZOWwwgpMvJifEn">Latest videos</a></h3>
-                    <iframe scrolling="no" marginheight="0" frameborder="0" width="220" src="http://ytchannelembed.com/gallery.php?vids=5&amp;user=&amp;row=1&amp;width=220&amp;hd=1&amp;margin_right=0&amp;desc=160&amp;desc_color=9E9E9E&amp;title=60&amp;title_color=0E84B5&amp;views=0&amp;likes=0&amp;dislikes=0&amp;fav=0&amp;playlist=PLVPSQz7ahsBwOAgP4DOZOWwwgpMvJifEn" style="height: 990px;"></iframe>
+                    <div class="youtube-videos">Loading videos list</div>
                     {{ sidebar() }}
                 </div>
             {% endblock %}

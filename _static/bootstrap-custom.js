@@ -62,7 +62,61 @@ jQuery.fn.EEAImagePreview = function(options){
   });
 };
 
+EEA.Videos = function(context, options){
+  var self = this;
+  self.context = context;
+  self.settings = {
+
+  };
+
+  if(options){
+    jQuery.extend(self.settings, options);
+  }
+
+  self.initialize();
+};
+
+EEA.Videos.prototype = {
+  initialize: function(){
+    var self = this;
+    jQuery.getFeed({
+      url: 'http://gdata.youtube.com/feeds/api/playlists/PLVPSQz7ahsBwOAgP4DOZOWwwgpMvJifEn',
+      success: function(feed){
+        self.context.empty();
+        jQuery.each(feed.items, function(idx, item){
+          if(idx >= 5){
+            return false;
+          }
+
+          jQuery([
+            '<div class="video-gallery">',
+              '<a target="_blank" class="image" href="', item.link, '">',
+                '<img src="', item.thumbnail, '" />',
+              '</a>',
+              '<div>',
+                '<a target="_blank" class="title" href="', item.link, '">',
+                  '<span class="title">', item.title, '</span>',
+                '</a>',
+                '<p class="description">', item.description, '</p>',
+              '</div>',
+            '</div>'
+          ].join('\n')).appendTo(self.context);
+        });
+      }
+    });
+  }
+};
+
+jQuery.fn.EEAVideos = function(options){
+  return this.each(function(){
+    var context = jQuery(this);
+    var adapter = new EEA.Videos(context, options);
+    context.data('EEAVideos', adapter);
+  });
+};
+
 // Run EEAImagePreview on all images
 jQuery(document).ready(function(){
   jQuery('div.section img').EEAImagePreview();
+  jQuery('div.youtube-videos').EEAVideos();
 });

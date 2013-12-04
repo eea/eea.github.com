@@ -2820,3 +2820,20 @@ a.thumbnail:hover {
 
 }
 */
+
+.video-gallery .title {
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.video-gallery p {
+  display: block;
+  margin: 0;
+  margin-top: 5px;
+  font-size: 11px;
+  color: #9E9E9E;
+  margin-bottom: 2em;
+  max-height: 50px;
+  overflow: hidden;
+}
