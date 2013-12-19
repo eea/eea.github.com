@@ -1,5 +1,1 @@
-=====================
-EEA Google Charts API
-=====================
-
-``XXX: To be continued...``
+.. include:: ../../../../../eea.googlecharts/docs/dev/README.rst

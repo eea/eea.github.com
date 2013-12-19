@@ -124,8 +124,233 @@
                 <div class="span9">
                     
   <div class="section" id="eea-google-charts-api">
-<h1>EEA Google Charts API<a class="headerlink" href="#eea-google-charts-api" title="Permalink to this headline">¶</a></h1>
-<p><tt class="docutils literal"><span class="pre">XXX:</span> <span class="pre">To</span> <span class="pre">be</span> <span class="pre">continued...</span></tt></p>
+<h1><a class="toc-backref" href="#id1">EEA Google Charts API</a><a class="headerlink" href="#eea-google-charts-api" title="Permalink to this headline">¶</a></h1>
+<a class="reference external image-reference" href="http://ci.eionet.europa.eu/job/eea.googlecharts-www/lastBuild"><img alt="http://ci.eionet.europa.eu/job/eea.googlecharts-www/badge/icon" src="http://ci.eionet.europa.eu/job/eea.googlecharts-www/badge/icon" /></a>
+<a class="reference external image-reference" href="http://ci.eionet.europa.eu/job/eea.googlecharts-plone4/lastBuild"><img alt="http://ci.eionet.europa.eu/job/eea.googlecharts-plone4/badge/icon" src="http://ci.eionet.europa.eu/job/eea.googlecharts-plone4/badge/icon" /></a>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#eea-google-charts-api" id="id1">EEA Google Charts API</a><ul>
+<li><a class="reference internal" href="#passing-parameters-in-url" id="id2">Passing parameters in url</a><ul>
+<li><a class="reference internal" href="#differences-between-simple-visualization-pages-and-embedded-charts" id="id3">Differences between simple visualization pages and embedded charts</a></li>
+<li><a class="reference internal" href="#how-the-filters-should-be-configured" id="id4">How the filters should be configured</a><ul>
+<li><a class="reference internal" href="#sortfilter" id="id5">sortFilter</a></li>
+<li><a class="reference internal" href="#hidefilters" id="id6">hideFilters</a></li>
+<li><a class="reference internal" href="#rowfilters-columnfilters" id="id7">rowFilters &amp; columnFilters</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#how-to-figure-out-which-filter-in-which-section-goes" id="id8">How to figure out which filter in which section goes?</a><ul>
+<li><a class="reference internal" href="#use-the-embed-string-of-the-chart" id="id9">Use the embed string of the chart</a></li>
+<li><a class="reference internal" href="#use-the-filterinfo-attribute-from-chart-filters" id="id10">Use the filterinfo attribute from chart filters</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#examples-of-how-to-build-queries-for-charts" id="id11">Examples of how to build queries for charts:</a><ul>
+<li><a class="reference internal" href="#set-the-query-parameters-for-embedded-charts" id="id12">1.  Set the query parameters for embedded charts</a></li>
+<li><a class="reference internal" href="#set-sort-order-for-embedded-charts" id="id13">2.  Set sort order for embedded charts</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="passing-parameters-in-url">
+<h2><a class="toc-backref" href="#id2">Passing parameters in url</a><a class="headerlink" href="#passing-parameters-in-url" title="Permalink to this headline">¶</a></h2>
+<p><strong>eea.googlecharts</strong> allows users to pass the filter settings to the charts in the url of the visualization. Using the filters in the url, users can give a direct link to their chart with filters already configured. Users also can embed these charts including their filter choices. In the case of embedded charts the user has the possibility to hide the filters.</p>
+<p>The filters are passed in the hash of the page. It is an encoded JSON but commas are replaced with semicolons.</p>
+<div class="section" id="differences-between-simple-visualization-pages-and-embedded-charts">
+<h3><a class="toc-backref" href="#id3">Differences between simple visualization pages and embedded charts</a><a class="headerlink" href="#differences-between-simple-visualization-pages-and-embedded-charts" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line">The query params for simple views and embedded charts is the same,</div>
+<div class="line">The only difference is that in case of a view page the hash contains the id of the chart, and in the case of the embed the hash only contains the filters</div>
+</div>
+<blockquote>
+<div><div class="line-block">
+<div class="line"><strong>Example:</strong></div>
+<div class="line"><em>normal view</em>:</div>
+<div class="line"><tt class="docutils literal"><span class="pre">visualization#tab-chart_1_filter=....</span></tt></div>
+</div>
+<div class="line-block">
+<div class="line"><em>embedded</em>:</div>
+<div class="line"><tt class="docutils literal"><span class="pre">visualization/embed-chart?chart=chart_1#_filters=...</span></tt></div>
+</div>
+<div class="line-block">
+<div class="line"><strong>Note</strong>:</div>
+<div class="line">In the case of embedded charts there is a possibility to add some customizations to the chart (chartWidth, chartHeight, customStyle)</div>
+<div class="line">The hash with the filters will be in the last position, so the url will look like</div>
+<div class="line"><tt class="docutils literal"><span class="pre">visualization/embed-chart?chart=chart_1?chartWidth=800&amp;chartHeight=600#_filters=...</span></tt></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="how-the-filters-should-be-configured">
+<h3><a class="toc-backref" href="#id4">How the filters should be configured</a><a class="headerlink" href="#how-the-filters-should-be-configured" title="Permalink to this headline">¶</a></h3>
+<p>The filters are composed from the following parts:</p>
+<ol class="arabic simple">
+<li>sortFilter - used for our custom sortFilter</li>
+<li>rowFilters - used for googlecharts own built in filters</li>
+<li>columnFilters - used for our custom column filters and pre-pivot filters</li>
+<li>hideFilters - used for filters to be hidden</li>
+</ol>
+<div class="section" id="sortfilter">
+<h4><a class="toc-backref" href="#id5">sortFilter</a><a class="headerlink" href="#sortfilter" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><div class="line-block">
+<div class="line">In this parameter we can configure the default sort order for the data in the chart.</div>
+<div class="line">The value for the sortFilter is a list with a single element, what can be: &#8220;<strong>__default__</strong>&#8221;, &#8220;<strong>__disabled__</strong>&#8221;, <strong>&lt;columnname&gt;</strong> or <strong>&lt;columnname_reversed&gt;</strong></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="hidefilters">
+<h4><a class="toc-backref" href="#id6">hideFilters</a><a class="headerlink" href="#hidefilters" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><div class="line-block">
+<div class="line">In this parameter we can configure the visibility of the available filters of the chart.</div>
+<div class="line">It&#8217;s value is a list with the filters to be hidden</div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="rowfilters-columnfilters">
+<h4><a class="toc-backref" href="#id7">rowFilters &amp; columnFilters</a><a class="headerlink" href="#rowfilters-columnfilters" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><div class="line-block">
+<div class="line">In these parameters we can configure the values for each filter.</div>
+<div class="line">The value is a vocabulary with the configured filters, the keys are the name of the filters, the values are lists with the values. Depending on the filter&#8217;s type the list with the values may contain 0, 1, 2 or many values</div>
+</div>
+<ul class="simple">
+<li>if the filter&#8217;s type is single category the list will have 1 element</li>
+<li>if the filter&#8217;s type is multiple category the list may have 0 elements or as many elements are needed</li>
+<li>if the filter&#8217;s type is string the list will have 1 element</li>
+<li>if the filter&#8217;s type is number rang the list will contain 2 elements, the minimum and the maximum values</li>
+<li>the type of the values from the list should have the same type as configured for the chart</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="how-to-figure-out-which-filter-in-which-section-goes">
+<h3><a class="toc-backref" href="#id8">How to figure out which filter in which section goes?</a><a class="headerlink" href="#how-to-figure-out-which-filter-in-which-section-goes" title="Permalink to this headline">¶</a></h3>
+<div class="line-block">
+<div class="line">We have 2 possibilities to possibilities to find out which filters how should be configured in the queries.</div>
+</div>
+<p>The first option is to</p>
+<div class="section" id="use-the-embed-string-of-the-chart">
+<h4><a class="toc-backref" href="#id9">Use the embed string of the chart</a><a class="headerlink" href="#use-the-embed-string-of-the-chart" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><div class="line-block">
+<div class="line">When preparing the chart for embedding, make a selection for each filter, and on the <strong>embed code</strong> dialog on the <strong>Include the following filters</strong> section uncheck the <strong>All</strong> option. This way all the options will be configured in the embed string. We only have to apply an <tt class="docutils literal"><span class="pre">decodeURIComponent</span></tt> on the embed string, and all the options are readable.</div>
+</div>
+</div></blockquote>
+<p>The second option is to</p>
+</div>
+<div class="section" id="use-the-filterinfo-attribute-from-chart-filters">
+<h4><a class="toc-backref" href="#id10">Use the filterinfo attribute from chart filters</a><a class="headerlink" href="#use-the-filterinfo-attribute-from-chart-filters" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><div class="line-block">
+<div class="line">Each filter on a chart contains some information what can be accessed in order to help creating queries via url for the chart. We just have follow the following steps:</div>
+</div>
+<ol class="arabic">
+<li><p class="first">on the chart right click on the label of the filter, and find the closest &#8221;.googlechart_filter&#8221;</p>
+</li>
+<li><dl class="first docutils">
+<dt>it has an attribute called filterinfo with a value of a stringified JSON what contains the filterType, filterNameForValueParams, filterNameForHiddenParams</dt>
+<dd><ul class="first last simple">
+<li>filterType specifies in which section of the query it should be configured, it can have the following values: sortFilter, rowFilter, columnFilter</li>
+<li>filterNameForValueParams specifies the name of the filter what should be used as key in the rowFilters or the columnFilters</li>
+<li>filterNameForHiddenParams specifies the name how the filter should be added in the hideFilters list</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ol>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="examples-of-how-to-build-queries-for-charts">
+<h3><a class="toc-backref" href="#id11">Examples of how to build queries for charts:</a><a class="headerlink" href="#examples-of-how-to-build-queries-for-charts" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="set-the-query-parameters-for-embedded-charts">
+<h4><a class="toc-backref" href="#id12">1.  Set the query parameters for embedded charts</a><a class="headerlink" href="#set-the-query-parameters-for-embedded-charts" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><div class="line-block">
+<div class="line">Starting from this chart: <a class="reference external" href="http://daviz.eionet.europa.eu/visualisations/data-visualization-2/#tab-chart_3">http://daviz.eionet.europa.eu/visualisations/data-visualization-2/#tab-chart_3</a>.</div>
+<div class="line">If we use the embed option for chart, the popup will prompt if we want to use the current values of the filters in the embed and if we want to hide the filters (we can select one by one, or all of them). By default all filters are used and displayed in the iframe, and it&#8217;s code looks like:</div>
+</div>
+<p><tt class="docutils literal"><span class="pre">&lt;iframe</span> <span class="pre">width='1856'</span> <span class="pre">height='857'</span> <span class="pre">src='http://daviz.eionet.europa.eu/visualisations/data-visualization-2/embed-chart?chart=chart_3&amp;chartWidth=1000&amp;chartHeight=600&amp;customStyle=.googlechart_view{margin-left:0px%3B}#_filters={}'&gt;&lt;/iframe&gt;</span></tt></p>
+<div class="line-block">
+<div class="line">Put the code in a page and let&#8217;s make some customization</div>
+</div>
+<div class="line-block">
+<div class="line">The interesting part of the source for the iframe is after the <strong>#_filters</strong> part, where the filters are configured. As we didn&#8217;t select anything, the option for filters is empty.</div>
+</div>
+<div class="line-block">
+<div class="line"><strong>Now get the original query parameters:</strong></div>
+</div>
+<blockquote>
+<div><div class="line-block">
+<div class="line"><tt class="docutils literal"><span class="pre">var</span> <span class="pre">src</span> <span class="pre">=</span> <span class="pre">$(&quot;iframe&quot;).attr(&quot;src&quot;);</span></tt></div>
+<div class="line"><tt class="docutils literal"><span class="pre">var</span> <span class="pre">src_array</span> <span class="pre">=</span> <span class="pre">src.split(&quot;#_filters=&quot;);</span></tt></div>
+<div class="line"><tt class="docutils literal"><span class="pre">var</span> <span class="pre">query_params</span> <span class="pre">=</span> <span class="pre">JSON.parse(decodeURIComponent(src_array[1]).split(&quot;;&quot;).join(&quot;,&quot;));</span></tt></div>
+</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line">query_params in this moment is empty: {}</div>
+</div>
+<div class="line-block">
+<div class="line"><strong>set some filters:</strong></div>
+<div class="line">To find out the name of the filter and where it should be placed, check <strong>How to figure out which filter in which section goes?</strong></div>
+</div>
+<blockquote>
+<div><div class="line-block">
+<div class="line"><tt class="docutils literal"><span class="pre">query_params.rowFilters</span> <span class="pre">=</span> <span class="pre">{};</span></tt></div>
+<div class="line"><tt class="docutils literal"><span class="pre">query_params.rowFilters.country</span> <span class="pre">=</span> <span class="pre">[&quot;Austria&quot;,</span> <span class="pre">&quot;Belgium&quot;];</span></tt></div>
+</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line"><strong>hide a filter:</strong></div>
+</div>
+<blockquote>
+<div><div class="line-block">
+<div class="line"><tt class="docutils literal"><span class="pre">query_params.hideFilters</span> <span class="pre">=</span> <span class="pre">[&quot;googlechart_filters_main_activity&quot;];</span></tt></div>
+</div>
+</div></blockquote>
+<div class="line-block">
+<div class="line"><strong>build the new src for the iframe:</strong></div>
+</div>
+<blockquote>
+<div><div class="line-block">
+<div class="line"><tt class="docutils literal"><span class="pre">src_array[1]</span> <span class="pre">=</span> <span class="pre">encodeURIComponent(JSON.stringify(query_params).split(&quot;,&quot;).join(&quot;;&quot;));</span></tt></div>
+<div class="line"><tt class="docutils literal"><span class="pre">src</span> <span class="pre">=</span> <span class="pre">src_array.join(&quot;#_filters=&quot;);</span></tt></div>
+<div class="line"><tt class="docutils literal"><span class="pre">$(&quot;iframe&quot;).attr(&quot;src&quot;,</span> <span class="pre">src);</span></tt></div>
+</div>
+</div></blockquote>
+</div></blockquote>
+</div>
+<div class="section" id="set-sort-order-for-embedded-charts">
+<h4><a class="toc-backref" href="#id13">2.  Set sort order for embedded charts</a><a class="headerlink" href="#set-sort-order-for-embedded-charts" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><div class="line-block">
+<div class="line">The sort option can only be set on non table charts.</div>
+<div class="line">Let&#8217;s start from a chart with the Sort Filter enabled: <a class="reference external" href="http://daviz.eionet.europa.eu/visualisations/data-visualization-31#tab-chart_2">http://daviz.eionet.europa.eu/visualisations/data-visualization-31#tab-chart_2</a>, and embed it in a page.</div>
+<div class="line"><strong>Get the original query parameters as described in the previous section</strong></div>
+</div>
+<div class="line-block">
+<div class="line"><strong>set the sort option</strong></div>
+</div>
+<div class="line-block">
+<div class="line"><tt class="docutils literal"><span class="pre">query_params.sortFilter</span> <span class="pre">=</span> <span class="pre">['country'];</span></tt></div>
+</div>
+<div class="line-block">
+<div class="line"><strong>hide it</strong></div>
+</div>
+<div class="line-block">
+<div class="line"><tt class="docutils literal"><span class="pre">query_params.hideFilters</span> <span class="pre">=</span> <span class="pre">[&quot;googlechart_filters_sortfilter_custom_filter&quot;];</span></tt></div>
+</div>
+<div class="line-block">
+<div class="line"><strong>build the new src for the iframe</strong></div>
+</div>
+</div></blockquote>
+</div>
+</div>
+</div>
 </div>
 
 
@@ -140,6 +365,33 @@
                     
         <div class="sphinxsidebar">
             <div class="sphinxsidebarwrapper">
+  <h3><a href="../../../index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">EEA Google Charts API</a><ul>
+<li><a class="reference internal" href="#passing-parameters-in-url">Passing parameters in url</a><ul>
+<li><a class="reference internal" href="#differences-between-simple-visualization-pages-and-embedded-charts">Differences between simple visualization pages and embedded charts</a></li>
+<li><a class="reference internal" href="#how-the-filters-should-be-configured">How the filters should be configured</a><ul>
+<li><a class="reference internal" href="#sortfilter">sortFilter</a></li>
+<li><a class="reference internal" href="#hidefilters">hideFilters</a></li>
+<li><a class="reference internal" href="#rowfilters-columnfilters">rowFilters &amp; columnFilters</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#how-to-figure-out-which-filter-in-which-section-goes">How to figure out which filter in which section goes?</a><ul>
+<li><a class="reference internal" href="#use-the-embed-string-of-the-chart">Use the embed string of the chart</a></li>
+<li><a class="reference internal" href="#use-the-filterinfo-attribute-from-chart-filters">Use the filterinfo attribute from chart filters</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#examples-of-how-to-build-queries-for-charts">Examples of how to build queries for charts:</a><ul>
+<li><a class="reference internal" href="#set-the-query-parameters-for-embedded-charts">1.  Set the query parameters for embedded charts</a></li>
+<li><a class="reference internal" href="#set-sort-order-for-embedded-charts">2.  Set sort order for embedded charts</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
   <p class="topless"><a href="../../eea.daviz/api/API.html"
                         title="previous chapter">EEA Daviz API</a></p>
