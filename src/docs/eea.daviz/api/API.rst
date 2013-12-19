@@ -34,7 +34,9 @@ Zope or Python (see the background colors).
 
 .. image:: images/eea.daviz.dependencies.svg
 
-``XXX: To be continued...``
+
+.. include:: ../../stub.rst
+
 
 .. _`eea.daviz`: ../../../docs/eea.daviz/index.html
 .. _`eea.app.visualization`: ../../../docs/eea.app.visualization/index.html
