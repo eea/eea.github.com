@@ -91,7 +91,7 @@ pygments_style = 'sphinx'
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-html_theme = 'sphinx-bootstrap'
+html_theme = 'plone-pt'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -100,7 +100,7 @@ html_theme = 'sphinx-bootstrap'
 html_theme_options = {
     'analytics_code': '',
     'github_user': 'eea',
-    'github_repo': 'eea.github.com',
+    'github_repo': 'eea.daviz',
     'twitter_username': 'euenvironment',
     'home_url': 'http://eea.europa.eu',
     'disqus_shortname': 'euenvironment',
@@ -296,8 +296,9 @@ epub_copyright = u'2012, European Environment Agency'
 
 # Example configuration for intersphinx: refer to the Python standard library.
 intersphinx_mapping = {
-    "python": ("http://docs.python.org/", None),
-}
+        "python": ('http://docs.python.org/', None),
+        #"eeadocs": ("http://eea.github.io/", None),
+        "eeadocs": ("http://static.david.edw.ro/html/", None),
+        }
 
-
-tags.add("everything")
+tags.add("package")

@@ -1,0 +1,13 @@
+#!/bin/sh
+
+SPHINXBUILD="/warp10/dev/plone/bin/sphinx-build"
+
+for PACKAGE_DIR in $(find ./src/docs/ -type d -name eea.\*)
+do
+    PACKAGE_NAME="$(basename "$PACKAGE_DIR")"
+    echo "::: $PACKAGE_DIR ::: $PACKAGE_NAME"
+    if [ -f $PACKAGE_DIR/Makefile ]; then
+        make -C $PACKAGE_DIR clean SPHINX_PATH=$SPHINXBUILD PACKAGE_NAME=$PACKAGE_NAME
+        make -C $PACKAGE_DIR plone-pt SPHINX_PATH=$SPHINXBUILD PACKAGE_NAME=$PACKAGE_NAME
+    fi
+done
