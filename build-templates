@@ -103,6 +103,6 @@ do
 
         fi
     else
-        echo -e "[${blue}I${NC}] No Makefile in $PACKAGE_DIR. Skipping!"
+        echo -e "[${blue}I${NC}] No Makefile in $PACKAGE_DIR. ${blue}Skipping!${NC}"
     fi
 done
