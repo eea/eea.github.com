@@ -17,8 +17,8 @@ get_abs_path()
     eval $__resultvar="'$the_result'"
 }
 
-eval set -- $(getopt -n $0 -o "" -l "help" -l "debug" -l "clean" -- "$@")
-declare debug clean help
+eval set -- $(getopt -n $0 -o "" -l "help" -l "debug" -l "clean" -l "package:" -- "$@")
+declare debug clean help package
 declare -a paths
 
 
@@ -26,22 +26,25 @@ while [ $# -gt 0 ] ; do
     case "$1" in
     --clean) clean=1 ; shift ;;
     --debug) debug=1 ; shift ;;
-    --help) help=1 ; shift ;;
-        --) shift ;;
-        -*) echo "bad option '$1'" ; exit 1 ;;
-        *) paths=("${paths[@]}" "$1") ; shift ;;
+     --help) help=1 ; shift ;;
+  --package) shift ; package="$1" ; shift ;;
+         --) shift ;;
+         -*) echo "bad option '$1'" ; exit 1 ;;
+          *) paths=("${paths[@]}" "$1") ; shift ;;
     esac
 done
 
 if [ ! -z "$help" ]; then
-    echo "Usage: ./build-templates [options] [/path/to/sphinx-build]"
+    echo "Usage: ./build-templates [options] [--package <package.name>] [/path/to/sphinx-build]"
     echo "When run without arguments, attempts to find sphinx-build in buildout folder (../../) or fails."
     echo "Options:"
-    echo "      --clean  -- make clean before building"
-    echo "      --debug  -- do nothing, print debug data"
-    echo "      --help   -- print this message"
+    echo "      --package <package.name>  -- build just for the specified package (e.g. --package eea.daviz)"
+    echo "      --clean                   -- make clean before building"
+    echo "      --debug                   -- do nothing, print debug data"
+    echo "      --help                    -- print this message"
     exit 0
 fi
+
 
 GIVEN_PATH="${paths[0]}"
 
@@ -73,6 +76,11 @@ SOURCE_DIR=$(cd "../" && pwd)/
 for PACKAGE_DIR in $(find ./src/docs/ -type d -name eea.\*)
 do
     PACKAGE_NAME="$(basename "$PACKAGE_DIR")"
+    if [ ! -z "$package" ]; then
+        if [[ "$PACKAGE_NAME" != "$package" ]]; then
+            continue
+        fi
+    fi
     if [ -f $PACKAGE_DIR/Makefile ]; then
         if [ ! -z "$debug" ]; then
             echo -e "[${yellow}D${NC}] PACKAGE_DIR=$PACKAGE_DIR"
