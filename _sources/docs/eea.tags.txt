@@ -1,7 +1,0 @@
-EEA Tags documentation
-======================
-
-Contents:
-
-.. toctree::
-   :maxdepth: 2
