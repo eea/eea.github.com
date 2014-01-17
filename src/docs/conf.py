@@ -297,8 +297,7 @@ epub_copyright = u'2012, European Environment Agency'
 # Example configuration for intersphinx: refer to the Python standard library.
 intersphinx_mapping = {
         "python": ('http://docs.python.org/', None),
-        #"eeadocs": ("http://eea.github.io/", None),
-        "eeadocs": ("http://static.david.edw.ro/html/", None),
+        "eeadocs": ("http://eea.github.io/", None),
         }
 
 tags.add("package")
