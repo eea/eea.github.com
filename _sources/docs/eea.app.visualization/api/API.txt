@@ -1,3 +1,5 @@
+.. _visualization-api:
+
 =========================
 EEA App Visualization API
 =========================

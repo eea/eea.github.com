@@ -1,3 +1,5 @@
+.. _exhibit-api:
+
 ===============
 EEA Exhibit API
 ===============
