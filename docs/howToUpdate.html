@@ -121,35 +121,13 @@ reStructeredText.</p>
 <p>Add the following config to your zc.buildout .cfg file (see
 <a class="reference external" href="https://svn.eionet.europa.eu/repositories/Zope/trunk/www.eea.europa.eu/trunk/hudson.cfg">hudson.cfg</a> for a more updated version of this snippet)</p>
 <div class="highlight-console"><div class="highlight"><pre><span class="go">parts +=</span>
-<span class="go">  sphinx</span>
-<span class="go">  sphinx-hooks</span>
-<span class="go">  sphinx-hooks-run</span>
+<span class="go">  eeadocs</span>
 
-<span class="go">[sphinx]</span>
-<span class="go">recipe = collective.recipe.sphinxbuilder</span>
-<span class="go">source = ${buildout:directory}/src/eea.github.com/src</span>
-<span class="go">build = ${buildout:directory}/src/eea.github.com</span>
-<span class="go">interpreter = ${buildout:directory}/bin/zopepy</span>
+<span class="go">[eeadocs]</span>
+<span class="go">recipe = zc.recipe.egg</span>
 <span class="go">eggs =</span>
-<span class="go">  ${buildout:eggs}</span>
-<span class="go">  eea.github.com</span>
+<span class="go">    eea.github.com</span>
 
-<span class="go">[sphinx-hooks]</span>
-<span class="go">recipe = collective.recipe.template</span>
-<span class="go">input = inline:</span>
-<span class="go">    #!/bin/sh</span>
-<span class="go">    sed -i -e &#39;s/\/html$//g&#39; ${buildout:directory}/src/eea.github.com/Makefile</span>
-<span class="go">    sed -i -e &#39;s/\-b html/\-ab html/g&#39; ${buildout:directory}/src/eea.github.com/Makefile</span>
-<span class="go">    cp ${buildout:directory}/bin/sphinx-quickstart ${buildout:directory}/bin/sphinx-apidoc</span>
-<span class="go">    sed -i -e &#39;s/import sphinx\.quickstart/import sphinx\.apidoc/g&#39; ${buildout:directory}/bin/sphinx-apidoc</span>
-<span class="go">    sed -i -e &#39;s/sphinx\.quickstart\.main/sphinx\.apidoc\.main/g&#39; ${buildout:directory}/bin/sphinx-apidoc</span>
-<span class="go">output = ${buildout:directory}/bin/sphinx-hooks</span>
-<span class="go">mode = 755</span>
-
-<span class="go">[sphinx-hooks-run]</span>
-<span class="go">recipe = plone.recipe.command</span>
-<span class="go">command = ${buildout:directory}/bin/sphinx-hooks</span>
-<span class="go">update-command = ${buildout:directory}/bin/sphinx-hooks</span>
 
 <span class="go">[sources]</span>
 <span class="go">eea.github.com = git https://github.com/eea/eea.github.com.git pushurl=git@github.com:eea/eea.github.com.git</span>
@@ -164,7 +142,6 @@ reStructeredText.</p>
 <h2>2. Run buildout<a class="headerlink" href="#run-buildout" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> <span class="nb">cd</span> /path/to/www.eea.europa.eu
 <span class="gp">$</span> bin/develop rb
-<span class="gp">$</span> bin/sphinx
 </pre></div>
 </div>
 <p>This will install all needed. Now its time for you to edit <tt class="docutils literal"><span class="pre">.rst</span></tt> files.</p>
@@ -180,8 +157,8 @@ reStructeredText.</p>
 <p><strong>IMPORTANT</strong>
 Make sure site looks nice when rendered. It will be compiled in root of
 package.</p>
-<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> <span class="nb">cd</span> /path/to/www.eea.europa.eu
-<span class="gp">$</span> bin/sphinx
+<div class="highlight-console"><div class="highlight"><pre><span class="gp">$</span> <span class="nb">cd</span> /path/to/www.eea.europa.eu/src/eea.github.com
+<span class="gp">$</span> ./build
 </pre></div>
 </div>
 </div>

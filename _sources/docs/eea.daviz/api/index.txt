@@ -11,31 +11,37 @@ Discover what you can do with the EEA Daviz APIs
 
   .. container:: step-nav span8
 
-    .. toctree::
-      :maxdepth: 1
-
-      API
+      :doc:`API`
 
   .. container:: step-nav span4
 
-    .. toctree::
-      :maxdepth: 1
+    .. only:: everything
 
-      ../../eea.googlecharts/api/API
+      :doc:`/docs/eea.googlecharts/api/API`
+
+    .. only:: package
+
+      :ref:`eeadocs:googlecharts-api`
 
   .. container:: step-nav span4
 
-    .. toctree::
-      :maxdepth: 1
+    .. only:: everything
 
-      ../../eea.exhibit/api/API
+      :doc:`/docs/eea.exhibit/api/API`
+
+    .. only:: package
+
+      :ref:`eeadocs:exhibit-api`
 
   .. container:: step-nav span8
 
-    .. toctree::
-      :maxdepth: 1
+    .. only:: everything
 
-      ../../eea.app.visualization/api/API
+      :doc:`/docs/eea.app.visualization/api/API`
+
+    .. only:: package
+
+      :ref:`eeadocs:visualization-api`
 
 
 .. include:: ../../../../../eea.daviz/docs/tech-docs/integration-with-zope.rst

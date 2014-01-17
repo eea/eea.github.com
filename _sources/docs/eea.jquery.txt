@@ -1,7 +1,0 @@
-EEA jQuery documentation
-========================
-
-Contents:
-
-.. toctree::
-   :maxdepth: 2

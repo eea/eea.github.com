@@ -14,35 +14,13 @@ Add the following config to your zc.buildout .cfg file (see
 .. code-block:: console
 
     parts +=
-      sphinx
-      sphinx-hooks
-      sphinx-hooks-run
+      eeadocs
 
-    [sphinx]
-    recipe = collective.recipe.sphinxbuilder
-    source = ${buildout:directory}/src/eea.github.com/src
-    build = ${buildout:directory}/src/eea.github.com
-    interpreter = ${buildout:directory}/bin/zopepy
+    [eeadocs]
+    recipe = zc.recipe.egg
     eggs =
-      ${buildout:eggs}
-      eea.github.com
+        eea.github.com
 
-    [sphinx-hooks]
-    recipe = collective.recipe.template
-    input = inline:
-        #!/bin/sh
-        sed -i -e 's/\/html$//g' ${buildout:directory}/src/eea.github.com/Makefile
-        sed -i -e 's/\-b html/\-ab html/g' ${buildout:directory}/src/eea.github.com/Makefile
-        cp ${buildout:directory}/bin/sphinx-quickstart ${buildout:directory}/bin/sphinx-apidoc
-        sed -i -e 's/import sphinx\.quickstart/import sphinx\.apidoc/g' ${buildout:directory}/bin/sphinx-apidoc
-        sed -i -e 's/sphinx\.quickstart\.main/sphinx\.apidoc\.main/g' ${buildout:directory}/bin/sphinx-apidoc
-    output = ${buildout:directory}/bin/sphinx-hooks
-    mode = 755
-
-    [sphinx-hooks-run]
-    recipe = plone.recipe.command
-    command = ${buildout:directory}/bin/sphinx-hooks
-    update-command = ${buildout:directory}/bin/sphinx-hooks
 
     [sources]
     eea.github.com = git https://github.com/eea/eea.github.com.git pushurl=git@github.com:eea/eea.github.com.git
@@ -59,7 +37,6 @@ Add the following config to your zc.buildout .cfg file (see
 
     $ cd /path/to/www.eea.europa.eu
     $ bin/develop rb
-    $ bin/sphinx
 
 This will install all needed. Now its time for you to edit ``.rst`` files.
 
@@ -81,8 +58,8 @@ package.
 
 .. code-block:: console
 
-    $ cd /path/to/www.eea.europa.eu
-    $ bin/sphinx
+    $ cd /path/to/www.eea.europa.eu/src/eea.github.com
+    $ ./build
 
 4. Commit changes
 =================
