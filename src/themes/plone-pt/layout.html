@@ -1,4 +1,4 @@
-<tal:block define="context python: request.PARENTS[-2]; here nocall:context">
+<tal:block define="context python: request.PARENTS[1]; here nocall:context">
 <html metal:use-macro="context/main_template/macros/master"
       i18n:domain="plone">
 
@@ -49,6 +49,7 @@
   <link href='http://fonts.googleapis.com/css?family=Crete+Round' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="{{ pathto('_static/' + style, 1) }}" type="text/css"/>
   <link rel="stylesheet" href="{{ pathto('_static/pygments.css', 1) }}" type="text/css"/>
+  <link rel="stylesheet" href="{{ pathto('_static/theme.css', 1) }}" type="text/css"/>
   {%- for cssfile in css_files %}
       <link rel="stylesheet" href="{{ pathto(cssfile, 1) }}" type="text/css"/>
   {%- endfor %}
@@ -206,14 +207,6 @@
     </div>
 {%- endblock %}
 </metal:main>
-
-<metal:right-portlet fill-slot="portlets_two_slot">
-  {%- block sidebar2 %}
-      <div class="span3">
-          {{ sidebar() }}
-      </div>
-  {% endblock %}
-</metal:right-portlet>
 
 </body>
 </html>
