@@ -148,8 +148,7 @@ The results will be converted in an exhibit json, what can easily be reused
 <div class="section" id="main-features">
 <h2><a class="toc-backref" href="#id3">Main features</a><a class="headerlink" href="#main-features" title="Permalink to this headline">¶</a></h2>
 <p>The main features are:</p>
-<blockquote>
-<div><ol class="arabic simple">
+<ol class="arabic simple">
 <li>create sparql queries</li>
 <li>create sparql bookmark folders, sparql queries are created automatically,
 and can be synchronized manually or automatically (with a cronjob).
@@ -158,14 +157,12 @@ so older ones are not lost.</li>
 <li>results are downloadable in various formats:
 JSON, Exhibit JSON, HTML, XML, XML with Schema, CSV, TSV</li>
 </ol>
-</div></blockquote>
 </div>
 <div class="section" id="installation">
 <h2><a class="toc-backref" href="#id4">Installation</a><a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
 <p>To install eea.sparql into the global Python environment (or a workingenv),
 using a traditional Zope 2 instance, you can do this:</p>
-<blockquote>
-<div><ul>
+<ul>
 <li><p class="first">When you&#8217;re reading this you have probably already run
 <tt class="docutils literal"><span class="pre">easy_install</span> <span class="pre">eea.sparql</span></tt>. Find out how to install setuptools
 (and EasyInstall) here:
@@ -184,11 +181,9 @@ should only contain this:</p>
 </div>
 </li>
 </ul>
-</div></blockquote>
 <p>Alternatively, if you are using zc.buildout and the plone.recipe.zope2instance
 recipe to manage your project, you can do this:</p>
-<blockquote>
-<div><ul>
+<ul>
 <li><p class="first">Add <tt class="docutils literal"><span class="pre">eea.sparql</span></tt> to the list of eggs to install, e.g.:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="p">[</span><span class="n">buildout</span><span class="p">]</span>
 <span class="n">eggs</span> <span class="o">=</span> <span class="n">eea</span><span class="o">.</span><span class="n">sparql</span>
@@ -203,13 +198,11 @@ recipe to manage your project, you can do this:</p>
 </div>
 </li>
 </ul>
-</div></blockquote>
 <p>You can skip the ZCML slug if you are going to explicitly include the package
 from another package&#8217;s configure.zcml file.</p>
 <p>You will also need a worker instance to be set up. This is required for the async
 update of the last working results.</p>
-<blockquote>
-<div><ul>
+<ul>
 <li><p class="first">For both, normal and worker instances, the plone.app.async should be added in
 the EGG slug:</p>
 <div class="highlight-python"><pre>eggs =
@@ -236,19 +229,16 @@ added in the ZCML slug:</p>
 </div>
 </li>
 </ul>
-</div></blockquote>
 </div>
 <div class="section" id="dependecies">
 <h2><a class="toc-backref" href="#id5">Dependecies</a><a class="headerlink" href="#dependecies" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><ol class="arabic simple">
+<ol class="arabic simple">
 <li>Plone 4.x</li>
 <li>Products.ZSPARQLMethod</li>
 <li>eea.cache</li>
 <li>eea.versions</li>
 <li>plone.app.async</li>
 </ol>
-</div></blockquote>
 </div>
 <div class="section" id="source-code">
 <h2><a class="toc-backref" href="#id6">Source code</a><a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
@@ -269,18 +259,15 @@ version.</p>
 </div>
 <div class="section" id="links">
 <h2><a class="toc-backref" href="#id8">Links</a><a class="headerlink" href="#links" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><ol class="arabic simple">
+<ol class="arabic simple">
 <li><a class="reference external" href="http://en.wikipedia.org/wiki/SPARQL">http://en.wikipedia.org/wiki/SPARQL</a></li>
 <li><a class="reference external" href="http://sparql.org/">http://sparql.org/</a></li>
 <li><a class="reference external" href="http://www.w3.org/TR/rdf-sparql-query/">http://www.w3.org/TR/rdf-sparql-query/</a></li>
 </ol>
-</div></blockquote>
 </div>
 <div class="section" id="funding">
 <h2><a class="toc-backref" href="#id9">Funding</a><a class="headerlink" href="#funding" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><a class="reference external" href="http://www.eea.europa.eu/">EEA</a> - European Environment Agency (EU)</div></blockquote>
+<p><a class="reference external" href="http://www.eea.europa.eu/">EEA</a> - European Environment Agency (EU)</p>
 </div>
 </div>
 

@@ -122,8 +122,7 @@
 jarn.mkrelease. Its purpose is to automate a series of 10 steps that are
 required in order to produce and upload an egg on the eggrepo.</p>
 <p>The ten steps are:</p>
-<blockquote>
-<div><ol class="arabic simple">
+<ol class="arabic simple">
 <li>Bump version.txt to correct version; from -dev to final</li>
 <li>Update history file with release date; Record final release date</li>
 <li>Run &#8220;mkrelease -d eea&#8221; in package dir</li>
@@ -135,7 +134,6 @@ required in order to produce and upload an egg on the eggrepo.</p>
 <li>Update history file. Add Unreleased section</li>
 <li>SVN commit the dev version of the package.</li>
 </ol>
-</div></blockquote>
 <div class="section" id="requirements">
 <h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
 <p>eea.eggmonkey requires python2.6</p>
@@ -168,60 +166,70 @@ This allows eggmonkey to learn about the sources and the packages in
 auto-checkout.</p>
 <p>After that, you can use the monkey script from bin. Learn about its parameters
 by running</p>
-<blockquote>
-<div><tt class="docutils literal"><span class="pre">bin/monkey</span> <span class="pre">-h</span></tt></div></blockquote>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">bin/monkey</span> <span class="pre">-h</span></tt></li>
+</ul>
 <p>Typical usage would be:</p>
-<blockquote>
-<div><tt class="docutils literal"><span class="pre">bin/monkey</span> <span class="pre">eea.indicators</span></tt></div></blockquote>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">bin/monkey</span> <span class="pre">eea.indicators</span></tt></li>
+</ul>
 <p>You can specify multiple packages on the command line, they will all be
 processed:</p>
-<blockquote>
-<div><tt class="docutils literal"><span class="pre">bin/monkey</span> <span class="pre">eea.indicators</span> <span class="pre">eea.workflow</span> <span class="pre">eea.version</span></tt></div></blockquote>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">bin/monkey</span> <span class="pre">eea.indicators</span> <span class="pre">eea.workflow</span> <span class="pre">eea.version</span></tt></li>
+</ul>
 <p>Or, if you want to release all eggs specified in the auto-checkout section of
 buildout:</p>
-<blockquote>
-<div><tt class="docutils literal"><span class="pre">bin/monkey</span> <span class="pre">-a</span></tt></div></blockquote>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">bin/monkey</span> <span class="pre">-a</span></tt></li>
+</ul>
 <p>There is a special option that works around bugs in registering the egg with
 eggrepos and will run a &#8220;python sdist upload&#8221; operation, using the -u switch:</p>
-<blockquote>
-<div><tt class="docutils literal"><span class="pre">bin/monkey</span> <span class="pre">-u</span> <span class="pre">eea.indicators</span></tt></div></blockquote>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">bin/monkey</span> <span class="pre">-u</span> <span class="pre">eea.indicators</span></tt></li>
+</ul>
 <p>If you&#8217;re doing manual upload, you may need to specify a different python path,
 with the -p switch:</p>
-<blockquote>
-<div><tt class="docutils literal"><span class="pre">bin/monkey</span> <span class="pre">-u</span> <span class="pre">eea.indicators</span> <span class="pre">-p</span> <span class="pre">~/tools/bin/python</span></tt></div></blockquote>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">bin/monkey</span> <span class="pre">-u</span> <span class="pre">eea.indicators</span> <span class="pre">-p</span> <span class="pre">~/tools/bin/python</span></tt></li>
+</ul>
 <p>If you need to specify the path to the mkrelease script, you can give it as an
 argument to the script, using the -m switch:</p>
-<blockquote>
-<div><tt class="docutils literal"><span class="pre">bin/monkey</span> <span class="pre">eea.indicators</span> <span class="pre">-m</span> <span class="pre">/path/to/bin/mkrelease</span></tt></div></blockquote>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">bin/monkey</span> <span class="pre">eea.indicators</span> <span class="pre">-m</span> <span class="pre">/path/to/bin/mkrelease</span></tt></li>
+</ul>
 <p>If you don&#8217;t want to specify this path, place the mkrelease script in the PATH
 environment variable (typically this can be achieved by activating its
 virtualenv).</p>
 <p>Finally, if you&#8217;re releasing eggs to a different repository, or if you have
 eggrepo.eea.europa.eu aliased as something different then &#8220;eea&#8221;, you can
 manually specify this using the -d switch:</p>
-<blockquote>
-<div><tt class="docutils literal"><span class="pre">bin/monkey</span> <span class="pre">-d</span> <span class="pre">eeaeggs</span> <span class="pre">eea.indicators</span></tt></div></blockquote>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">bin/monkey</span> <span class="pre">-d</span> <span class="pre">eeaeggs</span> <span class="pre">eea.indicators</span></tt></li>
+</ul>
 <p>If you want to forbid all network operations (for example,
 during testing), you can run</p>
-<blockquote>
-<div><tt class="docutils literal"><span class="pre">bin/monkey</span> <span class="pre">-n</span> <span class="pre">eea.indicators</span></tt></div></blockquote>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">bin/monkey</span> <span class="pre">-n</span> <span class="pre">eea.indicators</span></tt></li>
+</ul>
 <p>If you want to skip versions.cfg update (for example running in a buildout without versions.cfg), you can run</p>
-<blockquote>
-<div><tt class="docutils literal"><span class="pre">bin/monkey</span> <span class="pre">-B</span> <span class="pre">eea.indicators</span></tt></div></blockquote>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">bin/monkey</span> <span class="pre">-B</span> <span class="pre">eea.indicators</span></tt></li>
+</ul>
 </div>
 </div>
 <div class="section" id="providing-defaults-with-a-configuration-file">
 <h2>Providing defaults with a configuration file<a class="headerlink" href="#providing-defaults-with-a-configuration-file" title="Permalink to this headline">¶</a></h2>
 <p>You can write a file ~/.eggmonkey in the following format:</p>
-<blockquote>
-<div><p>[*]
+<div class="highlight-python"><pre>[*]
 python = /path/to/python
 mkrelease = /path/to/mkrelease
 manual_upload = true
-domain = eea</p>
-<p>[eea.indicators]
-domain = eea pypi</p>
-</div></blockquote>
+domain = eea
+
+[eea.indicators]
+domain = eea pypi</pre>
+</div>
 <p>This is a ConfigParser file format where each section is a package name, with
 the exception of the star (*), which provides defaults for all packages. The
 following options can be configured: python, mkrelease, manual_upload and

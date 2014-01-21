@@ -302,13 +302,11 @@ site_properties called <strong>memcached_defaultLifetime</strong> and set it&#82
 <p>Starting with eea.cache 5.1 you can also pass a lifetime key with the duration
 in seconds which will override the defaultLifetime either given from the
 portal property or the default one from lovely.memcached of 3600 seconds</p>
-<blockquote>
-<div><div class="highlight-python"><pre>ex: in order to cache the result only for 4 minutes
+<div class="highlight-python"><pre>ex: in order to cache the result only for 4 minutes
 &gt;&gt;&gt; @cache(key, dependencies=["frontpage"], lifetime=240)
 ... def myMethod(num):
 ...     return num*num</pre>
 </div>
-</div></blockquote>
 </div>
 </div>
 <div class="section" id="copyright-and-license">

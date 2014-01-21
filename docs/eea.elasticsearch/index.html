@@ -179,9 +179,7 @@ on development instance, on EEA Centaurus server.</p>
 <h2><a class="toc-backref" href="#id7">Installation</a><a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
 <li><p class="first">Clone project</p>
-<blockquote>
-<div><p>git clone <a class="reference external" href="mailto:git&#37;&#52;&#48;github&#46;com">git<span>&#64;</span>github<span>&#46;</span>com</a>:eea/eea.elasticsearch.git</p>
-</div></blockquote>
+<p>git clone <a class="reference external" href="mailto:git&#37;&#52;&#48;github&#46;com">git<span>&#64;</span>github<span>&#46;</span>com</a>:eea/eea.elasticsearch.git</p>
 </li>
 <li><p class="first">Install <a class="reference external" href="http://elasticsearch.org">elasticsearch</a>, e.g. in /var/local/elasticsearch</p>
 </li>
@@ -190,54 +188,47 @@ eea.elasticsearch/etc/production/config</p>
 </li>
 <li><p class="first">Install <a class="reference external" href="https://github.com/eea/eea.elasticsearch.river.rdf">RDF River Plugin</a>, using elasticsearch plugin script inside its
 bin folder:</p>
-<blockquote>
-<div><p>bin/plugin &#8211;url <a class="reference external" href="https://github.com/eea/eea.elasticsearch.river.rdf/raw/master/target/releases/eea-rdf-river-plugin-1.0.zip">https://github.com/eea/eea.elasticsearch.river.rdf/raw/master/target/releases/eea-rdf-river-plugin-1.0.zip</a>
-&#8211;install eea-rdf-river-1.0</p>
-</div></blockquote>
+<div class="highlight-python"><pre>bin/plugin --url https://github.com/eea/eea.elasticsearch.river.rdf/raw/master/target/releases/eea-rdf-river-plugin-1.0.zip
+--install eea-rdf-river-1.0</pre>
+</div>
 </li>
 <li><p class="first">Install <a class="reference external" href="https://github.com/sonian/elasticsearch-jetty">Jetty Plugin</a> in the same manner:</p>
-<blockquote>
-<div><p>bin/plugin &#8211;url <a class="reference external" href="https://oss-es-plugins.s3.amazonaws.com/elasticsearch-jetty/elasticsearch-jetty-0.90.0.zip">https://oss-es-plugins.s3.amazonaws.com/elasticsearch-jetty/elasticsearch-jetty-0.90.0.zip</a>
-&#8211;install elasticsearch-jetty-0.90.0</p>
-</div></blockquote>
+<div class="highlight-python"><pre>bin/plugin --url https://oss-es-plugins.s3.amazonaws.com/elasticsearch-jetty/elasticsearch-jetty-0.90.0.zip
+--install elasticsearch-jetty-0.90.0</pre>
+</div>
 </li>
 <li><p class="first">Install useful plugins for monitoring and debugging:</p>
-<blockquote>
-<div><p>bin/plugin -install mobz/elasticsearch-head
+<div class="highlight-python"><pre>bin/plugin -install mobz/elasticsearch-head
 bin/plugin -install lukas-vlcek/bigdesk
 bin/plugin -install OlegKunitsyn/elasticsearch-browse
-bin/plugin -install polyfractal/elasticsearch-inquisitor</p>
-</div></blockquote>
+bin/plugin -install polyfractal/elasticsearch-inquisitor</pre>
+</div>
 </li>
 <li><p class="first">Install and configure elasticsearch-service wrapper:</p>
-<blockquote>
-<div><p>git clone <a class="reference external" href="mailto:git&#37;&#52;&#48;github&#46;com">git<span>&#64;</span>github<span>&#46;</span>com</a>:eea/elasticsearch-servicewrapper.git
+<div class="highlight-python"><pre>git clone git@github.com:eea/elasticsearch-servicewrapper.git
 cd elasticsearch-servicewrapper/service
 vim elasticsearch.conf # configure path to elasticsearch
-./elasticsearch install</p>
-</div></blockquote>
+./elasticsearch install</pre>
+</div>
 </li>
 <li><p class="first">Configure users and roles for elasticsearch requests in
 eea.elasticsearch/etc/production/config/realm.properties, see
 <a class="reference external" href="https://github.com/sonian/elasticsearch-jetty#adding-basic-authentication">Adding Basic Authentication</a>.</p>
 </li>
 <li><p class="first">Start elasticsearch service</p>
-<blockquote>
-<div><p>service elasticsearch start</p>
-</div></blockquote>
+<div class="highlight-python"><pre>service elasticsearch start</pre>
+</div>
 </li>
 <li><p class="first">Install facetview</p>
-<blockquote>
-<div><p>git clone <a class="reference external" href="mailto:git&#37;&#52;&#48;github&#46;com">git<span>&#64;</span>github<span>&#46;</span>com</a>:eea/facetview.git</p>
-</div></blockquote>
+<div class="highlight-python"><pre>git clone git@github.com:eea/facetview.git</pre>
+</div>
 </li>
 <li><p class="first">Link eea.elasticsearch/etc/production/httpd.elasticsearch.conf in
 /etc/httpd/conf.d and check settings</p>
 </li>
 <li><p class="first">Reload Apache</p>
-<blockquote>
-<div><p>service httpd reload</p>
-</div></blockquote>
+<div class="highlight-python"><pre>service httpd reload</pre>
+</div>
 </li>
 </ol>
 </div>

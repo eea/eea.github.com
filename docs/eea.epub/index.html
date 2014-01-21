@@ -154,42 +154,34 @@ to work with this package, previous versions of this package only supported epub
 <div class="section" id="main-features">
 <h2><a class="toc-backref" href="#id5">Main features</a><a class="headerlink" href="#main-features" title="Permalink to this headline">¶</a></h2>
 <p>EEA Epub features:</p>
-<blockquote>
-<div><ol class="arabic simple">
+<ol class="arabic simple">
 <li>Imports epub files as Plone content.</li>
 <li>Stores the original epub in the main folder for easy retrieval.</li>
 <li>Exports the Plone content back into an epub.</li>
 <li>Clean filename as you import the epub and they contain characters that wouldn&#8217;t be allowed
 as a Plone id.
 This behaviour is on by default but it can be disabled by unchecking the boolean flag at portal_properties/site_properties
-&#8216;clean_epub_file_names&#8217;.
+<strong>clean_epub_file_names</strong>.
 If you find that the Document Pages added by the Epub process has broken links try to re-upload without this boolean flag.</li>
 </ol>
-</div></blockquote>
 </div>
 <div class="section" id="epub-compatibility">
 <h2><a class="toc-backref" href="#id6">Epub compatibility</a><a class="headerlink" href="#epub-compatibility" title="Permalink to this headline">¶</a></h2>
 <p>EEA Epub makes the following assumptions about the loaded epub:</p>
-<blockquote>
-<div><ol class="arabic simple">
+<ol class="arabic simple">
 <li>You don&#8217;t use unicode or other special characters into the name of the epub, images or links</li>
-<li>You&#8217;ve created the epub with &#8220;Adobe InDesign CS4&#8221; or &#8220;Sigil&#8221; which uses some standards for the following:</li>
-</ol>
-<blockquote>
-<div><ul class="simple">
+<li>You&#8217;ve created the epub with &#8220;Adobe InDesign CS4&#8221; or &#8220;Sigil&#8221; which uses some standards for the following:<ul>
 <li>The table of contents is named toc.ncx and is placed inside OEBPS</li>
 <li>Book text &amp; images are placed inside the folder OEBPS or other folders that are children of OEBPS</li>
 <li>Items ids doesn&#8217;t contain the following characters . / ( if possible stick to letters, numbers and - _ )</li>
 </ul>
-</div></blockquote>
-</div></blockquote>
+</li>
+</ol>
 <p>Best practices when creating an epub:</p>
-<blockquote>
-<div><ol class="arabic simple">
+<ol class="arabic simple">
 <li>Chapter names should not be all uppercase or use special characters</li>
 <li>Image names should not contain spaces, periods, / or other special characters</li>
 </ol>
-</div></blockquote>
 </div>
 <div class="section" id="debugging">
 <h2><a class="toc-backref" href="#id7">Debugging</a><a class="headerlink" href="#debugging" title="Permalink to this headline">¶</a></h2>
@@ -206,11 +198,8 @@ to be somewhat tricky.</p>
 &#8220;zcml&#8221; sections, run buildout, restart your Plone instance and install the
 &#8220;eea.epub&#8221; package using the quick-installer or via the &#8220;Add-on
 Products&#8221; section in &#8220;Site Setup&#8221;.</p>
-<blockquote>
-<div></div></blockquote>
 <p>You can download a sample buildout at:</p>
-<blockquote>
-<div><a class="reference external" href="https://svn.eionet.europa.eu/repositories/Zope/trunk/eea.epub/buildouts">https://svn.eionet.europa.eu/repositories/Zope/trunk/eea.epub/buildouts</a></div></blockquote>
+<p><a class="reference external" href="https://svn.eionet.europa.eu/repositories/Zope/trunk/eea.epub/buildouts">https://svn.eionet.europa.eu/repositories/Zope/trunk/eea.epub/buildouts</a></p>
 </div>
 <div class="section" id="getting-started">
 <h2><a class="toc-backref" href="#id9">Getting started</a><a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
@@ -218,22 +207,18 @@ Products&#8221; section in &#8220;Site Setup&#8221;.</p>
 </div>
 <div class="section" id="dependecies">
 <h2><a class="toc-backref" href="#id10">Dependecies</a><a class="headerlink" href="#dependecies" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><ol class="arabic simple">
+<ol class="arabic simple">
 <li>BeautifulSoup</li>
 <li>Lxml</li>
 <li>Plone 4.x</li>
 </ol>
-</div></blockquote>
 </div>
 <div class="section" id="live-demo">
 <h2><a class="toc-backref" href="#id11">Live demo</a><a class="headerlink" href="#live-demo" title="Permalink to this headline">¶</a></h2>
 <p>Here some live production demos at EEA (European Environment Agency)</p>
-<blockquote>
-<div><ol class="arabic simple">
+<ol class="arabic simple">
 <li><a class="reference external" href="http://www.eea.europa.eu/soer/synthesis">http://www.eea.europa.eu/soer/synthesis</a></li>
 </ol>
-</div></blockquote>
 </div>
 <div class="section" id="source-code">
 <h2><a class="toc-backref" href="#id12">Source code</a><a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
@@ -257,16 +242,13 @@ version.</p>
 </div>
 <div class="section" id="links">
 <h2><a class="toc-backref" href="#id14">Links</a><a class="headerlink" href="#links" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><ol class="arabic simple">
+<ol class="arabic simple">
 <li>EEA Epub wiki page: <a class="reference external" href="http://taskman.eionet.europa.eu/projects/zope/wiki/HowToEpub">http://taskman.eionet.europa.eu/projects/zope/wiki/HowToEpub</a></li>
 </ol>
-</div></blockquote>
 </div>
 <div class="section" id="funding">
 <h2><a class="toc-backref" href="#id15">Funding</a><a class="headerlink" href="#funding" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><a class="reference external" href="http://www.eea.europa.eu/">EEA</a> - European Enviroment Agency (EU)</div></blockquote>
+<p><a class="reference external" href="http://www.eea.europa.eu/">EEA</a> - European Enviroment Agency (EU)</p>
 </div>
 </div>
 

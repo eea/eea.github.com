@@ -147,8 +147,7 @@
 </div>
 <div class="section" id="main-features">
 <h2><a class="toc-backref" href="#id4">Main features</a><a class="headerlink" href="#main-features" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><ol class="arabic simple">
+<ol class="arabic simple">
 <li>A low level API to access Google API;</li>
 <li>A CMF portal tool to store Google connections;</li>
 <li>Logic to authenticate with Google Analytics without touching Google
@@ -156,7 +155,6 @@ credentials using <a class="reference external" href="http://code.google.com/api
 <li>Logic to create custom Google Analytics reports using
 <a class="reference external" href="http://code.google.com/apis/analytics/docs/gdata/gdataReferenceDataFeed.html">Google Analytics Data Export API</a>.</li>
 </ol>
-</div></blockquote>
 <p>Google Analytics reports created this way can be made available via portlets. Right
 now there is an example under skins folder.</p>
 </div>
@@ -165,14 +163,12 @@ now there is an example under skins folder.</p>
 <p>A python package that provides a low level Google Connection and a generic
 connection error GoogleClientError. To use this connection you&#8217;ll need an
 AuthBase authentication token. You can get one by calling Google like:</p>
-<blockquote>
-<div><a class="reference external" href="https://www.google.com/accounts/AuthSubRequest?scope=https://www.google.com/analytics/feeds/&amp;session=1&amp;next=http://yourdomain.com/do_something_with_token">https://www.google.com/accounts/AuthSubRequest?scope=https://www.google.com/analytics/feeds/&amp;session=1&amp;next=http://yourdomain.com/do_something_with_token</a></div></blockquote>
+<p><a class="reference external" href="https://www.google.com/accounts/AuthSubRequest?scope=https://www.google.com/analytics/feeds/&amp;session=1&amp;next=http://yourdomain.com/do_something_with_token">https://www.google.com/accounts/AuthSubRequest?scope=https://www.google.com/analytics/feeds/&amp;session=1&amp;next=http://yourdomain.com/do_something_with_token</a></p>
 <p>After you login into your Google Analytics account, you&#8217;ll be asked to grant
 access to <strong>yourdomain.com</strong> to access Analytics statistics. If you do so, Google
 will redirect your browser to the <strong>next</strong> link provided, adding a request
 parameter <strong>token=&lt;one-session-authsub-token&gt;</strong>, in our case</p>
-<blockquote>
-<div><a class="reference external" href="http://yourdomain.com/do_something_with_token?token=ADFAFDDKLJH14234__ASDD">http://yourdomain.com/do_something_with_token?token=ADFAFDDKLJH14234__ASDD</a></div></blockquote>
+<p><a class="reference external" href="http://yourdomain.com/do_something_with_token?token=ADFAFDDKLJH14234__ASDD">http://yourdomain.com/do_something_with_token?token=ADFAFDDKLJH14234__ASDD</a></p>
 <p>As this token was provided in clear to you, it can be used only once to query
 Google API, that&#8217;s why you&#8217;ll need to exchange it for a multi-session one.
 But this time you can not do it from browser. So here eea.google.api comes in.</p>
@@ -190,8 +186,7 @@ connected with Google, forever :).</p>
 </pre></div>
 </div>
 <p>Or make a call:</p>
-<blockquote>
-<div><div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">response</span> <span class="o">=</span> <span class="n">google</span><span class="p">(</span><span class="n">scope</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s">&#39;GET&#39;</span><span class="p">)</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">response</span> <span class="o">=</span> <span class="n">google</span><span class="p">(</span><span class="n">scope</span><span class="p">,</span> <span class="n">data</span><span class="p">,</span> <span class="n">method</span><span class="o">=</span><span class="s">&#39;GET&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -199,7 +194,6 @@ connected with Google, forever :).</p>
 <li>data   - query parameters</li>
 <li>method - request method: GET or POST</li>
 </ul>
-</div></blockquote>
 <p>If something doesn&#8217;t work well this will raise a GoogleClientError, else
 it will return a <a class="reference external" href="http://code.google.com/apis/analytics/docs/gdata/gdataReferenceDataFeed.html#dataResponse">Google Data Feed Response</a></p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="n">response</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
@@ -278,12 +272,10 @@ filters and sort order. It is actually a query object for Google Analytics API.<
 </div>
 <div class="section" id="dependencies">
 <h2><a class="toc-backref" href="#id12">Dependencies</a><a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><ol class="arabic simple">
+<ol class="arabic simple">
 <li>python2.4+</li>
 <li>Plone 2.5.x or Plone 3.x. (optional if you&#8217;re using only eea.google.api package).</li>
 </ol>
-</div></blockquote>
 </div>
 <div class="section" id="source-code">
 <h2><a class="toc-backref" href="#id13">Source code</a><a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
@@ -311,8 +303,7 @@ version.</p>
 </div>
 <div class="section" id="funding">
 <h2><a class="toc-backref" href="#id15">Funding</a><a class="headerlink" href="#funding" title="Permalink to this headline">¶</a></h2>
-<blockquote>
-<div><a class="reference external" href="http://www.eea.europa.eu/">EEA</a> - European Enviroment Agency (EU)</div></blockquote>
+<p><a class="reference external" href="http://www.eea.europa.eu/">EEA</a> - European Enviroment Agency (EU)</p>
 </div>
 </div>
 
