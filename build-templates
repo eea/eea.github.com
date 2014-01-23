@@ -17,8 +17,8 @@ get_abs_path()
     eval $__resultvar="'$the_result'"
 }
 
-eval set -- $(getopt -n $0 -o "" -l "help" -l "debug" -l "clean" -l "package:" -- "$@")
-declare debug clean help package
+eval set -- $(getopt -n $0 -o "" -l "help" -l "debug" -l "clean" -l "package:" -l "commit:" -- "$@")
+declare debug clean help package commit
 declare -a paths
 
 
@@ -27,6 +27,7 @@ while [ $# -gt 0 ] ; do
     --clean) clean=1 ; shift ;;
     --debug) debug=1 ; shift ;;
      --help) help=1 ; shift ;;
+   --commit) shift ; commit="$1" ; shift ;;
   --package) shift ; package="$1" ; shift ;;
          --) shift ;;
          -*) echo "bad option '$1'" ; exit 1 ;;
@@ -38,13 +39,13 @@ if [ ! -z "$help" ]; then
     echo "Usage: ./build-templates [options] [--package <package.name>] [/path/to/sphinx-build]"
     echo "When run without arguments, attempts to find sphinx-build in buildout folder (../../) or fails."
     echo "Options:"
-    echo "      --package <package.name>  -- build just for the specified package (e.g. --package eea.daviz)"
-    echo "      --clean                   -- make clean before building"
-    echo "      --debug                   -- do nothing, print debug data"
-    echo "      --help                    -- print this message"
+    echo "      --package <package.name>    -- build just for the specified package (e.g. --package eea.daviz)"
+    echo "      --clean                     -- make clean before building"
+    echo "      --commit \"<message>\"        -- commit with message after build"
+    echo "      --debug                     -- do nothing, print debug data"
+    echo "      --help                      -- print this message"
     exit 0
 fi
-
 
 GIVEN_PATH="${paths[0]}"
 
@@ -96,6 +97,13 @@ do
                     make -C $PACKAGE_DIR clean SPHINX_PATH=$SPHINXBUILD PACKAGE_NAME=$PACKAGE_NAME SOURCE_DIR=$SOURCE_DIR
                 fi
                 make -C $PACKAGE_DIR plone-pt SPHINX_PATH=$SPHINXBUILD PACKAGE_NAME=$PACKAGE_NAME SOURCE_DIR=$SOURCE_DIR
+                if [ ! -z "$commit" ]; then
+                    SUBPACKAGE_PATH="$(echo "$PACKAGE_NAME" | sed "s/\./\//")"
+                    cd "$SOURCE_DIR$PACKAGE_NAME/$SUBPACKAGE_PATH";
+                    git add -A documentation
+                    git commit -m "$commit"
+                    git push origin master
+                fi
             else
                 echo -e "[${blue}I${NC}] Debug enabled, doing nothing!"
                 echo ""
