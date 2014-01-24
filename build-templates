@@ -98,11 +98,18 @@ do
                 fi
                 make -C $PACKAGE_DIR plone-pt SPHINX_PATH=$SPHINXBUILD PACKAGE_NAME=$PACKAGE_NAME SOURCE_DIR=$SOURCE_DIR
                 if [ ! -z "$commit" ]; then
-                    SUBPACKAGE_PATH="$(echo "$PACKAGE_NAME" | sed "s/\./\//")"
-                    cd "$SOURCE_DIR$PACKAGE_NAME/$SUBPACKAGE_PATH";
-                    git add -A documentation
-                    git commit -m "$commit"
-                    git push origin master
+                    if [ ! -f "$SOURCE_DIR$PACKAGE_NAME/.git/config" ]; then
+                        echo -e "[${blue}I${NC}] Not a git repository! ${blue}Skipping commit!${NC}"
+                        continue
+                    fi
+                    SUBPACKAGE_PATH="$(echo "$PACKAGE_NAME" | sed "s/\./\//g")"
+                    "$(
+                        cd "$SOURCE_DIR$PACKAGE_NAME/$SUBPACKAGE_PATH";
+                        pwd;
+                        git add -A documentation;
+                        git commit -m "$commit";
+                        git push origin master;
+                        )"
                 fi
             else
                 echo -e "[${blue}I${NC}] Debug enabled, doing nothing!"
