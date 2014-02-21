@@ -27,9 +27,10 @@ Featured EEA products (Zope/Plone add-ons)
     .. toctree::
       :maxdepth: 1
 
-      docs/eea.tags/index
+      docs/eea.annotator/index
 
-    A Google+ / Facebook like replacement for the Plone keywords widget.
+    A powerful tool that replicates collaborative inline comments from word in
+    Plone.
 
   .. container:: step-nav span4
 
@@ -39,6 +40,16 @@ Featured EEA products (Zope/Plone add-ons)
       docs/eea.progressbar/index
 
     Progress bar based on document's workflow states
+
+  .. container:: step-nav span4
+
+    .. toctree::
+      :maxdepth: 1
+
+      docs/eea.tags/index
+
+    A Google+ / Facebook like replacement for the Plone keywords widget.
+
 
   .. container:: step-nav span4
 
@@ -87,14 +98,6 @@ Featured EEA products (Zope/Plone add-ons)
     An elasticsearch setup suite for indexing resources in the EEA
     Semantic Data Service.
 
-  .. container:: step-nav span4
-
-    .. toctree::
-      :maxdepth: 1
-
-      docs/eea.converter/index
-
-    Utilities for PDF format: image extraction and web page as PDF
 
 More EEA products (Zope/Plone add-ons)
 ======================================

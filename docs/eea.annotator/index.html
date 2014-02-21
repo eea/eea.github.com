@@ -4,7 +4,7 @@
     <meta http-equiv="Content-Type"
           content="text/html; charset=utf-8"/>
     
-        <title>EEA Alchemy &mdash; EEA 6.0 documentation</title>
+        <title>EEA Annotator &mdash; EEA 6.0 documentation</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href='http://fonts.googleapis.com/css?family=Crete+Round' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="../../_static/sphinx-bootstrap.css" type="text/css"/>
@@ -30,8 +30,8 @@
             <script type="text/javascript" src="../../_static/jquery.jfeed.js"></script>
             <script type="text/javascript" src="../../_static/bootstrap-custom.js"></script>
         <link rel="top" title="EEA 6.0 documentation" href="../../index.html"/>
-            <link rel="next" title="EEA Annotator" href="../eea.annotator/index.html"/>
-            <link rel="prev" title="EEA ElasticSearch" href="../eea.elasticsearch/index.html"/> 
+            <link rel="next" title="EEA App Visualization" href="../eea.app.visualization/index.html"/>
+            <link rel="prev" title="EEA Alchemy" href="../eea.alchemy/index.html"/> 
     <script type="text/javascript" src="https://apis.google.com/js/plusone.js"></script>
     
 </head>
@@ -50,12 +50,12 @@
                        title="General Index" accesskey="I">index</a>
                 </li>
                 <li>
-                    <a href="../eea.annotator/index.html"
-                       title="EEA Annotator" accesskey="N">next</a>
+                    <a href="../eea.app.visualization/index.html"
+                       title="EEA App Visualization" accesskey="N">next</a>
                 </li>
                 <li>
-                    <a href="../eea.elasticsearch/index.html"
-                       title="EEA ElasticSearch" accesskey="P">previous</a>
+                    <a href="../eea.alchemy/index.html"
+                       title="EEA Alchemy" accesskey="P">previous</a>
                 </li> 
         </ul>
     </div>
@@ -116,124 +116,105 @@
         <div class="content row">
                 <div class="span9">
                     
-  <div class="section" id="eea-alchemy">
-<h1><a class="toc-backref" href="#id2">EEA Alchemy</a><a class="headerlink" href="#eea-alchemy" title="Permalink to this headline">¶</a></h1>
-<p>Auto-discover geographical coverage, temporal coverage, related items and
-keywords from documents common metadata (title, description, body, etc),
-auto highlight keywords within a page content based on selected tags and
-auto-update related items based on internal links found within
-object&#8217;s metadata.</p>
+  <div class="section" id="eea-annotator">
+<h1><a class="toc-backref" href="#id2">EEA Annotator</a><a class="headerlink" href="#eea-annotator" title="Permalink to this headline">¶</a></h1>
+<a class="reference external image-reference" href="http://ci.eionet.europa.eu/job/eea.annotator-www/lastBuild"><img alt="http://ci.eionet.europa.eu/job/eea.annotator-www/badge/icon" src="http://ci.eionet.europa.eu/job/eea.annotator-www/badge/icon" /></a>
+<a class="reference external image-reference" href="http://ci.eionet.europa.eu/job/eea.annotator-plone4/lastBuild"><img alt="http://ci.eionet.europa.eu/job/eea.annotator-plone4/badge/icon" src="http://ci.eionet.europa.eu/job/eea.annotator-plone4/badge/icon" /></a>
+<p>EEA Annotator is the Plone integration of <a class="reference external" href="http://okfnlabs.org/annotator/">http://okfnlabs.org/annotator/</a> which
+allows your editors to easily collaborate on a Plone document by adding
+annotations (inline comments) on it.</p>
+<a class="reference external image-reference" href="http://www.youtube.com/watch?v=UExygLRqjkc&amp;list=PLVPSQz7ahsBxXe_sM7Cx2BnOoxkt3pnbw&amp;feature=share"><img alt="http://eea.github.io/_images/eea.progressbar.cover.png" src="http://eea.github.io/_images/eea.progressbar.cover.png" /></a>
 <div class="section" id="contents">
 <h2><a class="toc-backref" href="#id3">Contents</a><a class="headerlink" href="#contents" title="Permalink to this headline">¶</a></h2>
 <div class="contents topic" id="id1">
 <p class="topic-title first">Contents</p>
 <ul class="simple">
-<li><a class="reference internal" href="#eea-alchemy" id="id2">EEA Alchemy</a><ul>
+<li><a class="reference internal" href="#eea-annotator" id="id2">EEA Annotator</a><ul>
 <li><a class="reference internal" href="#contents" id="id3">Contents</a></li>
-<li><a class="reference internal" href="#introduction" id="id4">Introduction</a></li>
-<li><a class="reference internal" href="#main-features" id="id5">Main features</a></li>
-<li><a class="reference internal" href="#planed-features" id="id6">Planed features</a></li>
-<li><a class="reference internal" href="#install" id="id7">Install</a></li>
-<li><a class="reference internal" href="#getting-started" id="id8">Getting started</a><ul>
-<li><a class="reference internal" href="#auto-discover-keywords-location-related-items-or-temporal-coverage" id="id9">Auto discover keywords, location, related items or temporal coverage</a></li>
-<li><a class="reference internal" href="#auto-tagging" id="id10">Auto tagging</a></li>
-<li><a class="reference internal" href="#auto-relations" id="id11">Auto relations</a></li>
+<li><a class="reference internal" href="#main-features" id="id4">Main features</a></li>
+<li><a class="reference internal" href="#install" id="id5">Install</a></li>
+<li><a class="reference internal" href="#getting-started" id="id6">Getting started</a><ul>
+<li><a class="reference internal" href="#dexterity" id="id7">Dexterity</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#source-code" id="id12">Source code</a></li>
-<li><a class="reference internal" href="#copyright-and-license" id="id13">Copyright and license</a></li>
-<li><a class="reference internal" href="#funding" id="id14">Funding</a></li>
+<li><a class="reference internal" href="#source-code" id="id8">Source code</a></li>
+<li><a class="reference internal" href="#copyright-and-license" id="id9">Copyright and license</a></li>
+<li><a class="reference internal" href="#funding" id="id10">Funding</a></li>
 </ul>
 </li>
 </ul>
 </div>
-</div>
-<div class="section" id="introduction">
-<h2><a class="toc-backref" href="#id4">Introduction</a><a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
-<p>This tool allows Plone managers to auto-discover and fix subject keywords,
-location and temporal coverage using <a class="reference external" href="http://www.alchemyapi.com/">http://www.alchemyapi.com/</a> web service.</p>
 </div>
 <div class="section" id="main-features">
-<h2><a class="toc-backref" href="#id5">Main features</a><a class="headerlink" href="#main-features" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li>Auto-discover keywords, locations and temporal coverage;</li>
-<li>Auto highlight keywords within a page content based on selected
-tags and link them to a custom search page;</li>
-<li>Auto update related items based on internal links found within
-object&#8217;s metadata.</li>
-</ul>
-</div>
-<div class="section" id="planed-features">
-<h2><a class="toc-backref" href="#id6">Planed features</a><a class="headerlink" href="#planed-features" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li>Add a wizard icon near Subject, Location, etc fields in edit form
-to auto-discover and suggest tags based on text in
-other fields (Title, Description)</li>
-</ul>
+<h2><a class="toc-backref" href="#id4">Main features</a><a class="headerlink" href="#main-features" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Inline comments on any webpage.</li>
+<li>Portal types aware. Possibility to enable inline comments only for certain
+content types.</li>
+<li>Workflow aware. Possibility to enable/disable inline comments only
+for certain workflow states (via content rules).</li>
+<li>Dexterity aware. It works also with dexterity content-types.</li>
+<li>Contextually disable inline comments.</li>
+</ol>
 </div>
 <div class="section" id="install">
-<h2><a class="toc-backref" href="#id7">Install</a><a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id5">Install</a><a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Add eea.alchemy to your eggs section in your buildout and re-run buildout. You
-can download a sample buildout from
-<a class="reference external" href="https://github.com/collective/eea.alchemy/tree/master/buildouts/plone4">https://github.com/collective/eea.alchemy/tree/master/buildouts/plone4</a></li>
-<li>Install eea.alchemy within Site Setup &gt; Add-ons</li>
+<li>Add eea.annotator to your eggs section in your buildout and re-run buildout.
+You can download a sample buildout from
+<a class="reference external" href="https://github.com/eea/eea.annotator/tree/master/buildouts/plone4">https://github.com/eea/eea.annotator/tree/master/buildouts/plone4</a></li>
+<li>Install eea.annotator within Site Setup &gt; Add-ons</li>
 </ul>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">Once you&#8217;ll install this add-on via Site Setup &gt; Add-ons, it will
+overrides Publish Traversal for Archetypes base object
+(plone.app.imaging.interfaces.IBaseObject) and Dexterity Base Content
+(plone.dexterity.interfaces.IDexterityContent) in order to handle custom
+annotator URLs. Still, it preserves old functionality from plone.app.imaging
+and plone.dexterity (also eea.depiction) but if you have custom traversals
+registered for these interfaces, try to use custom browser layers when
+registering them (see: eea.annotator.browser.app.traverse).</p>
+</div>
 </div>
 <div class="section" id="getting-started">
-<h2><a class="toc-backref" href="#id8">Getting started</a><a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="auto-discover-keywords-location-related-items-or-temporal-coverage">
-<h3><a class="toc-backref" href="#id9">Auto discover keywords, location, related items or temporal coverage</a><a class="headerlink" href="#auto-discover-keywords-location-related-items-or-temporal-coverage" title="Permalink to this headline">¶</a></h3>
+<h2><a class="toc-backref" href="#id6">Getting started</a><a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
-<li>Get your alchemy key here: <a class="reference external" href="http://www.alchemyapi.com/api/register.html">http://www.alchemyapi.com/api/register.html</a></li>
-<li>Update your alchemy API key within Site Setup &gt; Alchemy Settings</li>
-<li>Within Plone Control panel go to Alchemy Discoverer.</li>
+<li>Go to Plone Site Setup &gt; EEA Annotator Settings and enable inline comments
+for your content-types (default enabled for Page);</li>
+<li>Go to your work-space within Plone Site and add a new object (Page) or user
+an existing one;</li>
+<li>In view mode select text you want to comment on and add an inline comment;</li>
+<li>Within edit form &gt; Settings Tab you can contextually disable inline comments.</li>
+<li>You can also add an &#8220;Inline comments&#8221; portlet in order to overview
+all inline comments on this page.</li>
 </ol>
-</div>
-<div class="section" id="auto-tagging">
-<h3><a class="toc-backref" href="#id10">Auto tagging</a><a class="headerlink" href="#auto-tagging" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="dexterity">
+<h3><a class="toc-backref" href="#id7">Dexterity</a><a class="headerlink" href="#dexterity" title="Permalink to this headline">¶</a></h3>
+<p>Dexterity content-types are supported by EEA Annotator.</p>
 <ol class="arabic simple">
-<li><em>Enable auto-tagging</em> within <strong>Site Setup &gt; Alchemy Settings</strong></li>
-<li>Edit your document and add some tags for it within <strong>/edit &gt; Categorization.</strong>
-For example, if you&#8217;re writing a news article about <em>water pollution</em> go to
-<strong>/edit &gt; Categorization</strong> and add <em>water pollution</em> within tags field
-(also known as <em>keywords</em>, <em>subjects</em>, <em>topics</em>).
-Now when you navigate to the <strong>View</strong> page of this article,
-you&#8217;ll notice that all occurrences of <em>water pollution</em> within your news
-article body are links to a custom search page which is also configurable
-within <strong>Alchemy Settings ControlPanel</strong></li>
-</ol>
-</div>
-<div class="section" id="auto-relations">
-<h3><a class="toc-backref" href="#id11">Auto relations</a><a class="headerlink" href="#auto-relations" title="Permalink to this headline">¶</a></h3>
-<ol class="arabic simple">
-<li><em>Enable auto-relations</em> within <strong>Site Setup &gt; Alchemy Settings</strong></li>
-<li>Edit your document and add some internal links for it
-within <strong>/edit &gt; Body Text.</strong>
-For example, if you&#8217;re writing an article about an event add a internal link
-to this event within <strong>Body Text</strong> field.
-Now Save your article and you should see a notification message on top of
-the page saying something like: <strong>Automatically detected and added
-one relation since it is linked in content.</strong>
-If you check the related content section for your article you&#8217;ll notice that
-the Event object was automatically added there.</li>
+<li>In order to be able to contextually disable inline comments you need to add
+a boolean field called disableAnnotator within your Dexterity content-type
+schema fields.</li>
+<li>In order to be able to contextually make inline comments read-only
+you need to add a boolean field called readOnlyAnnotator within your
+Dexterity content-type schema fields.
+(Plone Site Setup &gt; Dexterity Content Types &gt; MyCustomType &gt; Fields)</li>
 </ol>
 </div>
 </div>
 <div class="section" id="source-code">
-<h2><a class="toc-backref" href="#id12">Source code</a><a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id8">Source code</a><a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>Latest source code (Plone 4 compatible):
-<a class="reference external" href="https://github.com/collective/eea.alchemy">https://github.com/collective/eea.alchemy</a></li>
-<li>Plone 2 and 3 compatible:
-<a class="reference external" href="https://github.com/collective/eea.alchemy/tree/plone25">https://github.com/collective/eea.alchemy/tree/plone25</a></li>
+<a class="reference external" href="https://github.com/collective/eea.annotator">https://github.com/collective/eea.annotator</a></li>
 </ul>
 </div>
 <div class="section" id="copyright-and-license">
-<h2><a class="toc-backref" href="#id13">Copyright and license</a><a class="headerlink" href="#copyright-and-license" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id9">Copyright and license</a><a class="headerlink" href="#copyright-and-license" title="Permalink to this headline">¶</a></h2>
 <p>The Initial Owner of the Original Code is European Environment Agency (EEA).
 All Rights Reserved.</p>
-<p>The EEA Alchemy (the Original Code) is free software;
+<p>The EEA Annotator (the Original Code) is free software;
 you can redistribute it and/or modify it under the terms of the GNU
 General Public License as published by the Free Software Foundation;
 either version 2 of the License, or (at your option) any later
@@ -241,7 +222,7 @@ version.</p>
 <p>More details under docs/License.txt</p>
 </div>
 <div class="section" id="funding">
-<h2><a class="toc-backref" href="#id14">Funding</a><a class="headerlink" href="#funding" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id10">Funding</a><a class="headerlink" href="#funding" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="http://www.eea.europa.eu/">EEA</a> - European Environment Agency (EU)</p>
 </div>
 </div>
@@ -260,16 +241,12 @@ version.</p>
             <div class="sphinxsidebarwrapper">
   <h3><a href="../../index.html">Table Of Contents</a></h3>
   <ul>
-<li><a class="reference internal" href="#">EEA Alchemy</a><ul>
+<li><a class="reference internal" href="#">EEA Annotator</a><ul>
 <li><a class="reference internal" href="#contents">Contents</a></li>
-<li><a class="reference internal" href="#introduction">Introduction</a></li>
 <li><a class="reference internal" href="#main-features">Main features</a></li>
-<li><a class="reference internal" href="#planed-features">Planed features</a></li>
 <li><a class="reference internal" href="#install">Install</a></li>
 <li><a class="reference internal" href="#getting-started">Getting started</a><ul>
-<li><a class="reference internal" href="#auto-discover-keywords-location-related-items-or-temporal-coverage">Auto discover keywords, location, related items or temporal coverage</a></li>
-<li><a class="reference internal" href="#auto-tagging">Auto tagging</a></li>
-<li><a class="reference internal" href="#auto-relations">Auto relations</a></li>
+<li><a class="reference internal" href="#dexterity">Dexterity</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#source-code">Source code</a></li>
@@ -280,14 +257,14 @@ version.</p>
 </ul>
 
   <h4>Previous topic</h4>
-  <p class="topless"><a href="../eea.elasticsearch/index.html"
-                        title="previous chapter">EEA ElasticSearch</a></p>
+  <p class="topless"><a href="../eea.alchemy/index.html"
+                        title="previous chapter">EEA Alchemy</a></p>
   <h4>Next topic</h4>
-  <p class="topless"><a href="../eea.annotator/index.html"
-                        title="next chapter">EEA Annotator</a></p>
+  <p class="topless"><a href="../eea.app.visualization/index.html"
+                        title="next chapter">EEA App Visualization</a></p>
   <h3>This Page</h3>
   <ul class="this-page-menu">
-    <li><a href="../../_sources/docs/eea.alchemy/index.txt"
+    <li><a href="../../_sources/docs/eea.annotator/index.txt"
            rel="nofollow">Show Source</a></li>
   </ul>
             </div>
@@ -315,7 +292,7 @@ version.</p>
 
     <!-- disqus -->
     <script type="text/javascript">
-        var disqus_title = 'EEA Alchemy &mdash; EEA 6.0 documentation';
+        var disqus_title = 'EEA Annotator &mdash; EEA 6.0 documentation';
         var disqus_identifier ='code' + '.' + "euenvironment" + window.location.pathname.replace('/', '.');
     </script>
 
