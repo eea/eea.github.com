@@ -122,7 +122,8 @@
 <a class="reference external image-reference" href="http://ci.eionet.europa.eu/job/eea.progressbar-plone4/lastBuild"><img alt="http://ci.eionet.europa.eu/job/eea.progressbar-plone4/badge/icon" src="http://ci.eionet.europa.eu/job/eea.progressbar-plone4/badge/icon" /></a>
 <p>A system that visually display a <em>workflow percentage bar</em> or a
 <em>workflow steps trail</em> in the publishing process of a document according with
-the workflow state in which the document is.</p>
+the workflow state in which the document is. It also define editing progress
+(document completion) of an item with customizable labels per field.</p>
 <a class="reference external image-reference" href="http://www.youtube.com/watch?v=a_U0tmw-4As&amp;list=PLVPSQz7ahsBwUHixUt_s0kh-vaik_NCtO&amp;feature=share"><img alt="http://eea.github.io/_images/eea.progressbar.cover.png" src="http://eea.github.io/_images/eea.progressbar.cover.png" /></a>
 <div class="section" id="contents">
 <h2><a class="toc-backref" href="#id3">Contents</a><a class="headerlink" href="#contents" title="Permalink to this headline">¶</a></h2>
@@ -153,6 +154,7 @@ document is.</li>
 according with the children / query results items progress</li>
 <li>Visually display workflow <em>percentage bars</em> for items within Collection
 tabular view</li>
+<li>Visually display <em>editing progress (document completion)</em> of an item.</li>
 <li>Possibility to hide/exclude certain states in progress bar (by default
 hide all states with defined percentage lower than/equal 0, configurable via
 Site Setup &gt; Progress Bar Settings)</li>
@@ -175,14 +177,20 @@ You can download a sample buildout from
 <li>Go to Plone Site &gt; Working space and add a Progress bar portlet</li>
 <li>Or add a Collection, add Progress column for tabular view and enable tabular
 view for this Collection.</li>
-<li>Or go to <em>Site Setup &gt; Progress Bar Settings</em> and enable Progress Bar
+<li>Or go to <em>Site Setup &gt; Progress Bar Settings &gt; Edit</em> and enable Progress Bar
 viewlets for your content-types.</li>
+<li>Go to <em>Site Setup &gt; Progress Bar Settings &gt; Edit</em> and <em>Enable metadata
+progress viewlet</em> for Page; Go to <em>Site Setup &gt; Progress Bar Settings &gt;
+Document</em> and customize your <em>document completion</em> strategy for this
+content-type and then see it in action within a Page.</li>
 </ol>
 </div>
 <div class="section" id="dependencies">
 <h2><a class="toc-backref" href="#id7">Dependencies</a><a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>plone.app.collection &gt;= 1.0.11</li>
+<li>eea.jquery &gt;= 7.7</li>
+<li>eea.icons</li>
 </ul>
 </div>
 <div class="section" id="source-code">
