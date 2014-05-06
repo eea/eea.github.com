@@ -156,8 +156,6 @@ content types.</li>
 for certain workflow states (via content rules).</li>
 <li>Events. Possibility to define custom content-rules based on inline
 comments events: add/reply/close/re-open/delete (e.g. notify users by e-mail)</li>
-</ol>
-<ol class="arabic simple" start="4">
 <li>Dexterity aware. It works also with dexterity content-types.</li>
 <li>Contextually disable inline comments.</li>
 <li>Moderate inline comments.</li>
@@ -182,6 +180,11 @@ and plone.dexterity (also eea.depiction) but if you have custom traversals
 registered for these interfaces, try to use custom browser layers when
 registering them (see: eea.annotator.browser.app.traverse).</p>
 </div>
+<p><strong>Plone version dependency</strong></p>
+<p>eea.annotator does not have a hard dependency on Plone 4.3, however, it has
+been built around plone.app.jquery version 1.7.2 which is shipped by default
+with Plone 4.3. If you wish to use the product on an older version of Plone,
+you could pin the plone.app.jquery version to 1.7.2.</p>
 </div>
 <div class="section" id="getting-started">
 <h2><a class="toc-backref" href="#id6">Getting started</a><a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
