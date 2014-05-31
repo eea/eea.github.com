@@ -127,7 +127,7 @@
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <p>This package provides utilities to convert images and PDF files
 using ImageMagick. Also, toghether with <a class="reference external" href="https://pypi.python.org/pypi/collective.sendaspdf">collective.sendaspdf</a> and pdftk
-users can download HTML pages as PDFs <em>with custom cover support</em></p>
+users can download HTML pages as PDFs <em>with custom cover and back cover support</em></p>
 </div>
 <div class="section" id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
@@ -169,6 +169,18 @@ You can download a sample buildout from
   /&gt;</pre>
 </div>
 </div>
+<div class="section" id="back-cover">
+<h3>Back Cover<a class="headerlink" href="#back-cover" title="Permalink to this headline">¶</a></h3>
+<p>Provide custom browser:page called <em>&#64;&#64;pdf.cover.back</em>:</p>
+<div class="highlight-python"><pre>&lt;browser:page
+  for="my.package.interfaces.ICustomContent"
+  name="pdf.cover.back"
+  class=".app.pdfview.BackCover"
+  template="zpt/pdf.cover.back.pt"
+  permission="zope2.View"
+  /&gt;</pre>
+</div>
+</div>
 <div class="section" id="options">
 <h3>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h3>
 <p>For PDF cover you&#8217;ll have to provide a named adapter like:</p>
@@ -177,6 +189,13 @@ You can download a sample buildout from
   for=" my.package.interfaces.ICustomContent"
   provides="collective.sendaspdf.interfaces.ISendAsPDFOptionsMaker"
   factory=".adapters.CoverOptionsMaker" /&gt;</pre>
+</div>
+<p>Same for PDF back cover:</p>
+<div class="highlight-python"><pre>&lt;adapter
+  name="pdf.cover.back"
+  for=" my.package.interfaces.ICustomContent"
+  provides="collective.sendaspdf.interfaces.ISendAsPDFOptionsMaker"
+  factory=".adapters.BackCoverOptionsMaker" /&gt;</pre>
 </div>
 <p>For PDF body you&#8217;ll have to provide an unamed adapter like:</p>
 <div class="highlight-python"><pre>&lt;adapter
@@ -271,6 +290,7 @@ version.</p>
 <li><a class="reference internal" href="#customize-output-pdf">Customize output PDF</a><ul>
 <li><a class="reference internal" href="#cover">Cover</a></li>
 <li><a class="reference internal" href="#body">Body</a></li>
+<li><a class="reference internal" href="#back-cover">Back Cover</a></li>
 <li><a class="reference internal" href="#options">Options</a></li>
 </ul>
 </li>
