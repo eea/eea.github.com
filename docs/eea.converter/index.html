@@ -157,6 +157,19 @@ You can download a sample buildout from
   /&gt;</pre>
 </div>
 </div>
+<div class="section" id="disclaimer">
+<h3>Disclaimer<a class="headerlink" href="#disclaimer" title="Permalink to this headline">¶</a></h3>
+<p>First page after PDF Cover containing author details and copyrights.
+Provide custom browser:page called <em>&#64;&#64;pdf.cover</em>:</p>
+<div class="highlight-python"><pre>&lt;browser:page
+  for="my.package.interfaces.ICustomContent"
+  name="pdf.disclaimer"
+  class=".app.pdfview.Disclaimer"
+  template="zpt/pdf.disclaimer.pt"
+  permission="zope2.View"
+  /&gt;</pre>
+</div>
+</div>
 <div class="section" id="body">
 <h3>Body<a class="headerlink" href="#body" title="Permalink to this headline">¶</a></h3>
 <p>Provide custom browser:page called <em>&#64;&#64;pdf.body</em>:</p>
@@ -190,14 +203,21 @@ You can download a sample buildout from
   provides="collective.sendaspdf.interfaces.ISendAsPDFOptionsMaker"
   factory=".adapters.CoverOptionsMaker" /&gt;</pre>
 </div>
-<p>Same for PDF back cover:</p>
+<p>Same for PDF disclaimer:</p>
+<div class="highlight-python"><pre>&lt;adapter
+  name="pdf.disclaimer"
+  for=" my.package.interfaces.ICustomContent"
+  provides="collective.sendaspdf.interfaces.ISendAsPDFOptionsMaker"
+  factory=".adapters.DisclaimerOptionsMaker" /&gt;</pre>
+</div>
+<p>Or for PDF back cover:</p>
 <div class="highlight-python"><pre>&lt;adapter
   name="pdf.cover.back"
   for=" my.package.interfaces.ICustomContent"
   provides="collective.sendaspdf.interfaces.ISendAsPDFOptionsMaker"
   factory=".adapters.BackCoverOptionsMaker" /&gt;</pre>
 </div>
-<p>For PDF body you&#8217;ll have to provide an unamed adapter like:</p>
+<p>For PDF body you&#8217;ll have to provide an unnamed adapter like:</p>
 <div class="highlight-python"><pre>&lt;adapter
   for=" my.package.interfaces.ICustomContent"
   provides="collective.sendaspdf.interfaces.ISendAsPDFOptionsMaker"
@@ -289,6 +309,7 @@ version.</p>
 <li><a class="reference internal" href="#getting-started">Getting started</a></li>
 <li><a class="reference internal" href="#customize-output-pdf">Customize output PDF</a><ul>
 <li><a class="reference internal" href="#cover">Cover</a></li>
+<li><a class="reference internal" href="#disclaimer">Disclaimer</a></li>
 <li><a class="reference internal" href="#body">Body</a></li>
 <li><a class="reference internal" href="#back-cover">Back Cover</a></li>
 <li><a class="reference internal" href="#options">Options</a></li>
