@@ -126,8 +126,10 @@
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <p>This package provides utilities to convert images and PDF files
-using ImageMagick. Also, toghether with <a class="reference external" href="http://eea.github.com/docs/eea.pdf">eea.pdf</a>
-users can download HTML pages as PDFs <em>with custom cover and back cover support</em></p>
+using ImageMagick. It also provides a generic /download.pdf browser view that
+allow your users to download Plone pages as PDF files with custom PDF cover,
+disclaimer and back cover (requires <a class="reference internal" href="#wkhtmltopdf">wkhtmltopdf</a> and <a class="reference internal" href="#pdftk">pdftk</a> system-packages
+installed on your server).</p>
 </div>
 <div class="section" id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
@@ -251,21 +253,32 @@ Provide custom browser:page called <em>&#64;&#64;pdf.cover</em>:</p>
 <p class="last">These are not hard dependencies. You can use all features of eea.converter or
 just the ones that you need.</p>
 </div>
-<ul>
+<ul id="pdfinfo">
 <li><p class="first">pdfinfo to parse pdf metadata (part of the xpdf package):</p>
 <div class="highlight-python"><pre>yum install xpdf (fedora)
 apt-get install xpdf (debian)</pre>
 </div>
 </li>
+</ul>
+<ul id="pdftk">
 <li><p class="first">pdftk to generate a cover image from a pdf file:</p>
 <div class="highlight-python"><pre>yum install pdftk (fedora)
 apt-get install pdftk (debian)</pre>
 </div>
 </li>
+</ul>
+<ul id="imagemagick">
 <li><p class="first">ImageMagick (6.3.7+):</p>
 <div class="highlight-python"><pre>yum install ImageMagick
 apt-get install imagemagick</pre>
 </div>
+</li>
+</ul>
+<ul id="wkhtmltopdf">
+<li><p class="first">wkhtmltopdf (0.12.1+):</p>
+<blockquote>
+<div><p><a class="reference external" href="http://wkhtmltopdf.org/downloads.html">Download and install</a></p>
+</div></blockquote>
 </li>
 <li><p class="first"><a class="reference external" href="http://eea.github.com/docs/eea.pdf">eea.pdf</a></p>
 </li>
