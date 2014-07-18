@@ -246,6 +246,21 @@ Provide custom browser:page called <em>&#64;&#64;pdf.cover</em>:</p>
 <p>Also add custom print.css for your needs. See more at <a class="reference external" href="http://eea.github.com/docs/eea.pdf">eea.pdf</a></p>
 </div>
 </div>
+<div class="section" id="restrict-access">
+<h2>Restrict access<a class="headerlink" href="#restrict-access" title="Permalink to this headline">¶</a></h2>
+<p>In order to restrict access to /download.pdf you&#8217;ll have to provide a
+multi-adapter named pdf.support with a read-only attribute called can_download
+like:</p>
+<div class="highlight-python"><pre>&lt;browser:page
+  name="pdf.support"
+  for="zope.interface.Interface"
+  class=".support.Support"
+  permission="zope.Public"
+  allowed_interface="eea.converter.interfaces.ISupport"
+  /&gt;</pre>
+</div>
+<p>See default implementation within eea.converter.browser.app.support</p>
+</div>
 <div class="section" id="dependencies">
 <h2>Dependencies<a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
 <div class="admonition note">
@@ -347,6 +362,7 @@ version.</p>
 <li><a class="reference internal" href="#options">Options</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#restrict-access">Restrict access</a></li>
 <li><a class="reference internal" href="#dependencies">Dependencies</a></li>
 <li><a class="reference internal" href="#source-code">Source code</a></li>
 <li><a class="reference internal" href="#documentation">Documentation</a></li>
