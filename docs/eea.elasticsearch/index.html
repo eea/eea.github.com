@@ -1,4 +1,3 @@
-
 <!DOCTYPE html><html>
 <head>
     <meta http-equiv="Content-Type"
@@ -185,27 +184,31 @@ eea.elasticsearch/etc/production/config</p>
 </li>
 <li><p class="first">Install <a class="reference external" href="https://github.com/eea/eea.elasticsearch.river.rdf">RDF River Plugin</a>, using elasticsearch plugin script inside its
 bin folder:</p>
-<div class="highlight-python"><pre>bin/plugin --url https://github.com/eea/eea.elasticsearch.river.rdf/raw/master/target/releases/eea-rdf-river-plugin-1.0.zip
---install eea-rdf-river-1.0</pre>
+<div class="highlight-python"><div class="highlight"><pre>bin/plugin --url https://github.com/eea/eea.elasticsearch.river.rdf/raw/master/target/releases/eea-rdf-river-plugin-1.0.zip
+--install eea-rdf-river-1.0
+</pre></div>
 </div>
 </li>
 <li><p class="first">Install <a class="reference external" href="https://github.com/sonian/elasticsearch-jetty">Jetty Plugin</a> in the same manner:</p>
-<div class="highlight-python"><pre>bin/plugin --url https://oss-es-plugins.s3.amazonaws.com/elasticsearch-jetty/elasticsearch-jetty-0.90.0.zip
---install elasticsearch-jetty-0.90.0</pre>
+<div class="highlight-python"><div class="highlight"><pre>bin/plugin --url https://oss-es-plugins.s3.amazonaws.com/elasticsearch-jetty/elasticsearch-jetty-0.90.0.zip
+--install elasticsearch-jetty-0.90.0
+</pre></div>
 </div>
 </li>
 <li><p class="first">Install useful plugins for monitoring and debugging:</p>
-<div class="highlight-python"><pre>bin/plugin -install mobz/elasticsearch-head
+<div class="highlight-python"><div class="highlight"><pre>bin/plugin -install mobz/elasticsearch-head
 bin/plugin -install lukas-vlcek/bigdesk
 bin/plugin -install OlegKunitsyn/elasticsearch-browse
-bin/plugin -install polyfractal/elasticsearch-inquisitor</pre>
+bin/plugin -install polyfractal/elasticsearch-inquisitor
+</pre></div>
 </div>
 </li>
 <li><p class="first">Install and configure elasticsearch-service wrapper:</p>
-<div class="highlight-python"><pre>git clone git@github.com:eea/elasticsearch-servicewrapper.git
+<div class="highlight-python"><div class="highlight"><pre>git clone git@github.com:eea/elasticsearch-servicewrapper.git
 cd elasticsearch-servicewrapper/service
 vim elasticsearch.conf # configure path to elasticsearch
-./elasticsearch install</pre>
+./elasticsearch install
+</pre></div>
 </div>
 </li>
 <li><p class="first">Configure users and roles for elasticsearch requests in
@@ -213,18 +216,21 @@ eea.elasticsearch/etc/production/config/realm.properties, see
 <a class="reference external" href="https://github.com/sonian/elasticsearch-jetty#adding-basic-authentication">Adding Basic Authentication</a>.</p>
 </li>
 <li><p class="first">Start elasticsearch service</p>
-<div class="highlight-python"><pre>service elasticsearch start</pre>
+<div class="highlight-python"><div class="highlight"><pre>service elasticsearch start
+</pre></div>
 </div>
 </li>
 <li><p class="first">Install facetview</p>
-<div class="highlight-python"><pre>git clone git@github.com:eea/facetview.git</pre>
+<div class="highlight-python"><div class="highlight"><pre>git clone git@github.com:eea/facetview.git
+</pre></div>
 </div>
 </li>
 <li><p class="first">Link eea.elasticsearch/etc/production/httpd.elasticsearch.conf in
 /etc/httpd/conf.d and check settings</p>
 </li>
 <li><p class="first">Reload Apache</p>
-<div class="highlight-python"><pre>service httpd reload</pre>
+<div class="highlight-python"><div class="highlight"><pre>service httpd reload
+</pre></div>
 </div>
 </li>
 </ol>
@@ -320,7 +326,7 @@ version.</p>
                     &copy;
                         Copyright 2012, European Environment Agency.
                 Created using <a
-                        href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3
+                        href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.2
                     .
                 Theme <a href="https://github.com/scotch/sphinx-bootstrap">Sphinx-Bootstrap</a>
                 adapted from

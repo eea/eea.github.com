@@ -1,4 +1,3 @@
-
 <!DOCTYPE html><html>
 <head>
     <meta http-equiv="Content-Type"
@@ -199,10 +198,11 @@ therefore users without permission to the ZMI to make changes to the view</li>
 <ul>
 <li><p class="first">After we load these results we trigger an event which you can hook on in order
 to modify the listing</p>
-<div class="highlight-python"><pre>ex: $(window).bind('Uberlisting.Success', function(ev) {
+<div class="highlight-python"><div class="highlight"><pre>ex: $(window).bind(&#39;Uberlisting.Success&#39;, function(ev) {
          // Run galleryView on the listing results
-         $('#content').galleryView();
-    });</pre>
+         $(&#39;#content&#39;).galleryView();
+    });
+</pre></div>
 </div>
 </li>
 </ul>
@@ -235,8 +235,9 @@ added after using the view form.</li>
 <strong>bannedUberlistingTemplates</strong>.</p>
 <p>Here add one by one the template id&#8217;s that you would like to be skipped
 from the listing.</p>
-<div class="highlight-python"><pre>ex: folder_summary_view
-    folder_contents</pre>
+<div class="highlight-python"><div class="highlight"><pre>ex: folder_summary_view
+    folder_contents
+</pre></div>
 </div>
 </li>
 </ul>
@@ -247,7 +248,8 @@ from the listing.</p>
 <li><p class="first">In ZMI &gt; context &gt; manage_properties: Add a &#8216;<em>string</em>&#8216; property named
 <strong>defaultUberlistingTemplate</strong> and add the template id that should be used
 as the default template.</p>
-<div class="highlight-python"><pre>ex: folder_summary_view</pre>
+<div class="highlight-python"><div class="highlight"><pre>ex: folder_summary_view
+</pre></div>
 </div>
 <p>By default if this property isn&#8217;t set and no cookie is present with the name
 of the default template then <strong>folder_listing</strong> will be used as default.</p>
@@ -259,7 +261,8 @@ of the default template then <strong>folder_listing</strong> will be used as def
 <ul>
 <li><p class="first">This packages looks for a png image to use for the views listing in the
 format of template id + &#8216;.png&#8217;.</p>
-<div class="highlight-python"><pre>ex: folder_summary_view.png</pre>
+<div class="highlight-python"><div class="highlight"><pre>ex: folder_summary_view.png
+</pre></div>
 </div>
 <p>We have provides some images for the common Plone templates as well as
 some for our own templates, if you need a different style for the icons you can
@@ -309,15 +312,17 @@ recipe to manage your project, you can do this:</p>
 <li>You can skip the ZCML slug since this package is using the z3c.autoinclude
 include directive</li>
 </ul>
-<div class="highlight-python"><pre>[instance]
+<div class="highlight-python"><div class="highlight"><pre>[instance]
 ...
 eggs =
   ...
-  eea.uberlisting</pre>
+  eea.uberlisting
+</pre></div>
 </div>
 </li>
 <li><p class="first">Re-run buildout, e.g. with:</p>
-<div class="highlight-python"><pre>$ ./bin/buildout</pre>
+<div class="highlight-python"><div class="highlight"><pre>$ ./bin/buildout
+</pre></div>
 </div>
 </li>
 </ul>
@@ -440,7 +445,7 @@ version.</p>
                     &copy;
                         Copyright 2012, European Environment Agency.
                 Created using <a
-                        href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3
+                        href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.2
                     .
                 Theme <a href="https://github.com/scotch/sphinx-bootstrap">Sphinx-Bootstrap</a>
                 adapted from

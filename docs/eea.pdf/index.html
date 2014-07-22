@@ -1,4 +1,3 @@
-
 <!DOCTYPE html><html>
 <head>
     <meta http-equiv="Content-Type"
@@ -139,10 +138,27 @@ See <a class="reference external" href="http://eea.github.com/docs/eea.converter
 <li><a class="reference internal" href="#main-features" id="id4">Main features</a></li>
 <li><a class="reference internal" href="#install" id="id5">Install</a></li>
 <li><a class="reference internal" href="#getting-started" id="id6">Getting started</a></li>
-<li><a class="reference internal" href="#dependencies" id="id7">Dependencies</a></li>
-<li><a class="reference internal" href="#source-code" id="id8">Source code</a></li>
-<li><a class="reference internal" href="#copyright-and-license" id="id9">Copyright and license</a></li>
-<li><a class="reference internal" href="#funding" id="id10">Funding</a></li>
+<li><a class="reference internal" href="#pdf-theme-options" id="id7">PDF Theme options</a><ul>
+<li><a class="reference internal" href="#cover" id="id8">Cover</a></li>
+<li><a class="reference internal" href="#disclaimer" id="id9">Disclaimer</a></li>
+<li><a class="reference internal" href="#body" id="id10">Body</a></li>
+<li><a class="reference internal" href="#back-cover" id="id11">Back Cover</a></li>
+<li><a class="reference internal" href="#header" id="id12">Header</a></li>
+<li><a class="reference internal" href="#footer" id="id13">Footer</a></li>
+<li><a class="reference internal" href="#table-of-contents" id="id14">Table of contents</a></li>
+<li><a class="reference internal" href="#table-of-contents-links" id="id15">Table of contents links</a></li>
+<li><a class="reference internal" href="#timeout" id="id16">Timeout</a></li>
+<li><a class="reference internal" href="#offset" id="id17">Offset</a></li>
+<li><a class="reference internal" href="#maximum-depth" id="id18">Maximum depth</a></li>
+<li><a class="reference internal" href="#maximum-breadth" id="id19">Maximum breadth</a></li>
+<li><a class="reference internal" href="#maximum-items" id="id20">Maximum items</a></li>
+<li><a class="reference internal" href="#portal-types" id="id21">Portal types</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#dependencies" id="id22">Dependencies</a></li>
+<li><a class="reference internal" href="#source-code" id="id23">Source code</a></li>
+<li><a class="reference internal" href="#copyright-and-license" id="id24">Copyright and license</a></li>
+<li><a class="reference internal" href="#funding" id="id25">Funding</a></li>
 </ul>
 </li>
 </ul>
@@ -173,23 +189,109 @@ You can download a sample buildout from
 or directly access <a class="reference external" href="http://localhost:8080/Plone/front-page/download.pdf">http://localhost:8080/Plone/front-page/download.pdf</a></li>
 </ol>
 </div>
+<div class="section" id="pdf-theme-options">
+<h2><a class="toc-backref" href="#id7">PDF Theme options</a><a class="headerlink" href="#pdf-theme-options" title="Permalink to this headline">¶</a></h2>
+<p>For more information about wkhtmltopdf options like Table of contents XSL file,
+header and footer parameters, etc. see <a class="reference external" href="http://wkhtmltopdf.org">wkhtmltopdf</a> documentation.</p>
+<div class="section" id="cover">
+<h3><a class="toc-backref" href="#id8">Cover</a><a class="headerlink" href="#cover" title="Permalink to this headline">¶</a></h3>
+<p>A page template to be used for PDF Cover. Leave empty to disable it.
+Default: pdf.body</p>
+</div>
+<div class="section" id="disclaimer">
+<h3><a class="toc-backref" href="#id9">Disclaimer</a><a class="headerlink" href="#disclaimer" title="Permalink to this headline">¶</a></h3>
+<p>A page template containing copyright and author information. This page will be
+placed between cover and PDF body. Leave empty to skip it.
+Default: pdf.disclaimer</p>
+</div>
+<div class="section" id="body">
+<h3><a class="toc-backref" href="#id10">Body</a><a class="headerlink" href="#body" title="Permalink to this headline">¶</a></h3>
+<p>A page template to be used for PDF body. An empty value will skip PDF body.
+Default: pdf.body</p>
+</div>
+<div class="section" id="back-cover">
+<h3><a class="toc-backref" href="#id11">Back Cover</a><a class="headerlink" href="#back-cover" title="Permalink to this headline">¶</a></h3>
+<p>A page template to be used for back cover. Leave empty to disable back cover.
+Default: pdf.cover.back</p>
+</div>
+<div class="section" id="header">
+<h3><a class="toc-backref" href="#id12">Header</a><a class="headerlink" href="#header" title="Permalink to this headline">¶</a></h3>
+<p>A page template to be used as PDF body header. This will not appear on cover,
+disclaimer or back cover. Leave empty for no header.
+Default: pdf.header</p>
+</div>
+<div class="section" id="footer">
+<h3><a class="toc-backref" href="#id13">Footer</a><a class="headerlink" href="#footer" title="Permalink to this headline">¶</a></h3>
+<p>A page template to be used as PDF body footer. This will not appear on cover,
+disclaimer or back.cover. Leave empty for no footer.
+Default: pdf.footer</p>
+</div>
+<div class="section" id="table-of-contents">
+<h3><a class="toc-backref" href="#id14">Table of contents</a><a class="headerlink" href="#table-of-contents" title="Permalink to this headline">¶</a></h3>
+<p>An XSL page template to be used for PDF Table of contents. See <a class="reference external" href="http://wkhtmltopdf.org">wkhtmltopdf</a>
+documentation for more information about XSL format. Leave empty to disable
+Table of contents.
+Default: pdf.toc</p>
+</div>
+<div class="section" id="table-of-contents-links">
+<h3><a class="toc-backref" href="#id15">Table of contents links</a><a class="headerlink" href="#table-of-contents-links" title="Permalink to this headline">¶</a></h3>
+<p>Enable or disable Table of Contents internal links and also
+PDF bookmarks (outline)
+Default: False</p>
+</div>
+<div class="section" id="timeout">
+<h3><a class="toc-backref" href="#id16">Timeout</a><a class="headerlink" href="#timeout" title="Permalink to this headline">¶</a></h3>
+<p>Abort PDF conversion after this number of seconds
+Default: 60</p>
+</div>
+<div class="section" id="offset">
+<h3><a class="toc-backref" href="#id17">Offset</a><a class="headerlink" href="#offset" title="Permalink to this headline">¶</a></h3>
+<p>Start counting pages within PDF Body from this number. Usefull when cover and/or
+disclaimer are enabled.
+Default: 0</p>
+</div>
+<div class="section" id="maximum-depth">
+<h3><a class="toc-backref" href="#id18">Maximum depth</a><a class="headerlink" href="#maximum-depth" title="Permalink to this headline">¶</a></h3>
+<p>This option defines the maximum depth a folderish item can go while recursively
+includes it&#8217;s children within PDF.
+Default: 1 (include only direct children, non-folderish ones)</p>
+</div>
+<div class="section" id="maximum-breadth">
+<h3><a class="toc-backref" href="#id19">Maximum breadth</a><a class="headerlink" href="#maximum-breadth" title="Permalink to this headline">¶</a></h3>
+<p>This options limit the number of direct children a folderish item can include
+within PDF.
+Default: 100</p>
+</div>
+<div class="section" id="maximum-items">
+<h3><a class="toc-backref" href="#id20">Maximum items</a><a class="headerlink" href="#maximum-items" title="Permalink to this headline">¶</a></h3>
+<p>The total items to be included within PDF export for a folderish item, including
+depth and breadth.
+Default: 1000</p>
+</div>
+<div class="section" id="portal-types">
+<h3><a class="toc-backref" href="#id21">Portal types</a><a class="headerlink" href="#portal-types" title="Permalink to this headline">¶</a></h3>
+<p>Apply this theme to selected portal types.
+Default:</p>
+</div>
+</div>
 <div class="section" id="dependencies">
-<h2><a class="toc-backref" href="#id7">Dependencies</a><a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id22">Dependencies</a><a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
+<li><a class="reference external" href="https://pypi.python.org/pypi/beautifulsoup4">beautifulsoup4</a></li>
 <li><a class="reference external" href="http://eea.github.com/docs/eea.converter">eea.converter</a></li>
 <li><a class="reference external" href="http://wkhtmltopdf.org">wkhtmltopdf</a></li>
 <li><a class="reference external" href="http://www.pdflabs.com/tools/pdftk-the-pdf-toolkit/">pdftk</a></li>
 </ol>
 </div>
 <div class="section" id="source-code">
-<h2><a class="toc-backref" href="#id8">Source code</a><a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id23">Source code</a><a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>Latest source code (Plone 4 compatible):
 <a class="reference external" href="https://github.com/eea/eea.pdf">https://github.com/eea/eea.pdf</a></li>
 </ul>
 </div>
 <div class="section" id="copyright-and-license">
-<h2><a class="toc-backref" href="#id9">Copyright and license</a><a class="headerlink" href="#copyright-and-license" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id24">Copyright and license</a><a class="headerlink" href="#copyright-and-license" title="Permalink to this headline">¶</a></h2>
 <p>The Initial Owner of the Original Code is European Environment Agency (EEA).
 All Rights Reserved.</p>
 <p>The EEA PDF (the Original Code) is free software;
@@ -200,7 +302,7 @@ version.</p>
 <p>More details under docs/License.txt</p>
 </div>
 <div class="section" id="funding">
-<h2><a class="toc-backref" href="#id10">Funding</a><a class="headerlink" href="#funding" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id25">Funding</a><a class="headerlink" href="#funding" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="http://www.eea.europa.eu/">EEA</a> - European Environment Agency (EU)</p>
 </div>
 </div>
@@ -224,6 +326,23 @@ version.</p>
 <li><a class="reference internal" href="#main-features">Main features</a></li>
 <li><a class="reference internal" href="#install">Install</a></li>
 <li><a class="reference internal" href="#getting-started">Getting started</a></li>
+<li><a class="reference internal" href="#pdf-theme-options">PDF Theme options</a><ul>
+<li><a class="reference internal" href="#cover">Cover</a></li>
+<li><a class="reference internal" href="#disclaimer">Disclaimer</a></li>
+<li><a class="reference internal" href="#body">Body</a></li>
+<li><a class="reference internal" href="#back-cover">Back Cover</a></li>
+<li><a class="reference internal" href="#header">Header</a></li>
+<li><a class="reference internal" href="#footer">Footer</a></li>
+<li><a class="reference internal" href="#table-of-contents">Table of contents</a></li>
+<li><a class="reference internal" href="#table-of-contents-links">Table of contents links</a></li>
+<li><a class="reference internal" href="#timeout">Timeout</a></li>
+<li><a class="reference internal" href="#offset">Offset</a></li>
+<li><a class="reference internal" href="#maximum-depth">Maximum depth</a></li>
+<li><a class="reference internal" href="#maximum-breadth">Maximum breadth</a></li>
+<li><a class="reference internal" href="#maximum-items">Maximum items</a></li>
+<li><a class="reference internal" href="#portal-types">Portal types</a></li>
+</ul>
+</li>
 <li><a class="reference internal" href="#dependencies">Dependencies</a></li>
 <li><a class="reference internal" href="#source-code">Source code</a></li>
 <li><a class="reference internal" href="#copyright-and-license">Copyright and license</a></li>
@@ -255,7 +374,7 @@ version.</p>
                     &copy;
                         Copyright 2012, European Environment Agency.
                 Created using <a
-                        href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3
+                        href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.2
                     .
                 Theme <a href="https://github.com/scotch/sphinx-bootstrap">Sphinx-Bootstrap</a>
                 adapted from

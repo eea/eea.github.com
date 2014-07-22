@@ -1,4 +1,3 @@
-
 <!DOCTYPE html><html>
 <head>
     <meta http-equiv="Content-Type"
@@ -173,7 +172,7 @@ recipe to manage your project, you can do this:</p>
 <li>Tell the <a class="reference external" href="http://pypi.python.org/pypi/plone.recipe.zope2instance">plone.recipe.zope2instance</a> recipe to install a ZCML slug</li>
 <li>Add memcache</li>
 </ul>
-<div class="highlight-python"><pre>parts +=
+<div class="highlight-python"><div class="highlight"><pre>parts +=
   libevent
   memcached
   memcached-ctl
@@ -209,7 +208,7 @@ content =
  export LD_LIBRARY_PATH=${libevent:location}/lib
 
  PIDFILE=${memcached:location}/memcached.pid
-    case "$1" in
+    case &quot;$1&quot; in
       start)
        ${memcached:location}/bin/memcached -d -u ${buildout:effective-user} -P $PIDFILE
         ;;
@@ -222,19 +221,22 @@ content =
         $0 start
         ;;
       *)
-        echo "Usage: $SCRIPTNAME {start|stop|restart}" &gt;&amp;2
+        echo &quot;Usage: $SCRIPTNAME {start|stop|restart}&quot; &gt;&amp;2
         exit 1
         ;;
-    esac</pre>
+    esac
+</pre></div>
 </div>
 </li>
 <li><p class="first">Re-run buildout, e.g. with:</p>
-<div class="highlight-python"><pre>$ bin/buildout -c buildout.cfg</pre>
+<div class="highlight-python"><div class="highlight"><pre>$ bin/buildout -c buildout.cfg
+</pre></div>
 </div>
 </li>
 <li><p class="first">Restart memcache and Zope:</p>
-<div class="highlight-python"><pre>$ bin/memcached restart
-$ bin/instance restart</pre>
+<div class="highlight-python"><div class="highlight"><pre>$ bin/memcached restart
+$ bin/instance restart
+</pre></div>
 </div>
 </li>
 </ul>
@@ -304,10 +306,11 @@ site_properties called <strong>memcached_defaultLifetime</strong> and set it&#82
 <p>Starting with eea.cache 5.1 you can also pass a lifetime key with the duration
 in seconds which will override the defaultLifetime either given from the
 portal property or the default one from lovely.memcached of 3600 seconds</p>
-<div class="highlight-python"><pre>ex: in order to cache the result only for 4 minutes
-&gt;&gt;&gt; @cache(key, dependencies=["frontpage"], lifetime=240)
+<div class="highlight-python"><div class="highlight"><pre>ex: in order to cache the result only for 4 minutes
+&gt;&gt;&gt; @cache(key, dependencies=[&quot;frontpage&quot;], lifetime=240)
 ... def myMethod(num):
-...     return num*num</pre>
+...     return num*num
+</pre></div>
 </div>
 </div>
 </div>
@@ -385,7 +388,7 @@ version.</p>
                     &copy;
                         Copyright 2012, European Environment Agency.
                 Created using <a
-                        href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3
+                        href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.2
                     .
                 Theme <a href="https://github.com/scotch/sphinx-bootstrap">Sphinx-Bootstrap</a>
                 adapted from

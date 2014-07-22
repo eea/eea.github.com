@@ -1,4 +1,3 @@
-
 <!DOCTYPE html><html>
 <head>
     <meta http-equiv="Content-Type"
@@ -177,12 +176,13 @@ and re-run buildout.</p>
 </li>
 <li><p class="first">To use eea.relations widget for all default Plone Content-Types you&#8217;ll also
 need to add &#8216;eea.relations.default&#8217; within zcml section like:</p>
-<div class="highlight-python"><pre>eggs +=
+<div class="highlight-python"><div class="highlight"><pre>eggs +=
   eea.relations
 
 zcml +=
   eea.relations
-  eea.relations.default</pre>
+  eea.relations.default
+</pre></div>
 </div>
 </li>
 <li><p class="first">Install EEA Possible Relations within Site Setup &gt; Add-ons</p>
@@ -217,8 +217,9 @@ define the relations, the constraints between contents etc.</p>
 <p><a class="reference internal" href="#eea-relations">EEA Relations</a> has the following dependencies:</p>
 <ul>
 <li><p class="first">graphviz</p>
-<div class="highlight-python"><pre>$ yum install graphviz
-$ apt-get install graphviz</pre>
+<div class="highlight-python"><div class="highlight"><pre>$ yum install graphviz
+$ apt-get install graphviz
+</pre></div>
 </div>
 </li>
 <li><p class="first">pydot</p>
@@ -228,8 +229,9 @@ $ apt-get install graphviz</pre>
 <li><p class="first">collective.js.jqueryui normally installed by eea.facetednavigation. Make sure
 that you are using the proper version for your plone installation and that
 the following effects are enabled:</p>
-<div class="highlight-python"><pre>1. transfer
-2. pulsate</pre>
+<div class="highlight-python"><div class="highlight"><pre>1. transfer
+2. pulsate
+</pre></div>
 </div>
 </li>
 </ul>
@@ -313,7 +315,7 @@ version.</p>
                     &copy;
                         Copyright 2012, European Environment Agency.
                 Created using <a
-                        href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3
+                        href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.2
                     .
                 Theme <a href="https://github.com/scotch/sphinx-bootstrap">Sphinx-Bootstrap</a>
                 adapted from

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html><html>
 <head>
     <meta http-equiv="Content-Type"
@@ -223,14 +222,15 @@ during testing), you can run</p>
 <div class="section" id="providing-defaults-with-a-configuration-file">
 <h2>Providing defaults with a configuration file<a class="headerlink" href="#providing-defaults-with-a-configuration-file" title="Permalink to this headline">¶</a></h2>
 <p>You can write a file ~/.eggmonkey in the following format:</p>
-<div class="highlight-python"><pre>[*]
+<div class="highlight-python"><div class="highlight"><pre>[*]
 python = /path/to/python
 mkrelease = /path/to/mkrelease
 manual_upload = true
 domain = eea
 
 [eea.indicators]
-domain = eea pypi</pre>
+domain = eea pypi
+</pre></div>
 </div>
 <p>This is a ConfigParser file format where each section is a package name, with
 the exception of the star (*), which provides defaults for all packages. The
@@ -294,7 +294,7 @@ subversion-devel on Redhat systems</p>
                     &copy;
                         Copyright 2012, European Environment Agency.
                 Created using <a
-                        href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3
+                        href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.2
                     .
                 Theme <a href="https://github.com/scotch/sphinx-bootstrap">Sphinx-Bootstrap</a>
                 adapted from

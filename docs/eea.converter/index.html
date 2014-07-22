@@ -1,4 +1,3 @@
-
 <!DOCTYPE html><html>
 <head>
     <meta http-equiv="Content-Type"
@@ -150,98 +149,108 @@ You can download a sample buildout from
 <div class="section" id="cover">
 <h3>Cover<a class="headerlink" href="#cover" title="Permalink to this headline">¶</a></h3>
 <p>Provide custom browser:page called <em>&#64;&#64;pdf.cover</em>:</p>
-<div class="highlight-python"><pre>&lt;browser:page
-  for="my.package.interfaces.ICustomContent"
-  name="pdf.cover"
-  class=".app.pdfview.Cover"
-  template="zpt/pdf.cover.pt"
-  permission="zope2.View"
-  /&gt;</pre>
+<div class="highlight-python"><div class="highlight"><pre>&lt;browser:page
+  for=&quot;my.package.interfaces.ICustomContent&quot;
+  name=&quot;pdf.cover&quot;
+  class=&quot;.app.pdfview.Cover&quot;
+  template=&quot;zpt/pdf.cover.pt&quot;
+  permission=&quot;zope2.View&quot;
+  /&gt;
+</pre></div>
 </div>
 </div>
 <div class="section" id="disclaimer">
 <h3>Disclaimer<a class="headerlink" href="#disclaimer" title="Permalink to this headline">¶</a></h3>
 <p>First page after PDF Cover containing author details and copyrights.
 Provide custom browser:page called <em>&#64;&#64;pdf.cover</em>:</p>
-<div class="highlight-python"><pre>&lt;browser:page
-  for="my.package.interfaces.ICustomContent"
-  name="pdf.disclaimer"
-  class=".app.pdfview.Disclaimer"
-  template="zpt/pdf.disclaimer.pt"
-  permission="zope2.View"
-  /&gt;</pre>
+<div class="highlight-python"><div class="highlight"><pre>&lt;browser:page
+  for=&quot;my.package.interfaces.ICustomContent&quot;
+  name=&quot;pdf.disclaimer&quot;
+  class=&quot;.app.pdfview.Disclaimer&quot;
+  template=&quot;zpt/pdf.disclaimer.pt&quot;
+  permission=&quot;zope2.View&quot;
+  /&gt;
+</pre></div>
 </div>
 </div>
 <div class="section" id="body">
 <h3>Body<a class="headerlink" href="#body" title="Permalink to this headline">¶</a></h3>
 <p>Provide custom browser:page called <em>&#64;&#64;pdf.body</em>:</p>
-<div class="highlight-python"><pre>&lt;browser:page
-  for="my.package.interfaces.ICustomContent"
-  name="pdf.body"
-  class=".app.pdfview.Body"
-  template="zpt/pdf.body.pt"
-  permission="zope2.View"
-  /&gt;</pre>
+<div class="highlight-python"><div class="highlight"><pre>&lt;browser:page
+  for=&quot;my.package.interfaces.ICustomContent&quot;
+  name=&quot;pdf.body&quot;
+  class=&quot;.app.pdfview.Body&quot;
+  template=&quot;zpt/pdf.body.pt&quot;
+  permission=&quot;zope2.View&quot;
+  /&gt;
+</pre></div>
 </div>
 </div>
 <div class="section" id="back-cover">
 <h3>Back Cover<a class="headerlink" href="#back-cover" title="Permalink to this headline">¶</a></h3>
 <p>Provide custom browser:page called <em>&#64;&#64;pdf.cover.back</em>:</p>
-<div class="highlight-python"><pre>&lt;browser:page
-  for="my.package.interfaces.ICustomContent"
-  name="pdf.cover.back"
-  class=".app.pdfview.BackCover"
-  template="zpt/pdf.cover.back.pt"
-  permission="zope2.View"
-  /&gt;</pre>
+<div class="highlight-python"><div class="highlight"><pre>&lt;browser:page
+  for=&quot;my.package.interfaces.ICustomContent&quot;
+  name=&quot;pdf.cover.back&quot;
+  class=&quot;.app.pdfview.BackCover&quot;
+  template=&quot;zpt/pdf.cover.back.pt&quot;
+  permission=&quot;zope2.View&quot;
+  /&gt;
+</pre></div>
 </div>
 </div>
 <div class="section" id="table-of-contents">
 <h3>Table of contents<a class="headerlink" href="#table-of-contents" title="Permalink to this headline">¶</a></h3>
 <p>To enable Table of contents provide an empty browser:page called <em>&#64;&#64;pdf.toc</em>:</p>
-<div class="highlight-python"><pre>&lt;browser:page
-  for="my.package.interfaces.ICustomContent"
-  name="pdf.toc"
-  template="zpt/pdf.toc.pt"
-  permission="zope2.View"
-  /&gt;</pre>
+<div class="highlight-python"><div class="highlight"><pre>&lt;browser:page
+  for=&quot;my.package.interfaces.ICustomContent&quot;
+  name=&quot;pdf.toc&quot;
+  template=&quot;zpt/pdf.toc.pt&quot;
+  permission=&quot;zope2.View&quot;
+  /&gt;
+</pre></div>
 </div>
 </div>
 <div class="section" id="options">
 <h3>Options<a class="headerlink" href="#options" title="Permalink to this headline">¶</a></h3>
 <p>For PDF cover you&#8217;ll have to provide a named adapter like:</p>
-<div class="highlight-python"><pre>&lt;adapter
-  name="pdf.cover"
-  for=" my.package.interfaces.ICustomContent"
-  provides="eea.converter.interfaces.IPDFOptionsMaker"
-  factory=".adapters.CoverOptionsMaker" /&gt;</pre>
+<div class="highlight-python"><div class="highlight"><pre>&lt;adapter
+  name=&quot;pdf.cover&quot;
+  for=&quot; my.package.interfaces.ICustomContent&quot;
+  provides=&quot;eea.converter.interfaces.IPDFOptionsMaker&quot;
+  factory=&quot;.adapters.CoverOptionsMaker&quot; /&gt;
+</pre></div>
 </div>
 <p>Same for PDF disclaimer:</p>
-<div class="highlight-python"><pre>&lt;adapter
-  name="pdf.disclaimer"
-  for=" my.package.interfaces.ICustomContent"
-  provides="eea.converter.interfaces.IPDFOptionsMaker"
-  factory=".adapters.DisclaimerOptionsMaker" /&gt;</pre>
+<div class="highlight-python"><div class="highlight"><pre>&lt;adapter
+  name=&quot;pdf.disclaimer&quot;
+  for=&quot; my.package.interfaces.ICustomContent&quot;
+  provides=&quot;eea.converter.interfaces.IPDFOptionsMaker&quot;
+  factory=&quot;.adapters.DisclaimerOptionsMaker&quot; /&gt;
+</pre></div>
 </div>
 <p>Or for PDF back cover:</p>
-<div class="highlight-python"><pre>&lt;adapter
-  name="pdf.cover.back"
-  for=" my.package.interfaces.ICustomContent"
-  provides="eea.converter.interfaces.IPDFOptionsMaker"
-  factory=".adapters.BackCoverOptionsMaker" /&gt;</pre>
+<div class="highlight-python"><div class="highlight"><pre>&lt;adapter
+  name=&quot;pdf.cover.back&quot;
+  for=&quot; my.package.interfaces.ICustomContent&quot;
+  provides=&quot;eea.converter.interfaces.IPDFOptionsMaker&quot;
+  factory=&quot;.adapters.BackCoverOptionsMaker&quot; /&gt;
+</pre></div>
 </div>
 <p>For PDF body you&#8217;ll have to provide a named adapter like:</p>
-<div class="highlight-python"><pre>&lt;adapter
-  name="pdf.body"
-  for=" my.package.interfaces.ICustomContent"
-  provides="eea.converter.interfaces.IPDFOptionsMaker"
-  factory=".adapters.BodyOptionsMaker" /&gt;</pre>
+<div class="highlight-python"><div class="highlight"><pre>&lt;adapter
+  name=&quot;pdf.body&quot;
+  for=&quot; my.package.interfaces.ICustomContent&quot;
+  provides=&quot;eea.converter.interfaces.IPDFOptionsMaker&quot;
+  factory=&quot;.adapters.BodyOptionsMaker&quot; /&gt;
+</pre></div>
 </div>
 <p>For global PDF options provide an unamed adapter like:</p>
-<div class="highlight-python"><pre>&lt;adapter
-  for=" my.package.interfaces.ICustomContent"
-  provides="eea.converter.interfaces.IPDFOptionsMaker"
-  factory=".adapters.OptionsMaker" /&gt;</pre>
+<div class="highlight-python"><div class="highlight"><pre>&lt;adapter
+  for=&quot; my.package.interfaces.ICustomContent&quot;
+  provides=&quot;eea.converter.interfaces.IPDFOptionsMaker&quot;
+  factory=&quot;.adapters.OptionsMaker&quot; /&gt;
+</pre></div>
 </div>
 <p>Also add custom print.css for your needs. See more at <a class="reference external" href="http://eea.github.com/docs/eea.pdf">eea.pdf</a></p>
 </div>
@@ -251,13 +260,14 @@ Provide custom browser:page called <em>&#64;&#64;pdf.cover</em>:</p>
 <p>In order to restrict access to /download.pdf you&#8217;ll have to provide a
 multi-adapter named pdf.support with a read-only attribute called can_download
 like:</p>
-<div class="highlight-python"><pre>&lt;browser:page
-  name="pdf.support"
-  for="zope.interface.Interface"
-  class=".support.Support"
-  permission="zope.Public"
-  allowed_interface="eea.converter.interfaces.ISupport"
-  /&gt;</pre>
+<div class="highlight-python"><div class="highlight"><pre>&lt;browser:page
+  name=&quot;pdf.support&quot;
+  for=&quot;zope.interface.Interface&quot;
+  class=&quot;.support.Support&quot;
+  permission=&quot;zope.Public&quot;
+  allowed_interface=&quot;eea.converter.interfaces.ISupport&quot;
+  /&gt;
+</pre></div>
 </div>
 <p>See default implementation within eea.converter.browser.app.support</p>
 </div>
@@ -270,22 +280,25 @@ just the ones that you need.</p>
 </div>
 <ul id="pdfinfo">
 <li><p class="first">pdfinfo to parse pdf metadata (part of the xpdf package):</p>
-<div class="highlight-python"><pre>yum install xpdf (fedora)
-apt-get install xpdf (debian)</pre>
+<div class="highlight-python"><div class="highlight"><pre>yum install xpdf (fedora)
+apt-get install xpdf (debian)
+</pre></div>
 </div>
 </li>
 </ul>
 <ul id="pdftk">
 <li><p class="first">pdftk to generate a cover image from a pdf file:</p>
-<div class="highlight-python"><pre>yum install pdftk (fedora)
-apt-get install pdftk (debian)</pre>
+<div class="highlight-python"><div class="highlight"><pre>yum install pdftk (fedora)
+apt-get install pdftk (debian)
+</pre></div>
 </div>
 </li>
 </ul>
 <ul id="imagemagick">
 <li><p class="first">ImageMagick (6.3.7+):</p>
-<div class="highlight-python"><pre>yum install ImageMagick
-apt-get install imagemagick</pre>
+<div class="highlight-python"><div class="highlight"><pre>yum install ImageMagick
+apt-get install imagemagick
+</pre></div>
 </div>
 </li>
 </ul>
@@ -396,7 +409,7 @@ version.</p>
                     &copy;
                         Copyright 2012, European Environment Agency.
                 Created using <a
-                        href="http://sphinx.pocoo.org/">Sphinx</a> 1.1.3
+                        href="http://sphinx.pocoo.org/">Sphinx</a> 1.2.2
                     .
                 Theme <a href="https://github.com/scotch/sphinx-bootstrap">Sphinx-Bootstrap</a>
                 adapted from
