@@ -19,15 +19,15 @@ Add the following config to your zc.buildout .cfg file (see
     [eeadocs]
     recipe = zc.recipe.egg
     eggs =
-        eea.github.com
-
+      eea.github.com
+      Sphinx
 
     [sources]
-    eea.github.com = git https://github.com/eea/eea.github.com.git pushurl=git@github.com:eea/eea.github.com.git
+    eea.github.com = git https://github.com/eea/eea.github.com.git
 
     [versions]
-    Sphinx = 1.1.3
-    docutils = 0.9.1
+    Sphinx = 1.2.2
+    docutils = 0.12
 
 
 2. Run buildout
