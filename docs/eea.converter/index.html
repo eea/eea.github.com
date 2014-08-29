@@ -258,7 +258,7 @@ Provide custom browser:page called <em>&#64;&#64;pdf.cover</em>:</p>
 <div class="section" id="restrict-access">
 <h2>Restrict access<a class="headerlink" href="#restrict-access" title="Permalink to this headline">¶</a></h2>
 <p>In order to restrict access to /download.pdf you&#8217;ll have to provide a
-multi-adapter named pdf.support with a read-only attribute called can_download
+multi-adapter named pdf.support with a method called can_download
 like:</p>
 <div class="highlight-python"><div class="highlight"><pre>&lt;browser:page
   name=&quot;pdf.support&quot;
