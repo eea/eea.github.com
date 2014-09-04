@@ -149,22 +149,23 @@ See <a class="reference external" href="http://eea.github.com/docs/eea.converter
 <li><a class="reference internal" href="#table-of-contents-links" id="id15">Table of contents links</a></li>
 <li><a class="reference internal" href="#javascript" id="id16">JavaScript</a></li>
 <li><a class="reference internal" href="#timeout" id="id17">Timeout</a></li>
-<li><a class="reference internal" href="#offset" id="id18">Offset</a></li>
-<li><a class="reference internal" href="#maximum-depth" id="id19">Maximum depth</a></li>
-<li><a class="reference internal" href="#maximum-breadth" id="id20">Maximum breadth</a></li>
-<li><a class="reference internal" href="#maximum-items" id="id21">Maximum items</a></li>
-<li><a class="reference internal" href="#portal-types" id="id22">Portal types</a></li>
+<li><a class="reference internal" href="#asynchronous" id="id18">Asynchronous</a></li>
+<li><a class="reference internal" href="#offset" id="id19">Offset</a></li>
+<li><a class="reference internal" href="#maximum-depth" id="id20">Maximum depth</a></li>
+<li><a class="reference internal" href="#maximum-breadth" id="id21">Maximum breadth</a></li>
+<li><a class="reference internal" href="#maximum-items" id="id22">Maximum items</a></li>
+<li><a class="reference internal" href="#portal-types" id="id23">Portal types</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#custom-permissions" id="id23">Custom permissions</a><ul>
-<li><a class="reference internal" href="#can-download-pdf-eea-pdf-download" id="id24">Can download PDF (eea.pdf.download)</a></li>
-<li><a class="reference internal" href="#can-customize-pdf-eea-pdf-customize" id="id25">Can customize PDF (eea.pdf.customize)</a></li>
+<li><a class="reference internal" href="#custom-permissions" id="id24">Custom permissions</a><ul>
+<li><a class="reference internal" href="#can-download-pdf-eea-pdf-download" id="id25">Can download PDF (eea.pdf.download)</a></li>
+<li><a class="reference internal" href="#can-customize-pdf-eea-pdf-customize" id="id26">Can customize PDF (eea.pdf.customize)</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#dependencies" id="id26">Dependencies</a></li>
-<li><a class="reference internal" href="#source-code" id="id27">Source code</a></li>
-<li><a class="reference internal" href="#copyright-and-license" id="id28">Copyright and license</a></li>
-<li><a class="reference internal" href="#funding" id="id29">Funding</a></li>
+<li><a class="reference internal" href="#dependencies" id="id27">Dependencies</a></li>
+<li><a class="reference internal" href="#source-code" id="id28">Source code</a></li>
+<li><a class="reference internal" href="#copyright-and-license" id="id29">Copyright and license</a></li>
+<li><a class="reference internal" href="#funding" id="id30">Funding</a></li>
 </ul>
 </li>
 </ul>
@@ -255,53 +256,58 @@ Default: True</p>
 <p>Abort PDF conversion after this number of seconds
 Default: 60</p>
 </div>
+<div class="section" id="asynchronous">
+<h3><a class="toc-backref" href="#id18">Asynchronous</a><a class="headerlink" href="#asynchronous" title="Permalink to this headline">¶</a></h3>
+<p>Generate PDF asynchronously and send an email to the user when it&#8217;s done
+Default: True</p>
+</div>
 <div class="section" id="offset">
-<h3><a class="toc-backref" href="#id18">Offset</a><a class="headerlink" href="#offset" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id19">Offset</a><a class="headerlink" href="#offset" title="Permalink to this headline">¶</a></h3>
 <p>Start counting pages within PDF Body from this number. Usefull when cover and/or
 disclaimer are enabled.
 Default: 0</p>
 </div>
 <div class="section" id="maximum-depth">
-<h3><a class="toc-backref" href="#id19">Maximum depth</a><a class="headerlink" href="#maximum-depth" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id20">Maximum depth</a><a class="headerlink" href="#maximum-depth" title="Permalink to this headline">¶</a></h3>
 <p>This option defines the maximum depth a folderish item can go while recursively
 includes it&#8217;s children within PDF.
 Default: 1 (include only direct children, non-folderish ones)</p>
 </div>
 <div class="section" id="maximum-breadth">
-<h3><a class="toc-backref" href="#id20">Maximum breadth</a><a class="headerlink" href="#maximum-breadth" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id21">Maximum breadth</a><a class="headerlink" href="#maximum-breadth" title="Permalink to this headline">¶</a></h3>
 <p>This options limit the number of direct children a folderish item can include
 within PDF.
 Default: 100</p>
 </div>
 <div class="section" id="maximum-items">
-<h3><a class="toc-backref" href="#id21">Maximum items</a><a class="headerlink" href="#maximum-items" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id22">Maximum items</a><a class="headerlink" href="#maximum-items" title="Permalink to this headline">¶</a></h3>
 <p>The total items to be included within PDF export for a folderish item, including
 depth and breadth.
 Default: 1000</p>
 </div>
 <div class="section" id="portal-types">
-<h3><a class="toc-backref" href="#id22">Portal types</a><a class="headerlink" href="#portal-types" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id23">Portal types</a><a class="headerlink" href="#portal-types" title="Permalink to this headline">¶</a></h3>
 <p>Apply this theme to selected portal types.
 Default:</p>
 </div>
 </div>
 <div class="section" id="custom-permissions">
-<h2><a class="toc-backref" href="#id23">Custom permissions</a><a class="headerlink" href="#custom-permissions" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id24">Custom permissions</a><a class="headerlink" href="#custom-permissions" title="Permalink to this headline">¶</a></h2>
 <p>Custom permissions added by this package</p>
 <div class="section" id="can-download-pdf-eea-pdf-download">
-<h3><a class="toc-backref" href="#id24">Can download PDF (eea.pdf.download)</a><a class="headerlink" href="#can-download-pdf-eea-pdf-download" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id25">Can download PDF (eea.pdf.download)</a><a class="headerlink" href="#can-download-pdf-eea-pdf-download" title="Permalink to this headline">¶</a></h3>
 <p>Assign this permission to roles that you want to be able to download content as PDF
 Default: Owner, Manager, Editor</p>
 </div>
 <div class="section" id="can-customize-pdf-eea-pdf-customize">
-<h3><a class="toc-backref" href="#id25">Can customize PDF (eea.pdf.customize)</a><a class="headerlink" href="#can-customize-pdf-eea-pdf-customize" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id26">Can customize PDF (eea.pdf.customize)</a><a class="headerlink" href="#can-customize-pdf-eea-pdf-customize" title="Permalink to this headline">¶</a></h3>
 <p>Assign this permission to roles that you want to be able to contextually customize
 the output PDF look and feel
 Default: Manager, Site Administrator</p>
 </div>
 </div>
 <div class="section" id="dependencies">
-<h2><a class="toc-backref" href="#id26">Dependencies</a><a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id27">Dependencies</a><a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li><a class="reference external" href="http://eea.github.com/docs/eea.converter">eea.converter</a></li>
 <li><a class="reference external" href="http://wkhtmltopdf.org">wkhtmltopdf</a></li>
@@ -310,14 +316,14 @@ Default: Manager, Site Administrator</p>
 </ol>
 </div>
 <div class="section" id="source-code">
-<h2><a class="toc-backref" href="#id27">Source code</a><a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id28">Source code</a><a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>Latest source code (Plone 4 compatible):
 <a class="reference external" href="https://github.com/eea/eea.pdf">https://github.com/eea/eea.pdf</a></li>
 </ul>
 </div>
 <div class="section" id="copyright-and-license">
-<h2><a class="toc-backref" href="#id28">Copyright and license</a><a class="headerlink" href="#copyright-and-license" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id29">Copyright and license</a><a class="headerlink" href="#copyright-and-license" title="Permalink to this headline">¶</a></h2>
 <p>The Initial Owner of the Original Code is European Environment Agency (EEA).
 All Rights Reserved.</p>
 <p>The EEA PDF (the Original Code) is free software;
@@ -328,7 +334,7 @@ version.</p>
 <p>More details under docs/License.txt</p>
 </div>
 <div class="section" id="funding">
-<h2><a class="toc-backref" href="#id29">Funding</a><a class="headerlink" href="#funding" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id30">Funding</a><a class="headerlink" href="#funding" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="http://www.eea.europa.eu/">EEA</a> - European Environment Agency (EU)</p>
 </div>
 </div>
@@ -363,6 +369,7 @@ version.</p>
 <li><a class="reference internal" href="#table-of-contents-links">Table of contents links</a></li>
 <li><a class="reference internal" href="#javascript">JavaScript</a></li>
 <li><a class="reference internal" href="#timeout">Timeout</a></li>
+<li><a class="reference internal" href="#asynchronous">Asynchronous</a></li>
 <li><a class="reference internal" href="#offset">Offset</a></li>
 <li><a class="reference internal" href="#maximum-depth">Maximum depth</a></li>
 <li><a class="reference internal" href="#maximum-breadth">Maximum breadth</a></li>
