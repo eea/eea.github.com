@@ -162,10 +162,16 @@ See <a class="reference external" href="http://eea.github.com/docs/eea.converter
 <li><a class="reference internal" href="#can-customize-pdf-eea-pdf-customize" id="id26">Can customize PDF (eea.pdf.customize)</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#dependencies" id="id27">Dependencies</a></li>
-<li><a class="reference internal" href="#source-code" id="id28">Source code</a></li>
-<li><a class="reference internal" href="#copyright-and-license" id="id29">Copyright and license</a></li>
-<li><a class="reference internal" href="#funding" id="id30">Funding</a></li>
+<li><a class="reference internal" href="#content-rules" id="id27">Content rules</a><ul>
+<li><a class="reference internal" href="#pdf-export-succeeded" id="id28">PDF export succeeded</a></li>
+<li><a class="reference internal" href="#pdf-export-failed" id="id29">PDF export failed</a></li>
+<li><a class="reference internal" href="#pdf-export-failed-admin" id="id30">PDF export failed (admin)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#dependencies" id="id31">Dependencies</a></li>
+<li><a class="reference internal" href="#source-code" id="id32">Source code</a></li>
+<li><a class="reference internal" href="#copyright-and-license" id="id33">Copyright and license</a></li>
+<li><a class="reference internal" href="#funding" id="id34">Funding</a></li>
 </ul>
 </li>
 </ul>
@@ -254,7 +260,7 @@ Default: True</p>
 <div class="section" id="timeout">
 <h3><a class="toc-backref" href="#id17">Timeout</a><a class="headerlink" href="#timeout" title="Permalink to this headline">¶</a></h3>
 <p>Abort PDF conversion after this number of seconds
-Default: 60</p>
+Default: 3600</p>
 </div>
 <div class="section" id="asynchronous">
 <h3><a class="toc-backref" href="#id18">Asynchronous</a><a class="headerlink" href="#asynchronous" title="Permalink to this headline">¶</a></h3>
@@ -306,8 +312,36 @@ the output PDF look and feel
 Default: Manager, Site Administrator</p>
 </div>
 </div>
+<div class="section" id="content-rules">
+<h2><a class="toc-backref" href="#id27">Content rules</a><a class="headerlink" href="#content-rules" title="Permalink to this headline">¶</a></h2>
+<p>This package uses Plone Content-rules to notify users by email when an asynchronous
+PDF job is done. Thus 3 custom content-rules will be added within
+Plone &gt; Site Setup &gt; Content-rules</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p class="last">As these content-rules are triggered by an asynchronous job, while
+you customize the email template for these content-rules,
+please <strong>DO NOT USE OTHER</strong> string substitutions <strong>that the ones</strong> that start
+with <strong>$download_</strong> as you&#8217;ll break the download chain.
+Also if you disable these content-rules the users will never know when the
+PDF is ready and what is the link where they can download the output PDF.</p>
+</div>
+<div class="section" id="pdf-export-succeeded">
+<h3><a class="toc-backref" href="#id28">PDF export succeeded</a><a class="headerlink" href="#pdf-export-succeeded" title="Permalink to this headline">¶</a></h3>
+<p>Notify the person who requested a PDF export that the PDF successfully exported
+and provide a link to the downloadable PDF</p>
+</div>
+<div class="section" id="pdf-export-failed">
+<h3><a class="toc-backref" href="#id29">PDF export failed</a><a class="headerlink" href="#pdf-export-failed" title="Permalink to this headline">¶</a></h3>
+<p>Notify the person who requested a PDF export that the PDF export failed.</p>
+</div>
+<div class="section" id="pdf-export-failed-admin">
+<h3><a class="toc-backref" href="#id30">PDF export failed (admin)</a><a class="headerlink" href="#pdf-export-failed-admin" title="Permalink to this headline">¶</a></h3>
+<p>Notify admin that there were issues while exporting PDF</p>
+</div>
+</div>
 <div class="section" id="dependencies">
-<h2><a class="toc-backref" href="#id27">Dependencies</a><a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id31">Dependencies</a><a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li><a class="reference external" href="http://eea.github.com/docs/eea.converter">eea.converter</a></li>
 <li><a class="reference external" href="http://wkhtmltopdf.org">wkhtmltopdf</a></li>
@@ -316,14 +350,14 @@ Default: Manager, Site Administrator</p>
 </ol>
 </div>
 <div class="section" id="source-code">
-<h2><a class="toc-backref" href="#id28">Source code</a><a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id32">Source code</a><a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>Latest source code (Plone 4 compatible):
 <a class="reference external" href="https://github.com/eea/eea.pdf">https://github.com/eea/eea.pdf</a></li>
 </ul>
 </div>
 <div class="section" id="copyright-and-license">
-<h2><a class="toc-backref" href="#id29">Copyright and license</a><a class="headerlink" href="#copyright-and-license" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id33">Copyright and license</a><a class="headerlink" href="#copyright-and-license" title="Permalink to this headline">¶</a></h2>
 <p>The Initial Owner of the Original Code is European Environment Agency (EEA).
 All Rights Reserved.</p>
 <p>The EEA PDF (the Original Code) is free software;
@@ -334,7 +368,7 @@ version.</p>
 <p>More details under docs/License.txt</p>
 </div>
 <div class="section" id="funding">
-<h2><a class="toc-backref" href="#id30">Funding</a><a class="headerlink" href="#funding" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id34">Funding</a><a class="headerlink" href="#funding" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="http://www.eea.europa.eu/">EEA</a> - European Environment Agency (EU)</p>
 </div>
 </div>
@@ -380,6 +414,12 @@ version.</p>
 <li><a class="reference internal" href="#custom-permissions">Custom permissions</a><ul>
 <li><a class="reference internal" href="#can-download-pdf-eea-pdf-download">Can download PDF (eea.pdf.download)</a></li>
 <li><a class="reference internal" href="#can-customize-pdf-eea-pdf-customize">Can customize PDF (eea.pdf.customize)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#content-rules">Content rules</a><ul>
+<li><a class="reference internal" href="#pdf-export-succeeded">PDF export succeeded</a></li>
+<li><a class="reference internal" href="#pdf-export-failed">PDF export failed</a></li>
+<li><a class="reference internal" href="#pdf-export-failed-admin">PDF export failed (admin)</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#dependencies">Dependencies</a></li>
