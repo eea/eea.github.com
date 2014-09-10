@@ -168,10 +168,20 @@ See <a class="reference external" href="http://eea.github.com/docs/eea.converter
 <li><a class="reference internal" href="#pdf-export-failed-admin" id="id30">PDF export failed (admin)</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#dependencies" id="id31">Dependencies</a></li>
-<li><a class="reference internal" href="#source-code" id="id32">Source code</a></li>
-<li><a class="reference internal" href="#copyright-and-license" id="id33">Copyright and license</a></li>
-<li><a class="reference internal" href="#funding" id="id34">Funding</a></li>
+<li><a class="reference internal" href="#content-rules-email-string-substitution" id="id31">Content rules email string substitution</a><ul>
+<li><a class="reference internal" href="#download-came-from-url" id="id32">${download_came_from_url}</a></li>
+<li><a class="reference internal" href="#download-email" id="id33">${download_email}</a></li>
+<li><a class="reference internal" href="#download-error" id="id34">${download_error}</a></li>
+<li><a class="reference internal" href="#download-from-email" id="id35">${download_from_email}</a></li>
+<li><a class="reference internal" href="#download-from-name" id="id36">${download_from_name}</a></li>
+<li><a class="reference internal" href="#download-title" id="id37">${download_title}</a></li>
+<li><a class="reference internal" href="#download-url" id="id38">${download_url}</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#dependencies" id="id39">Dependencies</a></li>
+<li><a class="reference internal" href="#source-code" id="id40">Source code</a></li>
+<li><a class="reference internal" href="#copyright-and-license" id="id41">Copyright and license</a></li>
+<li><a class="reference internal" href="#funding" id="id42">Funding</a></li>
 </ul>
 </li>
 </ul>
@@ -182,6 +192,7 @@ See <a class="reference external" href="http://eea.github.com/docs/eea.converter
 <ol class="arabic simple">
 <li>Adds download as PDF action at the bottom of the page</li>
 <li>Possibility to define custom PDF themes per content-type</li>
+<li>Asynchronously generate PDF files and notify users by email when PDF is ready</li>
 </ol>
 </div>
 <div class="section" id="install">
@@ -340,8 +351,41 @@ and provide a link to the downloadable PDF</p>
 <p>Notify admin that there were issues while exporting PDF</p>
 </div>
 </div>
+<div class="section" id="content-rules-email-string-substitution">
+<h2><a class="toc-backref" href="#id31">Content rules email string substitution</a><a class="headerlink" href="#content-rules-email-string-substitution" title="Permalink to this headline">¶</a></h2>
+<p>In order to be able to easily customize emails sent by this package the following
+custom email template string substitutions can be made</p>
+<div class="section" id="download-came-from-url">
+<h3><a class="toc-backref" href="#id32">${download_came_from_url}</a><a class="headerlink" href="#download-came-from-url" title="Permalink to this headline">¶</a></h3>
+<p>The absolute URL of the Plone object which is downloaded as PDF</p>
+</div>
+<div class="section" id="download-email">
+<h3><a class="toc-backref" href="#id33">${download_email}</a><a class="headerlink" href="#download-email" title="Permalink to this headline">¶</a></h3>
+<p>Email address of the user that triggered the download as PDF action</p>
+</div>
+<div class="section" id="download-error">
+<h3><a class="toc-backref" href="#id34">${download_error}</a><a class="headerlink" href="#download-error" title="Permalink to this headline">¶</a></h3>
+<p>Error traceback when download as PDF job fails</p>
+</div>
+<div class="section" id="download-from-email">
+<h3><a class="toc-backref" href="#id35">${download_from_email}</a><a class="headerlink" href="#download-from-email" title="Permalink to this headline">¶</a></h3>
+<p>Site Admin email address customizable via Plone &gt; Site Setup &gt; Mail</p>
+</div>
+<div class="section" id="download-from-name">
+<h3><a class="toc-backref" href="#id36">${download_from_name}</a><a class="headerlink" href="#download-from-name" title="Permalink to this headline">¶</a></h3>
+<p>Site Admin name customizable via Plone &gt; Site Setup &gt; Mail</p>
+</div>
+<div class="section" id="download-title">
+<h3><a class="toc-backref" href="#id37">${download_title}</a><a class="headerlink" href="#download-title" title="Permalink to this headline">¶</a></h3>
+<p>Title of the Plone object which is downloaded as PDF</p>
+</div>
+<div class="section" id="download-url">
+<h3><a class="toc-backref" href="#id38">${download_url}</a><a class="headerlink" href="#download-url" title="Permalink to this headline">¶</a></h3>
+<p>The absolute URL where the generated output PDF can be downloaded</p>
+</div>
+</div>
 <div class="section" id="dependencies">
-<h2><a class="toc-backref" href="#id31">Dependencies</a><a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id39">Dependencies</a><a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li><a class="reference external" href="http://eea.github.com/docs/eea.converter">eea.converter</a></li>
 <li><a class="reference external" href="http://wkhtmltopdf.org">wkhtmltopdf</a></li>
@@ -350,14 +394,14 @@ and provide a link to the downloadable PDF</p>
 </ol>
 </div>
 <div class="section" id="source-code">
-<h2><a class="toc-backref" href="#id32">Source code</a><a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id40">Source code</a><a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>Latest source code (Plone 4 compatible):
 <a class="reference external" href="https://github.com/eea/eea.pdf">https://github.com/eea/eea.pdf</a></li>
 </ul>
 </div>
 <div class="section" id="copyright-and-license">
-<h2><a class="toc-backref" href="#id33">Copyright and license</a><a class="headerlink" href="#copyright-and-license" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id41">Copyright and license</a><a class="headerlink" href="#copyright-and-license" title="Permalink to this headline">¶</a></h2>
 <p>The Initial Owner of the Original Code is European Environment Agency (EEA).
 All Rights Reserved.</p>
 <p>The EEA PDF (the Original Code) is free software;
@@ -368,7 +412,7 @@ version.</p>
 <p>More details under docs/License.txt</p>
 </div>
 <div class="section" id="funding">
-<h2><a class="toc-backref" href="#id34">Funding</a><a class="headerlink" href="#funding" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id42">Funding</a><a class="headerlink" href="#funding" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="http://www.eea.europa.eu/">EEA</a> - European Environment Agency (EU)</p>
 </div>
 </div>
@@ -420,6 +464,16 @@ version.</p>
 <li><a class="reference internal" href="#pdf-export-succeeded">PDF export succeeded</a></li>
 <li><a class="reference internal" href="#pdf-export-failed">PDF export failed</a></li>
 <li><a class="reference internal" href="#pdf-export-failed-admin">PDF export failed (admin)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#content-rules-email-string-substitution">Content rules email string substitution</a><ul>
+<li><a class="reference internal" href="#download-came-from-url">${download_came_from_url}</a></li>
+<li><a class="reference internal" href="#download-email">${download_email}</a></li>
+<li><a class="reference internal" href="#download-error">${download_error}</a></li>
+<li><a class="reference internal" href="#download-from-email">${download_from_email}</a></li>
+<li><a class="reference internal" href="#download-from-name">${download_from_name}</a></li>
+<li><a class="reference internal" href="#download-title">${download_title}</a></li>
+<li><a class="reference internal" href="#download-url">${download_url}</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#dependencies">Dependencies</a></li>

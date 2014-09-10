@@ -193,17 +193,17 @@ zcml +=
 <p>This package defines a storage interface IStorage that you can use to get
 generated files system paths and Plone related URLs.
 Default strategy of storing files is:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">EEADOWNLOADS_PATH</span> <span class="o">/</span> <span class="n">UID</span> <span class="o">/</span> <span class="n">t</span><span class="o">-</span><span class="n">MODIFIED</span> <span class="o">/</span> <span class="n">ID</span><span class="o">.</span><span class="n">EXTENSION</span>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">EEADOWNLOADS_PATH</span> <span class="o">/</span> <span class="n">UID</span> <span class="o">/</span> <span class="n">MODIFIED</span> <span class="o">/</span> <span class="n">ID</span><span class="o">.</span><span class="n">EXTENSION</span>
 </pre></div>
 </div>
 <p>Here is an example:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">eea.downloads.interfaces</span> <span class="kn">import</span> <span class="n">IStorage</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">store</span> <span class="o">=</span> <span class="n">IStorage</span><span class="p">(</span><span class="n">context</span><span class="p">)</span><span class="o">.</span><span class="n">of</span><span class="p">(</span><span class="s">&#39;pdf&#39;</span><span class="p">)</span>
 <span class="gp">&gt;&gt;&gt; </span><span class="n">store</span><span class="o">.</span><span class="n">filepath</span><span class="p">()</span>
-<span class="go">&#39;/opt/downloads/uid-21323e2321312/t-3213213/context-id.pdf&#39;</span>
+<span class="go">&#39;/opt/downloads/uid-21323e2321312/3213213/context-id.pdf&#39;</span>
 
 <span class="gp">&gt;&gt;&gt; </span><span class="n">store</span><span class="o">.</span><span class="n">absolute_url</span><span class="p">()</span>
-<span class="go">&#39;http://localhost:8080/Plone/downloads/uid-21323e2321312/t-3213213/context-id.pdf&#39;</span>
+<span class="go">&#39;http://localhost:8080/Plone/downloads/uid-21323e2321312/3213213/context-id.pdf&#39;</span>
 </pre></div>
 </div>
 <p>You can always provide a custom IStorage adapter for your Zope objects if you
