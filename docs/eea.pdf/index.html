@@ -148,40 +148,41 @@ See <a class="reference external" href="http://eea.github.com/docs/eea.converter
 <li><a class="reference internal" href="#table-of-contents" id="id14">Table of contents</a></li>
 <li><a class="reference internal" href="#table-of-contents-links" id="id15">Table of contents links</a></li>
 <li><a class="reference internal" href="#javascript" id="id16">JavaScript</a></li>
-<li><a class="reference internal" href="#timeout" id="id17">Timeout</a></li>
-<li><a class="reference internal" href="#asynchronous" id="id18">Asynchronous</a></li>
-<li><a class="reference internal" href="#offset" id="id19">Offset</a></li>
-<li><a class="reference internal" href="#maximum-depth" id="id20">Maximum depth</a></li>
-<li><a class="reference internal" href="#maximum-breadth" id="id21">Maximum breadth</a></li>
-<li><a class="reference internal" href="#maximum-items" id="id22">Maximum items</a></li>
-<li><a class="reference internal" href="#portal-types" id="id23">Portal types</a></li>
+<li><a class="reference internal" href="#javascript-delay" id="id17">JavaScript Delay</a></li>
+<li><a class="reference internal" href="#timeout" id="id18">Timeout</a></li>
+<li><a class="reference internal" href="#asynchronous" id="id19">Asynchronous</a></li>
+<li><a class="reference internal" href="#offset" id="id20">Offset</a></li>
+<li><a class="reference internal" href="#maximum-depth" id="id21">Maximum depth</a></li>
+<li><a class="reference internal" href="#maximum-breadth" id="id22">Maximum breadth</a></li>
+<li><a class="reference internal" href="#maximum-items" id="id23">Maximum items</a></li>
+<li><a class="reference internal" href="#portal-types" id="id24">Portal types</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#custom-permissions" id="id24">Custom permissions</a><ul>
-<li><a class="reference internal" href="#can-download-pdf-eea-pdf-download" id="id25">Can download PDF (eea.pdf.download)</a></li>
-<li><a class="reference internal" href="#can-customize-pdf-eea-pdf-customize" id="id26">Can customize PDF (eea.pdf.customize)</a></li>
+<li><a class="reference internal" href="#custom-permissions" id="id25">Custom permissions</a><ul>
+<li><a class="reference internal" href="#can-download-pdf-eea-pdf-download" id="id26">Can download PDF (eea.pdf.download)</a></li>
+<li><a class="reference internal" href="#can-customize-pdf-eea-pdf-customize" id="id27">Can customize PDF (eea.pdf.customize)</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#content-rules" id="id27">Content rules</a><ul>
-<li><a class="reference internal" href="#pdf-export-succeeded" id="id28">PDF export succeeded</a></li>
-<li><a class="reference internal" href="#pdf-export-failed" id="id29">PDF export failed</a></li>
-<li><a class="reference internal" href="#pdf-export-failed-admin" id="id30">PDF export failed (admin)</a></li>
+<li><a class="reference internal" href="#content-rules" id="id28">Content rules</a><ul>
+<li><a class="reference internal" href="#pdf-export-succeeded" id="id29">PDF export succeeded</a></li>
+<li><a class="reference internal" href="#pdf-export-failed" id="id30">PDF export failed</a></li>
+<li><a class="reference internal" href="#pdf-export-failed-admin" id="id31">PDF export failed (admin)</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#content-rules-email-string-substitution" id="id31">Content rules email string substitution</a><ul>
-<li><a class="reference internal" href="#download-came-from-url" id="id32">${download_came_from_url}</a></li>
-<li><a class="reference internal" href="#download-email" id="id33">${download_email}</a></li>
-<li><a class="reference internal" href="#download-error" id="id34">${download_error}</a></li>
-<li><a class="reference internal" href="#download-from-email" id="id35">${download_from_email}</a></li>
-<li><a class="reference internal" href="#download-from-name" id="id36">${download_from_name}</a></li>
-<li><a class="reference internal" href="#download-title" id="id37">${download_title}</a></li>
-<li><a class="reference internal" href="#download-url" id="id38">${download_url}</a></li>
+<li><a class="reference internal" href="#content-rules-email-string-substitution" id="id32">Content rules email string substitution</a><ul>
+<li><a class="reference internal" href="#download-came-from-url" id="id33">${download_came_from_url}</a></li>
+<li><a class="reference internal" href="#download-email" id="id34">${download_email}</a></li>
+<li><a class="reference internal" href="#download-error" id="id35">${download_error}</a></li>
+<li><a class="reference internal" href="#download-from-email" id="id36">${download_from_email}</a></li>
+<li><a class="reference internal" href="#download-from-name" id="id37">${download_from_name}</a></li>
+<li><a class="reference internal" href="#download-title" id="id38">${download_title}</a></li>
+<li><a class="reference internal" href="#download-url" id="id39">${download_url}</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#dependencies" id="id39">Dependencies</a></li>
-<li><a class="reference internal" href="#source-code" id="id40">Source code</a></li>
-<li><a class="reference internal" href="#copyright-and-license" id="id41">Copyright and license</a></li>
-<li><a class="reference internal" href="#funding" id="id42">Funding</a></li>
+<li><a class="reference internal" href="#dependencies" id="id40">Dependencies</a></li>
+<li><a class="reference internal" href="#source-code" id="id41">Source code</a></li>
+<li><a class="reference internal" href="#copyright-and-license" id="id42">Copyright and license</a></li>
+<li><a class="reference internal" href="#funding" id="id43">Funding</a></li>
 </ul>
 </li>
 </ul>
@@ -268,63 +269,68 @@ Default: False</p>
 <p>Enable or disable javascript.
 Default: True</p>
 </div>
+<div class="section" id="javascript-delay">
+<h3><a class="toc-backref" href="#id17">JavaScript Delay</a><a class="headerlink" href="#javascript-delay" title="Permalink to this headline">¶</a></h3>
+<p>Wait some seconds for javascript to finish
+Default: 0</p>
+</div>
 <div class="section" id="timeout">
-<h3><a class="toc-backref" href="#id17">Timeout</a><a class="headerlink" href="#timeout" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id18">Timeout</a><a class="headerlink" href="#timeout" title="Permalink to this headline">¶</a></h3>
 <p>Abort PDF conversion after this number of seconds
 Default: 3600</p>
 </div>
 <div class="section" id="asynchronous">
-<h3><a class="toc-backref" href="#id18">Asynchronous</a><a class="headerlink" href="#asynchronous" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id19">Asynchronous</a><a class="headerlink" href="#asynchronous" title="Permalink to this headline">¶</a></h3>
 <p>Generate PDF asynchronously and send an email to the user when it&#8217;s done
 Default: True</p>
 </div>
 <div class="section" id="offset">
-<h3><a class="toc-backref" href="#id19">Offset</a><a class="headerlink" href="#offset" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id20">Offset</a><a class="headerlink" href="#offset" title="Permalink to this headline">¶</a></h3>
 <p>Start counting pages within PDF Body from this number. Usefull when cover and/or
 disclaimer are enabled.
 Default: 0</p>
 </div>
 <div class="section" id="maximum-depth">
-<h3><a class="toc-backref" href="#id20">Maximum depth</a><a class="headerlink" href="#maximum-depth" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id21">Maximum depth</a><a class="headerlink" href="#maximum-depth" title="Permalink to this headline">¶</a></h3>
 <p>This option defines the maximum depth a folderish item can go while recursively
 includes it&#8217;s children within PDF.
 Default: 1 (include only direct children, non-folderish ones)</p>
 </div>
 <div class="section" id="maximum-breadth">
-<h3><a class="toc-backref" href="#id21">Maximum breadth</a><a class="headerlink" href="#maximum-breadth" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id22">Maximum breadth</a><a class="headerlink" href="#maximum-breadth" title="Permalink to this headline">¶</a></h3>
 <p>This options limit the number of direct children a folderish item can include
 within PDF.
 Default: 100</p>
 </div>
 <div class="section" id="maximum-items">
-<h3><a class="toc-backref" href="#id22">Maximum items</a><a class="headerlink" href="#maximum-items" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id23">Maximum items</a><a class="headerlink" href="#maximum-items" title="Permalink to this headline">¶</a></h3>
 <p>The total items to be included within PDF export for a folderish item, including
 depth and breadth.
 Default: 1000</p>
 </div>
 <div class="section" id="portal-types">
-<h3><a class="toc-backref" href="#id23">Portal types</a><a class="headerlink" href="#portal-types" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id24">Portal types</a><a class="headerlink" href="#portal-types" title="Permalink to this headline">¶</a></h3>
 <p>Apply this theme to selected portal types.
 Default:</p>
 </div>
 </div>
 <div class="section" id="custom-permissions">
-<h2><a class="toc-backref" href="#id24">Custom permissions</a><a class="headerlink" href="#custom-permissions" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id25">Custom permissions</a><a class="headerlink" href="#custom-permissions" title="Permalink to this headline">¶</a></h2>
 <p>Custom permissions added by this package</p>
 <div class="section" id="can-download-pdf-eea-pdf-download">
-<h3><a class="toc-backref" href="#id25">Can download PDF (eea.pdf.download)</a><a class="headerlink" href="#can-download-pdf-eea-pdf-download" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id26">Can download PDF (eea.pdf.download)</a><a class="headerlink" href="#can-download-pdf-eea-pdf-download" title="Permalink to this headline">¶</a></h3>
 <p>Assign this permission to roles that you want to be able to download content as PDF
 Default: Owner, Manager, Editor</p>
 </div>
 <div class="section" id="can-customize-pdf-eea-pdf-customize">
-<h3><a class="toc-backref" href="#id26">Can customize PDF (eea.pdf.customize)</a><a class="headerlink" href="#can-customize-pdf-eea-pdf-customize" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id27">Can customize PDF (eea.pdf.customize)</a><a class="headerlink" href="#can-customize-pdf-eea-pdf-customize" title="Permalink to this headline">¶</a></h3>
 <p>Assign this permission to roles that you want to be able to contextually customize
 the output PDF look and feel
 Default: Manager, Site Administrator</p>
 </div>
 </div>
 <div class="section" id="content-rules">
-<h2><a class="toc-backref" href="#id27">Content rules</a><a class="headerlink" href="#content-rules" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id28">Content rules</a><a class="headerlink" href="#content-rules" title="Permalink to this headline">¶</a></h2>
 <p>This package uses Plone Content-rules to notify users by email when an asynchronous
 PDF job is done. Thus 3 custom content-rules will be added within
 Plone &gt; Site Setup &gt; Content-rules</p>
@@ -338,54 +344,54 @@ Also if you disable these content-rules the users will never know when the
 PDF is ready and what is the link where they can download the output PDF.</p>
 </div>
 <div class="section" id="pdf-export-succeeded">
-<h3><a class="toc-backref" href="#id28">PDF export succeeded</a><a class="headerlink" href="#pdf-export-succeeded" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id29">PDF export succeeded</a><a class="headerlink" href="#pdf-export-succeeded" title="Permalink to this headline">¶</a></h3>
 <p>Notify the person who requested a PDF export that the PDF successfully exported
 and provide a link to the downloadable PDF</p>
 </div>
 <div class="section" id="pdf-export-failed">
-<h3><a class="toc-backref" href="#id29">PDF export failed</a><a class="headerlink" href="#pdf-export-failed" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id30">PDF export failed</a><a class="headerlink" href="#pdf-export-failed" title="Permalink to this headline">¶</a></h3>
 <p>Notify the person who requested a PDF export that the PDF export failed.</p>
 </div>
 <div class="section" id="pdf-export-failed-admin">
-<h3><a class="toc-backref" href="#id30">PDF export failed (admin)</a><a class="headerlink" href="#pdf-export-failed-admin" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id31">PDF export failed (admin)</a><a class="headerlink" href="#pdf-export-failed-admin" title="Permalink to this headline">¶</a></h3>
 <p>Notify admin that there were issues while exporting PDF</p>
 </div>
 </div>
 <div class="section" id="content-rules-email-string-substitution">
-<h2><a class="toc-backref" href="#id31">Content rules email string substitution</a><a class="headerlink" href="#content-rules-email-string-substitution" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id32">Content rules email string substitution</a><a class="headerlink" href="#content-rules-email-string-substitution" title="Permalink to this headline">¶</a></h2>
 <p>In order to be able to easily customize emails sent by this package the following
 custom email template string substitutions can be made</p>
 <div class="section" id="download-came-from-url">
-<h3><a class="toc-backref" href="#id32">${download_came_from_url}</a><a class="headerlink" href="#download-came-from-url" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id33">${download_came_from_url}</a><a class="headerlink" href="#download-came-from-url" title="Permalink to this headline">¶</a></h3>
 <p>The absolute URL of the Plone object which is downloaded as PDF</p>
 </div>
 <div class="section" id="download-email">
-<h3><a class="toc-backref" href="#id33">${download_email}</a><a class="headerlink" href="#download-email" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id34">${download_email}</a><a class="headerlink" href="#download-email" title="Permalink to this headline">¶</a></h3>
 <p>Email address of the user that triggered the download as PDF action</p>
 </div>
 <div class="section" id="download-error">
-<h3><a class="toc-backref" href="#id34">${download_error}</a><a class="headerlink" href="#download-error" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id35">${download_error}</a><a class="headerlink" href="#download-error" title="Permalink to this headline">¶</a></h3>
 <p>Error traceback when download as PDF job fails</p>
 </div>
 <div class="section" id="download-from-email">
-<h3><a class="toc-backref" href="#id35">${download_from_email}</a><a class="headerlink" href="#download-from-email" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id36">${download_from_email}</a><a class="headerlink" href="#download-from-email" title="Permalink to this headline">¶</a></h3>
 <p>Site Admin email address customizable via Plone &gt; Site Setup &gt; Mail</p>
 </div>
 <div class="section" id="download-from-name">
-<h3><a class="toc-backref" href="#id36">${download_from_name}</a><a class="headerlink" href="#download-from-name" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id37">${download_from_name}</a><a class="headerlink" href="#download-from-name" title="Permalink to this headline">¶</a></h3>
 <p>Site Admin name customizable via Plone &gt; Site Setup &gt; Mail</p>
 </div>
 <div class="section" id="download-title">
-<h3><a class="toc-backref" href="#id37">${download_title}</a><a class="headerlink" href="#download-title" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id38">${download_title}</a><a class="headerlink" href="#download-title" title="Permalink to this headline">¶</a></h3>
 <p>Title of the Plone object which is downloaded as PDF</p>
 </div>
 <div class="section" id="download-url">
-<h3><a class="toc-backref" href="#id38">${download_url}</a><a class="headerlink" href="#download-url" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id39">${download_url}</a><a class="headerlink" href="#download-url" title="Permalink to this headline">¶</a></h3>
 <p>The absolute URL where the generated output PDF can be downloaded</p>
 </div>
 </div>
 <div class="section" id="dependencies">
-<h2><a class="toc-backref" href="#id39">Dependencies</a><a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id40">Dependencies</a><a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li><a class="reference external" href="http://eea.github.com/docs/eea.converter">eea.converter</a></li>
 <li><a class="reference external" href="http://wkhtmltopdf.org">wkhtmltopdf</a></li>
@@ -394,14 +400,14 @@ custom email template string substitutions can be made</p>
 </ol>
 </div>
 <div class="section" id="source-code">
-<h2><a class="toc-backref" href="#id40">Source code</a><a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id41">Source code</a><a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>Latest source code (Plone 4 compatible):
 <a class="reference external" href="https://github.com/eea/eea.pdf">https://github.com/eea/eea.pdf</a></li>
 </ul>
 </div>
 <div class="section" id="copyright-and-license">
-<h2><a class="toc-backref" href="#id41">Copyright and license</a><a class="headerlink" href="#copyright-and-license" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id42">Copyright and license</a><a class="headerlink" href="#copyright-and-license" title="Permalink to this headline">¶</a></h2>
 <p>The Initial Owner of the Original Code is European Environment Agency (EEA).
 All Rights Reserved.</p>
 <p>The EEA PDF (the Original Code) is free software;
@@ -412,7 +418,7 @@ version.</p>
 <p>More details under docs/License.txt</p>
 </div>
 <div class="section" id="funding">
-<h2><a class="toc-backref" href="#id42">Funding</a><a class="headerlink" href="#funding" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id43">Funding</a><a class="headerlink" href="#funding" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="http://www.eea.europa.eu/">EEA</a> - European Environment Agency (EU)</p>
 </div>
 </div>
@@ -446,6 +452,7 @@ version.</p>
 <li><a class="reference internal" href="#table-of-contents">Table of contents</a></li>
 <li><a class="reference internal" href="#table-of-contents-links">Table of contents links</a></li>
 <li><a class="reference internal" href="#javascript">JavaScript</a></li>
+<li><a class="reference internal" href="#javascript-delay">JavaScript Delay</a></li>
 <li><a class="reference internal" href="#timeout">Timeout</a></li>
 <li><a class="reference internal" href="#asynchronous">Asynchronous</a></li>
 <li><a class="reference internal" href="#offset">Offset</a></li>
