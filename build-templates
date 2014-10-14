@@ -106,6 +106,7 @@ do
                     "$(
                         cd "$SOURCE_DIR$PACKAGE_NAME/$SUBPACKAGE_PATH";
                         pwd;
+                        git config --global core.autocrlf false;
                         git add -A documentation;
                         git commit -m "$commit";
                         git push origin master;
