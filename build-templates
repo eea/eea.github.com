@@ -108,6 +108,8 @@ do
                         pwd;
                         git config --global core.autocrlf false;
                         git add -A documentation;
+                        git reset documentation/searchindex.js
+                        git checkout documentation/searchindex.js
                         git commit -m "$commit";
                         git push origin master;
                         )"
