@@ -134,11 +134,12 @@ interfaces and widgets to be used in a CMS.</p>
 <li><a class="reference internal" href="#introduction" id="id4">Introduction</a></li>
 <li><a class="reference internal" href="#components" id="id5">Components</a></li>
 <li><a class="reference internal" href="#live-demos" id="id6">Live demos</a></li>
-<li><a class="reference internal" href="#installation" id="id7">Installation</a></li>
-<li><a class="reference internal" href="#dependencies" id="id8">Dependencies</a></li>
-<li><a class="reference internal" href="#source-code" id="id9">Source code</a></li>
-<li><a class="reference internal" href="#copyright-and-license" id="id10">Copyright and license</a></li>
-<li><a class="reference internal" href="#funding-and-project-management" id="id11">Funding and project management</a></li>
+<li><a class="reference internal" href="#development-instalation-using-vagrant" id="id7">Development instalation using Vagrant</a></li>
+<li><a class="reference internal" href="#installation" id="id8">Installation</a></li>
+<li><a class="reference internal" href="#dependencies" id="id9">Dependencies</a></li>
+<li><a class="reference internal" href="#source-code" id="id10">Source code</a></li>
+<li><a class="reference internal" href="#copyright-and-license" id="id11">Copyright and license</a></li>
+<li><a class="reference internal" href="#funding-and-project-management" id="id12">Funding and project management</a></li>
 </ul>
 </li>
 </ul>
@@ -171,8 +172,23 @@ on development instance, on EEA Centaurus server.</li>
 <li><a class="reference external" href="http://www.eea.europa.eu/data-and-maps/pam/">Climate change policies and measures in Europe Demo</a></li>
 </ul>
 </div>
+<div class="section" id="development-instalation-using-vagrant">
+<h2><a class="toc-backref" href="#id7">Development instalation using Vagrant</a><a class="headerlink" href="#development-instalation-using-vagrant" title="Permalink to this headline">¶</a></h2>
+<p>We provide most of the setup steps in a Vagrant box for a clean install
+in a virtual machine.</p>
+<p>In the <strong>same</strong> directory clone these projects:</p>
+<div class="highlight-python"><div class="highlight"><pre>git clone https://github.com/eea/eea.elasticsearch
+
+git clone git clone https://github.com/eea/facetview.git
+
+git clone git@github.com:eea/elasticsearch-servicewrapper.git
+</pre></div>
+</div>
+<p>Follow instructions in <a class="reference external" href="vagrant/README.rst">vagrant/README.rst</a></p>
+<p>If you want a local setup follow the instructions in the next section.</p>
+</div>
 <div class="section" id="installation">
-<h2><a class="toc-backref" href="#id7">Installation</a><a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id8">Installation</a><a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
 <li><p class="first">Clone project</p>
 <p>git clone <a class="reference external" href="mailto:git&#37;&#52;&#48;github&#46;com">git<span>&#64;</span>github<span>&#46;</span>com</a>:eea/eea.elasticsearch.git</p>
@@ -236,7 +252,7 @@ eea.elasticsearch/etc/production/config/realm.properties, see
 </ol>
 </div>
 <div class="section" id="dependencies">
-<h2><a class="toc-backref" href="#id8">Dependencies</a><a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id9">Dependencies</a><a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt><a class="reference external" href="https://github.com/eea/eea.elasticsearch">eea.elasticsearch</a> has the following dependencies:</dt>
 <dd><ul class="first last simple">
@@ -249,7 +265,7 @@ eea.elasticsearch/etc/production/config/realm.properties, see
 </dl>
 </div>
 <div class="section" id="source-code">
-<h2><a class="toc-backref" href="#id9">Source code</a><a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id10">Source code</a><a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt>Latest source code:</dt>
 <dd><ul class="first last simple">
@@ -260,7 +276,7 @@ eea.elasticsearch/etc/production/config/realm.properties, see
 </dl>
 </div>
 <div class="section" id="copyright-and-license">
-<h2><a class="toc-backref" href="#id10">Copyright and license</a><a class="headerlink" href="#copyright-and-license" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id11">Copyright and license</a><a class="headerlink" href="#copyright-and-license" title="Permalink to this headline">¶</a></h2>
 <p>The Initial Owner of the Original Code is European Environment Agency (EEA).
 All Rights Reserved.</p>
 <p>The EEA ElasticSearch (the Original Code) is free software;
@@ -271,7 +287,7 @@ version.</p>
 <p>More details under eea.elasticsearch/docs/LICENSE.txt</p>
 </div>
 <div class="section" id="funding-and-project-management">
-<h2><a class="toc-backref" href="#id11">Funding and project management</a><a class="headerlink" href="#funding-and-project-management" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id12">Funding and project management</a><a class="headerlink" href="#funding-and-project-management" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="http://www.eea.europa.eu/">EEA</a> - European Environment Agency (EU)</p>
 </div>
 </div>
@@ -294,6 +310,7 @@ version.</p>
 <li><a class="reference internal" href="#introduction">Introduction</a></li>
 <li><a class="reference internal" href="#components">Components</a></li>
 <li><a class="reference internal" href="#live-demos">Live demos</a></li>
+<li><a class="reference internal" href="#development-instalation-using-vagrant">Development instalation using Vagrant</a></li>
 <li><a class="reference internal" href="#installation">Installation</a></li>
 <li><a class="reference internal" href="#dependencies">Dependencies</a></li>
 <li><a class="reference internal" href="#source-code">Source code</a></li>
