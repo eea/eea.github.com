@@ -241,12 +241,21 @@ handle it:</p>
 
 parts +=
     media-downloads
+    media-downloads-temp
 
-media-downloads-path = ${buildout:directory}/var/downloads
+
+media-downloads-path = ${buildout:directory}/var/downloads/pdf
+media-downloads-tmp = ${buildout:directory}/var/downloads/tmp
 
 [media-downloads]
 recipe = ore.recipe.fs:mkdir
 path = ${buildout:media-downloads-path}
+mode = 0700
+createpath = true
+
+[media-downloads-temp]
+recipe = ore.recipe.fs:mkdir
+path = ${buildout:media-downloads-temp}
 mode = 0700
 createpath = true
 </pre></div>
@@ -258,13 +267,15 @@ about it:</p>
 <div class="highlight-python"><div class="highlight"><pre>[buildout]
 
 media-downloads-name = downloads
-media-downloads-path = ${buildout:directory}/var/downloads
+media-downloads-path = ${buildout:directory}/var/downloads/pdf
+media-downloads-temp = ${buildout:directory}/var/downloads/tmp
 
 [instance]
 
 environment-vars +=
     EEADOWNLOADS_NAME ${buildout:media-downloads-name}
     EEADOWNLOADS_PATH ${buildout:media-downloads-path}
+    EEACONVERTER_TEMP ${buildout:media-downloads-temp}
 </pre></div>
 </div>
 <p>Also, don&#8217;t forget to setup <a class="reference external" href="https://github.com/plone/plone.app.async#ploneappasync">plone.app.async</a></p>
@@ -479,6 +490,7 @@ return this file instead of generating one based on context data.</p>
 <h2><a class="toc-backref" href="#id43">Dependencies</a><a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li><a class="reference external" href="http://eea.github.com/docs/eea.converter">eea.converter</a></li>
+<li><a class="reference external" href="http://eea.github.com/docs/eea.downloads">eea.downloads</a></li>
 <li><a class="reference external" href="http://wkhtmltopdf.org">wkhtmltopdf</a></li>
 <li><a class="reference external" href="http://www.pdflabs.com/tools/pdftk-the-pdf-toolkit/">pdftk</a></li>
 <li><a class="reference external" href="https://github.com/plone/plone.app.async#ploneappasync">plone.app.async</a></li>
