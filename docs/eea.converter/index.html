@@ -273,7 +273,14 @@ like:</p>
 </pre></div>
 </div>
 <p>Same for asynchronous download, define a method called <strong>async</strong>.
-See default implementation within eea.converter.browser.app.support</p>
+See default implementation within eea.converter.browser.app.support or add an
+environment var called EEACONVERTER_ASYNC within your buildout.cfg:</p>
+<div class="highlight-python"><div class="highlight"><pre>[instance]
+...
+environment-vars =
+  EEACONVERTER_ASYNC True
+</pre></div>
+</div>
 </div>
 <div class="section" id="content-rules">
 <h2>Content rules<a class="headerlink" href="#content-rules" title="Permalink to this headline">¶</a></h2>

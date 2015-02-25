@@ -168,9 +168,9 @@ See <a class="reference external" href="http://eea.github.com/docs/eea.converter
 </ul>
 </li>
 <li><a class="reference internal" href="#content-rules" id="id30">Content rules</a><ul>
-<li><a class="reference internal" href="#pdf-export-succeeded" id="id31">PDF export succeeded</a></li>
-<li><a class="reference internal" href="#pdf-export-failed" id="id32">PDF export failed</a></li>
-<li><a class="reference internal" href="#pdf-export-failed-admin" id="id33">PDF export failed (admin)</a></li>
+<li><a class="reference internal" href="#export-succeeded" id="id31">Export succeeded</a></li>
+<li><a class="reference internal" href="#export-failed" id="id32">Export failed</a></li>
+<li><a class="reference internal" href="#export-failed-admin" id="id33">Export failed (admin)</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#content-rules-email-string-substitution" id="id34">Content rules email string substitution</a><ul>
@@ -181,13 +181,14 @@ See <a class="reference external" href="http://eea.github.com/docs/eea.converter
 <li><a class="reference internal" href="#download-from-name" id="id39">${download_from_name}</a></li>
 <li><a class="reference internal" href="#download-title" id="id40">${download_title}</a></li>
 <li><a class="reference internal" href="#download-url" id="id41">${download_url}</a></li>
+<li><a class="reference internal" href="#download-type" id="id42">${download_type}</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#disable-pdf-export" id="id42">Disable PDF export</a></li>
-<li><a class="reference internal" href="#dependencies" id="id43">Dependencies</a></li>
-<li><a class="reference internal" href="#source-code" id="id44">Source code</a></li>
-<li><a class="reference internal" href="#copyright-and-license" id="id45">Copyright and license</a></li>
-<li><a class="reference internal" href="#funding" id="id46">Funding</a></li>
+<li><a class="reference internal" href="#disable-pdf-export" id="id43">Disable PDF export</a></li>
+<li><a class="reference internal" href="#dependencies" id="id44">Dependencies</a></li>
+<li><a class="reference internal" href="#source-code" id="id45">Source code</a></li>
+<li><a class="reference internal" href="#copyright-and-license" id="id46">Copyright and license</a></li>
+<li><a class="reference internal" href="#funding" id="id47">Funding</a></li>
 </ul>
 </li>
 </ul>
@@ -206,11 +207,22 @@ called &#8216;action-download-pdf&#8217; within context</li>
 <div class="section" id="install">
 <h2><a class="toc-backref" href="#id5">Install</a><a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Add eea.pdf to your eggs section in your buildout and re-run buildout.
+<li>Add eea.pdf to your <strong>eggs</strong> and <strong>zcml</strong> section in your buildout
+and re-run buildout.
 You can download a sample buildout from
 <a class="reference external" href="https://github.com/eea/eea.pdf/tree/master/buildouts/plone4">https://github.com/eea/eea.pdf/tree/master/buildouts/plone4</a></li>
 <li>Install eea.pdf within Site Setup &gt; Add-ons</li>
 </ul>
+<div class="highlight-python"><div class="highlight"><pre>[instance]
+eggs =
+    ...
+    eea.pdf
+
+zcml =
+    ...
+    eea.pdf
+</pre></div>
+</div>
 <div class="section" id="external-pdf-generator-tools">
 <h3><a class="toc-backref" href="#id6">External PDF generator tools</a><a class="headerlink" href="#external-pdf-generator-tools" title="Permalink to this headline">¶</a></h3>
 <p>Ensure that you have installed <a class="reference external" href="http://wkhtmltopdf.org">wkhtmltopdf</a> and <a class="reference external" href="http://www.pdflabs.com/tools/pdftk-the-pdf-toolkit/">pdftk</a> on your machine. You
@@ -428,17 +440,17 @@ with <strong>$download_</strong> as you&#8217;ll break the download chain.
 Also if you disable these content-rules the users will never know when the
 PDF is ready and what is the link where they can download the output PDF.</p>
 </div>
-<div class="section" id="pdf-export-succeeded">
-<h3><a class="toc-backref" href="#id31">PDF export succeeded</a><a class="headerlink" href="#pdf-export-succeeded" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="export-succeeded">
+<h3><a class="toc-backref" href="#id31">Export succeeded</a><a class="headerlink" href="#export-succeeded" title="Permalink to this headline">¶</a></h3>
 <p>Notify the person who requested a PDF export that the PDF successfully exported
 and provide a link to the downloadable PDF</p>
 </div>
-<div class="section" id="pdf-export-failed">
-<h3><a class="toc-backref" href="#id32">PDF export failed</a><a class="headerlink" href="#pdf-export-failed" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="export-failed">
+<h3><a class="toc-backref" href="#id32">Export failed</a><a class="headerlink" href="#export-failed" title="Permalink to this headline">¶</a></h3>
 <p>Notify the person who requested a PDF export that the PDF export failed.</p>
 </div>
-<div class="section" id="pdf-export-failed-admin">
-<h3><a class="toc-backref" href="#id33">PDF export failed (admin)</a><a class="headerlink" href="#pdf-export-failed-admin" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="export-failed-admin">
+<h3><a class="toc-backref" href="#id33">Export failed (admin)</a><a class="headerlink" href="#export-failed-admin" title="Permalink to this headline">¶</a></h3>
 <p>Notify admin that there were issues while exporting PDF</p>
 </div>
 </div>
@@ -474,9 +486,14 @@ custom email template string substitutions can be made</p>
 <h3><a class="toc-backref" href="#id41">${download_url}</a><a class="headerlink" href="#download-url" title="Permalink to this headline">¶</a></h3>
 <p>The absolute URL where the generated output PDF can be downloaded</p>
 </div>
+<div class="section" id="download-type">
+<h3><a class="toc-backref" href="#id42">${download_type}</a><a class="headerlink" href="#download-type" title="Permalink to this headline">¶</a></h3>
+<p>Download type. Default to PDF for this package. It is package specific and it
+can be PDF, EPUB, etc.</p>
+</div>
 </div>
 <div class="section" id="disable-pdf-export">
-<h2><a class="toc-backref" href="#id42">Disable PDF export</a><a class="headerlink" href="#disable-pdf-export" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id43">Disable PDF export</a><a class="headerlink" href="#disable-pdf-export" title="Permalink to this headline">¶</a></h2>
 <p>You have the possibility to temporarily disable dynamic PDF export contextually
 by adding a static PDF file (or a Python Script, Page Template, etc)
 within context called <strong>action-download-pdf</strong>. This way /download.pdf will
@@ -487,7 +504,7 @@ return this file instead of generating one based on context data.</p>
 </div>
 </div>
 <div class="section" id="dependencies">
-<h2><a class="toc-backref" href="#id43">Dependencies</a><a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id44">Dependencies</a><a class="headerlink" href="#dependencies" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li><a class="reference external" href="http://eea.github.com/docs/eea.converter">eea.converter</a></li>
 <li><a class="reference external" href="http://eea.github.com/docs/eea.downloads">eea.downloads</a></li>
@@ -498,14 +515,14 @@ return this file instead of generating one based on context data.</p>
 </ol>
 </div>
 <div class="section" id="source-code">
-<h2><a class="toc-backref" href="#id44">Source code</a><a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id45">Source code</a><a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>Latest source code (Plone 4 compatible):
 <a class="reference external" href="https://github.com/collective/eea.pdf">https://github.com/collective/eea.pdf</a></li>
 </ul>
 </div>
 <div class="section" id="copyright-and-license">
-<h2><a class="toc-backref" href="#id45">Copyright and license</a><a class="headerlink" href="#copyright-and-license" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id46">Copyright and license</a><a class="headerlink" href="#copyright-and-license" title="Permalink to this headline">¶</a></h2>
 <p>The Initial Owner of the Original Code is European Environment Agency (EEA).
 All Rights Reserved.</p>
 <p>The EEA PDF (the Original Code) is free software;
@@ -516,7 +533,7 @@ version.</p>
 <p>More details under docs/License.txt</p>
 </div>
 <div class="section" id="funding">
-<h2><a class="toc-backref" href="#id46">Funding</a><a class="headerlink" href="#funding" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id47">Funding</a><a class="headerlink" href="#funding" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="http://www.eea.europa.eu/">EEA</a> - European Environment Agency (EU)</p>
 </div>
 </div>
@@ -570,9 +587,9 @@ version.</p>
 </ul>
 </li>
 <li><a class="reference internal" href="#content-rules">Content rules</a><ul>
-<li><a class="reference internal" href="#pdf-export-succeeded">PDF export succeeded</a></li>
-<li><a class="reference internal" href="#pdf-export-failed">PDF export failed</a></li>
-<li><a class="reference internal" href="#pdf-export-failed-admin">PDF export failed (admin)</a></li>
+<li><a class="reference internal" href="#export-succeeded">Export succeeded</a></li>
+<li><a class="reference internal" href="#export-failed">Export failed</a></li>
+<li><a class="reference internal" href="#export-failed-admin">Export failed (admin)</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#content-rules-email-string-substitution">Content rules email string substitution</a><ul>
@@ -583,6 +600,7 @@ version.</p>
 <li><a class="reference internal" href="#download-from-name">${download_from_name}</a></li>
 <li><a class="reference internal" href="#download-title">${download_title}</a></li>
 <li><a class="reference internal" href="#download-url">${download_url}</a></li>
+<li><a class="reference internal" href="#download-type">${download_type}</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#disable-pdf-export">Disable PDF export</a></li>

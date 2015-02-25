@@ -159,16 +159,17 @@
 <li><a class="reference internal" href="#download-from-name" id="id26">${download_from_name}</a></li>
 <li><a class="reference internal" href="#download-title" id="id27">${download_title}</a></li>
 <li><a class="reference internal" href="#download-url" id="id28">${download_url}</a></li>
+<li><a class="reference internal" href="#download-type" id="id29">${download_type}</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#disable-epub-export" id="id29">Disable ePub export</a></li>
-<li><a class="reference internal" href="#id2" id="id30">Content rules</a></li>
-<li><a class="reference internal" href="#dependecies" id="id31">Dependecies</a></li>
-<li><a class="reference internal" href="#live-demo" id="id32">Live demo</a></li>
-<li><a class="reference internal" href="#source-code" id="id33">Source code</a></li>
-<li><a class="reference internal" href="#copyright-and-license" id="id34">Copyright and license</a></li>
-<li><a class="reference internal" href="#links" id="id35">Links</a></li>
-<li><a class="reference internal" href="#funding" id="id36">Funding</a></li>
+<li><a class="reference internal" href="#disable-epub-export" id="id30">Disable ePub export</a></li>
+<li><a class="reference internal" href="#id2" id="id31">Content rules</a></li>
+<li><a class="reference internal" href="#dependecies" id="id32">Dependecies</a></li>
+<li><a class="reference internal" href="#live-demo" id="id33">Live demo</a></li>
+<li><a class="reference internal" href="#source-code" id="id34">Source code</a></li>
+<li><a class="reference internal" href="#copyright-and-license" id="id35">Copyright and license</a></li>
+<li><a class="reference internal" href="#links" id="id36">Links</a></li>
+<li><a class="reference internal" href="#funding" id="id37">Funding</a></li>
 </ul>
 </li>
 </ul>
@@ -235,19 +236,28 @@ found in buildout-folder/var/log.</p>
 <div class="section" id="installation">
 <h2><a class="toc-backref" href="#id9">Installation</a><a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
 <p>The easiest way to get eea.epub support in Plone 4 using this
-package is to work with installations based on <a class="reference external" href="http://pypi.python.org/pypi/zc.buildout/">zc.buildout</a>.
+package is to work with installations based on <a class="reference external" href="https://pypi.python.org/pypi/zc.buildout">zc.buildout</a>.
 Other types of installations should also be possible, but might turn out
 to be somewhat tricky.</p>
-<p>To get started you will simply need to add the package to your &#8220;eggs&#8221; and
-&#8220;zcml&#8221; sections, run buildout, restart your Plone instance and install the
-&#8220;eea.epub&#8221; package using the quick-installer or via the &#8220;Add-on
-Products&#8221; section in &#8220;Site Setup&#8221;.</p>
+<p>To get started you will simply need to add the package to your <strong>eggs</strong> and
+<strong>zcml</strong> sections, run buildout, restart your Plone instance and install the
+<strong>eea.epub</strong> package using the quick-installer or via the &#8220;Add-on
+Products&#8221; section in &#8220;Site Setup&#8221;:</p>
+<div class="highlight-python"><div class="highlight"><pre>[instance]
+eggs =
+    eea.epub
+
+zcml =
+    eea.epub
+</pre></div>
+</div>
 <p>You can download a sample buildout at:</p>
-<p><a class="reference external" href="https://svn.eionet.europa.eu/repositories/Zope/trunk/eea.epub/buildouts">https://svn.eionet.europa.eu/repositories/Zope/trunk/eea.epub/buildouts</a></p>
+<p><a class="reference external" href="https://github.com/eea/eea.epub/tree/master/buildouts/plone4">https://github.com/eea/eea.epub/tree/master/buildouts/plone4</a></p>
 <div class="section" id="asynchronous-setup">
 <h3><a class="toc-backref" href="#id10">Asynchronous setup</a><a class="headerlink" href="#asynchronous-setup" title="Permalink to this headline">¶</a></h3>
 <p>By default all ePubs are <strong>NOT</strong> generated asynchronous. You&#8217;ll need <a class="reference external" href="http://eea.github.com/docs/eea.pdf">eea.pdf</a>
-installed in order to be able to enable asynchronous download.</p>
+installed in order to be able to enable asynchronous download or you can
+provide an os environment called <strong>EEACONVERTER_ASYNC</strong>.</p>
 <p>Also some extra config is needed within your buildout in order for this
 to work properly.</p>
 <p>First of all you&#8217;ll need a folder were to store generated ePub files. For this
@@ -291,6 +301,7 @@ environment-vars +=
   EEADOWNLOADS_NAME ${buildout:media-downloads-name}
   EEADOWNLOADS_PATH ${buildout:media-downloads-path}
   EEACONVERTER_TEMP ${buildout:media-downloads-temp}
+  EEACONVERTER_ASYNC True
 </pre></div>
 </div>
 <p>Also, don&#8217;t forget to setup <a class="reference external" href="https://github.com/plone/plone.app.async#ploneappasync">plone.app.async</a></p>
@@ -394,9 +405,14 @@ custom email template string substitutions can be made</p>
 <h3><a class="toc-backref" href="#id28">${download_url}</a><a class="headerlink" href="#download-url" title="Permalink to this headline">¶</a></h3>
 <p>The absolute URL where the generated output ePub can be downloaded</p>
 </div>
+<div class="section" id="download-type">
+<h3><a class="toc-backref" href="#id29">${download_type}</a><a class="headerlink" href="#download-type" title="Permalink to this headline">¶</a></h3>
+<p>Download type. Default to EPUB for this package. It is package specific and it
+can be EPUB, PDF, etc.</p>
+</div>
 </div>
 <div class="section" id="disable-epub-export">
-<h2><a class="toc-backref" href="#id29">Disable ePub export</a><a class="headerlink" href="#disable-epub-export" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id30">Disable ePub export</a><a class="headerlink" href="#disable-epub-export" title="Permalink to this headline">¶</a></h2>
 <p>You have the possibility to temporarily disable dynamic ePub export contextually
 by adding a static ePub file (or a Python Script, Page Template, etc)
 within context called <strong>action-download-epub</strong>. This way /download.epub will
@@ -407,7 +423,7 @@ return this file instead of generating one based on context data.</p>
 </div>
 </div>
 <div class="section" id="id2">
-<h2><a class="toc-backref" href="#id30">Content rules</a><a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id31">Content rules</a><a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p>This package uses Plone Content-rules to notify users by email when
 an asynchronous ePub job is done. Thus 3 custom content-rules will be added
 within Plone &gt; Site Setup &gt; Content-rules</p>
@@ -422,7 +438,7 @@ ePub is ready and what is the link where they can download the output ePub.</p>
 </div>
 </div>
 <div class="section" id="dependecies">
-<h2><a class="toc-backref" href="#id31">Dependecies</a><a class="headerlink" href="#dependecies" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id32">Dependecies</a><a class="headerlink" href="#dependecies" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li>BeautifulSoup</li>
 <li>Lxml</li>
@@ -434,14 +450,14 @@ ePub is ready and what is the link where they can download the output ePub.</p>
 </ol>
 </div>
 <div class="section" id="live-demo">
-<h2><a class="toc-backref" href="#id32">Live demo</a><a class="headerlink" href="#live-demo" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id33">Live demo</a><a class="headerlink" href="#live-demo" title="Permalink to this headline">¶</a></h2>
 <p>Here some live production demos at EEA (European Environment Agency)</p>
 <ol class="arabic simple">
 <li><a class="reference external" href="http://www.eea.europa.eu/soer/synthesis">http://www.eea.europa.eu/soer/synthesis</a></li>
 </ol>
 </div>
 <div class="section" id="source-code">
-<h2><a class="toc-backref" href="#id33">Source code</a><a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id34">Source code</a><a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt>Latest source code (Plone 4 compatible):</dt>
 <dd><a class="reference external" href="https://svn.eionet.europa.eu/repositories/Zope/trunk/eea.epub/trunk">https://svn.eionet.europa.eu/repositories/Zope/trunk/eea.epub/trunk</a></dd>
@@ -450,7 +466,7 @@ ePub is ready and what is the link where they can download the output ePub.</p>
 </dl>
 </div>
 <div class="section" id="copyright-and-license">
-<h2><a class="toc-backref" href="#id34">Copyright and license</a><a class="headerlink" href="#copyright-and-license" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id35">Copyright and license</a><a class="headerlink" href="#copyright-and-license" title="Permalink to this headline">¶</a></h2>
 <p>The Initial Owner of the Original Code is European Environment Agency (EEA).
 All Rights Reserved.</p>
 <p>The EEA Epub (the Original Code) is free software;
@@ -461,13 +477,13 @@ version.</p>
 <p>More details under docs/License.txt</p>
 </div>
 <div class="section" id="links">
-<h2><a class="toc-backref" href="#id35">Links</a><a class="headerlink" href="#links" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id36">Links</a><a class="headerlink" href="#links" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li>EEA Epub wiki page: <a class="reference external" href="http://taskman.eionet.europa.eu/projects/zope/wiki/HowToEpub">http://taskman.eionet.europa.eu/projects/zope/wiki/HowToEpub</a></li>
 </ol>
 </div>
 <div class="section" id="funding">
-<h2><a class="toc-backref" href="#id36">Funding</a><a class="headerlink" href="#funding" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id37">Funding</a><a class="headerlink" href="#funding" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="http://www.eea.europa.eu/">EEA</a> - European Enviroment Agency (EU)</p>
 </div>
 </div>
@@ -520,6 +536,7 @@ version.</p>
 <li><a class="reference internal" href="#download-from-name">${download_from_name}</a></li>
 <li><a class="reference internal" href="#download-title">${download_title}</a></li>
 <li><a class="reference internal" href="#download-url">${download_url}</a></li>
+<li><a class="reference internal" href="#download-type">${download_type}</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#disable-epub-export">Disable ePub export</a></li>
