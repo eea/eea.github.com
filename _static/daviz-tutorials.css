@@ -55,6 +55,7 @@
 .by-topic {
     float:right;
 /*    width:350px*/
+    margin-top: 10px;
 }
 
 .daviz-tutorials-tagcloud {
@@ -73,6 +74,7 @@
 .daviz-tutorials-tagcloud ul li{
     float:left;
     margin-left:20px;
+    line-height: 25px;
 }
 
 .daviz-tutorials-tagcloud label {
