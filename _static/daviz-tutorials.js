@@ -54,7 +54,7 @@ DavizEdit.DavizTutorials.prototype = {
         var playlists = {"Basic tutorials":"PLVPSQz7ahsByeq8nVKC7TT9apArEXBrV0", "Advanced tutorials": "PLVPSQz7ahsBxbe8pwzFWLQuvDSP9JFn8I"};
         var api_key = "AIzaSyAJ8UVYKjhX9AmrTwBAfJIXnbnVlPaDxRQ";
         jQuery.each(playlists, function(playlist_key, playlist){
-            jQuery.getJSON("http://gdata.youtube.com/feeds/api/playlists/" + playlist + "?v=2&alt=jsonc&orderby=position", function(data){
+            jQuery.getJSON("https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=" + playlist + "&key=" + api_key + "&maxResults=50", function(data){
                 var main_playlist = self.context.find(".daviz-tutorials-main-playlist");
                 var div = jQuery("<div>")
                     .addClass("daviz-tutorials-playlist")
