@@ -79,31 +79,33 @@ EEA.Videos = function(context, options){
 EEA.Videos.prototype = {
   initialize: function(){
     var self = this;
-    jQuery.getFeed({
-      url: 'http://gdata.youtube.com/feeds/api/playlists/PLVPSQz7ahsBwOAgP4DOZOWwwgpMvJifEn',
-      success: function(feed){
+    var api_key = "AIzaSyAJ8UVYKjhX9AmrTwBAfJIXnbnVlPaDxRQ";
+    jQuery.getJSON(
+      'https://www.googleapis.com/youtube/v3/playlistItems?part=snippet&playlistId=PLVPSQz7ahsBwOAgP4DOZOWwwgpMvJifEn&order=date&key=' + api_key + '&maxResults=5',
+      function(data){
         self.context.empty();
-        jQuery.each(feed.items, function(idx, item){
+        jQuery.each(data.items, function(idx, item){
           if(idx >= 5){
             return false;
           }
-
+          snippet = item.snippet;
+          link = "http://www.youtube.com/watch?v=" + snippet.resourceId.videoId;
           jQuery([
             '<div class="video-gallery">',
-              '<a target="_blank" class="image" href="', item.link, '">',
-                '<img src="', item.thumbnail, '" />',
+              '<a target="_blank" class="image" href=', link, '">',
+                '<img src="', snippet.thumbnails['default'].url, '" />',
               '</a>',
               '<div>',
-                '<a target="_blank" class="title" href="', item.link, '">',
-                  '<span class="title">', item.title, '</span>',
+                '<a target="_blank" class="title" href="', link, '">',
+                  '<span class="title">', snippet.title, '</span>',
                 '</a>',
-                '<p class="description">', item.description, '</p>',
+                '<p class="description">', snippet.description, '</p>',
               '</div>',
             '</div>'
           ].join('\n')).appendTo(self.context);
         });
       }
-    });
+    );
   }
 };
 
