@@ -43,7 +43,7 @@ DavizEdit.DavizTutorials.prototype = {
 
         jQuery("<div>")
             .addClass("daviz-tutorials-main-playlist")
-            .css("height", "200px")
+            .css("height", "250px")
             .appendTo(".daviz-tutorials-search");
 
         jQuery("<div>")
