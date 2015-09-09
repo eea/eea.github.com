@@ -125,15 +125,25 @@
 <div class="section" id="introduction">
 <h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
 <p>This package provides utilities to convert images and PDF files
-using ImageMagick. It also provides a generic /download.pdf browser view that
+using <a class="reference internal" href="#imagemagick">ImageMagick</a>. It also provides a generic /download.pdf browser view that
 allow your users to download Plone pages as PDF files with custom PDF cover,
-disclaimer and back cover (requires <a class="reference internal" href="#wkhtmltopdf">wkhtmltopdf</a> and <a class="reference internal" href="#pdftk">pdftk</a> system-packages
+disclaimer and back cover (requires <a class="reference internal" href="#wkhtmltopdf">wkhtmltopdf</a> system-package
 installed on your server).</p>
+</div>
+<div class="section" id="main-features">
+<h2>Main features<a class="headerlink" href="#main-features" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Download Plone/Zope content as PDF files with custom PDF cover, table of contents, etc;</li>
+<li>Provide utilities to extract PDF cover as image (using <a class="reference external" href="https://pypi.python.org/pypi/PyPDF2/1.25.1">PyPDF2</a> and <a class="reference internal" href="#imagemagick">ImageMagick</a>);</li>
+<li>Provide utilities to extract metadata from PDF (using <a class="reference external" href="https://pypi.python.org/pypi/PyPDF2/1.25.1">PyPDF2</a>);</li>
+<li>Provide utilities to update PDF metadata (using <a class="reference external" href="https://pypi.python.org/pypi/PyPDF2/1.25.1">PyPDF2</a>).</li>
+</ul>
 </div>
 <div class="section" id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Make sure you have wkhtmltopdf 0.12.1+ installed or install it via zc.buildout</li>
+<li>Make sure you have <a class="reference internal" href="#wkhtmltopdf">wkhtmltopdf</a> 0.12.1+ installed or install it via <a class="reference external" href="http://pypi.python.org/pypi/zc.buildout">zc.buildout</a></li>
+<li>Make sure you have <a class="reference internal" href="#imagemagick">ImageMagick</a> 6.3.7+ installed or install it via <a class="reference external" href="http://pypi.python.org/pypi/zc.buildout">zc.buildout</a></li>
 <li>Make sure you have an OS environment called EEACONVERTER_TEMP within your
 buildout if you have zope instances over more than one physical server.</li>
 <li>Add eea.converter to your eggs section in your buildout and re-run buildout.
@@ -354,22 +364,6 @@ custom email template string substitutions can be made</p>
 <p class="last">These are not hard dependencies. You can use all features of eea.converter or
 just the ones that you need.</p>
 </div>
-<ul id="pdfinfo">
-<li><p class="first">pdfinfo to parse pdf metadata (part of the xpdf package):</p>
-<div class="highlight-python"><div class="highlight"><pre>yum install xpdf (fedora)
-apt-get install xpdf (debian)
-</pre></div>
-</div>
-</li>
-</ul>
-<ul id="pdftk">
-<li><p class="first">pdftk to generate a cover image from a pdf file:</p>
-<div class="highlight-python"><div class="highlight"><pre>yum install pdftk (fedora)
-apt-get install pdftk (debian)
-</pre></div>
-</div>
-</li>
-</ul>
 <ul id="imagemagick">
 <li><p class="first">ImageMagick (6.3.7+):</p>
 <div class="highlight-python"><div class="highlight"><pre>yum install ImageMagick
@@ -405,10 +399,6 @@ apt-get install imagemagick
 <h2>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h2>
 <p>See the <strong>doc</strong> directory in this package.</p>
 </div>
-<div class="section" id="api-doc">
-<h2>API Doc<a class="headerlink" href="#api-doc" title="Permalink to this headline">¶</a></h2>
-<p><a class="reference external" href="http://apidoc.eea.europa.eu/eea.converter-module.html">http://apidoc.eea.europa.eu/eea.converter-module.html</a></p>
-</div>
 <div class="section" id="copyright-and-license">
 <h2>Copyright and license<a class="headerlink" href="#copyright-and-license" title="Permalink to this headline">¶</a></h2>
 <p>The Initial Owner of the Original Code is European Environment Agency (EEA).
@@ -442,6 +432,7 @@ version.</p>
   <ul>
 <li><a class="reference internal" href="#">EEA Converter</a><ul>
 <li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#main-features">Main features</a></li>
 <li><a class="reference internal" href="#installation">Installation</a></li>
 <li><a class="reference internal" href="#getting-started">Getting started</a></li>
 <li><a class="reference internal" href="#customize-output-pdf">Customize output PDF</a><ul>
@@ -474,7 +465,6 @@ version.</p>
 <li><a class="reference internal" href="#dependencies">Dependencies</a></li>
 <li><a class="reference internal" href="#source-code">Source code</a></li>
 <li><a class="reference internal" href="#documentation">Documentation</a></li>
-<li><a class="reference internal" href="#api-doc">API Doc</a></li>
 <li><a class="reference internal" href="#copyright-and-license">Copyright and license</a></li>
 <li><a class="reference internal" href="#funding">Funding</a></li>
 </ul>
