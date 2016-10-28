@@ -1,1 +1,1 @@
-.. include:: ../../../../eea.faceted.tool/README.txt
+.. include:: ../../../../eea.faceted.tool/README.rst

@@ -1,1 +1,1 @@
-.. include:: ../../../../eea.faceted.inheritance/README.txt
+.. include:: ../../../../eea.faceted.inheritance/README.rst

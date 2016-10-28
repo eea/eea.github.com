@@ -1,1 +1,1 @@
-.. include:: ../../../../eea.geotags/README.txt
+.. include:: ../../../../eea.geotags/README.rst
