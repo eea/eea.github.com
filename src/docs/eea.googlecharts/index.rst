@@ -1,1 +1,1 @@
-.. include:: ../../../../eea.googlecharts/README.txt
+.. include:: ../../../../eea.googlecharts/README.rst

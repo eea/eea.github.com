@@ -1,1 +1,1 @@
-.. include:: ../../../../eea.uberlisting/README.txt
+.. include:: ../../../../eea.uberlisting/README.rst

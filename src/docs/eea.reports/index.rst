@@ -1,1 +1,1 @@
-.. include:: ../../../../eea.reports/README.txt
+.. include:: ../../../../eea.reports/README.rst

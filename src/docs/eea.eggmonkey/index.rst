@@ -1,1 +1,1 @@
-.. include:: ../../../../eea.eggmonkey/README.txt
+.. include:: ../../../../eea.eggmonkey/README.rst
