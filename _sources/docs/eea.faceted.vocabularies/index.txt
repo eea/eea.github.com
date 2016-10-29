@@ -1,1 +1,1 @@
-.. include:: ../../../../eea.faceted.vocabularies/README.txt
+.. include:: ../../../../eea.faceted.vocabularies/README.rst

@@ -1,4 +1,4 @@
-.. include:: ../../../../eea.sparql/README.txt
+.. include:: ../../../../eea.sparql/README.rst
 
 Tutorials
 =========

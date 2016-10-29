@@ -1,1 +1,1 @@
-.. include:: ../../../../eea.jquery/README.txt
+.. include:: ../../../../eea.jquery/README.rst

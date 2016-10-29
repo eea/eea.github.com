@@ -1,1 +1,1 @@
-.. include:: ../../../../eea.app.visualization/README.txt
+.. include:: ../../../../eea.app.visualization/README.rst

@@ -1,1 +1,1 @@
-.. include:: ../../../../eea.workflow/README.txt
+.. include:: ../../../../eea.workflow/README.rst

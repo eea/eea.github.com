@@ -1,1 +1,1 @@
-.. include:: ../../../../eea.alchemy/README.txt
+.. include:: ../../../../eea.alchemy/README.rst
