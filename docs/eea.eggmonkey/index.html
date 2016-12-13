@@ -119,9 +119,9 @@
                     
   <div class="section" id="eea-egg-monkey">
 <h1>EEA Egg Monkey<a class="headerlink" href="#eea-egg-monkey" title="Permalink to this headline">¶</a></h1>
-<p>This tools should be used together with zc.buildout, mr.developer and
+<p>This is an internal EEA tool to be used together with zc.buildout, mr.developer and
 jarn.mkrelease. Its purpose is to automate a series of 10 steps that are
-required in order to produce and upload an egg on the eggrepo.</p>
+required in order to produce and upload an egg to an eggrepo.</p>
 <p>The ten steps are:</p>
 <ol class="arabic simple">
 <li>Bump version.txt to correct version; from -dev to final</li>
@@ -135,34 +135,41 @@ required in order to produce and upload an egg on the eggrepo.</p>
 <li>Update history file. Add Unreleased section</li>
 <li>SVN commit the dev version of the package.</li>
 </ol>
+<p>Note: the eggmonkey is scm aware, so it will switch to using svn, git or hg
+wherever appropriate, but only git and svn are the better tested scm options.</p>
 <div class="section" id="requirements">
 <h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
-<p>eea.eggmonkey requires python2.6</p>
+<p>eea.eggmonkey requires python2.6+</p>
 </div>
 <div class="section" id="instalation">
 <h2>Instalation<a class="headerlink" href="#instalation" title="Permalink to this headline">¶</a></h2>
 <p>To use it, you need to add eea.eggmonkey as an extension to zc.buildout, for
 example:</p>
-<p>[buildout]</p>
-<dl class="docutils">
-<dt>extensions =</dt>
-<dd>mr.developer
-eea.eggmonkey</dd>
-<dt>parts =</dt>
-<dd>monkey
-...</dd>
-</dl>
+<div class="highlight-ini"><div class="highlight"><pre><span class="k">[buildout]</span>
+
+<span class="na">extensions</span> <span class="o">=</span><span class="s"></span>
+<span class="s">    mr.developer</span>
+<span class="s">    eea.eggmonkey</span>
+
+<span class="na">parts</span> <span class="o">=</span><span class="s"></span>
+<span class="s">    monkey</span>
+<span class="s">    ...</span>
+</pre></div>
+</div>
 <p>Also, you need to add a new part (+ the python26 part, if you don&#8217;t already
 have it):</p>
-<p>[monkey]
-recipe = zc.recipe.egg
-eggs = eea.eggmonkey
-python = python26</p>
-<p>[python26]
-executable = /usr/bin/python2.6</p>
+<div class="highlight-ini"><div class="highlight"><pre><span class="k">[monkey]</span>
+<span class="na">recipe</span> <span class="o">=</span> <span class="s">zc.recipe.egg</span>
+<span class="na">eggs</span> <span class="o">=</span> <span class="s">eea.eggmonkey</span>
+<span class="na">python</span> <span class="o">=</span> <span class="s">python26</span>
+
+<span class="k">[python26]</span>
+<span class="na">executable</span> <span class="o">=</span> <span class="s">/usr/bin/python2.6</span>
+</pre></div>
+</div>
 <div class="section" id="usage">
 <h3>Usage<a class="headerlink" href="#usage" title="Permalink to this headline">¶</a></h3>
-<p>Before you use it, you need to run bin/buildout (or bin/develop) at least once.
+<p>Before you use it, you need to run <tt class="docutils literal"><span class="pre">bin/buildout</span></tt> (or <tt class="docutils literal"><span class="pre">bin/develop</span></tt>) at least once.
 This allows eggmonkey to learn about the sources and the packages in
 auto-checkout.</p>
 <p>After that, you can use the monkey script from bin. Learn about its parameters
@@ -216,6 +223,10 @@ during testing), you can run</p>
 <p>If you want to skip versions.cfg update (for example running in a buildout without versions.cfg), you can run</p>
 <ul class="simple">
 <li><tt class="docutils literal"><span class="pre">bin/monkey</span> <span class="pre">-B</span> <span class="pre">eea.indicators</span></tt></li>
+</ul>
+<p>If you encounter an error in normal operation, you can resume the release process (after manually fixing the problem) with the -R flag</p>
+<ul class="simple">
+<li><tt class="docutils literal"><span class="pre">bin/monkey</span> <span class="pre">-R</span> <span class="pre">4</span> <span class="pre">eea.indicators</span></tt></li>
 </ul>
 </div>
 </div>
