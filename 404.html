@@ -1,15 +1,34 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <style type="text/css">
+    section {
+      position: absolute;
+      top: 20%;
+      text-align: center;
+      display: block;
+      width: 99%;
+      color: #ccc;
+    }
+  </style>
 </head>
 
 <body>
-  <span>Not found.</span>
+  <section>
+    <h1>You have reached the end of the internet!</h1>
+    <p>There's nothing more to see, no more documentation to read.</p>
+    <p>Trying to send you back...</p>
+  </section>
   <script type="text/javascript">
     var href = window.location.href;
     if(href.indexOf('/docs/eea') !== -1){
       href = href.replace('/docs/eea', '/docs/IT-systems/eea');
       window.location = href;
+    }else{
+      setTimeout(function(){
+        window.location = "http://eea.github.io";
+      },
+      5000);
     }
   </script>
 </body>
