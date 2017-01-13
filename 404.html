@@ -6,6 +6,11 @@
 <body>
   <span>Not found.</span>
   <script type="text/javascript">
+    var href = window.location.href;
+    if(href.indexOf('/docs/eea') !== -1){
+      href.replace('/docs/eea', '/docs/IT-systems/eea');
+      window.location = href;
+    }
   </script>
 </body>
 </html>
