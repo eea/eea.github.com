@@ -164,12 +164,13 @@
 </li>
 <li><a class="reference internal" href="#disable-epub-export" id="id30">Disable ePub export</a></li>
 <li><a class="reference internal" href="#id2" id="id31">Content rules</a></li>
-<li><a class="reference internal" href="#dependecies" id="id32">Dependecies</a></li>
-<li><a class="reference internal" href="#live-demo" id="id33">Live demo</a></li>
-<li><a class="reference internal" href="#source-code" id="id34">Source code</a></li>
-<li><a class="reference internal" href="#copyright-and-license" id="id35">Copyright and license</a></li>
-<li><a class="reference internal" href="#links" id="id36">Links</a></li>
-<li><a class="reference internal" href="#funding" id="id37">Funding</a></li>
+<li><a class="reference internal" href="#troubleshooting" id="id32">Troubleshooting</a></li>
+<li><a class="reference internal" href="#dependecies" id="id33">Dependecies</a></li>
+<li><a class="reference internal" href="#live-demo" id="id34">Live demo</a></li>
+<li><a class="reference internal" href="#source-code" id="id35">Source code</a></li>
+<li><a class="reference internal" href="#copyright-and-license" id="id36">Copyright and license</a></li>
+<li><a class="reference internal" href="#links" id="id37">Links</a></li>
+<li><a class="reference internal" href="#funding" id="id38">Funding</a></li>
 </ul>
 </li>
 </ul>
@@ -437,8 +438,35 @@ Also if you disable these content-rules the users will never know when the
 ePub is ready and what is the link where they can download the output ePub.</p>
 </div>
 </div>
+<div class="section" id="troubleshooting">
+<h2><a class="toc-backref" href="#id32">Troubleshooting</a><a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h2>
+<p>ePub files are generated asynchronously using a parallel zc.async queue.quota.
+The number of workers that will generate ePUBs in parallel is automatically
+calculated based on the number of zeo-clients registered with
+<strong>plone.app.async-*_db_worker</strong>.</p>
+<p>As every <strong>db_worker</strong> can handle simultaneously <strong>maximum 3 jobs</strong> (hard-coded in zc.async Agent),
+if you have <strong>2 workers</strong> then the maximum number of ePub files that will be generated
+at the same time will be <strong>6</strong> (2 workers * 3). Same if you have <strong>5</strong>, you&#8217;ll get
+<strong>15 ePub files</strong> generated at the same time.</p>
+<p>If for any reason you don&#8217;t want them to be generated simultaneously you can set
+environment variable <strong>EEAEPUB_ASYNC_THREADS</strong> to <strong>1</strong> within buildout:</p>
+<div class="highlight-python"><div class="highlight"><pre>[buildout]
+
+...
+
+[instance]
+
+...
+
+environment-vars +=
+    EEAEPUB_ASYNC_THREADS 1
+</pre></div>
+</div>
+<p>Also, if you experience issues by having too many simultaneously ePub jobs, you
+can limit them in the same way as above.</p>
+</div>
 <div class="section" id="dependecies">
-<h2><a class="toc-backref" href="#id32">Dependecies</a><a class="headerlink" href="#dependecies" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id33">Dependecies</a><a class="headerlink" href="#dependecies" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li>BeautifulSoup</li>
 <li>Lxml</li>
@@ -450,14 +478,14 @@ ePub is ready and what is the link where they can download the output ePub.</p>
 </ol>
 </div>
 <div class="section" id="live-demo">
-<h2><a class="toc-backref" href="#id33">Live demo</a><a class="headerlink" href="#live-demo" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id34">Live demo</a><a class="headerlink" href="#live-demo" title="Permalink to this headline">¶</a></h2>
 <p>Here some live production demos at EEA (European Environment Agency)</p>
 <ol class="arabic simple">
 <li><a class="reference external" href="http://www.eea.europa.eu/soer/synthesis">http://www.eea.europa.eu/soer/synthesis</a></li>
 </ol>
 </div>
 <div class="section" id="source-code">
-<h2><a class="toc-backref" href="#id34">Source code</a><a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id35">Source code</a><a class="headerlink" href="#source-code" title="Permalink to this headline">¶</a></h2>
 <dl class="docutils">
 <dt>Latest source code (Plone 4 compatible):</dt>
 <dd><a class="reference external" href="https://svn.eionet.europa.eu/repositories/Zope/trunk/eea.epub/trunk">https://svn.eionet.europa.eu/repositories/Zope/trunk/eea.epub/trunk</a></dd>
@@ -466,7 +494,7 @@ ePub is ready and what is the link where they can download the output ePub.</p>
 </dl>
 </div>
 <div class="section" id="copyright-and-license">
-<h2><a class="toc-backref" href="#id35">Copyright and license</a><a class="headerlink" href="#copyright-and-license" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id36">Copyright and license</a><a class="headerlink" href="#copyright-and-license" title="Permalink to this headline">¶</a></h2>
 <p>The Initial Owner of the Original Code is European Environment Agency (EEA).
 All Rights Reserved.</p>
 <p>The EEA Epub (the Original Code) is free software;
@@ -477,13 +505,13 @@ version.</p>
 <p>More details under docs/License.txt</p>
 </div>
 <div class="section" id="links">
-<h2><a class="toc-backref" href="#id36">Links</a><a class="headerlink" href="#links" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id37">Links</a><a class="headerlink" href="#links" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li>EEA Epub wiki page: <a class="reference external" href="http://taskman.eionet.europa.eu/projects/zope/wiki/HowToEpub">http://taskman.eionet.europa.eu/projects/zope/wiki/HowToEpub</a></li>
 </ol>
 </div>
 <div class="section" id="funding">
-<h2><a class="toc-backref" href="#id37">Funding</a><a class="headerlink" href="#funding" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id38">Funding</a><a class="headerlink" href="#funding" title="Permalink to this headline">¶</a></h2>
 <p><a class="reference external" href="http://www.eea.europa.eu/">EEA</a> - European Enviroment Agency (EU)</p>
 </div>
 </div>
@@ -541,6 +569,7 @@ version.</p>
 </li>
 <li><a class="reference internal" href="#disable-epub-export">Disable ePub export</a></li>
 <li><a class="reference internal" href="#id2">Content rules</a></li>
+<li><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
 <li><a class="reference internal" href="#dependecies">Dependecies</a></li>
 <li><a class="reference internal" href="#live-demo">Live demo</a></li>
 <li><a class="reference internal" href="#source-code">Source code</a></li>
