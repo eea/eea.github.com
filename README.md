@@ -1,6 +1,4 @@
-eea.github.com
-==============
+eea.github.io
+=============
 
-Public EEA documentation page found at http://eea.github.com
-
-**DEPRECATED:** replaced by https://github.com/eea/docs/tree/gh-pages
+Public EEA documentation page found at http://eea.github.io
